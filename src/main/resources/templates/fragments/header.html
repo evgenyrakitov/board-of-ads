@@ -19,6 +19,7 @@
               href="../../static/css/media/header-media.css" th:href="@{/css/media/header-media.css}"/>
         <link id="favicon" rel="shortcut icon" type="image/x-icon" href="../../static/favicon.ico"
               th:href="@{favicon.ico}"/>
+        <link rel="stylesheet" href="/css/modal_reg.css">
     </div>
 </head>
 <body>
@@ -54,7 +55,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-primary" href="#" style="white-space: nowrap">Вход и регистрация</a>
+                        <a class="nav-link text-primary" href="#" style="white-space: nowrap" id="open-modal-1">Вход и регистрация</a>
                     </li>
                     <li class="nav-item d-flex justify-content-lg-center align-items-center">
                         <a class="btn btn-primary" href="#">Подать объявления</a>
@@ -112,6 +113,7 @@
     <script src="webjars/popper.js/1.16.0/popper.min.js"></script>
     <script src="webjars/bootstrap/4.5.0/js/bootstrap.min.js"></script>
     <script src="../../static/js/header.js" th:src="@{/js/header.js}"></script>
+    <script src="/js/modal_registation.js"></script>
 </div>
 </body>
 </html>
