@@ -1,29 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <link href="webjars/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+    <div th:replace="~{fragments/header.html :: links}"></div>
 
     <title>Users</title>
 </head>
 <body>
-<table>
-    <thead id="theadUsers">
+<table class="table table-bordered table-striped ">
+    <thead id="theadUsers" class="thead-dark">
         <tr>
-            <td>id</td>
-            <td>login</td>
-            <td>publicName</td>
-            <td>password</td>
-            <td>roles</td>
+            <th>id</th>
+            <th>login</th>
+            <th>publicName</th>
+            <th>password</th>
+            <th>roles</th>
         </tr>
     </thead>
     <tbody id="tbodyUsers">
     </tbody>
 </table>
-<script src="webjars/jquery/3.3.1/jquery.min.js"></script>
-<script src="webjars/jquery-ui/1.11.1/jquery-ui.min.js"></script>
-<script src="webjars/popper.js/1.16.0/popper.min.js"></script>
-<script src="webjars/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<div th:replace="~{fragments/header.html :: script}"></div>
 
 <script src="js/users.js"></script>
 </body>

@@ -1,6 +1,7 @@
 package com.avito.models;
 
 import lombok.Data;
+import org.hibernate.annotations.GeneratorType;
 import org.springframework.security.core.GrantedAuthority;
 import javax.persistence.*;
 import java.util.Set;

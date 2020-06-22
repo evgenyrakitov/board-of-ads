@@ -7,7 +7,7 @@ const option = $("<option></option>");
 
 $(document).ready(function () {
 
-    $.ajax("/user/users",
+    $.ajax("/rest/users",
         {
             contentType: "application/json; charset=UTF-8",
             dataType: "json",
@@ -24,7 +24,8 @@ $(document).ready(function () {
 function addUserInTableBody(el) {
     let trLocal = tr.clone();
     trLocal.attr("id", "tr" + el.id);
-    getTd(el.id, "id" + el.id).appendTo(trLocal);
+    // getTd(el.id, "id" + el.id).appendTo(trLocal);
+    $("<th></th>").text(el.id).attr("id", el.id).appendTo(trLocal);
     getTd(el.login, "login" + el.id).appendTo(trLocal);
     getTd(el.publicName, "publicName" + el.id).appendTo(trLocal);
     getTd(el.password, "password" + el.id).appendTo(trLocal);

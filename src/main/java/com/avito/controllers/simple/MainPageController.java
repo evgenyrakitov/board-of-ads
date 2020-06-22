@@ -11,4 +11,9 @@ public class MainPageController {
         return "index";
     }
 
+    @GetMapping("/adDetails")
+    String getDetailsPage() {
+        return "adDetails";
+    }
+
 }
