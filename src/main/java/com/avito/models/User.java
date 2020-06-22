@@ -48,6 +48,39 @@ public class User implements UserDetails {
         this.roles = roles;
     }
 
+    @Override
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getPasswordConfirm() {
+        return passwordConfirm;
+    }
+
+    public void setPasswordConfirm(String passwordConfirm) {
+        this.passwordConfirm = passwordConfirm;
+    }
+
+    public Set<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
+    }
+
+    public String getUserIcons() {
+        return userIcons;
+    }
+
+    public void setUserIcons(String userIcons) {
+        this.userIcons = userIcons;
+    }
+
     //Override methods
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
