@@ -6,6 +6,8 @@ import lombok.AllArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @AllArgsConstructor
 @RequestMapping("/rest")
@@ -40,5 +42,20 @@ public class UserRestController {
 //    public User getUser(@PathVariable("id") String id) {
 //       return  userService.findById(id);
 //    }
+
+/*
+    @GetMapping("/all")
+    public ModelAndView list() {
+        List<User> allUsers = userService.getAllUsers();
+        ModelAndView modelAndView = new ModelAndView("????????"); //надо добавить вьюшку
+        modelAndView.getModelMap().addAttribute("listUsers", allUsers);
+        return modelAndView;
+    }
+*/
+
+    @GetMapping("/users")
+    public List<User> getAllUsers() {
+        return userService.getAllUsers();
+    }
 
 }
