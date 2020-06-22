@@ -17,7 +17,7 @@ import org.thymeleaf.extras.springsecurity5.dialect.SpringSecurityDialect;
 @AllArgsConstructor
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-    private UserDetailsService userDetailsService;
+    private final UserDetailsService userDetailsService;
 
     @Autowired
     protected void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
@@ -41,8 +41,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and().csrf().disable();
 
         http
-                .authorizeRequests()
-                .antMatchers("/**").anonymous();
+                .authorizeRequests();
+
 
     }
 
