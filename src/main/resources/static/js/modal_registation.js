@@ -14,7 +14,7 @@ $("#btn-reg").click(function (event) {
         url: $("#add-reg-form").attr("action"),
         method: "PUT",
         data: $("#add-reg-form").serialize(),
-        //success: alert("OK")
+        success: alert("OK")
     });
 });
 $("#btn-open").click(function (event) {
