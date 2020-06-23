@@ -16,6 +16,6 @@ public class RoleRestController {
 
     @GetMapping("/get")
     public Role getRole(Role role) {
-        return roleService.findRoleByName(role.getRole());
+        return roleService.findRoleByName(role.getName());
     }
 }

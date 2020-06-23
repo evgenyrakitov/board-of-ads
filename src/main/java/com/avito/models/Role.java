@@ -1,7 +1,6 @@
 package com.avito.models;
 
 import lombok.Data;
-import org.hibernate.annotations.GeneratorType;
 import org.springframework.security.core.GrantedAuthority;
 import javax.persistence.*;
 import java.util.Set;
@@ -15,7 +14,7 @@ public class Role implements GrantedAuthority {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String role;
+    private String name;
 
     @Transient
     @ManyToMany(mappedBy = "roles")
@@ -27,14 +26,14 @@ public class Role implements GrantedAuthority {
 
     public Role(Long id, String role) {
         this.id = id;
-        this.role = role;
+        this.name = role;
     }
 
     //@Override methods
 
     @Override
     public String getAuthority() {
-        return role;
+        return name;
     }
 
 }
