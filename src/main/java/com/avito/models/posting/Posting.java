@@ -1,5 +1,7 @@
-package com.avito.models;
+package com.avito.models.posting;
 
+import com.avito.models.Category;
+import com.avito.models.User;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -12,26 +14,26 @@ public class Posting {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "posting_id")
-    private Long id;
+     Long id;
 
-    private String title;
+     String title;
 
-    private long price;
+     long price;
 
     @Column(name = "short_description")
-    private String shortDescription;
+     String shortDescription;
 
     @Column(name = "full_description")
-    private String fullDescription;
+     String fullDescription;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    private User user;
+     User user;
 
     @OneToOne(cascade = CascadeType.ALL)
-    private Category category;
+     Category category;
 
     @Column(name = "image_path")
-    private String imagePath;
+     String imagePath;
 
     public Posting() {
     }
