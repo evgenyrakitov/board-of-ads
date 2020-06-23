@@ -20,7 +20,7 @@ import java.util.Locale;
 
 @Configuration
 public class WebConfig implements WebMvcConfigurer {
-    private static Logger logger = LoggerFactory.getLogger(WebConfig.class);
+    private static final Logger logger = LoggerFactory.getLogger(WebConfig.class);
 
     @Bean
     public ClassLoaderTemplateResolver templateResolver() {

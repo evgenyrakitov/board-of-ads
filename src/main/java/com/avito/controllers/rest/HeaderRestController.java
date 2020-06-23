@@ -18,7 +18,7 @@ import java.util.Set;
 @RestController
 @RequestMapping("/")
 public class HeaderRestController {
-    private static Logger logger = LoggerFactory.getLogger(HeaderRestController.class);
+    private static final Logger logger = LoggerFactory.getLogger(HeaderRestController.class);
 
     @GetMapping("/getListCategory")
     public ResponseEntity<Category> getListOfCategory() {

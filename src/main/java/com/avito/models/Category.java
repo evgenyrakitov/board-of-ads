@@ -13,7 +13,7 @@ import java.util.Set;
 @Entity
 @Table(name = "categories")
 public class Category {
-    private static Logger logger = LoggerFactory.getLogger(Category.class);
+    private static final Logger logger = LoggerFactory.getLogger(Category.class);
 
 
     @Id

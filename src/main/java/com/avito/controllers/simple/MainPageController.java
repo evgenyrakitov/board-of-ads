@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class MainPageController {
-    private static Logger logger = LoggerFactory.getLogger(MainPageController.class);
+    private static final Logger logger = LoggerFactory.getLogger(MainPageController.class);
 
     @GetMapping("/main_page")
     String getMainPage() {

@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 public class AvitoApplication {
-    private static Logger logger = LoggerFactory.getLogger(AvitoApplication.class);
+    private static final Logger logger = LoggerFactory.getLogger(AvitoApplication.class);
 
 
     public static void main(String[] args) {

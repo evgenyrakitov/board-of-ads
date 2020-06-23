@@ -15,7 +15,7 @@ import java.util.List;
 @AllArgsConstructor
 @RequestMapping("/rest")
 public class UserRestController {
-    private static Logger logger = LoggerFactory.getLogger(UserRestController.class);
+    private static final Logger logger = LoggerFactory.getLogger(UserRestController.class);
     private final UserService userService;
     private final PasswordEncoder passwordEncoder;
 

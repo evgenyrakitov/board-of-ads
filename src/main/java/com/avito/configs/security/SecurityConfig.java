@@ -31,7 +31,7 @@ import javax.servlet.Filter;
 @EnableWebSecurity
 @EnableOAuth2Client
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
-    private static Logger logger = LoggerFactory.getLogger(SecurityConfig.class);
+    private static final Logger logger = LoggerFactory.getLogger(SecurityConfig.class);
 
     @Qualifier("oauth2ClientContext")
     @Autowired

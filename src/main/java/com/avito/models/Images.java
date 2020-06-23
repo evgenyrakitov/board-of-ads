@@ -11,7 +11,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "images")
 public class Images {
-    private static Logger logger = LoggerFactory.getLogger(Images.class);
+    private static final Logger logger = LoggerFactory.getLogger(Images.class);
 
 
     @Id

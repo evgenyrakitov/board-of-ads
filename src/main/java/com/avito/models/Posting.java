@@ -12,7 +12,7 @@ import java.util.Set;
 @Entity
 @Table(name = "posting")
 public class Posting {
-    private static Logger logger = LoggerFactory.getLogger(Posting.class);
+    private static final Logger logger = LoggerFactory.getLogger(Posting.class);
 
 
     @Id

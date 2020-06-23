@@ -22,7 +22,7 @@ import java.util.Collection;
 @Component
 public class AuthProvider implements AuthenticationProvider {
 
-    private static Logger logger = LoggerFactory.getLogger(AuthProvider.class);
+    private static final Logger logger = LoggerFactory.getLogger(AuthProvider.class);
 
     @Autowired
     private UserService userService;

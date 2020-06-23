@@ -34,7 +34,7 @@ import java.util.Map;
 @Service
 public class CustomUserInfoTokenServices implements ResourceServerTokenServices {
 
-    private static Logger logger = LoggerFactory.getLogger(CustomUserInfoTokenServices.class);
+    private static final Logger logger = LoggerFactory.getLogger(CustomUserInfoTokenServices.class);
 
     private String userInfoEndpointUrl;
     private String clientId;

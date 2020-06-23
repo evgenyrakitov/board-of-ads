@@ -11,7 +11,7 @@ import javax.persistence.PersistenceContext;
 
 @Repository
 public class RoleDaoImpl implements RoleDao {
-    private static Logger logger = LoggerFactory.getLogger(RoleDaoImpl.class);
+    private static final Logger logger = LoggerFactory.getLogger(RoleDaoImpl.class);
 
     @PersistenceContext
     private EntityManager entityManager;

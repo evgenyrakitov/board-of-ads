@@ -16,7 +16,7 @@ import java.util.List;
 
 @Service
 public class CategoryServiceImpl implements CategoryService {
-    private static Logger logger = LoggerFactory.getLogger(CategoryServiceImpl.class);
+    private static final Logger logger = LoggerFactory.getLogger(CategoryServiceImpl.class);
 
 
     private final CategoryDao categoryDao;

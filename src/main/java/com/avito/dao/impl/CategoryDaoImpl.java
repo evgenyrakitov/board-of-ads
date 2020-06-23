@@ -15,7 +15,7 @@ import java.util.List;
 
 @Repository
 public class CategoryDaoImpl implements CategoryDao {
-    private static Logger logger = LoggerFactory.getLogger(CategoryDaoImpl.class);
+    private static final Logger logger = LoggerFactory.getLogger(CategoryDaoImpl.class);
 
     @PersistenceContext
     private EntityManager entityManager;

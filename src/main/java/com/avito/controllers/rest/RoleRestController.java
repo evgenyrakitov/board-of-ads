@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 @AllArgsConstructor
 @RequestMapping("/role")
 public class RoleRestController {
-    private static Logger logger = LoggerFactory.getLogger(RoleRestController.class);
+    private static final Logger logger = LoggerFactory.getLogger(RoleRestController.class);
 
     private final RoleService roleService;
 
