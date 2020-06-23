@@ -5,6 +5,8 @@ import com.avito.models.Role;
 import com.avito.models.User;
 import com.avito.service.interfaces.RoleService;
 import com.avito.service.interfaces.UserService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.autoconfigure.security.oauth2.resource.AuthoritiesExtractor;
 import org.springframework.boot.autoconfigure.security.oauth2.resource.FixedAuthoritiesExtractor;
 import org.springframework.boot.autoconfigure.security.oauth2.resource.FixedPrincipalExtractor;
@@ -31,6 +33,8 @@ import java.util.Map;
 
 @Service
 public class CustomUserInfoTokenServices implements ResourceServerTokenServices {
+
+    private static Logger logger = LoggerFactory.getLogger(CustomUserInfoTokenServices.class);
 
     private String userInfoEndpointUrl;
     private String clientId;

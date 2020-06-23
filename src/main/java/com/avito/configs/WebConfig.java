@@ -1,5 +1,8 @@
 package com.avito.configs;
 
+import com.avito.configs.security.AuthProvider;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -17,6 +20,7 @@ import java.util.Locale;
 
 @Configuration
 public class WebConfig implements WebMvcConfigurer {
+    private static Logger logger = LoggerFactory.getLogger(WebConfig.class);
 
     @Bean
     public ClassLoaderTemplateResolver templateResolver() {

@@ -1,6 +1,9 @@
 package com.avito.models;
 
+import com.avito.configs.security.AuthProvider;
 import lombok.Data;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.persistence.*;
 import java.util.HashSet;
@@ -10,6 +13,8 @@ import java.util.Set;
 @Entity
 @Table(name = "categories")
 public class Category {
+    private static Logger logger = LoggerFactory.getLogger(Category.class);
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
