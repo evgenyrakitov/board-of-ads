@@ -179,6 +179,10 @@
         bottom: 10px;
         width: 176px !important;
     }
+    .container_main {
+        margin-top: 47px;
+        padding: 5px;
+    }
 }
 
 @media (max-width: 700px) {

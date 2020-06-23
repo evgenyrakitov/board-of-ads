@@ -91,7 +91,9 @@ header.active {
 .category_link li a {
     padding: 0;
 }
-
+svg{
+    fill: transparent;
+}
 .all_category {
     position: relative;
     color: #007bff !important;
@@ -103,9 +105,10 @@ header.active {
 }
 
 .container_main {
-    background: red;
-    width: 80%;
+    width: 100%;
+    max-width: 1170px;
     margin: 0 auto;
+    margin-top: 142px;
 }
 
 .nav_category {
