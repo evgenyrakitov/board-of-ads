@@ -3,18 +3,16 @@ package com.avito.service.impl;
 import com.avito.dao.interfaces.UserDao;
 import com.avito.models.User;
 import com.avito.service.interfaces.UserService;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@AllArgsConstructor
 public class UserServiceImpl implements UserService {
 
     private final UserDao userDao;
-
-    public UserServiceImpl(UserDao userDao) {
-        this.userDao = userDao;
-    }
 
     @Override
     public List<User> getAllUsers() {

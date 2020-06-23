@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -11,16 +12,22 @@
 <body>
 <div class="container">
     <form class="form-signin" method="post" action="/login">
-        <h2 class="form-signin-heading">Sign in to Avito</h2>
+        <h2 class="form-signin-heading" th:text="#{singIn.pageLogin}"></h2>
         <p>
-            <label for="email">Email address</label>
-            <input id="email" type="email" class="form-control" placeholder="Your email" required autofocus>
+            <input id="email" name="email" type="email" class="form-control" th:placeholder="#{email.input.placeholder.pageLogin}" required autofocus>
         </p>
         <p>
-            <label for="password">Password</label>
-            <input id="password" class="form-control" type="password" placeholder="Password" required>
+            <input id="password" name="password" class="form-control" type="password" th:placeholder="#{password.input.placeholder.pageLogin}" required>
         </p>
-        <button type="submit" class="btn btn-success btn-lg btn-block">Sign in</button>
+        <button type="submit" class="btn btn-success btn-lg btn-block"  th:text="#{singIn.button.pageLogin}">Sign in</button>
+        <br>
+        <div align="center">
+                    <span class="social-network-item-icon">
+                        <img src="https://static.avito.ru/s/cc/resources/a0a0fd5f488d.svg"> <a href="/login/google" th:text="#{login.with.google.pageLogin}"></a>
+                    </span>
+
+        </div>
+        <div th:if="${param.error}" th:text="#{error.message.pageLogin}"></div>
     </form>
 </div>
 </body>

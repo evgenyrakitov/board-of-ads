@@ -3,6 +3,7 @@ package com.avito.models;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Data
 @Entity
@@ -30,13 +31,16 @@ public class Posting {
     @OneToOne(cascade = CascadeType.ALL)
     private Category category;
 
+    @OneToMany(cascade = CascadeType.ALL)
     @Column(name = "image_path")
-    private String imagePath;
+    private Set<Images> imagePath;
 
+
+    //constructors
     public Posting() {
     }
 
-    public Posting(String title, Category category, User user, String fullDescription, String shortDescription, String imagePath) {
+    public Posting(String title, Category category, User user, String fullDescription, String shortDescription, Set<Images> imagePath) {
         this.title = title;
         this.shortDescription = shortDescription;
         this.fullDescription = fullDescription;

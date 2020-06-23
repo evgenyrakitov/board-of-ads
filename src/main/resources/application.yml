@@ -18,3 +18,15 @@ spring:
         format_sql: false
         jdbc:
           timezone: UTC
+google:
+  client:
+    clientId: 344846477697-c2rmg5mke2phj7tah05huer1shlgdluf.apps.googleusercontent.com
+    clientSecret: KuasA3K9Gpzq53U7rnovS_HQ
+    accessTokenUri: https://www.googleapis.com/oauth2/v4/token
+    userAuthorizationUri: https://accounts.google.com/o/oauth2/v2/auth
+    clientAuthenticationScheme: form
+    scope: openid,email,profile
+  resource:
+    userInfoUri: https://www.googleapis.com/oauth2/v3/userinfo
+    preferTokenInfo: true
+
