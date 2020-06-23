@@ -7,10 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 @RestController
 @RequestMapping("/")
@@ -18,14 +15,14 @@ public class HeaderRestController {
 
     @GetMapping("/getListCategory")
     public ResponseEntity<Category> getListOfCategory() {
-        Category c1 = new Category("AVTO", null);
-        Category c2 = new Category("AVTO1", null);
-        Category c3 = new Category("AVTO2", null);
-        Category c4 = new Category("AVTOvvdsc", null);
-        Category c5 = new Category("AVTOdvdf23c", null);
-        Category c6 = new Category("AVTdc32f", null);
-        Category c7 = new Category("AVTOdcasd", null);
-        Category c8 = new Category("AVTOadf", null);
+        Category c1 = new Category(1L, "AVTO", null);
+        Category c2 = new Category(2L, "AVTO1", null);
+        Category c3 = new Category(3L, "AVTO2", null);
+        Category c4 = new Category(4L, "AVTOvvdsc", null);
+        Category c5 = new Category(5L, "AVTOdvdf23c", null);
+        Category c6 = new Category(6L, "AVTdc32f", null);
+        Category c7 = new Category(7L, "AVTOdcasd", null);
+        Category c8 = new Category(8L, "AVTOadf", null);
         Set<Category> list2 = new HashSet<>();
         list2.add(c1);
         list2.add(c2);
@@ -35,16 +32,16 @@ public class HeaderRestController {
         list2.add(c6);
         list2.add(c7);
         list2.add(c8);
-        Category category1 = new Category("AVTO", list2);
-        Category category2 = new Category("Mebel", list2);
-        Category category3 = new Category("Dom", list2);
-        Category category4 = new Category("Java", list2);
+        Category category1 = new Category(1L, "AVTO", list2);
+        Category category2 = new Category(2L, "Mebel", list2);
+        Category category3 = new Category(3L, "Dom", list2);
+        Category category4 = new Category(4L, "Java", list2);
         Set<Category> list = new HashSet<>();
         list.add(category1);
         list.add(category2);
         list.add(category3);
         list.add(category4);
-        Category category0 = new Category("ALL", list);
+        Category category0 = new Category(0L, "ALL", list);
         return category0 != null
                 ? new ResponseEntity<Category>(category0, HttpStatus.OK)
                 : new ResponseEntity<>(HttpStatus.NOT_FOUND);
