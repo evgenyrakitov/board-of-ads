@@ -18,11 +18,11 @@
 
             </div>
             <div class="modal-body text-center">
-                <form class="" action="/login" method="post" style="align-content: center">
+                <form class="" action="/login"  style="align-content: center" id="open-form-modal">
                     <div class="form-item">
                         <div class="form-item-login">
                             <label class="input-login">
-                                <input name="email" placeholder="email" type="text">
+                                <input name="email" placeholder="email" type="email">
                             </label>
                         </div><br>
                         <div class="form-item-password">
@@ -43,7 +43,7 @@
 
                         </div><br>
                         <div class="form-item-button">
-                            <button type="submit" name="submit" class="btn btn-primary" id="btn-open">
+                            <button type="submit" name="submit" class="btn btn-primary" id="btn-open" data-dismiss="modal">
                                 <span>Войти</span>
                             </button>
                         </div><br>
@@ -96,10 +96,10 @@
 
             </div>
             <div class="modal-body text-center">
-                <form action="/rest/add" method="???????????" >
+                <form action="/rest/add" id="add-reg-form">
                     <div class="form-item-login">
                         <label class="input-login">
-                            <input name="email" placeholder="email" type="text" required>
+                            <input name="email" placeholder="email" type="email" required>
                         </label>
                     </div>
                     <div class="form-item-password">
@@ -113,7 +113,7 @@
                         </label>
                     </div>
                     <div class="form-reg-button">
-                        <button type="submit" name="submit"  class="btn btn-primary">
+                        <button type="submit" name="submit"  class="btn btn-primary" id="btn-reg" data-dismiss="modal">
                             <span >Зарегистрироваться</span>
                         </button>
                     </div>
@@ -137,15 +137,15 @@
 
             </div>
             <div class="modal-body text-center">
-                <form action="/rest/??????" method="???????????" >
+                <form action="/login" id="form-modal-3">
 
-                    <div class="form-item-publicName">
-                        <label class="input-publicName">
-                            <input name="publicName" placeholder="publicName" type="text" required>
+                    <div class="form-item-login">
+                        <label class="input-login">
+                            Введите LOGIN: <input name="email" placeholder="email" type="text" required>
                         </label>
                     </div>
                     <div class="form-reg-button">
-                        <button type="submit" name="submit"  class="btn btn-primary">
+                        <button type="submit" name="submit"  class="btn btn-primary" data-dismiss="modal" id="btn-modal-3">
                             <span >Отправить</span>
                         </button>
                     </div>
