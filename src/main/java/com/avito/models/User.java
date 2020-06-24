@@ -1,15 +1,19 @@
 package com.avito.models;
 
-import lombok.Data;
+import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+
 import javax.persistence.*;
-import java.util.Collection;
-import java.util.Set;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Size;
+import java.util.Collection;
+import java.util.Set;
 
 @Data
+@RequiredArgsConstructor
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table(name = "users")
 public class User implements UserDetails {
@@ -19,66 +23,31 @@ public class User implements UserDetails {
     private Long id;
 
     @Email
+    @NonNull
     private String login;   //email is login
     //!notice! check use regexp valid email!
 
-    private String publicName;   //viewe from any user name
+    @NonNull
+    private String publicName;   //view from any user name
     //check if word not in blacklist.
 
-    @Size(min=5, message = "пароль должен быть более 5 символов!")
+    @NonNull
+    @Size(min = 5, message = "пароль должен быть более 5 символов!")
     private String password;
 
+    @NonNull
     @Transient
     private String passwordConfirm;
 
+    @NonNull
     @ManyToMany(fetch = FetchType.EAGER)
     private Set<Role> roles;
 
     private String userIcons;
 
-
-    //constructors
-    public User() {};
-
-    public User(@Email String login, String publicName, String password, String passwordConfirm, Set<Role> roles) {
-        this.login = login;
-        this.publicName = publicName;
-        this.password = password;
-        this.passwordConfirm = passwordConfirm;
-        this.roles = roles;
-    }
-
     @Override
     public String getPassword() {
         return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getPasswordConfirm() {
-        return passwordConfirm;
-    }
-
-    public void setPasswordConfirm(String passwordConfirm) {
-        this.passwordConfirm = passwordConfirm;
-    }
-
-    public Set<Role> getRoles() {
-        return roles;
-    }
-
-    public void setRoles(Set<Role> roles) {
-        this.roles = roles;
-    }
-
-    public String getUserIcons() {
-        return userIcons;
-    }
-
-    public void setUserIcons(String userIcons) {
-        this.userIcons = userIcons;
     }
 
     //Override methods
