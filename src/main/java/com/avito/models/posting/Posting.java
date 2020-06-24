@@ -14,26 +14,26 @@ public class Posting {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "posting_id")
-    protected Long id;
+    private Long id;
 
-    protected String title;
+    private String title;
 
-    protected long price;
+    private long price;
 
     @Column(name = "short_description")
-    protected String shortDescription;
+    private String shortDescription;
 
     @Column(name = "full_description")
-    protected String fullDescription;
+    private String fullDescription;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    protected User user;
+    private User user;
 
     @OneToOne(cascade = CascadeType.ALL)
-    protected Category category;
+    private Category category;
 
     @Column(name = "image_path")
-    protected String imagePath;
+    private String imagePath;
 
     public Posting() {
     }
