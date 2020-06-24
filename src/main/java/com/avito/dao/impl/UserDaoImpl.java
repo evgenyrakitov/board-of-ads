@@ -1,27 +1,27 @@
 package com.avito.dao.impl;
 
-import com.avito.configs.security.AuthProvider;
-import com.avito.models.User;
 import com.avito.dao.interfaces.UserDao;
+import com.avito.models.User;
+import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
-import javax.management.InstanceNotFoundException;
 import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 import java.util.List;
 
 @Repository
+@Transactional
+@RequiredArgsConstructor
 public class UserDaoImpl implements UserDao {
     private static final Logger logger = LoggerFactory.getLogger(UserDaoImpl.class);
 
-    @PersistenceContext
-    private EntityManager entityManager;
+    private final EntityManager entityManager;
 
     @Override
     public List<User> getAllUsers() {
-        return entityManager.createQuery("from User").getResultList();
+        return entityManager.createQuery("from User", User.class).getResultList();
     }
 
     @Override
