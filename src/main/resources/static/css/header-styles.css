@@ -9,10 +9,11 @@ caption {
     caption-side: top;
 }
 
-.logo_min img{
+.logo_min img {
     width: 80px;
 }
-.min_header{
+
+.min_header {
     position: fixed;
     top: 0;
     width: 100%;
@@ -21,7 +22,7 @@ caption {
     align-items: center;
     padding: 2px 20px;
     background: white;
-    box-shadow: 0 4px 2px rgba(0,0,0,.3);
+    box-shadow: 0 4px 2px rgba(0, 0, 0, .3);
     pointer-events: none;
     opacity: 0;
 }
@@ -91,9 +92,11 @@ header.active {
 .category_link li a {
     padding: 0;
 }
-svg{
+
+svg {
     fill: transparent;
 }
+
 .all_category {
     position: relative;
     color: #007bff !important;
@@ -252,4 +255,74 @@ svg{
     background-color: #0c2461;
     transform: rotate(45deg);
     opacity: 0;
+}
+
+.header-root-61eiV {
+    height: 50px;
+    border-bottom: 1px solid #d6d6d6;
+    margin-bottom: 14px !important;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.header-text-3yVAN {
+    margin-top: 4px !important;
+}
+
+.text-size-l-2gTpu {
+    font-size: 20px;
+    line-height: 28px;
+}
+
+.header-logo-313Uc {
+    width: 114px;
+    height: 40px;
+    border-bottom: 0;
+    /*background: url(images/header/logo.png) center/100% auto no-repeat;*/
+    background: url(images/header/logo.png) center/100% auto no-repeat;
+}
+
+.header-root-61eiV {
+    height: 50px;
+    border-bottom: 1px solid #d6d6d6;
+    margin-bottom: 14px !important;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.group-root-2mPy6 {
+    margin: 0;
+    padding: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+a, address, b, big, blockquote, body, caption, center, cite, code, dd, del, dfn, div, dl, dt, em, embed, fieldset, form, h1, h2, h3, h4, h5, h6, i, iframe, img, ins, kbd, label, legend, li, object, p, pre, q, s, samp, small, span, strike, strong, sub, table, tbody, td, tfoot, th, thead, tr, tt, u, ul, var {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+div {
+    display: block;
+}
+
+.item-edit-form, body, html {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
+
+body {
+    -webkit-text-size-adjust: 100%;
 }
