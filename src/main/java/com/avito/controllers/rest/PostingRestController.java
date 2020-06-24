@@ -24,9 +24,9 @@ public class PostingRestController {
                 new Category(),
                 new User(),
                 "Коттедж на два хозяина. На первом этаже кухня, зал и туалет с душем, второй этаж три комнаты и туалет с ванной, третий этаж-две комнаты. Цокольный этаж с гаражом и комнатой. Готов к заселению, возможна долгосрочная аренда.",
-                "Коттедж",
-                img
+                "Коттедж"
         );
+        posting.setImagePath(img);
         posting.setPrice(123123L);
         return new ResponseEntity<>(posting, HttpStatus.OK);
     }
