@@ -1,7 +1,10 @@
 package com.avito.dao.impl;
 
+import com.avito.configs.security.AuthProvider;
 import com.avito.models.User;
 import com.avito.dao.interfaces.UserDao;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
 
 import javax.management.InstanceNotFoundException;
@@ -11,6 +14,7 @@ import java.util.List;
 
 @Repository
 public class UserDaoImpl implements UserDao {
+    private static final Logger logger = LoggerFactory.getLogger(UserDaoImpl.class);
 
     @PersistenceContext
     private EntityManager entityManager;

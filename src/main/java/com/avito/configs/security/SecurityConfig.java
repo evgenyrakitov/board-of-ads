@@ -1,6 +1,8 @@
 package com.avito.configs.security;
 
 import com.avito.service.interfaces.UserService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.autoconfigure.security.oauth2.resource.ResourceServerProperties;
@@ -29,6 +31,7 @@ import javax.servlet.Filter;
 @EnableWebSecurity
 @EnableOAuth2Client
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
+    private static final Logger logger = LoggerFactory.getLogger(SecurityConfig.class);
 
     @Qualifier("oauth2ClientContext")
     @Autowired

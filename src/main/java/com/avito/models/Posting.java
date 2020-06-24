@@ -1,6 +1,10 @@
 package com.avito.models;
 
-import lombok.*;
+import com.avito.configs.security.AuthProvider;
+import lombok.Data;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 
 import javax.persistence.*;
 import java.util.Set;
@@ -12,6 +16,8 @@ import java.util.Set;
 @Entity
 @Table(name = "posting")
 public class Posting {
+    private static final Logger logger = LoggerFactory.getLogger(Posting.class);
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

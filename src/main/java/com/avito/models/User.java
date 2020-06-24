@@ -1,6 +1,10 @@
 package com.avito.models;
 
-import lombok.*;
+import com.avito.configs.security.AuthProvider;
+import lombok.Data;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -17,6 +21,8 @@ import java.util.Set;
 @Entity
 @Table(name = "users")
 public class User implements UserDetails {
+    private static final Logger logger = LoggerFactory.getLogger(User.class);
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

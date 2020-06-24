@@ -1,7 +1,10 @@
 package com.avito.dao.interfaces;
 
+import com.avito.configs.security.AuthProvider;
 import com.avito.models.Category;
 import com.avito.models.User;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.List;
 
