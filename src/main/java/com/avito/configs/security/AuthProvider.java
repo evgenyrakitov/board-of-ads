@@ -3,6 +3,8 @@ package com.avito.configs.security;
 
 import com.avito.models.User;
 import com.avito.service.interfaces.UserService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -19,6 +21,9 @@ import java.util.Collection;
 //Кастомный вход пользователя переписанный на вхлд по имени
 @Component
 public class AuthProvider implements AuthenticationProvider {
+
+    private static final Logger logger = LoggerFactory.getLogger(AuthProvider.class);
+
     @Autowired
     private UserService userService;
 

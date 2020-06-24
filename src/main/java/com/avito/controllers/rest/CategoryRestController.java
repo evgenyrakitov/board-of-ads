@@ -1,10 +1,13 @@
 package com.avito.controllers.rest;
 
+import com.avito.configs.security.AuthProvider;
 import com.avito.models.Category;
 import com.avito.models.User;
 import com.avito.service.interfaces.CategoryService;
 import com.avito.service.interfaces.UserService;
 import lombok.AllArgsConstructor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,6 +15,8 @@ import org.springframework.web.bind.annotation.*;
 @AllArgsConstructor
 @RequestMapping("/category")
 public class CategoryRestController {
+
+    private static final Logger logger = LoggerFactory.getLogger(CategoryRestController.class);
 
     private final CategoryService categoryService;
 

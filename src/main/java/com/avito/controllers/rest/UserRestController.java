@@ -1,8 +1,11 @@
 package com.avito.controllers.rest;
 
+import com.avito.configs.security.AuthProvider;
 import com.avito.models.User;
 import com.avito.service.interfaces.UserService;
 import lombok.AllArgsConstructor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,7 +15,7 @@ import java.util.List;
 @AllArgsConstructor
 @RequestMapping("/rest")
 public class UserRestController {
-
+    private static final Logger logger = LoggerFactory.getLogger(UserRestController.class);
     private final UserService userService;
     private final PasswordEncoder passwordEncoder;
 

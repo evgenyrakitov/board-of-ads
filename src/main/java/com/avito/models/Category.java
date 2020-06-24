@@ -1,32 +1,32 @@
 package com.avito.models;
 
-import lombok.Data;
+import lombok.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.persistence.*;
-import java.util.HashSet;
 import java.util.Set;
 
 @Data
+@NoArgsConstructor
+@RequiredArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "categories")
 public class Category {
+    private static final Logger logger = LoggerFactory.getLogger(Category.class);
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NonNull
     @Column(name = "name")
     private String name;
 
+    @NonNull
     @OneToMany(cascade = CascadeType.ALL)
-    private Set<Category> subCategories = new HashSet<>();
-
-    public Category() {
-    }
-
-    public Category(String name, Set<Category> subCategories) {
-        this.name = name;
-        this.subCategories = subCategories;
-    }
+    private Set<Category> subCategories;
 
 }

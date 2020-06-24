@@ -5,6 +5,8 @@ import com.avito.models.Role;
 import com.avito.models.User;
 import com.avito.service.interfaces.RoleService;
 import com.avito.service.interfaces.UserService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.autoconfigure.security.oauth2.resource.AuthoritiesExtractor;
 import org.springframework.boot.autoconfigure.security.oauth2.resource.FixedAuthoritiesExtractor;
 import org.springframework.boot.autoconfigure.security.oauth2.resource.FixedPrincipalExtractor;
@@ -26,11 +28,14 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 
 @Service
 public class CustomUserInfoTokenServices implements ResourceServerTokenServices {
+
+    private static final Logger logger = LoggerFactory.getLogger(CustomUserInfoTokenServices.class);
 
     private String userInfoEndpointUrl;
     private String clientId;
@@ -108,7 +113,7 @@ public class CustomUserInfoTokenServices implements ResourceServerTokenServices 
                 user = new User();
                 Role role = roleService.findRoleByName("USER");
                 if (role == null) {
-                    role = new Role(1L, "USER");
+                    role = new Role(1L, "USER", new HashSet<>());
                 }
                 user.setRoles(Collections.singleton(role));
             }
@@ -134,7 +139,7 @@ public class CustomUserInfoTokenServices implements ResourceServerTokenServices 
         user.setUserIcons((String) map.get("picture"));
         Role role = roleService.findRoleByName("USER");
         if (role == null) {
-            role = new Role(1L, "USER");
+            role = new Role(1L, "USER", new HashSet<>());
         }
         user.setRoles(Collections.singleton(role));
 
