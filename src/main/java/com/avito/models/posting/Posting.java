@@ -1,9 +1,11 @@
 package com.avito.models;
 
 import lombok.*;
+import org.slf4j.LoggerFactory;
 
 import javax.persistence.*;
 import java.util.Set;
+import java.util.logging.Logger;
 
 @Data
 @NoArgsConstructor
@@ -12,7 +14,7 @@ import java.util.Set;
 @Entity
 @Table(name = "posting")
 public class Posting {
-    private static final Logger logger = LoggerFactory.getLogger(Posting.class);
+    private static final Logger logger = (Logger) LoggerFactory.getLogger(Posting.class);
 
 
     @Id
