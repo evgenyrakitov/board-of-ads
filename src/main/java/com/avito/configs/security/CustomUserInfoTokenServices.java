@@ -26,6 +26,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 
@@ -108,7 +109,7 @@ public class CustomUserInfoTokenServices implements ResourceServerTokenServices 
                 user = new User();
                 Role role = roleService.findRoleByName("USER");
                 if (role == null) {
-                    role = new Role(1L, "USER");
+                    role = new Role(1L, "USER", new HashSet<>());
                 }
                 user.setRoles(Collections.singleton(role));
             }
@@ -134,7 +135,7 @@ public class CustomUserInfoTokenServices implements ResourceServerTokenServices 
         user.setUserIcons((String) map.get("picture"));
         Role role = roleService.findRoleByName("USER");
         if (role == null) {
-            role = new Role(1L, "USER");
+            role = new Role(1L, "USER", new HashSet<>());
         }
         user.setRoles(Collections.singleton(role));
 

@@ -1,0 +1,294 @@
+section {
+    display: flex;
+}
+body{
+    min-width: 500px;
+}
+.favorites_and_notes {
+    display: flex;
+}
+
+.add_to_favorite a,
+.add_note a {
+    text-decoration: none;
+}
+
+.button_favorite {
+    display: flex;
+    /*width: 215px;*/
+    padding: 3px 6px;
+    border: 1px solid gainsboro;
+    border-radius: 2px;
+    transition: .3s;
+    text-align: center;
+}
+.button_follow {
+    display: flex;
+    /*width: 215px;*/
+    padding: 3px 6px;
+    border: 1px solid gainsboro;
+    border-radius: 2px;
+    transition: .3s;
+    text-align: center;
+}
+
+.button_favorite,
+.button_follow,
+.add_note,
+.curent_time {
+    margin: 0 5px;
+}
+
+.button_favorite svg {
+    fill: transparent;
+    margin-right: 3px;
+}
+
+.add_note .button_favorite svg {
+    fill: none;
+    color: #007bff;
+}
+
+.button_favorite:hover,
+.button_follow:hover{
+    background: #dedee0;
+}
+
+.bg_note {
+    position: fixed;
+    z-index: 6;
+    top: 0;
+    left: 0;
+    width: 2000px;
+    height: 2000px;
+    pointer-events: none;
+}
+
+.bg_note.active {
+    pointer-events: auto;
+}
+
+.add_note {
+    position: relative;
+}
+
+
+.add_new_note {
+    display: flex;
+    pointer-events: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: white;
+    height: 32px;
+    opacity: 0;
+    outline: none;
+}
+
+.add_new_note a {
+    padding: 0 10px;
+    border: 1px solid gainsboro;
+    border-left: none;
+}
+
+.add_new_note.active {
+    pointer-events: auto;
+    opacity: 1;
+    z-index: 7;
+    outline: #007bff;
+}
+
+.add_new_note input {
+    border-color: gainsboro;
+    border-style: solid;
+    width: 240px;
+}
+
+.carousel-inner {
+    position: relative;
+    /*width: 600px;*/
+    height: 415px;
+    overflow: hidden;
+}
+
+.slider {
+    margin-top: 15px;
+}
+
+.carousel-item {
+    transition: .4s !important;
+}
+
+.carousel-item.active {
+    transition: .4s !important;
+}
+
+.panel_control_slider {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.panel_control_slider img {
+    width: 23%;
+    height: auto;
+    margin: 5px;
+}
+.panel_control_slider img:hover {
+    cursor: pointer;;
+}
+
+.panel_control_slider img.active {
+    box-shadow: 0 0 5px #007bff;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+.show_telephone {
+    border: 1px solid #97cf27;
+    background: #97cf27;
+}
+
+.write_message {
+    border: 1px solid #0af;
+    background: #0af;
+}
+.some_info_block{
+    width: 350px;
+    transition: .5s;
+    margin-left: 25px;
+}
+.some_info_block.active{
+    position: fixed;
+    left: 50%;
+    top: 150px;
+    transition: .5s;
+}
+.some_info_block.active2{
+    position: fixed;
+
+    top: 55px;
+    transition: .5s;
+}
+.price_button{
+    position: absolute;
+    pointer-events: none;
+    opacity: 0;
+}
+.some_info_block h2 {
+    margin-bottom: 53px;
+}
+
+.show_telephone,
+.write_message {
+    padding: 5px;
+    border-radius: 2px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    transition: .4s;
+    margin-bottom: 20px;
+}
+
+.show_telephone:hover {
+    border: 1px solid #7ca726;
+    background: #7ca726;
+}
+
+.write_message:hover {
+    border: 1px solid #178dc7;
+    background: #178dc7;
+}
+
+.show_telephone p,
+.write_message p {
+    margin-bottom: -5px;
+    font-size: 1.5rem;
+    font-weight: 400;
+    letter-spacing: -1px;
+}
+
+.show_telephone span,
+.write_message span {
+    font-size: 1.3rem;
+    font-weight: 400;
+    letter-spacing: -1px;
+    margin-bottom: 5px;
+}
+.main_posting_block{
+    width: 50%;
+}
+.customer_info {
+    margin-bottom: 25px;
+}
+
+.customer_info img {
+    border-radius: 50%;
+}
+
+.customer_info p {
+    margin: 0;
+}
+
+.count_postings,
+.follow_customer {
+    margin: 10px 0;
+}
+
+.count_postings a span,
+.follow_customer a span {
+    margin: 0;
+}
+.serial_number{
+    margin-top: 50px;
+    border-top: 1px solid gainsboro;
+    padding-top: 15px;
+    display: flex;
+}
+.serial_number svg{
+    fill: gainsboro;
+    margin-left: 15px;
+}
+.google_map{
+    margin-top: 50px;
+}
+.card {
+    border: none;
+}
+.card-header{
+    padding: 0;
+    background: none;
+}
+#collapseOne{
+    transition: 1s;
+}
+.btn-link:hover {
+    color: #0056b3;
+    text-decoration: none !important;
+}
+.btn-link {
+    color: #0056b3;
+    text-decoration: none !important;
+}
+.card-header svg{
+    fill: #0056b3;
+    font-size: 1rem;
+    transition: .5s;
+    transform: rotateX(180deg);
+}
+.card-header .btn {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.card-body  {
+    padding: 15px 0 0 0 ;
+}
+.card-body iframe{
+    width: 100%;
+    height: 400px;
+}
