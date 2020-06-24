@@ -1,50 +1,49 @@
-package com.avito.models.posting;
+package com.avito.models;
 
-import com.avito.models.Category;
-import com.avito.models.User;
-import lombok.Data;
+import lombok.*;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
+@RequiredArgsConstructor
 @Entity
 @Table(name = "posting")
 public class Posting {
+    private static final Logger logger = LoggerFactory.getLogger(Posting.class);
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "posting_id")
     private Long id;
 
+    @NonNull
     private String title;
 
-    private long price;
-
-    @Column(name = "short_description")
-    private String shortDescription;
-
-    @Column(name = "full_description")
-    private String fullDescription;
-
-    @ManyToOne(cascade = CascadeType.ALL)
-    private User user;
-
+    @NonNull
     @OneToOne(cascade = CascadeType.ALL)
     private Category category;
 
+    @NonNull
+    @ManyToOne(cascade = CascadeType.ALL)
+    private User user;
+
+
+    @NonNull
+    @Column(name = "full_description")
+    private String fullDescription;
+
+    @NonNull
+    @Column(name = "short_description")
+    private String shortDescription;
+
+    private long price;
+
+    @OneToMany(cascade = CascadeType.ALL)
     @Column(name = "image_path")
-    private String imagePath;
-
-    public Posting() {
-    }
-
-    public Posting(String title, Category category, User user, String fullDescription, String shortDescription, String imagePath) {
-        this.title = title;
-        this.shortDescription = shortDescription;
-        this.fullDescription = fullDescription;
-        this.user = user;
-        this.category = category;
-        this.imagePath = imagePath;
-    }
+    private Set<Images> imagePath;
 
 }
