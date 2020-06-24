@@ -1,7 +1,7 @@
 package com.avito.models;
 
 import com.avito.configs.security.AuthProvider;
-import lombok.Data;
+import lombok.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

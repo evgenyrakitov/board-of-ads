@@ -1,11 +1,8 @@
 package com.avito.models;
 
-import com.avito.configs.security.AuthProvider;
-import lombok.Data;
-import org.hibernate.annotations.GeneratorType;
+import lombok.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import org.springframework.security.core.GrantedAuthority;
 
 import javax.persistence.*;
