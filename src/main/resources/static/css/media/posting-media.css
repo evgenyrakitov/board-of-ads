@@ -1,0 +1,114 @@
+@media (max-width: 1100px) {
+    .main_posting_block {
+        width: 65%;
+    }
+
+    .some_info_block.active {
+        left: 65%;
+    }
+
+    .some_info_block {
+        width: 276px;
+    }
+}
+
+@media (max-width: 1100px) {
+    .main_posting_block {
+        width: 65%;
+    }
+
+    .some_info_block.active {
+        left: 65%;
+    }
+
+    .some_info_block.active2 {
+        left: 65%;
+    }
+}
+
+@media (max-width: 900px) {
+    .main_posting_block {
+        width: 73%;
+    }
+
+    .some_info_block.active {
+        left: 73%;
+    }
+
+    .some_info_block.active2 {
+        left: 73%;
+    }
+
+    .show_telephone span,
+    .write_message span {
+        font-size: 1rem;
+        font-weight: 100;
+        margin-bottom: 3px;
+    }
+
+    .some_info_block h2 {
+        margin-bottom: 20px;
+    }
+
+    .show_telephone p,
+    .write_message p {
+        font-size: 1rem;
+        font-weight: 100;
+        margin-bottom: 3px;
+    }
+
+    .some_info_block {
+        width: 200px;
+        margin-left: 15px;
+    }
+}
+
+@media (max-width: 780px) {
+    .main_posting_block {
+        width: 100%;
+    }
+
+    .some_info_block {
+        position: fixed;
+        right: -200px;
+        left: auto !important;
+        background: white;
+        padding: 5px;
+        transition: .5s;
+        z-index: 5;
+    }
+    .some_info_block.active {
+        right: 0px;
+        top: 115px;
+        box-shadow: 0 0 6px black;
+    }
+
+    .price_button {
+        position: absolute;
+        left: -85px;
+        top: 40px;
+        opacity: 1;
+        pointer-events: auto;
+        padding: 5px 10px;
+        background: white;
+        box-shadow: -2px 0 2px red;
+        border-top-left-radius: 3px;
+        border-bottom-left-radius: 3px;
+    }
+
+    .price_button:hover {
+        cursor: pointer;
+    }
+
+    .price_button span {
+        font-size: 1.1rem;
+    }
+    .carousel-inner {
+        height: 550px;
+    }
+}
+@media (max-width: 570px) {
+    .carousel-inner {
+        height: 305px;
+    }
+}
