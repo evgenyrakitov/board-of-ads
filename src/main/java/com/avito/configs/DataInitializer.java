@@ -1,7 +1,6 @@
 package com.avito.configs;
 
 import com.avito.models.Category;
-import com.avito.models.Posting;
 import com.avito.models.Role;
 import com.avito.models.User;
 import com.avito.service.interfaces.UserService;
@@ -69,8 +68,7 @@ public class DataInitializer {
                 addRootCategory("Личные вещи");
                 addRootCategory("Для дома и дачи");
                 addRootCategory("Животные");
-                Category hobby = addRootCategory("Хобби и отдых");
-                generateStubPostings(user, hobby);
+                addRootCategory("Хобби и отдых");
             }
         });
     }
@@ -91,20 +89,6 @@ public class DataInitializer {
         Category category = new Category(name, Collections.emptySet());
         entityManager.persist(category);
         return category;
-    }
-
-    private Posting addPosting(String title, Category category, User user, String fullDescription, String shortDescription) {
-        final Posting posting = new Posting(title, category, user, fullDescription, shortDescription);
-        entityManager.persist(posting);
-        return posting;
-    }
-
-    // For test, It must be delete in production code
-    private void generateStubPostings(User user, Category category) {
-        for (int i = 0; i < 100; i++) {
-            addPosting("Объявление " + (i + 1), category, user, "Полное описание " + (i + 1),
-                    "Краткое описание " + (i + 1));
-        }
     }
 
 }
