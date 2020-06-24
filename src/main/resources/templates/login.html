@@ -10,16 +10,23 @@
     <link href="https://getbootstrap.com/docs/4.0/examples/signin/signin.css" rel="stylesheet" crossorigin="anonymous"/>
 </head>
 <body>
-<div class="container">
+<div class="container-fluid">
+    <div style="float: right">
+        <a href="?locale=ru"><img src="images/header/ru.svg" width="40" alt="Пример"></a>
+        <a href="?locale=en"><img src="images/header/en.svg" width="40" alt="Пример"></a>
+    </div>
     <form class="form-signin" method="post" action="/login">
         <h2 class="form-signin-heading" th:text="#{singIn.pageLogin}"></h2>
         <p>
-            <input id="email" name="email" type="email" class="form-control" th:placeholder="#{email.input.placeholder.pageLogin}" required autofocus>
+            <input id="email" name="email" type="email" class="form-control"
+                   th:placeholder="#{email.input.placeholder.pageLogin}" required autofocus>
         </p>
         <p>
-            <input id="password" name="password" class="form-control" type="password" th:placeholder="#{password.input.placeholder.pageLogin}" required>
+            <input id="password" name="password" class="form-control" type="password"
+                   th:placeholder="#{password.input.placeholder.pageLogin}" required>
         </p>
-        <button type="submit" class="btn btn-success btn-lg btn-block"  th:text="#{singIn.button.pageLogin}">Sign in</button>
+        <button type="submit" class="btn btn-success btn-lg btn-block" th:text="#{singIn.button.pageLogin}">Sign in
+        </button>
         <br>
         <div align="center">
                     <span class="social-network-item-icon">
