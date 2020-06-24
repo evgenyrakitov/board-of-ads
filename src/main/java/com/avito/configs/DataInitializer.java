@@ -4,7 +4,9 @@ import com.avito.models.Category;
 import com.avito.models.Posting;
 import com.avito.models.Role;
 import com.avito.models.User;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.avito.service.interfaces.UserService;
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.transaction.PlatformTransactionManager;
@@ -21,15 +23,19 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Configuration
+@RequiredArgsConstructor
 @Transactional
 public class DataInitializer {
 
     @PersistenceContext
     private EntityManager entityManager;
 
-    @Autowired
+    @NonNull
     @Qualifier("transactionManager")
-    protected PlatformTransactionManager txManager;
+    private final PlatformTransactionManager txManager;
+
+    @NonNull
+    private final UserService userService;
 
     /*
      * If the code looks strange for you,
@@ -77,7 +83,7 @@ public class DataInitializer {
 
     private User addUser(String email, String publicName, String password, String confirmPassword, Set<Role> roles) {
         User user = new User(email, publicName, password, confirmPassword, roles);
-        entityManager.persist(user);
+        userService.addUser(user);
         return user;
     }
 
