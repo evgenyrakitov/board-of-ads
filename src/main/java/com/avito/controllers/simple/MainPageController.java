@@ -7,12 +7,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class MainPageController {
 
     @GetMapping("/main_page")
-    String getMainPage() {
+    public String getMainPage() {
         return "index";
     }
 
     @GetMapping("/adDetails")
-    String getDetailsPage() {
+    public String getDetailsPage() {
         return "adDetails";
     }
 
