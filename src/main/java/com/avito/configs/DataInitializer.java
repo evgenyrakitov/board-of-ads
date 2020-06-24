@@ -4,9 +4,12 @@ import com.avito.models.Category;
 import com.avito.models.Posting;
 import com.avito.models.Role;
 import com.avito.models.User;
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.TransactionStatus;
 import org.springframework.transaction.annotation.Transactional;
@@ -21,6 +24,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Configuration
+@RequiredArgsConstructor
 @Transactional
 public class DataInitializer {
 
@@ -30,6 +34,9 @@ public class DataInitializer {
     @Autowired
     @Qualifier("transactionManager")
     protected PlatformTransactionManager txManager;
+
+    @NonNull
+    private PasswordEncoder encoder;
 
     /*
      * If the code looks strange for you,
@@ -49,12 +56,13 @@ public class DataInitializer {
                 Set<Role> forAdmin = new HashSet<>();
                 forAdmin.add(adminRole);
                 forAdmin.add(userRole);
-                addUser("admin@gmail.com", "Test Admin name", "admin", "admin", forAdmin);
+                addUser("admin@gmail.com", "Test Admin name", encoder.encode("admin"), "admin", forAdmin);
 
                 // For test, It must be delete in production code
                 Set<Role> forUser = new HashSet<>();
                 forUser.add(userRole);
-                User user = addUser("test.email.1@gmail.com", "test 1 public name", "qwerty1", "qwerty1", forUser);
+                User user = addUser("test.email.1@gmail.com", "test 1 public name", encoder.encode("qwerty1"),
+                        "qwerty1", forUser);
 
                 addRootCategory("Недвижимость");
                 addRootCategory("Работа");
