@@ -15,9 +15,9 @@ public class MainPageController {
         return "index";
     }
 
-    @GetMapping("/adDetails")
+    @GetMapping("/posting")
     String getDetailsPage() {
-        return "adDetails";
+        return "posting";
     }
 
 }

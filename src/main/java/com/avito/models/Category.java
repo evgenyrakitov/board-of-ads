@@ -5,11 +5,14 @@ import lombok.Data;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+
 import javax.persistence.*;
-import java.util.HashSet;
 import java.util.Set;
 
 @Data
+@NoArgsConstructor
+@RequiredArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "categories")
 public class Category {
@@ -20,18 +23,12 @@ public class Category {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NonNull
     @Column(name = "name")
     private String name;
 
+    @NonNull
     @OneToMany(cascade = CascadeType.ALL)
-    private Set<Category> subCategories = new HashSet<>();
-
-    public Category() {
-    }
-
-    public Category(String name, Set<Category> subCategories) {
-        this.name = name;
-        this.subCategories = subCategories;
-    }
+    private Set<Category> subCategories;
 
 }

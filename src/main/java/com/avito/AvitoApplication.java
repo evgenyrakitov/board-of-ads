@@ -11,7 +11,7 @@ public class AvitoApplication {
 
 
     public static void main(String[] args) {
-        SpringApplication.run(AvitoApplication.class, args);
+        SpringApplication.run(AvitoApplication.class, args).start();
     }
 
 }
