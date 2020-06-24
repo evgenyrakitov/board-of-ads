@@ -1,8 +1,7 @@
 package com.avito.dao.impl;
 
-import com.avito.configs.security.AuthProvider;
-import com.avito.models.Role;
 import com.avito.dao.interfaces.RoleDao;
+import com.avito.models.Role;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
@@ -16,6 +15,11 @@ public class RoleDaoImpl implements RoleDao {
 
     @PersistenceContext
     private EntityManager entityManager;
+
+    @Override
+    public void addRole(Role role) {
+        entityManager.persist(role);
+    }
 
     @Override
     public Role findRoleByName(String name) {

@@ -3,38 +3,31 @@ package com.avito.configs;
 import com.avito.models.Category;
 import com.avito.models.Role;
 import com.avito.models.User;
+import com.avito.service.interfaces.CategoryService;
+import com.avito.service.interfaces.RoleService;
 import com.avito.service.interfaces.UserService;
-import lombok.NonNull;
-import lombok.RequiredArgsConstructor;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.TransactionStatus;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.transaction.support.TransactionCallbackWithoutResult;
 import org.springframework.transaction.support.TransactionTemplate;
 
 import javax.annotation.PostConstruct;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
 @Configuration
-@RequiredArgsConstructor
-@Transactional
+@AllArgsConstructor
 public class DataInitializer {
 
-    @PersistenceContext
-    private EntityManager entityManager;
-
-    @NonNull
     @Qualifier("transactionManager")
     private final PlatformTransactionManager txManager;
-
-    @NonNull
+    private final RoleService roleService;
     private final UserService userService;
+    private final CategoryService categoryService;
 
     /*
      * If the code looks strange for you,
@@ -75,7 +68,7 @@ public class DataInitializer {
 
     private Role addRole(String roleName) {
         Role role = new Role(roleName);
-        entityManager.persist(role);
+        roleService.addRole(role);
         return role;
     }
 
@@ -87,7 +80,7 @@ public class DataInitializer {
 
     private Category addRootCategory(String name) {
         Category category = new Category(name, Collections.emptySet());
-        entityManager.persist(category);
+        categoryService.addCategory(category);
         return category;
     }
 
