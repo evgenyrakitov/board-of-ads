@@ -6,6 +6,7 @@ import com.avito.models.Role;
 import com.avito.models.User;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -30,12 +31,12 @@ public class DataInitializer {
     @PersistenceContext
     private EntityManager entityManager;
 
-    @NonNull
+    @Autowired
     @Qualifier("transactionManager")
-    private final PlatformTransactionManager txManager;
+    protected PlatformTransactionManager txManager;
 
     @NonNull
-    private final PasswordEncoder encoder;
+    private PasswordEncoder encoder;
 
     /*
      * If the code looks strange for you,
