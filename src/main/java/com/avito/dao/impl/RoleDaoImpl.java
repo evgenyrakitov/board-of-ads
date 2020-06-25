@@ -6,12 +6,11 @@ import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 
 @Repository
-@Transactional
 @RequiredArgsConstructor
 public class RoleDaoImpl implements RoleDao {
     private static final Logger logger = LoggerFactory.getLogger(RoleDaoImpl.class);
@@ -25,13 +24,14 @@ public class RoleDaoImpl implements RoleDao {
 
     @Override
     public Role findRoleByName(String name) {
+        Role role = null;
         try {
-            return entityManager.createQuery("from Role where role = : name", Role.class)
-                    .setParameter("role", name)
-                    .getResultList().get(0);
-        } catch (IndexOutOfBoundsException e) {
-            return null;
-        }
+            role = entityManager.createQuery("from Role where name = : setName", Role.class)
+                    .setParameter("setName", name)
+                    .getSingleResult();
+        }catch (NoResultException e){
 
+        }
+        return role;
     }
 }
