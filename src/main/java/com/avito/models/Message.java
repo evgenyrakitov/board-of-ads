@@ -3,8 +3,7 @@ package com.avito.models;
 import lombok.*;
 
 import javax.persistence.*;
-import java.time.LocalDate;
-import java.time.LocalTime;
+import java.time.LocalDateTime;
 
 
 @Data
@@ -23,17 +22,18 @@ public class Message {
     private String text;
 
     @NonNull
-    private LocalDate date;
-
-    @NonNull
-    private LocalTime time;
+    private LocalDateTime date;
 
     @NonNull
     @ManyToOne(cascade = CascadeType.ALL)
-    private User sender;
+    private User author;
 
     @NonNull
     @ManyToOne(cascade = CascadeType.ALL)
-    private User recipient;
+    private Posting posting;
+
+    public User getRecipient() {
+        return posting.getUser();
+    }
 
 }
