@@ -24,6 +24,9 @@ public class DataInitializer {
 
     @PostConstruct
     private void init() {
+        if (userService.getAllUsers().size() != 0) {
+            return;
+        }
         Role adminRole = addRole("ADMIN");
         Role userRole = addRole("USER");
 
