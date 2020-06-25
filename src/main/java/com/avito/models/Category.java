@@ -1,9 +1,6 @@
 package com.avito.models;
 
 import lombok.*;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import javax.persistence.*;
 import java.util.Set;
 
@@ -14,8 +11,6 @@ import java.util.Set;
 @Entity
 @Table(name = "categories")
 public class Category {
-    private static final Logger logger = LoggerFactory.getLogger(Category.class);
-
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

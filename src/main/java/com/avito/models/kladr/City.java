@@ -14,7 +14,6 @@ import javax.persistence.*;
 @Entity
 @Table(name = "city")
 public class City {
-    private static final Logger logger = LoggerFactory.getLogger(City.class);
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

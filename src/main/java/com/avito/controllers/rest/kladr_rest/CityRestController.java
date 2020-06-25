@@ -22,14 +22,14 @@ public class CityRestController {
         return cityService.findAll();
     }
 
-    @PostMapping
-    public List<City> getCitiesByName(String name) {
+    @GetMapping
+    public List<City> getCitiesByName(@RequestParam String name) {
         return cityService.findAllByName(name);
     }
 
-    @PostMapping("/regionCities")
-    public List<City> getCitiesByRegionId(Long regionId) {
-        return cityService.findAllByRegionId(regionId);
+    @GetMapping("/regionCities")
+    public List<City> getCitiesByRegionId(@RequestParam Long id) {
+        return cityService.findAllByRegionId(id);
     }
 
 }

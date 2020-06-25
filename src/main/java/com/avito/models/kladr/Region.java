@@ -1,16 +1,13 @@
 package com.avito.models.kladr;
 
 import lombok.Data;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import javax.persistence.*;
-import java.util.List;
+
 
 @Data
 @Entity
 @Table(name = "region")
 public class Region {
-    private static final Logger logger = LoggerFactory.getLogger(Region.class);
 
     @Id
     private Long id;

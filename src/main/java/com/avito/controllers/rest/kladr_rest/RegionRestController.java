@@ -7,8 +7,8 @@ import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
@@ -25,8 +25,8 @@ public class RegionRestController {
         return regionService.getAllRegions();
     }
 
-    @PostMapping
-    public Region getRegionByName(String name) {
+    @GetMapping
+    public Region getRegionByName(@RequestParam String name) {
         return regionService.findByName(name);
     }
 
