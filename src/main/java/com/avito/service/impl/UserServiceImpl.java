@@ -1,6 +1,5 @@
 package com.avito.service.impl;
 
-import com.avito.configs.security.AuthProvider;
 import com.avito.dao.interfaces.UserDao;
 import com.avito.models.User;
 import com.avito.service.interfaces.UserService;
@@ -8,11 +7,13 @@ import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 @Service
 @AllArgsConstructor
+@Transactional
 public class UserServiceImpl implements UserService {
     private static final Logger logger = LoggerFactory.getLogger(UserServiceImpl.class);
 

@@ -1,6 +1,5 @@
 package com.avito.dao.impl;
 
-import com.avito.configs.security.AuthProvider;
 import com.avito.models.Role;
 import com.avito.dao.interfaces.RoleDao;
 import org.slf4j.Logger;
@@ -8,6 +7,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 
 @Repository
@@ -19,13 +19,15 @@ public class RoleDaoImpl implements RoleDao {
 
     @Override
     public Role findRoleByName(String name) {
+        Role role = null;
         try {
-            return entityManager.createQuery("from Role where role = : name", Role.class)
-                    .setParameter("role", name)
-                    .getResultList().get(0);
-        } catch (IndexOutOfBoundsException e) {
-            return null;
-        }
+            role = entityManager.createQuery("from Role where name = : setName", Role.class)
+                    .setParameter("setName", name)
+                    .getSingleResult();
+        }catch (NoResultException e){
 
+        }
+        return role;
     }
+
 }
