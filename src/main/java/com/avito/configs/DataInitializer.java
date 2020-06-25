@@ -18,7 +18,7 @@ import java.util.Set;
 @AllArgsConstructor
 public class DataInitializer {
 
-    private final RoleService roleService;
+    /*private final RoleService roleService;
     private final UserService userService;
     private final CategoryService categoryService;
 
@@ -66,6 +66,6 @@ public class DataInitializer {
         Category category = new Category(name, Collections.emptySet());
         categoryService.addCategory(category);
         return category;
-    }
+    }*/
 
 }

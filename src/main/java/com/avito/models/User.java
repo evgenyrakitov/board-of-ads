@@ -46,6 +46,9 @@ public class User implements UserDetails {
     private String passwordConfirm;
 
     @NonNull
+    private String phone;
+
+    @NonNull
     @ManyToMany(fetch = FetchType.EAGER)
     private Set<Role> roles;
 
