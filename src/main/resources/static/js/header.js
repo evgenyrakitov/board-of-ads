@@ -8,7 +8,17 @@ $(window).scroll(function () {
 
 
 $(document).ready(function () {
-    $.ajax({
+    if (localStorage.getItem('locale') == null ){
+        localStorage.setItem("locale", "ru");
+        $(".dropdown-toggle").html('<img src="images/header/ru.svg" width="30">');
+    }else {
+            if (localStorage.getItem("locale") == "ru"){
+                $(".dropdown-toggle").html('<img src="images/header/ru.svg" width="30">');
+            }else {
+                $(".dropdown-toggle").html('<img src="images/header/en.svg" width="30">');
+            }
+    }
+        $.ajax({
         url: '/avitoNavigation',
         type: 'get',
         dataType: 'json',
@@ -85,4 +95,10 @@ $(".open_search").click(function () {
 $("#menuToggle").click(function () {
     $("header").toggleClass("open_header");
     $("#menuToggle").toggleClass("open_header");
+});
+$(".locale_ru").click(function () {
+    localStorage.setItem("locale", "ru");
+});
+$(".locale_en").click(function () {
+    localStorage.setItem("locale", "en");
 });
