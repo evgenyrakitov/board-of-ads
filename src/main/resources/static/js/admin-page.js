@@ -7,7 +7,7 @@ const option = $("<option></option>");
 
 $(document).ready(function () {
 
-    $.ajax("/rest/admin-page",
+    $.ajax("/rest/users",
         {
             contentType: "application/json; charset=UTF-8",
             dataType: "json",

@@ -40,7 +40,7 @@ public class UserRestController {
 //       return  userService.findById(id);
 //    }
 
-    @GetMapping("/admin-page")
+    @GetMapping("/users")
     public List<User> getAllUsers() {
         return userService.getAllUsers();
     }
