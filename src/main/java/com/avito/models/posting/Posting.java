@@ -1,13 +1,18 @@
-package com.avito.models;
+package com.avito.models.posting;
 
-import com.avito.configs.security.AuthProvider;
+import com.avito.models.Category;
+import com.avito.models.Images;
+import com.avito.models.User;
 import lombok.*;
-import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 
 import javax.persistence.*;
 import java.util.Set;
+
+//kalinin_begin_change
+//import java.util.logging.Logger;
+import org.slf4j.Logger;
+//kalinin_end
 
 @Data
 @NoArgsConstructor

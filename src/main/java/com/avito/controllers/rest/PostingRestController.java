@@ -2,7 +2,7 @@ package com.avito.controllers.rest;
 
 import com.avito.models.Category;
 import com.avito.models.Images;
-import com.avito.models.Posting;
+import com.avito.models.posting.Posting;
 import com.avito.models.User;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
