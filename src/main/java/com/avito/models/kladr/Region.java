@@ -6,35 +6,31 @@ import javax.persistence.*;
 
 @Data
 @Entity
-@Table(name = "region")
+@Table(name = "regions")
 public class Region {
 
     @Id
     private Long id;
 
-    @Column(name = "_NAME", length = 40)
+    @Column(name = "name", length = 40)
     private String name;
 
-    @Column(name = "SOCR", length = 10)
+    @Column(name = "socr", length = 10)
     private String shortType;
 
-    @Column(name = "_INDEX", length = 6)
+    @Column(name = "indx", length = 6)
     private String index;
 
-    @Column(name = "_GNIMB", length = 4)
-    private String gnimb;
+    @Column(name = "gninmb", length = 4)
+    private String gninmb;
 
-    @Column(name = "_UNO", length = 4)
+    @Column(name = "uno", length = 4)
     private String uno;
 
-    @Column(name = "_OCATD", length = 11)
+    @Column(name = "ocatd", length = 11)
     private String ocatd;
 
-    @Column(name = "_CODE", length = 13)
+    @Column(name = "code", length = 13)
     private String code;
-
-    /*@OneToMany
-    private List<City> cities;*/
-
 
 }

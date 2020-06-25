@@ -12,32 +12,32 @@ import javax.persistence.*;
 
 @Data
 @Entity
-@Table(name = "city")
+@Table(name = "cities")
 public class City {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "_NAME", length = 60)
+    @Column(name = "name", length = 60)
     private String name;
 
-    @Column(name = "_SOCR", length = 10)
+    @Column(name = "socr", length = 10)
     private String shortType;
 
-    @Column(name = "_INDEX", length = 6)
+    @Column(name = "indx", length = 6)
     private String index;
 
-    @Column(name = "_GNIMB", length = 4)
-    private String gnimb;
+    @Column(name = "gninmb", length = 4)
+    private String gninmb;
 
-    @Column(name = "_UNO", length = 4)
+    @Column(name = "uno", length = 4)
     private String uno;
 
-    @Column(name = "_OCATD", length = 11, unique = true)
+    @Column(name = "ocatd", length = 11, unique = true)
     private String ocatd;
 
-    @Column(name = "_code", length = 13)
+    @Column(name = "code", length = 13)
     private String code;
 
     @ManyToOne
