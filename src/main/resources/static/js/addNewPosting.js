@@ -86,12 +86,31 @@ $(document).ready(function () {
         var el = document.getElementById('summary');
         el.getAttribute("style") ==="display: none"? el.setAttribute("style","display: block") : el.setAttribute("style","display: none") ;
     });
+    $("#btnPersonalItems").click(function(){
+        hideAllDiv2col()
+        hideAllDiv3col()
+    });
+    $("#btnForHome").click(function(){
+        hideAllDiv2col()
+        hideAllDiv3col()
+    });
+    $("#btnConsumerElectronics").click(function(){
+        hideAllDiv2col()
+        hideAllDiv3col()
+    });
+    $("#btnHobby").click(function(){
+        hideAllDiv2col()
+        hideAllDiv3col()
+    });
+    $("#btnAnimals").click(function(){
+        hideAllDiv2col()
+        hideAllDiv3col()
+    });
+    $("#btnForBusiness").click(function(){
+        hideAllDiv2col()
+        hideAllDiv3col()
+    });
 });
-
-
-
-
-
 
 
 function hideAllDiv2col() {
