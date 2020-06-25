@@ -1,5 +1,6 @@
 package com.avito.models;
 
+import com.avito.models.posting.Posting;
 import lombok.*;
 
 import javax.persistence.*;
