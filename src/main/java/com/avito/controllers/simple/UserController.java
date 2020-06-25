@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class UserController {
     private static final Logger logger = LoggerFactory.getLogger(UserController.class);
 
-    @GetMapping("/users")
+    @GetMapping("/admin-page")
     public String users() { return "admin-page"; }
 
 }
