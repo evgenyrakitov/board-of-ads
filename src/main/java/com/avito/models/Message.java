@@ -32,8 +32,16 @@ public class Message {
     @ManyToOne(cascade = CascadeType.ALL)
     private Posting posting;
 
+    @NonNull
+    private ReadStatus readStatus = ReadStatus.NOT_READ;
+
     public User getRecipient() {
         return posting.getUser();
+    }
+
+    public enum ReadStatus {
+        READ,
+        NOT_READ
     }
 
 }
