@@ -1,0 +1,440 @@
+<!doctype html>
+<html lang="ru" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Avito clone</title>
+    <div th:replace="~{fragments/header.html :: links}"></div>
+</head>
+<body>
+<!--***********************-->
+<div class="modal fade" id="modal-reg-1">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Вход</h4>
+                <button type="button" class="close" data-dismiss="modal">×</button>
+
+            </div>
+            <div class="modal-body text-center">
+                <form class="" action="/login"  style="align-content: center" id="open-form-modal">
+                    <div class="form-item">
+                        <div class="form-item-login">
+                            <label class="input-login">
+                                <input name="email" placeholder="email" type="email">
+                            </label>
+                        </div><br>
+                        <div class="form-item-password">
+                            <label class="input-password">
+                                <input placeholder="Password" name="password" autocomplete="off">
+                            </label>
+                        </div><br>
+
+                        <div class="form-item-radio-remember">
+
+                                <label class="checkbox" style="vertical-align: middle; font-size: 10pt">
+                                    <input name="remember" class="" type="checkbox" checked="">
+                                    <span>Запомнить пароль</span>
+                                </label>
+
+
+                                <a style="font-size: 10pt" href="#" id="open-modal-3" data-dismiss="modal">Забыли пароль?</a>
+
+                        </div><br>
+                        <div class="form-item-button">
+                            <button type="submit" name="submit" class="btn btn-primary" id="btn-open" data-dismiss="modal">
+                                <span>Войти</span>
+                            </button>
+                        </div><br>
+                    </div>
+                </form>
+
+                <span style="font-size: 10pt">или продолжить через</span>
+                <div class="social">
+                            <span class="social-vk">
+                                <img src="/images/vk.png">
+                            </span>
+                    <span class="social-ok">
+                                <img src="/images/ok.png">
+                            </span>
+                    <span class="social-fb">
+                                <img src="/images/fb.png">
+                            </span>
+
+                </div>
+
+
+            </div>
+            <a class="text-center" href="#"  id="open-modal-2" data-dismiss="modal">Регистрация</a>
+            <div class="modal-footer">
+
+
+                <div class="auth-app-doc" style="font-size: 7pt; color: #7f8fa6">При входе вы подтверждаете согласие с&nbsp;
+                    <a href="#">
+                        <span>условиями использования ?????????</span>
+                    </a>
+                    &nbsp;и&nbsp;
+                    <a href="#">
+                        <span>политикой о&nbsp;данных пользователей.</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="modal fade" id="modal-reg-2" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Регистрация</h4>
+                <button type="button" class="close" data-dismiss="modal">×</button>
+
+            </div>
+            <div class="modal-body text-center">
+                <form action="/rest/add" id="add-reg-form">
+                    <div class="form-item-login">
+                        <label class="input-login">
+                            <input name="email" placeholder="email" type="email" required>
+                        </label>
+                    </div>
+                    <div class="form-item-password">
+                        <label class="input-password">
+                            <input name="password" placeholder="password" type="password" autocomplete="off">
+                        </label>
+                    </div>
+                    <div class="form-item-publicName">
+                        <label class="input-publicName">
+                            <input name="publicName" placeholder="publicName" type="text" required>
+                        </label>
+                    </div>
+                    <div class="form-reg-button">
+                        <button type="submit" name="submit"  class="btn btn-primary" id="btn-reg" data-dismiss="modal">
+                            <span >Зарегистрироваться</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div class="modal fade" id="modal-reg-3" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Восстановление пароля</h4>
+                <button type="button" class="close" data-dismiss="modal">×</button>
+
+            </div>
+            <div class="modal-body text-center">
+                <form action="/login" id="form-modal-3">
+
+                    <div class="form-item-login">
+                        <label class="input-login">
+                            Введите LOGIN: <input name="email" placeholder="email" type="text" required>
+                        </label>
+                    </div>
+                    <div class="form-reg-button">
+                        <button type="submit" name="submit"  class="btn btn-primary" data-dismiss="modal" id="btn-modal-3">
+                            <span >Отправить</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!--***********************-->
+
+<div th:replace="~{fragments/header.html :: header}"></div>
+
+
+<div th:fragment="product" class="container-fluid mt-3 container_cus">
+    <div class="row ml-4 mr-4 justify-content-around" id="allContent">
+        <div class="card col-md-2 mx-auto" style="width: 18rem;">
+            <img src="/images/image-placeholder.png" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Заголовок объявления</h5>
+                <p class="card-text">Краткое описание объявления.</p>
+                <a href="adDetails" class="btn btn-primary">Перейти к объявлению</a>
+            </div>
+        </div>
+        <div class="card col-md-2 mx-auto" style="width: 18rem;">
+            <img src="/images/image-placeholder.png" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Заголовок объявления</h5>
+                <p class="card-text">Краткое описание объявления.</p>
+                <a href="#" class="btn btn-primary">Перейти к объявлению</a>
+            </div>
+        </div>
+        <div class="card col-md-2 mx-auto" style="width: 18rem;">
+            <img src="/images/image-placeholder.png" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Заголовок объявления</h5>
+                <p class="card-text">Краткое описание объявления.</p>
+                <a href="#" class="btn btn-primary">Перейти к объявлению</a>
+            </div>
+        </div>
+        <div class="card col-md-2 mx-auto" style="width: 18rem;">
+            <img src="/images/image-placeholder.png" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Заголовок объявления</h5>
+                <p class="card-text">Краткое описание объявления.</p>
+                <a href="#" class="btn btn-primary">Перейти к объявлению</a>
+            </div>
+        </div>
+        <div class="card col-md-2 mx-auto" style="width: 24rem;">
+            <img src="/images/image-placeholder.png" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Заголовок объявления</h5>
+                <p class="card-text">Краткое описание объявления.</p>
+                <a href="#" class="btn btn-primary">Перейти к объявлению</a>
+            </div>
+        </div>
+        <div class="card col-md-2 mx-auto" style="width: 24rem;">
+            <img src="/images/image-placeholder.png" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Заголовок объявления</h5>
+                <p class="card-text">Краткое описание объявления.</p>
+                <a href="#" class="btn btn-primary">Перейти к объявлению</a>
+            </div>
+        </div>
+    </div>
+    <div class="row ml-4 mr-4 justify-content-around mt-5">
+        <div class="card col-md-2 mx-auto" style="width: 18rem;">
+            <img src="/images/image-placeholder.png" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Заголовок объявления</h5>
+                <p class="card-text">Краткое описание объявления.</p>
+                <a href="#" class="btn btn-primary">Перейти к объявлению</a>
+            </div>
+        </div>
+        <div class="card col-md-2 mx-auto" style="width: 18rem;">
+            <img src="/images/image-placeholder.png" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Заголовок объявления</h5>
+                <p class="card-text">Краткое описание объявления.</p>
+                <a href="#" class="btn btn-primary">Перейти к объявлению</a>
+            </div>
+        </div>
+        <div class="card col-md-2 mx-auto" style="width: 18rem;">
+            <img src="/images/image-placeholder.png" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Заголовок объявления</h5>
+                <p class="card-text">Краткое описание объявления.</p>
+                <a href="#" class="btn btn-primary">Перейти к объявлению</a>
+            </div>
+        </div>
+        <div class="card col-md-2 mx-auto" style="width: 18rem;">
+            <img src="/images/image-placeholder.png" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Заголовок объявления</h5>
+                <p class="card-text">Краткое описание объявления.</p>
+                <a href="#" class="btn btn-primary">Перейти к объявлению</a>
+            </div>
+        </div>
+        <div class="card col-md-2 mx-auto" style="width: 18rem;">
+            <img src="/images/image-placeholder.png" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Заголовок объявления</h5>
+                <p class="card-text">Краткое описание объявления.</p>
+                <a href="#" class="btn btn-primary">Перейти к объявлению</a>
+            </div>
+        </div>
+    </div>
+    <div class="row ml-4 mr-4 justify-content-around mt-5">
+        <div class="card col-md-2 mx-auto" style="width: 18rem;">
+            <img src="/images/image-placeholder.png" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Заголовок объявления</h5>
+                <p class="card-text">Краткое описание объявления.</p>
+                <a href="#" class="btn btn-primary">Перейти к объявлению</a>
+            </div>
+        </div>
+        <div class="card col-md-2 mx-auto" style="width: 18rem;">
+            <img src="/images/image-placeholder.png" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Заголовок объявления</h5>
+                <p class="card-text">Краткое описание объявления.</p>
+                <a href="#" class="btn btn-primary">Перейти к объявлению</a>
+            </div>
+        </div>
+        <div class="card col-md-2 mx-auto" style="width: 18rem;">
+            <img src="/images/image-placeholder.png" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Заголовок объявления</h5>
+                <p class="card-text">Краткое описание объявления.</p>
+                <a href="#" class="btn btn-primary">Перейти к объявлению</a>
+            </div>
+        </div>
+        <div class="card col-md-2 mx-auto" style="width: 18rem;">
+            <img src="/images/image-placeholder.png" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Заголовок объявления</h5>
+                <p class="card-text">Краткое описание объявления.</p>
+                <a href="#" class="btn btn-primary">Перейти к объявлению</a>
+            </div>
+        </div>
+        <div class="card col-md-2 mx-auto" style="width: 18rem;">
+            <img src="/images/image-placeholder.png" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Заголовок объявления</h5>
+                <p class="card-text">Краткое описание объявления.</p>
+                <a href="#" class="btn btn-primary">Перейти к объявлению</a>
+            </div>
+        </div>
+    </div>
+    <div class="row ml-4 mr-4 justify-content-around mt-5">
+        <div class="card col-md-2 mx-auto" style="width: 18rem;">
+            <img src="/images/image-placeholder.png" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Заголовок объявления</h5>
+                <p class="card-text">Краткое описание объявления.</p>
+                <a href="#" class="btn btn-primary">Перейти к объявлению</a>
+            </div>
+        </div>
+        <div class="card col-md-2 mx-auto" style="width: 18rem;">
+            <img src="/images/image-placeholder.png" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Заголовок объявления</h5>
+                <p class="card-text">Краткое описание объявления.</p>
+                <a href="#" class="btn btn-primary">Перейти к объявлению</a>
+            </div>
+        </div>
+        <div class="card col-md-2 mx-auto" style="width: 18rem;">
+            <img src="/images/image-placeholder.png" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Заголовок объявления</h5>
+                <p class="card-text">Краткое описание объявления.</p>
+                <a href="#" class="btn btn-primary">Перейти к объявлению</a>
+            </div>
+        </div>
+        <div class="card col-md-2 mx-auto" style="width: 18rem;">
+            <img src="/images/image-placeholder.png" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Заголовок объявления</h5>
+                <p class="card-text">Краткое описание объявления.</p>
+                <a href="#" class="btn btn-primary">Перейти к объявлению</a>
+            </div>
+        </div>
+        <div class="card col-md-2 mx-auto" style="width: 18rem;">
+            <img src="/images/image-placeholder.png" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Заголовок объявления</h5>
+                <p class="card-text">Краткое описание объявления.</p>
+                <a href="#" class="btn btn-primary">Перейти к объявлению</a>
+            </div>
+        </div>
+        <div class="card col-md-2 mx-auto" style="width: 18rem;">
+            <img src="/images/image-placeholder.png" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Заголовок объявления</h5>
+                <p class="card-text">Краткое описание объявления.</p>
+                <a href="#" class="btn btn-primary">Перейти к объявлению</a>
+            </div>
+        </div>
+    </div>
+    <div class="row ml-4 mr-4 justify-content-around mt-5">
+        <div class="card col-md-2 mx-auto" style="width: 18rem;">
+            <img src="/images/image-placeholder.png" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Заголовок объявления</h5>
+                <p class="card-text">Краткое описание объявления.</p>
+                <a href="#" class="btn btn-primary">Перейти к объявлению</a>
+            </div>
+        </div>
+        <div class="card col-md-2 mx-auto" style="width: 18rem;">
+            <img src="/images/image-placeholder.png" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Заголовок объявления</h5>
+                <p class="card-text">Краткое описание объявления.</p>
+                <a href="#" class="btn btn-primary">Перейти к объявлению</a>
+            </div>
+        </div>
+        <div class="card col-md-2 mx-auto" style="width: 18rem;">
+            <img src="/images/image-placeholder.png" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Заголовок объявления</h5>
+                <p class="card-text">Краткое описание объявления.</p>
+                <a href="#" class="btn btn-primary">Перейти к объявлению</a>
+            </div>
+        </div>
+        <div class="card col-md-2 mx-auto" style="width: 18rem;">
+            <img src="/images/image-placeholder.png" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Заголовок объявления</h5>
+                <p class="card-text">Краткое описание объявления.</p>
+                <a href="#" class="btn btn-primary">Перейти к объявлению</a>
+            </div>
+        </div>
+        <div class="card col-md-2 mx-auto" style="width: 18rem;">
+            <img src="/images/image-placeholder.png" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Заголовок объявления</h5>
+                <p class="card-text">Краткое описание объявления.</p>
+                <a href="#" class="btn btn-primary">Перейти к объявлению</a>
+            </div>
+        </div>
+    </div>
+    <div class="row ml-4 mr-4 justify-content-around mt-5">
+        <div class="card col-md-2 mx-auto" style="width: 18rem;">
+            <img src="/images/image-placeholder.png" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Заголовок объявления</h5>
+                <p class="card-text">Краткое описание объявления.</p>
+                <a href="#" class="btn btn-primary">Перейти к объявлению</a>
+            </div>
+        </div>
+        <div class="card col-md-2 mx-auto" style="width: 18rem;">
+            <img src="/images/image-placeholder.png" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Заголовок объявления</h5>
+                <p class="card-text">Краткое описание объявления.</p>
+                <a href="#" class="btn btn-primary">Перейти к объявлению</a>
+            </div>
+        </div>
+        <div class="card col-md-2 mx-auto" style="width: 18rem;">
+            <img src="/images/image-placeholder.png" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Заголовок объявления</h5>
+                <p class="card-text">Краткое описание объявления.</p>
+                <a href="#" class="btn btn-primary">Перейти к объявлению</a>
+            </div>
+        </div>
+        <div class="card col-md-2 mx-auto" style="width: 18rem;">
+            <img src="/images/image-placeholder.png" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Заголовок объявления</h5>
+                <p class="card-text">Краткое описание объявления.</p>
+                <a href="#" class="btn btn-primary">Перейти к объявлению</a>
+            </div>
+        </div>
+        <div class="card col-md-2 mx-auto" style="width: 18rem;">
+            <img src="/images/image-placeholder.png" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Заголовок объявления</h5>
+                <p class="card-text">Краткое описание объявления.</p>
+                <a href="#" class="btn btn-primary">Перейти к объявлению</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div th:replace="~{fragments/header.html :: script}"></div>
+</body>
+</html>

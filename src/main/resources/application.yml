@@ -7,6 +7,7 @@ spring:
     url: jdbc:mysql://localhost:3306/avito?useUnicode=yes&characterEncoding=UTF-8&serverTimezone=UTC
     username: root
     password: root
+    initialization-mode: always
   jpa:
     show-sql: false
     hibernate:
@@ -18,6 +19,7 @@ spring:
         format_sql: false
         jdbc:
           timezone: UTC
+
 google:
   client:
     clientId: 344846477697-c2rmg5mke2phj7tah05huer1shlgdluf.apps.googleusercontent.com
@@ -30,3 +32,14 @@ google:
     userInfoUri: https://www.googleapis.com/oauth2/v3/userinfo
     preferTokenInfo: true
 
+vk:
+  client:
+    clientId: 7517722
+    clientSecret: gsG85MUAQiOdmSVdBogN
+    accessTokenUri: https://api.vk.com/oauth/token
+    userAuthorizationUri: https://oauth.vk.com/authorize?v=5.8
+    scope: id,first_name,last_name,photo_50, offline
+    clientAuthenticationScheme: form
+  resource:
+    userInfoUri: https://api.vk.com/method/users.get
+    preferTokenInfo: true
