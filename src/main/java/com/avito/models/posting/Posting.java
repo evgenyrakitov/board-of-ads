@@ -2,6 +2,7 @@ package com.avito.models.posting;
 
 import com.avito.models.Category;
 import com.avito.models.Images;
+import com.avito.models.Message;
 import com.avito.models.User;
 import lombok.*;
 import org.slf4j.LoggerFactory;
@@ -54,5 +55,8 @@ public class Posting {
     @OneToMany(cascade = CascadeType.ALL)
     @Column(name = "image_path")
     private Set<Images> imagePath;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    private Set<Message> messages;
 
 }

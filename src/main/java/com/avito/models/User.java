@@ -51,6 +51,9 @@ public class User implements UserDetails {
 
     private String userIcons;
 
+    @OneToMany(cascade = CascadeType.ALL)
+    private Set<Message> messages;
+
     @Override
     public String getPassword() {
         return password;
