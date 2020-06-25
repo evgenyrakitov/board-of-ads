@@ -7,6 +7,7 @@ spring:
     url: jdbc:mysql://localhost:3306/avito?useUnicode=yes&characterEncoding=UTF-8&serverTimezone=UTC
     username: root
     password: root
+    initialization-mode: always
   jpa:
     show-sql: false
     hibernate:
@@ -18,6 +19,7 @@ spring:
         format_sql: false
         jdbc:
           timezone: UTC
+
 google:
   client:
     clientId: 344846477697-c2rmg5mke2phj7tah05huer1shlgdluf.apps.googleusercontent.com
