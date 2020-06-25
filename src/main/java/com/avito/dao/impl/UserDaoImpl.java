@@ -1,27 +1,26 @@
 package com.avito.dao.impl;
 
-import com.avito.configs.security.AuthProvider;
-import com.avito.models.User;
 import com.avito.dao.interfaces.UserDao;
+import com.avito.models.User;
+import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
 
-import javax.management.InstanceNotFoundException;
 import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
+import javax.persistence.NoResultException;
 import java.util.List;
 
 @Repository
+@RequiredArgsConstructor
 public class UserDaoImpl implements UserDao {
     private static final Logger logger = LoggerFactory.getLogger(UserDaoImpl.class);
 
-    @PersistenceContext
-    private EntityManager entityManager;
+    private final EntityManager entityManager;
 
     @Override
     public List<User> getAllUsers() {
-        return entityManager.createQuery("from User").getResultList();
+        return entityManager.createQuery("from User", User.class).getResultList();
     }
 
     @Override
@@ -31,13 +30,15 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public User findUserByLogin(String login) {
+        User user = null;
         try {
-            return entityManager.createQuery("from User where login = :login", User.class)
+            user = entityManager.createQuery("from User where login = :login", User.class)
                     .setParameter("login", login)
-                    .getResultList().get(0);
-        } catch (IndexOutOfBoundsException e) {
-            return null;
+                    .getSingleResult();
+        }catch (NoResultException e){
+
         }
+        return user;
     }
 
     @Override
