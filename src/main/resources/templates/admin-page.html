@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <div th:replace="~{fragments/header.html :: links}"></div>
+
+    <title>Users</title>
+</head>
+<body>
+<div th:replace="~{fragments/header.html :: header}"></div>
+
+<div class="container-fluid mt-3 container_cus">
+
+        <ul class="nav nav-tabs" id="users" role="tablist">
+            <li class="nav-item" role="presentation">
+                <a class="nav-link active" id="users-tab" data-toggle="tab" href="#users-tab-content" role="tab"
+                   aria-controls="users-tab-content" aria-selected="true">Users</a>
+            </li>
+            <li class="nav-item" role="presentation">
+                <a class="nav-link" id="categories-tab" data-toggle="tab" href="#categories-tab-content" role="tab"
+                   aria-controls="categories-tab-content" aria-selected="false">Categories</a>
+            </li>
+        </ul>
+        <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="users-tab-content" role="tabpanel" aria-labelledby="users-tab">
+                <table class="table table-bordered table-striped ">
+                    <thead id="theadUsers" class="thead-dark">
+                    <tr>
+                        <th>id</th>
+                        <th>login</th>
+                        <th>publicName</th>
+                        <th>password</th>
+                        <th>roles</th>
+                    </tr>
+                    </thead>
+                    <tbody id="tbodyUsers">
+                    </tbody>
+                </table>
+            </div>
+            <div class="tab-pane fade" id="categories-tab-content" role="tabpanel" aria-labelledby="categories-tab">
+                categories
+            </div>
+        </div>
+</div>
+<div th:replace="~{fragments/header.html :: script}"></div>
+
+<script src="js/admin-page.js"></script>
+</body>
+</html>

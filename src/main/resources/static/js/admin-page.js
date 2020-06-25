@@ -38,7 +38,7 @@ let getSelect = function (el) {
     selectLocal.attr("size", el.roles.length);
     selectLocal.attr("id", "select" + el.id);
     el.roles.forEach(function (role) {
-        option.clone().text(role.role).appendTo(selectLocal);
+        option.clone().text(role.name).appendTo(selectLocal);
     });
     let tdSelect = td.clone();
     selectLocal.appendTo(tdSelect);
