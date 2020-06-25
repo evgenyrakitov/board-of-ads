@@ -18,11 +18,11 @@
 <br>
 
 <div class="row">
-    <div class="col">
+    <div class="col1">
         <div class="btn-group-vertical">
             <button type="button" class="btn" id="btnTransport">Транспорт</button>
-            <button type="button" class="btn">Недвижимость</button>
-            <button type="button" class="btn">Работа</button>
+            <button type="button" class="btn" id="btnImmovables">Недвижимость</button>
+            <button type="button" class="btn" id="btnJob">Работа </button>
             <button type="button" class="btn">Услуги</button>
             <button type="button" class="btn">Личные вещи</button>
             <button type="button" class="btn">Для дома и дачи</button>
@@ -32,32 +32,202 @@
             <button type="button" class="btn">Для бизнеса</button>
         </div>
     </div>
-    <div class="col d-none"  id="transport">
+    <div class="col" style="display: none"  id="transport" name="colCategory2">
         <div class="btn-group-vertical">
-            <button type="button" class="btn">Транспорт</button>
-            <button type="button" class="btn">Недвижимость</button>
-            <button type="button" class="btn">Работа</button>
-            <button type="button" class="btn">Услуги</button>
-            <button type="button" class="btn">Личные вещи</button>
-            <button type="button" class="btn">Для дома и дачи</button>
-            <button type="button" class="btn">Бытовая электроника</button>
-            <button type="button" class="btn">Хобби и отдых</button>
-            <button type="button" class="btn">Животные</button>
-            <button type="button" class="btn">Для бизнеса</button>
+            <button type="button" class="btn" id="btnAuto">Автомобили</button>
+            <button type="button" class="btn"  id="btnMotorcycle">Мотоциклы и мототехника</button>
+            <button type="button" class="btn"  id="btnTruck">Грузовики и спец техника</button>
+            <button type="button" class="btn" id="btnWaterTransport" >Водный транспорт</button>
+            <button type="button" class="btn" id="btnParts">Запчасти и аксессуары</button>
         </div>
     </div>
-    <div class="col">
-        <div class="btn-group-vertical d-none">
-            <button type="button" class="btn">Транспорт</button>
-            <button type="button" class="btn">Недвижимость</button>
-            <button type="button" class="btn">Работа</button>
-            <button type="button" class="btn">Услуги</button>
-            <button type="button" class="btn">Личные вещи</button>
-            <button type="button" class="btn">Для дома и дачи</button>
-            <button type="button" class="btn">Бытовая электроника</button>
-            <button type="button" class="btn">Хобби и отдых</button>
-            <button type="button" class="btn">Животные</button>
-            <button type="button" class="btn">Для бизнеса</button>
+    <div class="col" style="display: none"  id="immovables" name="colCategory2">
+        <div class="btn-group-vertical">
+            <button type="button" class="btn" id="btnApartments">Квартиры</button>
+            <button type="button" class="btn" id="btnSmallApartments">Комнаты</button>
+            <button type="button" class="btn" id="btnCottage">Дома, дачи, коттеджи</button>
+            <button type="button" class="btn" id="btnPlace">Земельные участки</button>
+            <button type="button" class="btn" id="btnAutoHouse">Гаражи и машиноместа</button>
+            <button type="button" class="btn" id="btnComercApartments">Коммерческая недвижимость</button>
+            <button type="button" class="btn" id="btnApartmentsAbroad">Недвижимость за рубежом</button>
+        </div>
+    </div>
+    <div class="col" style="display: none"  id="job" name="colCategory2">
+        <div class="btn-group-vertical">
+            <button type="button" class="btn" id="btnVacancy" >Вакансии</button>
+            <button type="button" class="btn" id="btnSummary" >Резюме</button>
+        </div>
+    </div>
+
+
+
+
+
+<!--3 категория машины-->
+
+    <div class="col" style="display: none"  id="auto" name="colCategory3">
+        <div class="btn-group-vertical ">
+            <button type="button" class="btn">С пробегом</button>
+            <button type="button" class="btn">Новые</button>
+        </div>
+    </div>
+    <div class="col" style="display: none"  id="motorcycle" name="colCategory3">
+        <div class="btn-group-vertical ">
+            <button type="button" class="btn">Багги</button>
+            <button type="button" class="btn">Вездеходы</button>
+            <button type="button" class="btn">Картинг</button>
+            <button type="button" class="btn">Квадроциклы</button>
+            <button type="button" class="btn">Мопеды и скутеры</button>
+            <button type="button" class="btn">Мотоциклы</button>
+            <button type="button" class="btn">Снегоходы</button>
+        </div>
+    </div>
+    <div class="col" style="display: none"  id="truck" name="colCategory3">
+        <div class="btn-group-vertical ">
+            <button type="button" class="btn">Автобусы</button>
+            <button type="button" class="btn">Автодома</button>
+            <button type="button" class="btn">Автокраны</button>
+            <button type="button" class="btn">Бульдозеры</button>
+            <button type="button" class="btn">Грузовики</button>
+            <button type="button" class="btn">Коммунальная техника</button>
+            <button type="button" class="btn">Лёгкий транспорт</button>
+            <button type="button" class="btn">Погрузчики</button>
+            <button type="button" class="btn">Прицепы</button>
+            <button type="button" class="btn">Сельхозтехника</button>
+            <button type="button" class="btn">Строительная техника</button>
+            <button type="button" class="btn">Техника для лесозаготовки</button>
+            <button type="button" class="btn">Тягачи</button>
+            <button type="button" class="btn">Экскаваторы</button>
+        </div>
+    </div>
+    <div class="col" style="display: none"  id="waterTransport" name="colCategory3">
+        <div class="btn-group-vertical ">
+            <button type="button" class="btn">Вёсельные лодки</button>
+            <button type="button" class="btn">Гидроциклы</button>
+            <button type="button" class="btn">Катера и яхты</button>
+            <button type="button" class="btn">Каяки и каноэ</button>
+            <button type="button" class="btn">Моторные лодки</button>
+            <button type="button" class="btn">Надувные лодки</button>
+        </div>
+    </div>
+
+    <!--3 категория жилье-->
+
+    <div class="col" style="display: none"  id="apartments" name="colCategory3">
+        <div class="btn-group-vertical ">
+            <button type="button" class="btn">Продам</button>
+            <button type="button" class="btn">Сдам</button>
+            <button type="button" class="btn">Куплю</button>
+            <button type="button" class="btn">Сниму</button>
+        </div>
+    </div>
+    <div class="col" style="display: none"  id="smallApartments" name="colCategory3">
+        <div class="btn-group-vertical ">
+            <button type="button" class="btn">Продам</button>
+            <button type="button" class="btn">Сдам</button>
+            <button type="button" class="btn">Куплю</button>
+            <button type="button" class="btn">Сниму</button>
+        </div>
+    </div>
+    <div class="col" style="display: none"  id="cottage" name="colCategory3">
+        <div class="btn-group-vertical ">
+            <button type="button" class="btn">Продам</button>
+            <button type="button" class="btn">Сдам</button>
+            <button type="button" class="btn">Куплю</button>
+            <button type="button" class="btn">Сниму</button>
+        </div>
+    </div>
+    <div class="col" style="display: none"  id="place" name="colCategory3">
+        <div class="btn-group-vertical ">
+            <button type="button" class="btn">Продам</button>
+            <button type="button" class="btn">Сдам</button>
+            <button type="button" class="btn">Куплю</button>
+            <button type="button" class="btn">Сниму</button>
+        </div>
+    </div>
+    <div class="col" style="display: none"  id="autoHouse" name="colCategory3">
+        <div class="btn-group-vertical ">
+            <button type="button" class="btn">Продам</button>
+            <button type="button" class="btn">Сдам</button>
+            <button type="button" class="btn">Куплю</button>
+            <button type="button" class="btn">Сниму</button>
+        </div>
+    </div>
+    <div class="col" style="display: none"  id="comercApartments" name="colCategory3">
+        <div class="btn-group-vertical ">
+            <button type="button" class="btn">Продам</button>
+            <button type="button" class="btn">Сдам</button>
+            <button type="button" class="btn">Куплю</button>
+            <button type="button" class="btn">Сниму</button>
+        </div>
+    </div>
+    <div class="col" style="display: none"  id="apartmentsAbroad" name="colCategory3">
+        <div class="btn-group-vertical ">
+            <button type="button" class="btn">Продам</button>
+            <button type="button" class="btn">Сдам</button>
+            <button type="button" class="btn">Куплю</button>
+            <button type="button" class="btn">Сниму</button>
+        </div>
+    </div>
+
+
+    <!--3 категория работа-->
+    <div class="col" style="display: none"  id="vacancy" name="colCategory3">
+        <div class="btn-group-vertical ">
+            <button type="button" class="btn">IT, интернет, телеком</button>
+            <button type="button" class="btn">Автомобильный бизнес</button>
+            <button type="button" class="btn">Административная работа</button>
+            <button type="button" class="btn">Банки, инвестиции</button>
+            <button type="button" class="btn">Без опыта, студенты</button>
+            <button type="button" class="btn">Бухгалтерия, финансы</button>
+            <button type="button" class="btn">Высший менеджмент</button>
+            <button type="button" class="btn">Госслужба, НКО</button>
+            <button type="button" class="btn">Домашний персонал</button>
+            <button type="button" class="btn">ЖКХ, эксплуатация</button>
+            <button type="button" class="btn">Искусство, развлечения</button>
+            <button type="button" class="btn">Консультирование</button>
+            <button type="button" class="btn">Маркетинг, реклама, PR</button>
+            <button type="button" class="btn">Медицина, фармацевтика</button>
+            <button type="button" class="btn">Образование, наука</button>
+            <button type="button" class="btn">Охрана, безопасность</button>
+            <button type="button" class="btn">Продажи</button>
+            <button type="button" class="btn">Производство, сырьё, с/х</button>
+            <button type="button" class="btn">Страхование</button>
+            <button type="button" class="btn">Строительство</button>
+            <button type="button" class="btn">Транспорт, логистика</button>
+            <button type="button" class="btn">Туризм, рестораны</button>
+            <button type="button" class="btn">Управление персоналом</button>
+            <button type="button" class="btn">Фитнес, салоны красоты</button>
+            <button type="button" class="btn">Юриспруденция</button>
+        </div>
+    </div>
+    <div class="col" style="display: none"  id="summary" name="colCategory3">
+        <div class="btn-group-vertical ">
+            <button type="button" class="btn">IT, интернет, телеком</button>
+            <button type="button" class="btn">Автомобильный бизнес</button>
+            <button type="button" class="btn">Административная работа</button>
+            <button type="button" class="btn">Банки, инвестиции</button>
+            <button type="button" class="btn">Без опыта, студенты</button>
+            <button type="button" class="btn">Бухгалтерия, финансы</button>
+            <button type="button" class="btn">Высший менеджмент</button>
+            <button type="button" class="btn">Госслужба, НКО</button>
+            <button type="button" class="btn">Домашний персонал</button>
+            <button type="button" class="btn">ЖКХ, эксплуатация</button>
+            <button type="button" class="btn">Искусство, развлечения</button>
+            <button type="button" class="btn">Консультирование</button>
+            <button type="button" class="btn">Маркетинг, реклама, PR</button>
+            <button type="button" class="btn">Медицина, фармацевтика</button>
+            <button type="button" class="btn">Образование, наука</button>
+            <button type="button" class="btn">Охрана, безопасность</button>
+            <button type="button" class="btn">Продажи</button>
+            <button type="button" class="btn">Производство, сырьё, с/х</button>
+            <button type="button" class="btn">Страхование</button>
+            <button type="button" class="btn">Строительство</button>
+            <button type="button" class="btn">Транспорт, логистика</button>
+            <button type="button" class="btn">Туризм, рестораны</button>
+            <button type="button" class="btn">Управление персоналом</button>
+            <button type="button" class="btn">Фитнес, салоны красоты</button>
+            <button type="button" class="btn">Юриспруденция</button>
         </div>
     </div>
 </div>
@@ -90,84 +260,18 @@
 
 
 
-<!-- Grey with black text -->
-<!-- Button to Open the Modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalCategory">
-    Категория объявления
-</button>
-
-<!-- The Modal -->
-<div class="modal" id="modalCategory">
-    <div class="modal-dialog">
-        <div class="modal-content">
-
-            <!-- Modal Header -->
-            <div class="modal-header">
-                <h4 class="modal-title">Категория</h4>
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-            </div>
-
-            <!-- Modal body -->
-            <div class="modal-body">
-                <div class="btn-group-vertical">
-                    <button type="button" class="btn"  data-toggle="modal" data-target="#modalTransport">Транспорт</button>
-                    <button type="button" class="btn">Недвижимость</button>
-                    <button type="button" class="btn">Работа</button>
-                    <button type="button" class="btn">Услуги</button>
-                    <button type="button" class="btn">Личные вещи</button>
-                    <button type="button" class="btn">Для дома и дачи</button>
-                    <button type="button" class="btn">Бытовая электроника</button>
-                    <button type="button" class="btn">Хобби и отдых</button>
-                    <button type="button" class="btn">Животные</button>
-                    <button type="button" class="btn">Для бизнеса</button>
-                </div>
-
-            </div>
-
-            <!-- Modal footer -->
-            <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-            </div>
-
-        </div>
-    </div>
-</div>
 
 
 
 
 
 
-<!-- The Modal -->
-<div class="modal" id="modalTransport">
-    <div class="modal-dialog">
-        <div class="modal-content">
 
-            <!-- Modal Header -->
-            <div class="modal-header">
-                <h4 class="modal-title">Транспорт</h4>
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-            </div>
 
-            <!-- Modal body -->
-            <div class="modal-body">
-                <div class="btn-group-vertical">
-                    <button type="button" class="btn">Автомобили</button>
-                    <button type="button" class="btn">Мотоциклы и мототехника</button>
-                    <button type="button" class="btn">Грузовики и спец техника</button>
-                    <button type="button" class="btn">Водный транспорт</button>
-                    <button type="button" class="btn">Запчасти и аксессуары</button>
-                </div>
-            </div>
 
-            <!-- Modal footer -->
-            <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-            </div>
 
-        </div>
-    </div>
-</div>
+
+
 
 
 
