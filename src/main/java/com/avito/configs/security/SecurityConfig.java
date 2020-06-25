@@ -1,12 +1,15 @@
 package com.avito.configs.security;
 
-import com.avito.service.interfaces.UserService;
+import com.avito.service.interfaces.SocialNetworkService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.boot.autoconfigure.security.oauth2.resource.PrincipalExtractor;
 import org.springframework.boot.autoconfigure.security.oauth2.resource.ResourceServerProperties;
+import org.springframework.boot.autoconfigure.security.oauth2.resource.UserInfoTokenServices;
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.boot.context.properties.NestedConfigurationProperty;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -23,64 +26,35 @@ import org.springframework.security.oauth2.client.filter.OAuth2ClientContextFilt
 import org.springframework.security.oauth2.client.token.grant.code.AuthorizationCodeResourceDetails;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableOAuth2Client;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.web.filter.CompositeFilter;
 import org.thymeleaf.extras.springsecurity5.dialect.SpringSecurityDialect;
 
 import javax.servlet.Filter;
+import java.util.ArrayList;
+import java.util.List;
 
 @Configuration
 @EnableWebSecurity
 @EnableOAuth2Client
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
+
     private static final Logger logger = LoggerFactory.getLogger(SecurityConfig.class);
 
     @Qualifier("oauth2ClientContext")
     @Autowired
-    private OAuth2ClientContext oAuth2ClientContext; //Для гугл авторизации
-
-    @Autowired
-    private PasswordEncoder passwordEncoder;
+    private OAuth2ClientContext oAuth2ClientContext; //Для google и vk авторизацй
 
     @Autowired
     private AuthProvider authProvider;
 
     @Autowired
-    private UserService userService;
+    private SocialNetworkService socialNetworkService;
 
     //Провайдер аутентификации
     @Override
     protected void configure(AuthenticationManagerBuilder auth) {
         auth.authenticationProvider(authProvider);
     }
-
-    //сам фильтр для перехвата авторизации до срабатывания фильтра Спринга
-    private Filter ssoFilter() {
-        OAuth2ClientAuthenticationProcessingFilter googleFilter = new OAuth2ClientAuthenticationProcessingFilter(
-                "/login/google");
-        OAuth2RestTemplate googleTemplate = new OAuth2RestTemplate(google(), oAuth2ClientContext);
-        googleFilter.setRestTemplate(googleTemplate);
-        CustomUserInfoTokenServices tokenServices = new CustomUserInfoTokenServices(googleResource().getUserInfoUri(), google().getClientId());
-        tokenServices.setRestTemplate(googleTemplate);
-        googleFilter.setTokenServices(tokenServices);
-        tokenServices.setUserService(userService);
-        tokenServices.setPasswordEncoder(passwordEncoder);
-        return googleFilter;
-    }
-
-
-    //информация о регистрации пользователя в гугл
-    @Bean
-    @ConfigurationProperties("google.client")
-    public AuthorizationCodeResourceDetails google() {
-        return new AuthorizationCodeResourceDetails();
-    }
-
-    //конечная точка авторизации в гугле
-    @Bean
-    @ConfigurationProperties("google.resource")
-    public ResourceServerProperties googleResource() {
-        return new ResourceServerProperties();
-    }
-
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
@@ -120,6 +94,35 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         return new SpringSecurityDialect();
     }
 
+    //сам фильтр для перехвата авторизации до срабатывания фильтра Спринга
+    private Filter ssoFilter(ClientResources clientResources, String path) {
+        OAuth2ClientAuthenticationProcessingFilter filter = new OAuth2ClientAuthenticationProcessingFilter(path);
+        OAuth2RestTemplate template = new OAuth2RestTemplate(clientResources.getClient(), oAuth2ClientContext);
+        filter.setRestTemplate(template);
+        UserInfoTokenServices tokenServices = new UserInfoTokenServices(
+                clientResources.getResource().getUserInfoUri(), clientResources.getClient().getClientId());
+        tokenServices.setRestTemplate(template);
+        tokenServices.setPrincipalExtractor(authPrincipalExtractor());
+        filter.setTokenServices(tokenServices);
+        return filter;
+    }
+
+    private Filter ssoFilter () {
+        CompositeFilter filter = new CompositeFilter();
+        List<Filter> filters = new ArrayList<>();
+
+        filters.add(ssoFilter(google(), "/login/google"));
+        filters.add(ssoFilter(vk(), "/login/vk"));
+
+        filter.setFilters(filters);
+        return filter;
+    }
+
+    @Bean
+    public PrincipalExtractor authPrincipalExtractor() {
+        return map -> socialNetworkService.loadUserInSocialNetwork(map);
+    }
+
     //Регистрация фильтра для перехвата авторизации до срабатывания фильтра Спринга
     @Bean
     public FilterRegistrationBean oAuth2ClientFilterRegistration(OAuth2ClientContextFilter oAuth2ClientContextFilter) {
@@ -129,5 +132,32 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         return registration;
     }
 
+    @Bean
+    @ConfigurationProperties("google")
+    public ClientResources google () {
+        return new ClientResources();
+    }
+
+    @Bean
+    @ConfigurationProperties("vk")
+    public ClientResources vk () {
+        return new ClientResources();
+    }
+
+    class ClientResources {
+
+        @NestedConfigurationProperty
+        private AuthorizationCodeResourceDetails client = new AuthorizationCodeResourceDetails();
+
+        @NestedConfigurationProperty
+        private ResourceServerProperties resource = new ResourceServerProperties();
+
+        public AuthorizationCodeResourceDetails getClient() {
+            return client;
+        }
+        public ResourceServerProperties getResource() {
+            return resource;
+        }
+    }
 
 }
