@@ -2,10 +2,14 @@ package com.avito.controllers.rest;
 
 import com.avito.configs.security.AuthProvider;
 import com.avito.models.Category;
+import com.avito.models.Images;
+import com.avito.models.Posting;
+import com.avito.models.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.parameters.P;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -57,6 +61,25 @@ public class HeaderRestController {
         list.add("Бизнес");
         list.add("Бизнес");
         list.add("Помощь");
+        return !list.isEmpty()
+                ? new ResponseEntity<>(list, HttpStatus.OK)
+                : new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    }
+    @GetMapping("/getProductCards")
+    public ResponseEntity<List<Posting>> getProductCards() {
+        Set<Images> img = new HashSet<>();
+        Images images = new Images();
+        images.setImagePath("/images/image-placeholder.png");
+        img.add(images);
+        Posting posting = new Posting();
+        posting.setPrice(123123L);
+        posting.setImagePath(img);
+        posting.setShortDescription("Краткое описание");
+        posting.setTitle("Автокресло 0-1");
+        List<Posting> list = new ArrayList<>();
+            for (int i = 0; i< 77; i++){
+                list.add(posting);
+            }
         return !list.isEmpty()
                 ? new ResponseEntity<>(list, HttpStatus.OK)
                 : new ResponseEntity<>(HttpStatus.NOT_FOUND);

@@ -1,0 +1,22 @@
+.container_cus{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 1170px;
+    justify-content: space-between;
+    margin: 0 auto;
+}
+.container_cus .card{
+    width: 250px;
+    margin: 10px;
+}
+@media (max-width: 900px) {
+    .container_cus {
+        margin-top: 60px !important;
+    }
+}
+@media (max-width: 830px) {
+    .container_cus {
+        justify-content: center;
+    }
+}
