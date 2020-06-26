@@ -15,7 +15,6 @@ import org.springframework.transaction.annotation.Transactional;
 public class RoleServiceImpl implements RoleService {
     private static final Logger logger = LoggerFactory.getLogger(RoleServiceImpl.class);
 
-
     private final RoleDao roleDao;
 
     @Override

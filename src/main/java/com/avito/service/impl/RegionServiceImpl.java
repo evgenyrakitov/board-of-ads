@@ -15,7 +15,7 @@ import java.util.List;
 public class RegionServiceImpl implements RegionService {
     private static final Logger logger = LoggerFactory.getLogger(RegionServiceImpl.class);
 
-    private RegionRepository regionRepository;
+    private final RegionRepository regionRepository;
 
     @Override
     public List<Region> getAllRegions() {
