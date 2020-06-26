@@ -326,3 +326,23 @@ div {
 body {
     -webkit-text-size-adjust: 100%;
 }
+.refRfeer{
+    font-family: inherit;
+    text-decoration: none;
+    color: #0091d9;
+    outline: 0;
+    background-color: transparent;
+    display: inline-block;
+    margin: 5px;
+    border: 0;
+    font-size: 14px;
+    line-height: 20px;
+}
+.header-link-3yDcQ{
+    padding: 10px;
+    display: inline-block;
+    border: 0;
+    color: #a1a1a1;
+    font-size: 14px;
+    line-height: 20px;
+}
