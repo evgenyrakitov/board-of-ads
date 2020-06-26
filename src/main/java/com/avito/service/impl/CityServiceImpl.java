@@ -15,7 +15,7 @@ import java.util.List;
 public class CityServiceImpl implements CityService {
     private static final Logger logger = LoggerFactory.getLogger(CityServiceImpl.class);
 
-    private CityRepository cityRepository;
+    private final CityRepository cityRepository;
 
     @Override
     public List<City> findAllByName(String name) {
