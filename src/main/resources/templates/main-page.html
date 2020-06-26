@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ru" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="ru" xmlns:th="https://www.thymeleaf.org">
 
 <head>
     <title>Avito clone</title>
@@ -171,7 +171,7 @@
             <div class="card-body">
                 <h5 class="card-title">Заголовок объявления</h5>
                 <p class="card-text">Краткое описание объявления.</p>
-                <a href="adDetails" class="btn btn-primary">Перейти к объявлению</a>
+                <a href="adDetails" class="btn btn-primary" th:text="#{go_to_ad}">Перейти к объявлению</a>
             </div>
         </div>
         <div class="card col-md-2 mx-auto" style="width: 18rem;">
@@ -179,7 +179,7 @@
             <div class="card-body">
                 <h5 class="card-title">Заголовок объявления</h5>
                 <p class="card-text">Краткое описание объявления.</p>
-                <a href="#" class="btn btn-primary">Перейти к объявлению</a>
+                <a href="#" class="btn btn-primary" th:text="#{go_to_ad}">Перейти к объявлению</a>
             </div>
         </div>
         <div class="card col-md-2 mx-auto" style="width: 18rem;">
@@ -187,7 +187,7 @@
             <div class="card-body">
                 <h5 class="card-title">Заголовок объявления</h5>
                 <p class="card-text">Краткое описание объявления.</p>
-                <a href="#" class="btn btn-primary">Перейти к объявлению</a>
+                <a href="#" class="btn btn-primary" th:text="#{go_to_ad}">Перейти к объявлению</a>
             </div>
         </div>
         <div class="card col-md-2 mx-auto" style="width: 18rem;">
@@ -195,7 +195,7 @@
             <div class="card-body">
                 <h5 class="card-title">Заголовок объявления</h5>
                 <p class="card-text">Краткое описание объявления.</p>
-                <a href="#" class="btn btn-primary">Перейти к объявлению</a>
+                <a href="#" class="btn btn-primary" th:text="#{go_to_ad}">Перейти к объявлению</a>
             </div>
         </div>
         <div class="card col-md-2 mx-auto" style="width: 24rem;">
@@ -203,7 +203,7 @@
             <div class="card-body">
                 <h5 class="card-title">Заголовок объявления</h5>
                 <p class="card-text">Краткое описание объявления.</p>
-                <a href="#" class="btn btn-primary">Перейти к объявлению</a>
+                <a href="#" class="btn btn-primary" th:text="#{go_to_ad}">Перейти к объявлению</a>
             </div>
         </div>
         <div class="card col-md-2 mx-auto" style="width: 24rem;">
@@ -211,7 +211,7 @@
             <div class="card-body">
                 <h5 class="card-title">Заголовок объявления</h5>
                 <p class="card-text">Краткое описание объявления.</p>
-                <a href="#" class="btn btn-primary">Перейти к объявлению</a>
+                <a href="#" class="btn btn-primary" th:text="#{go_to_ad}">Перейти к объявлению</a>
             </div>
         </div>
     </div>
@@ -221,7 +221,7 @@
             <div class="card-body">
                 <h5 class="card-title">Заголовок объявления</h5>
                 <p class="card-text">Краткое описание объявления.</p>
-                <a href="#" class="btn btn-primary">Перейти к объявлению</a>
+                <a href="#" class="btn btn-primary" th:text="#{go_to_ad}">Перейти к объявлению</a>
             </div>
         </div>
         <div class="card col-md-2 mx-auto" style="width: 18rem;">
@@ -229,7 +229,7 @@
             <div class="card-body">
                 <h5 class="card-title">Заголовок объявления</h5>
                 <p class="card-text">Краткое описание объявления.</p>
-                <a href="#" class="btn btn-primary">Перейти к объявлению</a>
+                <a href="#" class="btn btn-primary" th:text="#{go_to_ad}">Перейти к объявлению</a>
             </div>
         </div>
         <div class="card col-md-2 mx-auto" style="width: 18rem;">
@@ -237,7 +237,7 @@
             <div class="card-body">
                 <h5 class="card-title">Заголовок объявления</h5>
                 <p class="card-text">Краткое описание объявления.</p>
-                <a href="#" class="btn btn-primary">Перейти к объявлению</a>
+                <a href="#" class="btn btn-primary" th:text="#{go_to_ad}">Перейти к объявлению</a>
             </div>
         </div>
         <div class="card col-md-2 mx-auto" style="width: 18rem;">
@@ -245,7 +245,7 @@
             <div class="card-body">
                 <h5 class="card-title">Заголовок объявления</h5>
                 <p class="card-text">Краткое описание объявления.</p>
-                <a href="#" class="btn btn-primary">Перейти к объявлению</a>
+                <a href="#" class="btn btn-primary" th:text="#{go_to_ad}">Перейти к объявлению</a>
             </div>
         </div>
         <div class="card col-md-2 mx-auto" style="width: 18rem;">
@@ -253,49 +253,7 @@
             <div class="card-body">
                 <h5 class="card-title">Заголовок объявления</h5>
                 <p class="card-text">Краткое описание объявления.</p>
-                <a href="#" class="btn btn-primary">Перейти к объявлению</a>
-            </div>
-        </div>
-    </div>
-    <div class="row ml-4 mr-4 justify-content-around mt-5">
-        <div class="card col-md-2 mx-auto" style="width: 18rem;">
-            <img src="/images/image-placeholder.png" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Заголовок объявления</h5>
-                <p class="card-text">Краткое описание объявления.</p>
-                <a href="#" class="btn btn-primary">Перейти к объявлению</a>
-            </div>
-        </div>
-        <div class="card col-md-2 mx-auto" style="width: 18rem;">
-            <img src="/images/image-placeholder.png" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Заголовок объявления</h5>
-                <p class="card-text">Краткое описание объявления.</p>
-                <a href="#" class="btn btn-primary">Перейти к объявлению</a>
-            </div>
-        </div>
-        <div class="card col-md-2 mx-auto" style="width: 18rem;">
-            <img src="/images/image-placeholder.png" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Заголовок объявления</h5>
-                <p class="card-text">Краткое описание объявления.</p>
-                <a href="#" class="btn btn-primary">Перейти к объявлению</a>
-            </div>
-        </div>
-        <div class="card col-md-2 mx-auto" style="width: 18rem;">
-            <img src="/images/image-placeholder.png" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Заголовок объявления</h5>
-                <p class="card-text">Краткое описание объявления.</p>
-                <a href="#" class="btn btn-primary">Перейти к объявлению</a>
-            </div>
-        </div>
-        <div class="card col-md-2 mx-auto" style="width: 18rem;">
-            <img src="/images/image-placeholder.png" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Заголовок объявления</h5>
-                <p class="card-text">Краткое описание объявления.</p>
-                <a href="#" class="btn btn-primary">Перейти к объявлению</a>
+                <a href="#" class="btn btn-primary" th:text="#{go_to_ad}">Перейти к объявлению</a>
             </div>
         </div>
     </div>
@@ -305,7 +263,7 @@
             <div class="card-body">
                 <h5 class="card-title">Заголовок объявления</h5>
                 <p class="card-text">Краткое описание объявления.</p>
-                <a href="#" class="btn btn-primary">Перейти к объявлению</a>
+                <a href="#" class="btn btn-primary" th:text="#{go_to_ad}">Перейти к объявлению</a>
             </div>
         </div>
         <div class="card col-md-2 mx-auto" style="width: 18rem;">
@@ -313,7 +271,7 @@
             <div class="card-body">
                 <h5 class="card-title">Заголовок объявления</h5>
                 <p class="card-text">Краткое описание объявления.</p>
-                <a href="#" class="btn btn-primary">Перейти к объявлению</a>
+                <a href="#" class="btn btn-primary" th:text="#{go_to_ad}">Перейти к объявлению</a>
             </div>
         </div>
         <div class="card col-md-2 mx-auto" style="width: 18rem;">
@@ -321,7 +279,7 @@
             <div class="card-body">
                 <h5 class="card-title">Заголовок объявления</h5>
                 <p class="card-text">Краткое описание объявления.</p>
-                <a href="#" class="btn btn-primary">Перейти к объявлению</a>
+                <a href="#" class="btn btn-primary" th:text="#{go_to_ad}">Перейти к объявлению</a>
             </div>
         </div>
         <div class="card col-md-2 mx-auto" style="width: 18rem;">
@@ -329,7 +287,7 @@
             <div class="card-body">
                 <h5 class="card-title">Заголовок объявления</h5>
                 <p class="card-text">Краткое описание объявления.</p>
-                <a href="#" class="btn btn-primary">Перейти к объявлению</a>
+                <a href="#" class="btn btn-primary" th:text="#{go_to_ad}">Перейти к объявлению</a>
             </div>
         </div>
         <div class="card col-md-2 mx-auto" style="width: 18rem;">
@@ -337,15 +295,7 @@
             <div class="card-body">
                 <h5 class="card-title">Заголовок объявления</h5>
                 <p class="card-text">Краткое описание объявления.</p>
-                <a href="#" class="btn btn-primary">Перейти к объявлению</a>
-            </div>
-        </div>
-        <div class="card col-md-2 mx-auto" style="width: 18rem;">
-            <img src="/images/image-placeholder.png" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Заголовок объявления</h5>
-                <p class="card-text">Краткое описание объявления.</p>
-                <a href="#" class="btn btn-primary">Перейти к объявлению</a>
+                <a href="#" class="btn btn-primary" th:text="#{go_to_ad}">Перейти к объявлению</a>
             </div>
         </div>
     </div>
@@ -355,7 +305,7 @@
             <div class="card-body">
                 <h5 class="card-title">Заголовок объявления</h5>
                 <p class="card-text">Краткое описание объявления.</p>
-                <a href="#" class="btn btn-primary">Перейти к объявлению</a>
+                <a href="#" class="btn btn-primary" th:text="#{go_to_ad}">Перейти к объявлению</a>
             </div>
         </div>
         <div class="card col-md-2 mx-auto" style="width: 18rem;">
@@ -363,7 +313,7 @@
             <div class="card-body">
                 <h5 class="card-title">Заголовок объявления</h5>
                 <p class="card-text">Краткое описание объявления.</p>
-                <a href="#" class="btn btn-primary">Перейти к объявлению</a>
+                <a href="#" class="btn btn-primary" th:text="#{go_to_ad}">Перейти к объявлению</a>
             </div>
         </div>
         <div class="card col-md-2 mx-auto" style="width: 18rem;">
@@ -371,7 +321,7 @@
             <div class="card-body">
                 <h5 class="card-title">Заголовок объявления</h5>
                 <p class="card-text">Краткое описание объявления.</p>
-                <a href="#" class="btn btn-primary">Перейти к объявлению</a>
+                <a href="#" class="btn btn-primary" th:text="#{go_to_ad}">Перейти к объявлению</a>
             </div>
         </div>
         <div class="card col-md-2 mx-auto" style="width: 18rem;">
@@ -379,7 +329,7 @@
             <div class="card-body">
                 <h5 class="card-title">Заголовок объявления</h5>
                 <p class="card-text">Краткое описание объявления.</p>
-                <a href="#" class="btn btn-primary">Перейти к объявлению</a>
+                <a href="#" class="btn btn-primary" th:text="#{go_to_ad}">Перейти к объявлению</a>
             </div>
         </div>
         <div class="card col-md-2 mx-auto" style="width: 18rem;">
@@ -387,7 +337,15 @@
             <div class="card-body">
                 <h5 class="card-title">Заголовок объявления</h5>
                 <p class="card-text">Краткое описание объявления.</p>
-                <a href="#" class="btn btn-primary">Перейти к объявлению</a>
+                <a href="#" class="btn btn-primary" th:text="#{go_to_ad}">Перейти к объявлению</a>
+            </div>
+        </div>
+        <div class="card col-md-2 mx-auto" style="width: 18rem;">
+            <img src="/images/image-placeholder.png" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Заголовок объявления</h5>
+                <p class="card-text">Краткое описание объявления.</p>
+                <a href="#" class="btn btn-primary" th:text="#{go_to_ad}">Перейти к объявлению</a>
             </div>
         </div>
     </div>
@@ -397,7 +355,7 @@
             <div class="card-body">
                 <h5 class="card-title">Заголовок объявления</h5>
                 <p class="card-text">Краткое описание объявления.</p>
-                <a href="#" class="btn btn-primary">Перейти к объявлению</a>
+                <a href="#" class="btn btn-primary" th:text="#{go_to_ad}">Перейти к объявлению</a>
             </div>
         </div>
         <div class="card col-md-2 mx-auto" style="width: 18rem;">
@@ -405,7 +363,7 @@
             <div class="card-body">
                 <h5 class="card-title">Заголовок объявления</h5>
                 <p class="card-text">Краткое описание объявления.</p>
-                <a href="#" class="btn btn-primary">Перейти к объявлению</a>
+                <a href="#" class="btn btn-primary" th:text="#{go_to_ad}">Перейти к объявлению</a>
             </div>
         </div>
         <div class="card col-md-2 mx-auto" style="width: 18rem;">
@@ -413,7 +371,7 @@
             <div class="card-body">
                 <h5 class="card-title">Заголовок объявления</h5>
                 <p class="card-text">Краткое описание объявления.</p>
-                <a href="#" class="btn btn-primary">Перейти к объявлению</a>
+                <a href="#" class="btn btn-primary" th:text="#{go_to_ad}">Перейти к объявлению</a>
             </div>
         </div>
         <div class="card col-md-2 mx-auto" style="width: 18rem;">
@@ -421,7 +379,7 @@
             <div class="card-body">
                 <h5 class="card-title">Заголовок объявления</h5>
                 <p class="card-text">Краткое описание объявления.</p>
-                <a href="#" class="btn btn-primary">Перейти к объявлению</a>
+                <a href="#" class="btn btn-primary" th:text="#{go_to_ad}">Перейти к объявлению</a>
             </div>
         </div>
         <div class="card col-md-2 mx-auto" style="width: 18rem;">
@@ -429,7 +387,49 @@
             <div class="card-body">
                 <h5 class="card-title">Заголовок объявления</h5>
                 <p class="card-text">Краткое описание объявления.</p>
-                <a href="#" class="btn btn-primary">Перейти к объявлению</a>
+                <a href="#" class="btn btn-primary" th:text="#{go_to_ad}">Перейти к объявлению</a>
+            </div>
+        </div>
+    </div>
+    <div class="row ml-4 mr-4 justify-content-around mt-5">
+        <div class="card col-md-2 mx-auto" style="width: 18rem;">
+            <img src="/images/image-placeholder.png" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Заголовок объявления</h5>
+                <p class="card-text">Краткое описание объявления.</p>
+                <a href="#" class="btn btn-primary" th:text="#{go_to_ad}">Перейти к объявлению</a>
+            </div>
+        </div>
+        <div class="card col-md-2 mx-auto" style="width: 18rem;">
+            <img src="/images/image-placeholder.png" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Заголовок объявления</h5>
+                <p class="card-text">Краткое описание объявления.</p>
+                <a href="#" class="btn btn-primary" th:text="#{go_to_ad}">Перейти к объявлению</a>
+            </div>
+        </div>
+        <div class="card col-md-2 mx-auto" style="width: 18rem;">
+            <img src="/images/image-placeholder.png" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Заголовок объявления</h5>
+                <p class="card-text">Краткое описание объявления.</p>
+                <a href="#" class="btn btn-primary" th:text="#{go_to_ad}">Перейти к объявлению</a>
+            </div>
+        </div>
+        <div class="card col-md-2 mx-auto" style="width: 18rem;">
+            <img src="/images/image-placeholder.png" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Заголовок объявления</h5>
+                <p class="card-text">Краткое описание объявления.</p>
+                <a href="#" class="btn btn-primary" th:text="#{go_to_ad}">Перейти к объявлению</a>
+            </div>
+        </div>
+        <div class="card col-md-2 mx-auto" style="width: 18rem;">
+            <img src="/images/image-placeholder.png" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Заголовок объявления</h5>
+                <p class="card-text">Краткое описание объявления.</p>
+                <a href="#" class="btn btn-primary" th:text="#{go_to_ad}">Перейти к объявлению</a>
             </div>
         </div>
     </div>

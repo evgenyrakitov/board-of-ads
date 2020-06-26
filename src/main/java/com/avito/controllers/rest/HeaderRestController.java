@@ -1,6 +1,5 @@
 package com.avito.controllers.rest;
 
-import com.avito.configs.security.AuthProvider;
 import com.avito.models.Category;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -48,8 +47,10 @@ public class HeaderRestController {
         Category category0 = new Category("ALL", list);
         return new ResponseEntity<>(category0, HttpStatus.OK);
     }
+    /*Ненужный функционал?
+    Данные поля в навигации страницы статические и должны быть прописаны в теле для интернационализации*/
 
-    @GetMapping("/avitoNavigation")
+    /*@GetMapping("/avitoNavigation")
     public ResponseEntity<List<String>> getAvitoNavigation() {
         List<String> list = new ArrayList<>();
         list.add("Объявления");
@@ -60,6 +61,6 @@ public class HeaderRestController {
         return !list.isEmpty()
                 ? new ResponseEntity<>(list, HttpStatus.OK)
                 : new ResponseEntity<>(HttpStatus.NOT_FOUND);
-    }
+    }*/
 
 }

@@ -18,7 +18,10 @@ $(document).ready(function () {
                 $(".dropdown-toggle").html('<img src="images/header/en.svg" width="30">');
             }
     }
-        $.ajax({
+    /*Ненужный функционал?
+    Данные поля в навигации страницы статические и должны быть прописаны в теле для интернационализации*/
+
+        /*$.ajax({
         url: '/avitoNavigation',
         type: 'get',
         dataType: 'json',
@@ -32,7 +35,7 @@ $(document).ready(function () {
                 );
             }
         }
-    });
+    });*/
     $.ajax({
         url: '/getListCategory',
         type: 'get',
