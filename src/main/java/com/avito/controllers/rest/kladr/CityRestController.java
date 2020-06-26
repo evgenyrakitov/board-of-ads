@@ -6,7 +6,11 @@ import com.avito.service.interfaces.CityService;
 import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
 import java.util.List;
 
 @RestController
@@ -15,7 +19,7 @@ import java.util.List;
 public class CityRestController {
     private static final Logger logger = LoggerFactory.getLogger(CityRestController.class);
 
-    private CityService cityService;
+    private final CityService cityService;
 
     @GetMapping("/allCities")
     public List<City> getAllCities() {
