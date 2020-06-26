@@ -1,4 +1,10 @@
 @media (max-width: 900px) {
+    .locale{
+        position: fixed;
+        top: 4px;
+        z-index: 3;
+        left: 80px;
+    }
     header {
         position: fixed;
         top: 0;
