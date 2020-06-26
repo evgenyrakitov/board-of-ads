@@ -5,25 +5,22 @@ import com.avito.models.User;
 import com.avito.service.interfaces.RoleService;
 import com.avito.service.interfaces.SocialNetworkService;
 import com.avito.service.interfaces.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.Collections;
-import java.util.HashSet;
 import java.util.Map;
 
 @Service
+@AllArgsConstructor
 public class SocialNetworkServiceImpl implements SocialNetworkService {
 
-    @Autowired
-    UserService userService;
+    private final UserService userService;
 
-    @Autowired
-    RoleService roleService;
+    private final RoleService roleService;
 
-    @Autowired
-    PasswordEncoder passwordEncoder;
+    private final PasswordEncoder passwordEncoder;
 
     @Override
     public User loadUserInSocialNetwork(Map<String, Object> map) {
@@ -46,7 +43,7 @@ public class SocialNetworkServiceImpl implements SocialNetworkService {
             user.setPassword(passwordEncoder.encode("oauth2user"));
 
             return userService.addUser(user);
-        }else { //у вк sub нет
+        } else { //у вк sub нет
             //здесь должна быть логика, связанная с вк
             return user;
         }

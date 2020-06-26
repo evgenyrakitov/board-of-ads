@@ -3,9 +3,9 @@ package com.avito.configs.security;
 
 import com.avito.models.User;
 import com.avito.service.interfaces.UserService;
+import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -20,15 +20,14 @@ import java.util.Collection;
 
 //Кастомный вход пользователя переписанный на вхлд по имени
 @Component
+@AllArgsConstructor
 public class AuthProvider implements AuthenticationProvider {
 
     private static final Logger logger = LoggerFactory.getLogger(AuthProvider.class);
 
-    @Autowired
-    private UserService userService;
+    private final UserService userService;
 
-    @Autowired
-    private PasswordEncoder passwordEncoder;
+    private final PasswordEncoder passwordEncoder;
 
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {
         String username = authentication.getName();

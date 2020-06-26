@@ -1,12 +1,7 @@
 package com.avito.models.kladr;
 
 
-
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Data;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import javax.persistence.*;
 

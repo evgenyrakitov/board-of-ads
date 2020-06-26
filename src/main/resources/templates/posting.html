@@ -33,7 +33,7 @@
                                 stroke-linejoin="round" class="feather feather-heart">
                                 <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
                             </svg>
-                            <span>Добавить в избранное</span>
+                            <span th:text="#{add_to_favourites}">Добавить в избранное</span>
                         </span>
                     </a>
                 </div>
@@ -49,7 +49,7 @@
                         <line x1="16" y1="17" x2="8" y2="17"></line>
                         <polyline points="10 9 9 9 8 9"></polyline>
                     </svg>
-                    Добавить заметку
+                            <span th:text="#{add_note}">Добавить заметку</span>
                         </span>
                     </a>
                     <div class="bg_note"></div>
@@ -123,35 +123,38 @@
             <div class="price_button"></div>
             <a href="#">
                 <div class="show_telephone">
-                    <p>Показать телефон</p>
+                    <p th:text="#{show_tel_number}">Показать телефон</p>
                     <span>8 910 XXX-XX-XX</span>
                 </div>
             </a>
             <a href="#">
                 <div class="write_message">
-                    <p>Написать сообщение</p>
-                    <span>Отвечает за несколько часов</span>
+                    <p th:text="#{write_message}">Написать сообщение</p>
+                    <span th:text="#{responsible_for_several_hours}">Отвечает за несколько часов</span>
                 </div>
             </a>
             <div class="customer_info d-flex justify-content-between align-items-center">
                 <div class="w-50">
-                    <a href="#">Хозяин</a>
-                    <p>Агентство</p>
-                    <p>На Авито c сентября 2012</p>
+                    <!--Требуется реализация данных ссылок-->
+                    <a href="#" th:text="#{owner}">Хозяин</a>
+                    <p th:text="#{agency}">Агентство</p>
+                    <p th:text="#{on_a_Avito_with}">На Авито c сентября 2012</p>
                 </div>
                 <img class="w-25" src="images/image-placeholder.png" alt="">
             </div>
             <div class="count_postings">
                 <a href="#" class="in_favorite">
                     <span class="button_follow ">
-                        <span>12 объявлений пользователя</span>
+                        <!--Требуется реализация данных ссылок-->
+                        <span th:text="#{user_ads}">12 объявлений пользователя</span>
                     </span>
                 </a>
             </div>
             <div class="follow_customer">
                 <a href="#" class="in_favorite">
                     <span class="button_follow ">
-                        <span>Подписаться на продавца</span>
+                        <!--Требуется реализация данных ссылок-->
+                        <span th:text="#{subscribe}">Подписаться на продавца</span>
                     </span>
                 </a>
             </div>
