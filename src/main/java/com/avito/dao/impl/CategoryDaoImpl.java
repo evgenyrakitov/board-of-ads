@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
+import java.util.List;
 
 @Repository
 @Transactional
@@ -33,5 +34,10 @@ public class CategoryDaoImpl implements CategoryDao {
         entityManager.createQuery("delete from Category where id = :id")
                 .setParameter("id", id)
                 .executeUpdate();
+    }
+
+    @Override
+    public List<Category> getAllCategories() {
+        return entityManager.createQuery("from Category", Category.class).getResultList();
     }
 }
