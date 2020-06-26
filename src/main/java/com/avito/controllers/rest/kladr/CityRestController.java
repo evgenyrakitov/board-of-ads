@@ -1,4 +1,4 @@
-package com.avito.controllers.rest.kladr_rest;
+package com.avito.controllers.rest.kladr;
 
 
 import com.avito.models.kladr.City;
