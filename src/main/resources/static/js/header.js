@@ -34,13 +34,13 @@ $(document).ready(function () {
         }
     });
     $.ajax({
-        url: '/getListCategory',
+        url: '/categories',
         type: 'get',
         dataType: 'json',
         success: function (data) {
             $("#header_category_list").empty();
             for (var i in data.subCategories) {
-                if (i == 0){
+                if (i == 0) {
                     $("#header_category_list").append(
                         "<li class='nav-item nav_category'><span class='all_category'  onclick='openAllCategories()'>еще...</span>\n" +
                         "     <ul class='navbar-nav' id='moreCategories'></ul>" +
