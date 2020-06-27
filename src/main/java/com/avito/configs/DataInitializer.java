@@ -1,16 +1,13 @@
 package com.avito.configs;
 
-import com.avito.models.Category;
 import com.avito.models.Role;
 import com.avito.models.User;
-import com.avito.service.interfaces.CategoryService;
 import com.avito.service.interfaces.RoleService;
 import com.avito.service.interfaces.UserService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
-import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -20,7 +17,6 @@ public class DataInitializer {
 
     private final RoleService roleService;
     private final UserService userService;
-    private final CategoryService categoryService;
 
     @PostConstruct
     private void init() {
@@ -53,11 +49,4 @@ public class DataInitializer {
         userService.addUser(user);
         return user;
     }
-
-    private Category addRootCategory(String name) {
-        Category category = new Category(name, Collections.emptySet());
-        categoryService.addCategory(category);
-        return category;
-    }
-
 }

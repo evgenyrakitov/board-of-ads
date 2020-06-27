@@ -26,6 +26,10 @@ public class Category {
     private String name;
 
     @NonNull
+    @Column(name = "parentCategory")
+    private String parentCategory;
+
+    @NonNull
     @OneToMany(cascade = CascadeType.ALL)
     private Set<Category> subCategories;
 
