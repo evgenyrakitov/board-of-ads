@@ -40,14 +40,6 @@ public class DataInitializer {
         // For test, It must be delete in production code
         addUser("test.email.1@gmail.com", "test 1 public name", "qwerty1", "qwerty1", forUser);
 
-        addRootCategory("Недвижимость");
-        addRootCategory("Работа");
-        addRootCategory("Транспорт");
-        addRootCategory("Услуги");
-        addRootCategory("Личные вещи");
-        addRootCategory("Для дома и дачи");
-        addRootCategory("Животные");
-        addRootCategory("Хобби и отдых");
     }
 
     private Role addRole(String roleName) {
