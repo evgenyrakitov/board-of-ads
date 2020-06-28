@@ -1,7 +1,9 @@
+const btn = $("<button type='button' class='btn cascader-table-category-2PKmD' ></button>");
+
 $(document).ready(function () {
     $("#btnTransport").click(function () {
-        // hideAllDiv2col()
-        // hideAllDiv3col()
+        hideAllDiv2col()
+        hideAllDiv3col()
         var el = document.getElementById('transport');
         // var el = $('#transport');
         el.getAttribute("style") === "display: none" ? el.setAttribute("style", "display: block") : el.setAttribute("style", "display: none");
@@ -123,3 +125,62 @@ function hideAllDiv3col() {
     var el = document.getElementsByName("colCategory3");
     el.forEach((value, key) => value.setAttribute("style", "display: none"))
 }
+
+
+const btnFirstCategory = "btnFirstCategory";
+$(document).ready(function () {
+    $.ajax({
+        url: '/categories',
+        type: 'get',
+        dataType: 'json',
+        success: function (data) {
+            // $(".rootCat");
+            for (var i in data) {
+                $("#rootCategory").append(
+                    "<button type='button' class='btn cascader-table-category-2PKmD btnFirstCategory" + "' >" + data[i].name + "</button>"
+                );
+            }
+        }
+    });
+});
+const btnSecondCategory = "btnSecondCategory";
+
+$(".firstCategory").click(function () {
+    $.ajax({
+        url: '/categories',
+        type: 'get',
+        dataType: 'json',
+        success: function (data) {
+            // $(".secCategory");
+            for (var i in data) {
+
+
+                // el.forEach((value, key) => value.setAttribute("style", "display: block"));
+
+                $("#secCategory")
+                    .setAttribute("style", "display: block")
+                    .append(
+                        "<button type='button' class='btn cascader-table-category-2PKmD btnSecondCategory'>" + data[i].name + "</button>"
+                    );
+            }
+        }
+    });
+});
+
+// рабочее заполнение
+// $("#btnTest").click(function () {
+//     $.ajax({
+//         url: '/categories',
+//         type: 'get',
+//         dataType: 'json',
+//         success: function (data) {
+//             $(".ADDssa");
+//             for (var i in data) {
+//                 $("#wwwww").append(
+//                 "<button type='button' class='btn cascader-table-category-2PKmD' >"+data[i].name+"</button>"
+//                 );
+//             }
+//         }
+//     });
+//
+// });

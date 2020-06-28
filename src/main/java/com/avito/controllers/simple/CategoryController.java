@@ -10,7 +10,7 @@ public class CategoryController {
     private static final Logger logger = LoggerFactory.getLogger(CategoryController.class);
 
     @GetMapping("/addNewPosting")
-    public String login() {
+    public String addNewPosting() {
         return "addNewPosting";
     }
 
