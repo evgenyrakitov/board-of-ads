@@ -37,7 +37,7 @@ public class SocialNetworkServiceImpl implements SocialNetworkService {
                 }*/
                 user.setRoles(Collections.singleton(role));
             }
-            user.setLogin((String) map.get("email"));
+            user.setEmail((String) map.get("email"));
             user.setPublicName((String) map.get("name"));
             user.setUserIcons((String) map.get("picture"));
             user.setPassword(passwordEncoder.encode("oauth2user"));

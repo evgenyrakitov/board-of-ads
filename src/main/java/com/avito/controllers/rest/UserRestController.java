@@ -1,13 +1,17 @@
 package com.avito.controllers.rest;
 
+import com.avito.models.Role;
 import com.avito.models.User;
+import com.avito.service.interfaces.RoleService;
 import com.avito.service.interfaces.UserService;
 import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @RestController
 @AllArgsConstructor
@@ -17,10 +21,15 @@ public class UserRestController {
     private static final Logger logger = LoggerFactory.getLogger(UserRestController.class);
 
     private final UserService userService;
+    private final RoleService roleService;
 
 
     @PutMapping("/add")
     public User create(User user) {
+        Set<Role> roles = new HashSet<>();
+        Role role = roleService.findRoleByName("USER");
+        roles.add(role);
+        user.setRoles(roles);
         return userService.addUser(user);
     }
 

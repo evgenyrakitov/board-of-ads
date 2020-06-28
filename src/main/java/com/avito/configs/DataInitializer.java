@@ -33,12 +33,12 @@ public class DataInitializer {
         Set<Role> forAdmin = new HashSet<>();
         forAdmin.add(adminRole);
         forAdmin.add(userRole);
-        addUser("admin@gmail.com", "Test Admin name", "admin", "admin", forAdmin);
+        addUser("admin@gmail.com", "Test Admin name", "admin", "admin", "22222222222", forAdmin);
 
         Set<Role> forUser = new HashSet<>();
         forUser.add(userRole);
         // For test, It must be delete in production code
-        addUser("test.email.1@gmail.com", "test 1 public name", "qwerty1", "qwerty1", forUser);
+        addUser("test.email.1@gmail.com", "test 1 public name", "qwerty1", "qwerty1", "1111111111",forUser);
 
         addRootCategory("Недвижимость");
         addRootCategory("Работа");
@@ -56,8 +56,8 @@ public class DataInitializer {
         return role;
     }
 
-    private User addUser(String email, String publicName, String password, String confirmPassword, Set<Role> roles) {
-        User user = new User(email, publicName, password, confirmPassword, roles);
+    private User addUser(String email, String publicName, String password, String confirmPassword, String phone,Set<Role> roles) {
+        User user = new User(email, publicName, password, confirmPassword, phone, roles);
         userService.addUser(user);
         return user;
     }
