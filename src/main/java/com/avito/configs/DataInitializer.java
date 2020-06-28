@@ -3,7 +3,9 @@ package com.avito.configs;
 import com.avito.models.Category;
 import com.avito.models.Role;
 import com.avito.models.User;
+import com.avito.models.posting.Posting;
 import com.avito.service.interfaces.CategoryService;
+import com.avito.service.interfaces.PostingService;
 import com.avito.service.interfaces.RoleService;
 import com.avito.service.interfaces.UserService;
 import lombok.AllArgsConstructor;
@@ -21,6 +23,7 @@ public class DataInitializer {
     private final RoleService roleService;
     private final UserService userService;
     private final CategoryService categoryService;
+    private final PostingService postingService;
 
     @PostConstruct
     private void init() {
@@ -48,6 +51,51 @@ public class DataInitializer {
         addRootCategory("Для дома и дачи");
         addRootCategory("Животные");
         addRootCategory("Хобби и отдых");
+
+        addPostings();
+    }
+
+    private void addPostings() {
+        User userUser = new User();
+        userUser.setId(2L);
+
+        User adminUser = new User();
+        adminUser.setId(1L);
+
+        Category category1 = new Category();
+        category1.setId(1L);
+        Category category2 = new Category();
+        category2.setId(2L);
+
+        Posting posting = new Posting(
+                "Коттедж 400 м² на участке 3 сот.",
+                category1,
+                adminUser,
+                "Коттедж на два хозяина. На первом этаже кухня, зал и туалет с душем, второй этаж три комнаты и туалет с ванной, третий этаж-две комнаты. Цокольный этаж с гаражом и комнатой. Готов к заселению, возможна долгосрочная аренда.",
+                "Коттедж"
+        );
+        posting.setPrice(123123L);
+        postingService.addPosting(posting);
+
+        posting = new Posting(
+                "Posting title",
+                category2,
+                adminUser,
+                "Full description, long text.",
+                "Some posting"
+        );
+        posting.setPrice(100500);
+        postingService.addPosting(posting);
+
+        posting = new Posting(
+                "Posting title 2",
+                category2,
+                userUser,
+                "Full description, long text. (owner must be user with id 2)",
+                "Some posting of second user"
+        );
+        posting.setPrice(8800);
+        postingService.addPosting(posting);
     }
 
     private Role addRole(String roleName) {
