@@ -16,30 +16,30 @@
         <a href="?locale=en"><img src="images/header/en.svg" width="40" alt="Пример"></a>
     </div>
     <form class="form-signin" method="post" action="/login">
-        <h2 class="form-signin-heading" th:text="#{sing_in}"></h2>
+        <h2 class="form-signin-heading" th:text="#{login.sing_in}"></h2>
         <p>
             <input id="email" name="email" type="email" class="form-control"
-                   th:placeholder="#{email_input_placeholder}" required autofocus>
+                   th:placeholder="#{login.email_input_placeholder}" required autofocus>
         </p>
         <p>
             <input id="password" name="password" class="form-control" type="password"
-                   th:placeholder="#{password_input_placeholder}" required>
+                   th:placeholder="#{login.password_input_placeholder}" required>
         </p>
-        <button type="submit" class="btn btn-success btn-lg btn-block" th:text="#{sing_in_button}">Sign in
+        <button type="submit" class="btn btn-success btn-lg btn-block" th:text="#{login.sing_in_button}">Sign in
         </button>
         <br>
         <div align="center">
                     <span class="social-network-item-icon">
-                        <img src="https://static.avito.ru/s/cc/resources/a0a0fd5f488d.svg"> <a href="/login/google" th:text="#{login_with_google}"></a>
+                        <img src="https://static.avito.ru/s/cc/resources/a0a0fd5f488d.svg"> <a href="/login/google" th:text="#{login.login_with_google}"></a>
                     </span>
 
         </div>
         <div align="center">
             <span class="social-network-item-icon">
-                <img src="https://static.avito.ru/s/cc/resources/3cdd200f5194.svg"><a href="/login/vk" th:text="#{login_with_vk}"></a>
+                <img src="https://static.avito.ru/s/cc/resources/3cdd200f5194.svg"><a href="/login/vk" th:text="#{login.login_with_vk}"></a>
             </span>
         </div>
-        <div th:if="${param.error}" th:text="#{error_message}"></div>
+        <div th:if="${param.error}" th:text="#{login.error_message}"></div>
     </form>
 </div>
 </body>
