@@ -9,7 +9,7 @@ import com.google.gson.Gson;
 import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.http.HttpStatus;
+import com.avito.models.posting.Posting;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,7 +20,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 @RestController
-@RequestMapping("/posting")
+@RequestMapping("/rest/posting")
 @AllArgsConstructor
 public class PostingRestController {
 
@@ -40,7 +40,7 @@ public class PostingRestController {
         );
         posting.setImagePath(img);
         posting.setPrice(123123L);
-        return new ResponseEntity<>(posting, HttpStatus.OK);
+        return ResponseEntity.ok(posting);
     }
 
     @GetMapping("/all")

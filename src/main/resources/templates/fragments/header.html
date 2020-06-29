@@ -41,10 +41,10 @@
         <nav class="navbar navbar-expand-sm navbar-light header-element">
             <div class="d-flex justify-content-between align-items-center">
                 <ul class="navbar-nav mr-auto" id="avitoNavigation">
-                    <li class="nav-item"><a class="nav-link" href="/" th:text="#{ads}">Объявления</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/" th:text="#{shops}">Магазины</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/" th:text="#{business}">Бизнес</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/" th:text="#{help}">Помощь</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/" th:text="#{header.ads}">Объявления</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/" th:text="#{header.shops}">Магазины</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/" th:text="#{header.business}">Бизнес</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/" th:text="#{header.help}">Помощь</a></li>
                 </ul>
                 <ul class="navbar-nav sign_up">
                     <li class="nav-item">
@@ -60,10 +60,10 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-primary" href="#" style="white-space: nowrap" id="open-modal-1"
-                           th:text="#{login_and_register}">Вход и регистрация</a>
+                           th:text="#{header.login_and_register}">Вход и регистрация</a>
                     </li>
                     <li class="nav-item d-flex justify-content-lg-center align-items-center">
-                        <a class="btn btn-primary" href="/posting" th:text="#{post_a_ad}">Подать объявления</a>
+                        <a class="btn btn-primary" href="/posting" th:text="#{header.post_a_ad}">Подать объявления</a>
                     </li>
                 </ul>
             </div>
@@ -108,29 +108,29 @@
         <form class=" header-element">
             <div class="form-row justify-content-center">
                 <select class="form-control col-8 col-sm-8  col-md-3 col-lg-2" id="findFromCategory">
-                    <option selected value th:text="#{any_category}">Любая категория</option>
+                    <option selected value th:text="#{header.any_category}">Любая категория</option>
                 </select>
                 <div class="form-group col-8 col-sm-8  col-md-5 col-lg-8">
-                    <input type="text" th:placeholder="#{search_by_announcements}" placeholder="Поиск по объвлениям"
+                    <input type="text" th:placeholder="#{header.search_by_announcements}" placeholder="Поиск по объвлениям"
                            class="form-control">
                 </div>
                 <select class="form-control col-8 col-sm-8  col-md-2 col-lg-1">
-                    <option th:text="#{mosсow}">Москва</option>
+                    <option th:text="#{header.mosсow}">Москва</option>
                 </select>
                 <div class="col-8 col-sm-8 col-md-2 col-lg-1">
-                    <button type="button" class="btn btn-light" th:text="#{search}">Найти</button>
+                    <button type="button" class="btn btn-light" th:text="#{header.search}">Найти</button>
                 </div>
             </div>
             <div class="form-row justify-content-center">
                 <div class="form-check form-check-inline">
                     <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
                     <label class="form-check-label" for="inlineCheckbox1"
-                           th:text="#{only_in_titles}">только в названиях</label>
+                           th:text="#{header.only_in_titles}">только в названиях</label>
                 </div>
                 <div class="form-check form-check-inline">
                     <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
                     <label class="form-check-label" for="inlineCheckbox2"
-                           th:text="#{only_with_photos}">только с фото</label>
+                           th:text="#{header.only_with_photos}">только с фото</label>
                 </div>
             </div>
         </form>

@@ -8,5 +8,5 @@ public interface RegionService {
 
     List<Region> getAllRegions();
 
-    Region findByName(String name);
+    List<Region> findByName(String name);
 }

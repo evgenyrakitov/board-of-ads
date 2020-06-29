@@ -5,7 +5,6 @@ import com.avito.service.interfaces.CategoryService;
 import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,7 +12,7 @@ import java.util.List;
 
 @RestController
 @AllArgsConstructor
-@RequestMapping("/categories")
+@RequestMapping("/rest/categories")
 public class CategoryRestController {
 
     private static final Logger logger = LoggerFactory.getLogger(CategoryRestController.class);
@@ -21,13 +20,13 @@ public class CategoryRestController {
     private final CategoryService categoryService;
 
     @PostMapping
-    public Category create(Category category) {
-        return categoryService.addCategory(category);
+    public ResponseEntity<Category> create(Category category) {
+        return ResponseEntity.ok(categoryService.addCategory(category));
     }
 
     @PutMapping("/{id}")
-    public Category update(@PathVariable("id") Category category) {
-        return categoryService.updateCategory(category);
+    public ResponseEntity<Category> update(@PathVariable("id") Category category) {
+        return ResponseEntity.ok(categoryService.updateCategory(category));
     }
 
     @DeleteMapping("/{id}")
@@ -37,7 +36,7 @@ public class CategoryRestController {
 
     @GetMapping
     public ResponseEntity<List<Category>> getListOfCategory() {
-        return new ResponseEntity<>(categoryService.getAllCategories(), HttpStatus.OK);
+        return ResponseEntity.ok(categoryService.getAllCategories());
     }
 
 }

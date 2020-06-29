@@ -5,13 +5,14 @@ import com.avito.service.interfaces.UserService;
 import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 @AllArgsConstructor
-@RequestMapping("/rest")
+@RequestMapping("/rest/admin")
 public class UserRestController {
 
     private static final Logger logger = LoggerFactory.getLogger(UserRestController.class);
@@ -20,13 +21,13 @@ public class UserRestController {
 
 
     @PutMapping("/add")
-    public User create(User user) {
-        return userService.addUser(user);
+    public ResponseEntity<User> create(User user) {
+        return ResponseEntity.ok(userService.addUser(user));
     }
 
     @PostMapping("/edit")
-    public User update(User user) {
-        return userService.updateUser(user);
+    public ResponseEntity<User> update(User user) {
+        return ResponseEntity.ok(userService.updateUser(user));
     }
 
     @DeleteMapping("/delete/{id}")
@@ -41,8 +42,8 @@ public class UserRestController {
 //    }
 
     @GetMapping("/users")
-    public List<User> getAllUsers() {
-        return userService.getAllUsers();
+    public ResponseEntity<List<User>> getAllUsers() {
+        return ResponseEntity.ok(userService.getAllUsers());
     }
 
 }
