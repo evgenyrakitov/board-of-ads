@@ -2,6 +2,7 @@ package com.avito.dao.impl;
 
 import com.avito.dao.interfaces.UserDao;
 import com.avito.models.User;
+import com.avito.models.posting.Posting;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -52,4 +53,18 @@ public class UserDaoImpl implements UserDao {
                 .setParameter("id", id)
                 .executeUpdate();
     }
+
+    @Override
+    public Posting findPostingById(Long id) {
+        Posting posting = null;
+        try {
+            posting = entityManager.createQuery("from Posting where id = :id", Posting.class)
+                    .setParameter("id", id)
+                    .getSingleResult();
+        }catch (NoResultException e){
+
+        }
+        return posting;
+    }
+
 }

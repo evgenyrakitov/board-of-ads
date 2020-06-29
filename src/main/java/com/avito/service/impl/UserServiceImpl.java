@@ -2,6 +2,7 @@ package com.avito.service.impl;
 
 import com.avito.dao.interfaces.UserDao;
 import com.avito.models.User;
+import com.avito.models.posting.Posting;
 import com.avito.service.interfaces.UserService;
 import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
@@ -52,4 +53,10 @@ public class UserServiceImpl implements UserService {
     public void deleteUser(long id) {
         userDao.deleteUser(id);
     }
+
+    @Override
+    public Posting findPostingById(Long id) {
+        return userDao.findPostingById(id);
+    }
+
 }

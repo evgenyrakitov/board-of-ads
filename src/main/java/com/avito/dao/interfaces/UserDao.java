@@ -1,6 +1,8 @@
 package com.avito.dao.interfaces;
 
 import com.avito.models.User;
+import com.avito.models.posting.Posting;
+
 import java.util.List;
 
 public interface UserDao {
@@ -9,4 +11,5 @@ public interface UserDao {
     User addUser (User user);
     User updateUser (User user);
     void deleteUser (long id);
+    Posting findPostingById (Long id);
 }
