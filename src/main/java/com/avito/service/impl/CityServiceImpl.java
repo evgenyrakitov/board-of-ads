@@ -1,7 +1,7 @@
 package com.avito.service.impl;
 
-import com.avito.dao.interfaces.CityRepository;
 import com.avito.models.kladr.City;
+import com.avito.repository.CityRepository;
 import com.avito.service.interfaces.CityService;
 import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
