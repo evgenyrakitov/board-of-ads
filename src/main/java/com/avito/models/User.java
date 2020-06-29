@@ -1,6 +1,7 @@
 package com.avito.models;
 
 import com.avito.configs.security.AuthProvider;
+import com.avito.models.posting.Posting;
 import lombok.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -49,6 +50,9 @@ public class User implements UserDetails {
     @ManyToMany(fetch = FetchType.EAGER)
     private Set<Role> roles;
 
+    @ManyToMany(fetch = FetchType.LAZY)
+    private Set<Posting> favoritePostings;
+
     private String userIcons;
 
     @OneToMany(cascade = CascadeType.ALL)
@@ -88,5 +92,13 @@ public class User implements UserDetails {
     @Override
     public boolean isEnabled() {
         return true;
+    }
+
+    public void addFavoritePosting(Posting posting) {
+        this.favoritePostings.add(posting);
+    }
+
+    public void deleteFavoritePosting(Posting posting) {
+        this.favoritePostings.remove(posting);
     }
 }
