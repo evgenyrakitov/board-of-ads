@@ -96,7 +96,7 @@
             <scope>provided</scope>
         </dependency>
 
-        <!-- add namor from enable extended annotations -->
+        <!-- add namor from enable extended annotations  -->
         <dependency>
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger2</artifactId>
