@@ -19,183 +19,221 @@ public class CategoryDataInitializer {
     @PostConstruct
     private void init() {
 
-        if (categoryService.getAllCategories().size() > 8) {
-            return;
-        }
+//        if (categoryService.getAllCategories().size() > 8) {
+//            return;
+//        }
 
         Set<Category> emptySet = Collections.EMPTY_SET;
 
-        //3 вкладка Работа
-        HashSet<Category> categories3levelJobVacanc = new HashSet<>();
-        HashSet<Category> categories3levelJobResume = new HashSet<>();
+        HashSet<Category> categoryJob2level = new HashSet<>();
+        HashSet<Category> categoryVacancies3level = new HashSet<>();
+        HashSet<Category> categorySummary3level = new HashSet<>();
 
-        categories3levelJobVacanc.add(new Category("IT, интернет, телеком", "Резюме", emptySet));
-        categories3levelJobResume.add(new Category("IT, интернет, телеком", "Вакансии", emptySet));
-        categories3levelJobVacanc.add(new Category("Автомобильный бизнес", "Резюме", emptySet));
-        categories3levelJobResume.add(new Category("Автомобильный бизнес", "Вакансии", emptySet));
-        categories3levelJobVacanc.add(new Category("Административная работа", "Резюме", emptySet));
-        categories3levelJobResume.add(new Category("Административная работа", "Вакансии", emptySet));
-        categories3levelJobVacanc.add(new Category("Банки, инвестиции", "Резюме", emptySet));
-        categories3levelJobResume.add(new Category("Банки, инвестиции", "Вакансии", emptySet));
-        categories3levelJobVacanc.add(new Category("Без опыта, студенты", "Резюме", emptySet));
-        categories3levelJobResume.add(new Category("Без опыта, студенты", "Вакансии", emptySet));
-        categories3levelJobVacanc.add(new Category("Бухгалтерия, финансы", "Резюме", emptySet));
-        categories3levelJobResume.add(new Category("Бухгалтерия, финансы", "Вакансии", emptySet));
-        categories3levelJobVacanc.add(new Category("Высший менеджмент", "Резюме", emptySet));
-        categories3levelJobResume.add(new Category("Высший менеджмент", "Вакансии", emptySet));
-        categories3levelJobVacanc.add(new Category("Госслужба, НКО", "Резюме", emptySet));
-        categories3levelJobResume.add(new Category("Госслужба, НКО", "Вакансии", emptySet));
-        categories3levelJobVacanc.add(new Category("Домашний персонал", "Резюме", emptySet));
-        categories3levelJobResume.add(new Category("Домашний персонал", "Вакансии", emptySet));
-        categories3levelJobVacanc.add(new Category("ЖКХ, эксплуатация", "Резюме", emptySet));
-        categories3levelJobResume.add(new Category("ЖКХ, эксплуатация", "Вакансии", emptySet));
-        categories3levelJobVacanc.add(new Category("Искусство, развлечения", "Резюме", emptySet));
-        categories3levelJobResume.add(new Category("Искусство, развлечения", "Вакансии", emptySet));
-        categories3levelJobVacanc.add(new Category("Консультирование", "Резюме", emptySet));
-        categories3levelJobResume.add(new Category("Консультирование", "Вакансии", emptySet));
-        categories3levelJobVacanc.add(new Category("Маркетинг, реклама, PR", "Резюме", emptySet));
-        categories3levelJobResume.add(new Category("Маркетинг, реклама, PR", "Вакансии", emptySet));
-        categories3levelJobVacanc.add(new Category("Медицина, фармацевтика", "Резюме", emptySet));
-        categories3levelJobResume.add(new Category("Медицина, фармацевтика", "Вакансии", emptySet));
-        categories3levelJobVacanc.add(new Category("Образование, наука", "Резюме", emptySet));
-        categories3levelJobResume.add(new Category("Образование, наука", "Вакансии", emptySet));
-        categories3levelJobVacanc.add(new Category("Охрана, безопасность", "Резюме", emptySet));
-        categories3levelJobResume.add(new Category("Охрана, безопасность", "Вакансии", emptySet));
-        categories3levelJobVacanc.add(new Category("Продажи", "Резюме", emptySet));
-        categories3levelJobResume.add(new Category("Продажи", "Вакансии", emptySet));
-        categories3levelJobVacanc.add(new Category("Производство, сырьё, с/х", "Резюме", emptySet));
-        categories3levelJobResume.add(new Category("Производство, сырьё, с/х", "Вакансии", emptySet));
-        categories3levelJobVacanc.add(new Category("Страхование", "Резюме", emptySet));
-        categories3levelJobResume.add(new Category("Страхование", "Вакансии", emptySet));
-        categories3levelJobVacanc.add(new Category("Строительство", "Резюме", emptySet));
-        categories3levelJobResume.add(new Category("Строительство", "Вакансии", emptySet));
-        categories3levelJobVacanc.add(new Category("Транспорт, логистика", "Резюме", emptySet));
-        categories3levelJobResume.add(new Category("Транспорт, логистика", "Вакансии", emptySet));
-        categories3levelJobVacanc.add(new Category("Туризм, рестораны", "Резюме", emptySet));
-        categories3levelJobResume.add(new Category("Туризм, рестораны", "Вакансии", emptySet));
-        categories3levelJobVacanc.add(new Category("Фитнес, салоны красоты", "Резюме", emptySet));
-        categories3levelJobResume.add(new Category("Фитнес, салоны красоты", "Вакансии", emptySet));
-        categories3levelJobVacanc.add(new Category("Юриспруденция", "Резюме", emptySet));
-        categories3levelJobResume.add(new Category("Юриспруденция", "Вакансии", emptySet));
+        HashSet<Category> categoryTransport2level = new HashSet<>();
+        HashSet<Category> categoryCars3level = new HashSet<>();
+        HashSet<Category> categoryWaterTransport3level = new HashSet<>();
+        HashSet<Category> categoryTrucksAndSpecialEquipment3level = new HashSet<>();
+        HashSet<Category> categoryMotorcycles3level = new HashSet<>();
 
-        //2 вкладка Работа
-        HashSet<Category> categories2levelJob = new HashSet<>();
-        categories2levelJob.add(new Category("Резюме", "Работа", categories3levelJobResume));
-        categories2levelJob.add(new Category("Вакансии", "Работа", categories3levelJobVacanc));
+        HashSet<Category> categoryProperty2level = new HashSet<>();
+        HashSet<Category> categoryApartments3level = new HashSet<>();
+        HashSet<Category> categoryRooms3level = new HashSet<>();
+        HashSet<Category> categoryHousesSummerResidencesCottages3level = new HashSet<>();
+        HashSet<Category> categoryLand3level = new HashSet<>();
+        HashSet<Category> categoryGaragesAndParkingSpaces3level = new HashSet<>();
+        HashSet<Category> categoryCommercialProperty3level = new HashSet<>();
+        HashSet<Category> categoryPropertyAbroad3level = new HashSet<>();
 
-        //3 вкладка Недвижимость
-        HashSet<Category> categories3levelDomFlat = new HashSet<>();
-        HashSet<Category> categories3levelDomRoom = new HashSet<>();
-        HashSet<Category> categories3levelDomRancho = new HashSet<>();
-        HashSet<Category> categories3levelDomPlace = new HashSet<>();
-        HashSet<Category> categories3levelDomAuto = new HashSet<>();
-        HashSet<Category> categories3levelDomComerc = new HashSet<>();
-        HashSet<Category> categories3levelDomAbroad = new HashSet<>();
-        categories3levelDomFlat.add(new Category("Продам", "Квартиры", emptySet));
-        categories3levelDomRoom.add(new Category("Продам", "Комнаты", emptySet));
-        categories3levelDomAuto.add(new Category("Продам", "Дома, дачи, коттеджи", emptySet));
-        categories3levelDomPlace.add(new Category("Продам", "Земельные участки", emptySet));
-        categories3levelDomRancho.add(new Category("Продам", "Гаражи и машиноместа", emptySet));
-        categories3levelDomComerc.add(new Category("Продам", "Коммерческая недвижимость", emptySet));
-        categories3levelDomAbroad.add(new Category("Продам", "Недвижимость за рубежом", emptySet));
-        categories3levelDomFlat.add(new Category("Сдам", "Квартиры", emptySet));
-        categories3levelDomRoom.add(new Category("Сдам", "Комнаты", emptySet));
-        categories3levelDomAuto.add(new Category("Сдам", "Дома, дачи, коттеджи", emptySet));
-        categories3levelDomPlace.add(new Category("Сдам", "Земельные участки", emptySet));
-        categories3levelDomRancho.add(new Category("Сдам", "Гаражи и машиноместа", emptySet));
-        categories3levelDomComerc.add(new Category("Сдам", "Коммерческая недвижимость", emptySet));
-        categories3levelDomAbroad.add(new Category("Сдам", "Недвижимость за рубежом", emptySet));
-        categories3levelDomFlat.add(new Category("Куплю", "Квартиры", emptySet));
-        categories3levelDomRoom.add(new Category("Куплю", "Комнаты", emptySet));
-        categories3levelDomAuto.add(new Category("Куплю", "Дома, дачи, коттеджи", emptySet));
-        categories3levelDomPlace.add(new Category("Куплю", "Земельные участки", emptySet));
-        categories3levelDomRancho.add(new Category("Куплю", "Гаражи и машиноместа", emptySet));
-        categories3levelDomComerc.add(new Category("Куплю", "Коммерческая недвижимость", emptySet));
-        categories3levelDomAbroad.add(new Category("Куплю", "Недвижимость за рубежом", emptySet));
-        categories3levelDomFlat.add(new Category("Сниму", "Квартиры", emptySet));
-        categories3levelDomRoom.add(new Category("Сниму", "Комнаты", emptySet));
-        categories3levelDomAuto.add(new Category("Сниму", "Дома, дачи, коттеджи", emptySet));
-        categories3levelDomPlace.add(new Category("Сниму", "Земельные участки", emptySet));
-        categories3levelDomRancho.add(new Category("Сниму", "Гаражи и машиноместа", emptySet));
-        categories3levelDomComerc.add(new Category("Сниму", "Коммерческая недвижимость", emptySet));
-        categories3levelDomAbroad.add(new Category("Сниму", "Недвижимость за рубежом", emptySet));
+        //1 вкладка Категории
 
-        //2 вкладка Недвижимость
-        HashSet<Category> categories2levelDom = new HashSet<>();
-        categories2levelDom.add(new Category("Квартиры", "Недвижимость", categories3levelDomFlat));
-        categories2levelDom.add(new Category("Комнаты", "Недвижимость", categories3levelDomRoom));
-        categories2levelDom.add(new Category("Дома, дачи, коттеджи", "Недвижимость", categories3levelDomRancho));
-        categories2levelDom.add(new Category("Земельные участки", "Недвижимость", categories3levelDomPlace));
-        categories2levelDom.add(new Category("Гаражи и машиноместа", "Недвижимость", categories3levelDomAuto));
-        categories2levelDom.add(new Category("Коммерческая недвижимость", "Недвижимость", categories3levelDomComerc));
-        categories2levelDom.add(new Category("Недвижимость за рубежом", "Недвижимость", categories3levelDomAbroad));
+        Category categoryTransport = new Category("Транспорт", null, categoryTransport2level);
+        Category categoryProperty = new Category("Недвижимость", null, categoryProperty2level);
+        Category categoryJob = new Category("Работа", null, categoryJob2level);
+        Category categoryServices = new Category("Услуги", null, emptySet);
+        Category categoryForHomeAndGarden = new Category("Для дома и дачи", null, emptySet);
+        Category categoryPersonalItems = new Category("Личные вещи", null, emptySet);
+        Category categoryConsumerElectronics = new Category("Бытовая электроника", null, emptySet);
+        Category categoryHobbiesAndLeisure = new Category("Хобби и отдых", null, emptySet);
+        Category cateroryAnimals = new Category("Животные", null, emptySet);
+        Category categoryBusiness = new Category("Для бизнеса", null, emptySet);
+
+        //2 вкладка Категории --> транспорт
+
+        Category categoryCars = new Category("Автомобили", categoryTransport, categoryCars3level);
+        categoryTransport2level.add(categoryCars);
+        Category categoryMotorcycles = new Category("Мотоциклы и мототехника", categoryTransport, categoryMotorcycles3level);
+        categoryTransport2level.add(categoryMotorcycles);
+        Category categoryTrucksAndSpecialEquipment = new Category("Грузовики и спецтехника", categoryTransport, categoryTrucksAndSpecialEquipment3level);
+        categoryTransport2level.add(categoryTrucksAndSpecialEquipment);
+        Category categoryWaterTransport = new Category("Водный транспорт", categoryTransport, categoryWaterTransport3level);
+        categoryTransport2level.add(categoryWaterTransport);
+        Category categoryPartsAndAccessories = new Category("Запчасти и аксессуары", categoryTransport, emptySet);
+        categoryTransport2level.add(categoryPartsAndAccessories);
+
+        //3 вкладка Категории --> транспорт --> автомобили
+
+        categoryCars3level.add(new Category("С пробегом", categoryCars, emptySet));
+        categoryCars3level.add(new Category("Новый", categoryCars, emptySet));
+
+        //3 вкладка Категории --> транспорт --> водный транспорт
+
+        categoryWaterTransport3level.add(new Category("Вёсельные лодки", categoryWaterTransport, emptySet));
+        categoryWaterTransport3level.add(new Category("Гидроциклы", categoryWaterTransport, emptySet));
+        categoryWaterTransport3level.add(new Category("Катера и яхты", categoryWaterTransport, emptySet));
+        categoryWaterTransport3level.add(new Category("Каяки и каноэ", categoryWaterTransport, emptySet));
+        categoryWaterTransport3level.add(new Category("Моторные лодки", categoryWaterTransport, emptySet));
+        categoryWaterTransport3level.add(new Category("Надувные лодки", categoryWaterTransport, emptySet));
+
+        //3 вкладка Категории --> транспорт -->  спец транспорт
+
+        categoryTrucksAndSpecialEquipment3level.add(new Category("Автобусы", categoryTrucksAndSpecialEquipment, emptySet));
+        categoryTrucksAndSpecialEquipment3level.add(new Category("Автодома", categoryTrucksAndSpecialEquipment, emptySet));
+        categoryTrucksAndSpecialEquipment3level.add(new Category("Автокраны", categoryTrucksAndSpecialEquipment, emptySet));
+        categoryTrucksAndSpecialEquipment3level.add(new Category("Бульдозеры", categoryTrucksAndSpecialEquipment, emptySet));
+        categoryTrucksAndSpecialEquipment3level.add(new Category("Грузовики", categoryTrucksAndSpecialEquipment, emptySet));
+        categoryTrucksAndSpecialEquipment3level.add(new Category("Коммунальная техника", categoryTrucksAndSpecialEquipment, emptySet));
+        categoryTrucksAndSpecialEquipment3level.add(new Category("Лёгкий транспорт", categoryTrucksAndSpecialEquipment, emptySet));
+        categoryTrucksAndSpecialEquipment3level.add(new Category("Погрузчики", categoryTrucksAndSpecialEquipment, emptySet));
+        categoryTrucksAndSpecialEquipment3level.add(new Category("Прицепы", categoryTrucksAndSpecialEquipment, emptySet));
+        categoryTrucksAndSpecialEquipment3level.add(new Category("Сельхозтехника", categoryTrucksAndSpecialEquipment, emptySet));
+        categoryTrucksAndSpecialEquipment3level.add(new Category("Строительная техника", categoryTrucksAndSpecialEquipment, emptySet));
+        categoryTrucksAndSpecialEquipment3level.add(new Category("Техника для лесозаготовки", categoryTrucksAndSpecialEquipment, emptySet));
+        categoryTrucksAndSpecialEquipment3level.add(new Category("Тягачи", categoryTrucksAndSpecialEquipment, emptySet));
+        categoryTrucksAndSpecialEquipment3level.add(new Category("Экскаваторы", categoryTrucksAndSpecialEquipment, emptySet));
+
+        //3 вкладка Категории --> транспорт -->  мотоциклы
+
+        categoryMotorcycles3level.add(new Category("Багги", categoryMotorcycles, emptySet));
+        categoryMotorcycles3level.add(new Category("Вездеходы", categoryMotorcycles, emptySet));
+        categoryMotorcycles3level.add(new Category("Картинг", categoryMotorcycles, emptySet));
+        categoryMotorcycles3level.add(new Category("Квадроциклы", categoryMotorcycles, emptySet));
+        categoryMotorcycles3level.add(new Category("Мопеды и скутеры", categoryMotorcycles, emptySet));
+        categoryMotorcycles3level.add(new Category("Мотоциклы", categoryMotorcycles, emptySet));
+        categoryMotorcycles3level.add(new Category("Снегоходы", categoryMotorcycles, emptySet));
+
+        // 2 вкладка   Категории  --> Работа
+
+        Category categorySummary = new Category("Резюме", categoryJob, categorySummary3level);
+        categoryJob2level.add(categorySummary);
+        Category categoryVacancies = new Category("Вакансии", categoryJob, categoryVacancies3level);
+        categoryJob2level.add(categoryVacancies);
+
+        //3 вкладка   Категории --> Работа  --> Резюме и Вакансии
+
+        categoryVacancies3level.add(new Category("IT, интернет, телеком", categorySummary, emptySet));
+        categorySummary3level.add(new Category("IT, интернет, телеком", categoryVacancies, emptySet));
+        categoryVacancies3level.add(new Category("Автомобильный бизнес", categorySummary, emptySet));
+        categorySummary3level.add(new Category("Автомобильный бизнес", categoryVacancies, emptySet));
+        categoryVacancies3level.add(new Category("Административная работа", categorySummary, emptySet));
+        categorySummary3level.add(new Category("Административная работа", categoryVacancies, emptySet));
+        categoryVacancies3level.add(new Category("Банки, инвестиции", categorySummary, emptySet));
+        categorySummary3level.add(new Category("Банки, инвестиции", categoryVacancies, emptySet));
+        categoryVacancies3level.add(new Category("Без опыта, студенты", categorySummary, emptySet));
+        categorySummary3level.add(new Category("Без опыта, студенты", categoryVacancies, emptySet));
+        categoryVacancies3level.add(new Category("Бухгалтерия, финансы", categorySummary, emptySet));
+        categorySummary3level.add(new Category("Бухгалтерия, финансы", categoryVacancies, emptySet));
+        categoryVacancies3level.add(new Category("Высший менеджмент", categorySummary, emptySet));
+        categorySummary3level.add(new Category("Высший менеджмент", categoryVacancies, emptySet));
+        categoryVacancies3level.add(new Category("Госслужба, НКО", categorySummary, emptySet));
+        categorySummary3level.add(new Category("Госслужба, НКО", categoryVacancies, emptySet));
+        categoryVacancies3level.add(new Category("Домашний персонал", categorySummary, emptySet));
+        categorySummary3level.add(new Category("Домашний персонал", categoryVacancies, emptySet));
+        categoryVacancies3level.add(new Category("ЖКХ, эксплуатация", categorySummary, emptySet));
+        categorySummary3level.add(new Category("ЖКХ, эксплуатация", categoryVacancies, emptySet));
+        categoryVacancies3level.add(new Category("Искусство, развлечения", categorySummary, emptySet));
+        categorySummary3level.add(new Category("Искусство, развлечения", categoryVacancies, emptySet));
+        categoryVacancies3level.add(new Category("Консультирование", categorySummary, emptySet));
+        categorySummary3level.add(new Category("Консультирование", categoryVacancies, emptySet));
+        categoryVacancies3level.add(new Category("Маркетинг, реклама, PR", categorySummary, emptySet));
+        categorySummary3level.add(new Category("Маркетинг, реклама, PR", categoryVacancies, emptySet));
+        categoryVacancies3level.add(new Category("Медицина, фармацевтика", categorySummary, emptySet));
+        categorySummary3level.add(new Category("Медицина, фармацевтика", categoryVacancies, emptySet));
+        categoryVacancies3level.add(new Category("Образование, наука", categorySummary, emptySet));
+        categorySummary3level.add(new Category("Образование, наука", categoryVacancies, emptySet));
+        categoryVacancies3level.add(new Category("Охрана, безопасность", categorySummary, emptySet));
+        categorySummary3level.add(new Category("Охрана, безопасность", categoryVacancies, emptySet));
+        categoryVacancies3level.add(new Category("Продажи", categorySummary, emptySet));
+        categorySummary3level.add(new Category("Продажи", categoryVacancies, emptySet));
+        categoryVacancies3level.add(new Category("Производство, сырьё, с/х", categorySummary, emptySet));
+        categorySummary3level.add(new Category("Производство, сырьё, с/х", categoryVacancies, emptySet));
+        categoryVacancies3level.add(new Category("Страхование", categorySummary, emptySet));
+        categorySummary3level.add(new Category("Страхование", categoryVacancies, emptySet));
+        categoryVacancies3level.add(new Category("Строительство", categorySummary, emptySet));
+        categorySummary3level.add(new Category("Строительство", categoryVacancies, emptySet));
+        categoryVacancies3level.add(new Category("Транспорт, логистика", categorySummary, emptySet));
+        categorySummary3level.add(new Category("Транспорт, логистика", categoryVacancies, emptySet));
+        categoryVacancies3level.add(new Category("Туризм, рестораны", categorySummary, emptySet));
+        categorySummary3level.add(new Category("Туризм, рестораны", categoryVacancies, emptySet));
+        categoryVacancies3level.add(new Category("Фитнес, салоны красоты", categorySummary, emptySet));
+        categorySummary3level.add(new Category("Фитнес, салоны красоты", categoryVacancies, emptySet));
+        categoryVacancies3level.add(new Category("Юриспруденция", categorySummary, emptySet));
+        categorySummary3level.add(new Category("Юриспруденция", categoryVacancies, emptySet));
+
+        //2 вкладка   Категории -->  Недвижимость
+
+        Category categoryApartments = new Category("Квартиры", categoryProperty, categoryApartments3level);
+        categoryProperty2level.add(categoryApartments);
+        Category categoryRooms = new Category("Комнаты", categoryProperty, categoryRooms3level);
+        categoryProperty2level.add(categoryRooms);
+        Category categoryHousesSummerResidencesCottages = new Category("Дома, дачи, коттеджи", categoryProperty, categoryHousesSummerResidencesCottages3level);
+        categoryProperty2level.add(categoryHousesSummerResidencesCottages);
+        Category categoryLand = new Category("Земельные участки", categoryProperty, categoryLand3level);
+        categoryProperty2level.add(categoryLand);
+        Category categoryGaragesAndParkingSpaces = new Category("Гаражи и машиноместа", categoryProperty, categoryGaragesAndParkingSpaces3level);
+        categoryProperty2level.add(categoryGaragesAndParkingSpaces);
+        Category categoryCommercialProperty = new Category("Коммерческая недвижимость", categoryProperty, categoryCommercialProperty3level);
+        categoryProperty2level.add(categoryCommercialProperty);
+        Category categoryPropertyAbroad = new Category("Недвижимость за рубежом", categoryProperty, categoryPropertyAbroad3level);
+        categoryProperty2level.add(categoryPropertyAbroad);
+
+        //3 вкладка   Категории--> Недвижимость --> КуплюПродамСдамСниму
+
+        categoryApartments3level.add(new Category("Продам", categoryApartments, emptySet));
+        categoryRooms3level.add(new Category("Продам", categoryRooms, emptySet));
+        categoryGaragesAndParkingSpaces3level.add(new Category("Продам", categoryHousesSummerResidencesCottages, emptySet));
+        categoryLand3level.add(new Category("Продам", categoryLand, emptySet));
+        categoryHousesSummerResidencesCottages3level.add(new Category("Продам", categoryGaragesAndParkingSpaces, emptySet));
+        categoryCommercialProperty3level.add(new Category("Продам", categoryCommercialProperty, emptySet));
+        categoryPropertyAbroad3level.add(new Category("Продам", categoryPropertyAbroad, emptySet));
+
+        categoryApartments3level.add(new Category("Сдам", categoryApartments, emptySet));
+        categoryRooms3level.add(new Category("Сдам", categoryRooms, emptySet));
+        categoryGaragesAndParkingSpaces3level.add(new Category("Сдам", categoryHousesSummerResidencesCottages, emptySet));
+        categoryLand3level.add(new Category("Сдам", categoryLand, emptySet));
+        categoryHousesSummerResidencesCottages3level.add(new Category("Сдам", categoryGaragesAndParkingSpaces, emptySet));
+        categoryCommercialProperty3level.add(new Category("Сдам", categoryCommercialProperty, emptySet));
+        categoryPropertyAbroad3level.add(new Category("Сдам", categoryPropertyAbroad, emptySet));
+
+        categoryApartments3level.add(new Category("Куплю", categoryApartments, emptySet));
+        categoryRooms3level.add(new Category("Куплю", categoryRooms, emptySet));
+        categoryGaragesAndParkingSpaces3level.add(new Category("Куплю", categoryHousesSummerResidencesCottages, emptySet));
+        categoryLand3level.add(new Category("Куплю", categoryLand, emptySet));
+        categoryHousesSummerResidencesCottages3level.add(new Category("Куплю", categoryGaragesAndParkingSpaces, emptySet));
+        categoryCommercialProperty3level.add(new Category("Куплю", categoryCommercialProperty, emptySet));
+        categoryPropertyAbroad3level.add(new Category("Куплю", categoryPropertyAbroad, emptySet));
+
+        categoryApartments3level.add(new Category("Сниму", categoryApartments, emptySet));
+        categoryRooms3level.add(new Category("Сниму", categoryRooms, emptySet));
+        categoryGaragesAndParkingSpaces3level.add(new Category("Сниму", categoryHousesSummerResidencesCottages, emptySet));
+        categoryLand3level.add(new Category("Сниму", categoryLand, emptySet));
+        categoryHousesSummerResidencesCottages3level.add(new Category("Сниму", categoryGaragesAndParkingSpaces, emptySet));
+        categoryCommercialProperty3level.add(new Category("Сниму", categoryCommercialProperty, emptySet));
+        categoryPropertyAbroad3level.add(new Category("Сниму", categoryPropertyAbroad, emptySet));
 
 
-        //3 вкладка водный транспорт
-        HashSet<Category> categories3levelWater = new HashSet<>();
-        categories3levelWater.add(new Category("Вёсельные лодки", "Водный транспорт", emptySet));
-        categories3levelWater.add(new Category("Гидроциклы", "Водный транспорт", emptySet));
-        categories3levelWater.add(new Category("Катера и яхты", "Водный транспорт", emptySet));
-        categories3levelWater.add(new Category("Каяки и каноэ", "Водный транспорт", emptySet));
-        categories3levelWater.add(new Category("Моторные лодки", "Водный транспорт", emptySet));
-        categories3levelWater.add(new Category("Надувные лодки", "Водный транспорт", emptySet));
-
-        //3 вкладка спец транспорт
-        HashSet<Category> categories3levelSpec = new HashSet<>();
-        categories3levelSpec.add(new Category("Автобусы", "Грузовики и спецтехника", emptySet));
-        categories3levelSpec.add(new Category("Автодома", "Грузовики и спецтехника", emptySet));
-        categories3levelSpec.add(new Category("Автокраны", "Грузовики и спецтехника", emptySet));
-        categories3levelSpec.add(new Category("Бульдозеры", "Грузовики и спецтехника", emptySet));
-        categories3levelSpec.add(new Category("Грузовики", "Грузовики и спецтехника", emptySet));
-        categories3levelSpec.add(new Category("Коммунальная техника", "Грузовики и спецтехника", emptySet));
-        categories3levelSpec.add(new Category("Лёгкий транспорт", "Грузовики и спецтехника", emptySet));
-        categories3levelSpec.add(new Category("Погрузчики", "Грузовики и спецтехника", emptySet));
-        categories3levelSpec.add(new Category("Прицепы", "Грузовики и спецтехника", emptySet));
-        categories3levelSpec.add(new Category("Сельхозтехника", "Грузовики и спецтехника", emptySet));
-        categories3levelSpec.add(new Category("Строительная техника", "Грузовики и спецтехника", emptySet));
-        categories3levelSpec.add(new Category("Техника для лесозаготовки", "Грузовики и спецтехника", emptySet));
-        categories3levelSpec.add(new Category("Тягачи", "Грузовики и спецтехника", emptySet));
-        categories3levelSpec.add(new Category("Экскаваторы", "Грузовики и спецтехника", emptySet));
-
-        //3 вкладка  мотоциклы
-        HashSet<Category> categories3levelMoto = new HashSet<>();
-        categories3levelMoto.add(new Category("Багги", "Мотоциклы и мототехника", emptySet));
-        categories3levelMoto.add(new Category("Вездеходы", "Мотоциклы и мототехника", emptySet));
-        categories3levelMoto.add(new Category("Картинг", "Мотоциклы и мототехника", emptySet));
-        categories3levelMoto.add(new Category("Квадроциклы", "Мотоциклы и мототехника", emptySet));
-        categories3levelMoto.add(new Category("Мопеды и скутеры", "Мотоциклы и мототехника", emptySet));
-        categories3levelMoto.add(new Category("Мотоциклы", "Мотоциклы и мототехника", emptySet));
-        categories3levelMoto.add(new Category("Снегоходы", "Мотоциклы и мототехника", emptySet));
-
-        //3 вкладка  автомобили
-        HashSet<Category> categories3levelAutomob = new HashSet<>();
-        categories3levelAutomob.add(new Category("С пробегом", "Автомобили", emptySet));
-        categories3levelAutomob.add(new Category("Новый", "Автомобили", emptySet));
-
-        //2 вкладка транспорт
-        HashSet<Category> categories2levelTransp = new HashSet<>();
-        categories2levelTransp.add(new Category("Автомобили", "Транспорт", categories3levelAutomob));
-        categories2levelTransp.add(new Category("Мотоциклы и мототехника", "Транспорт", categories3levelMoto));
-        categories2levelTransp.add(new Category("Грузовики и спецтехника", "Транспорт", categories3levelSpec));
-        categories2levelTransp.add(new Category("Водный транспорт", "Транспорт", categories3levelWater));
-        categories2levelTransp.add(new Category("Запчасти и аксессуары", "Транспорт", emptySet));
-
-        //1 вкладка
-        addCategory(new Category("Транспорт", "Категория", categories2levelTransp));
-        addCategory(new Category("Недвижимость", "Категория", categories2levelDom));
-        addCategory(new Category("Работа", "Категория", categories2levelJob));
-        addCategory(new Category("Услуги", "Категория", emptySet));
-        addCategory(new Category("Для дома и дачи", "Категория", emptySet));
-        addCategory(new Category("Личные вещи", "Категория", emptySet));
-        addCategory(new Category("Бытовая электроника", "Категория", emptySet));
-        addCategory(new Category("Хобби и отдых", "Категория", emptySet));
-        addCategory(new Category("Животные", "Категория", emptySet));
-        addCategory(new Category("Для бизнеса", "Категория", emptySet));
+        addCategory(categoryHobbiesAndLeisure);
+        addCategory(categoryTransport);
+        addCategory(cateroryAnimals);
+        addCategory(categoryConsumerElectronics);
+        addCategory(categoryPersonalItems);
+        addCategory(categoryProperty);
+        addCategory(categoryJob);
+        addCategory(categoryServices);
+        addCategory(categoryForHomeAndGarden);
+        addCategory(categoryBusiness);
     }
-
 
     private void addCategory(Category name) {
         categoryService.addCategory(name);
     }
-
 }
