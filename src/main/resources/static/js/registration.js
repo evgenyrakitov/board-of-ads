@@ -45,7 +45,7 @@ function warningPass(field) {
 }
 
 function save(login, password) {
-    let url = "http://localhost:5556/rest/add";
+    let url = "/rest/add";
     let type = "POST";
     let data = {
         user: {
