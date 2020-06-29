@@ -94,11 +94,4 @@ public class User implements UserDetails {
         return true;
     }
 
-    public void addFavoritePosting(Posting posting) {
-        this.favoritePostings.add(posting);
-    }
-
-    public void deleteFavoritePosting(Posting posting) {
-        this.favoritePostings.remove(posting);
-    }
 }

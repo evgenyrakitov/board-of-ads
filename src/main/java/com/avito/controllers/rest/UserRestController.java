@@ -49,33 +49,14 @@ public class UserRestController {
         return ResponseEntity.ok(userService.getAllUsers());
     }
 
-    @GetMapping("/posting")
-    public Set<Posting> getFavoritePostings() {
-        return getUser().getFavoritePostings();
+    @PostMapping("/favoritePostings/add")
+    public ResponseEntity<Posting> addFavoritePosting(Long id) {
+        return ResponseEntity.ok(userService.addFavoritePosting(id));
     }
 
-    @PostMapping("/posting/add")
-    public Posting addFavoritePosting(Long id) {
-        Posting posting = userService.findPostingById(id);
-        User user = getUser();
-        user.addFavoritePosting(posting);
-        userService.updateUser(user);
-        return posting;
+    @PostMapping("/favoritePostings/delete")
+    public void deleteFavoritePosting(Long id) {
+        userService.deleteFavoritePosting(id);
     }
-
-    @PostMapping("/posting/delete")
-    public Posting deleteFavoritePosting(Long id) {
-        Posting posting = userService.findPostingById(id);
-        User user = getUser();
-        getUser().getFavoritePostings();
-        user.deleteFavoritePosting(posting);
-        userService.updateUser(user);
-        return posting;
-    }
-
-    private User getUser() {
-        return ((User) SecurityContextHolder.getContext().getAuthentication().getPrincipal());
-    }
-
 
 }
