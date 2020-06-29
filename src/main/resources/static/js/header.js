@@ -37,7 +37,7 @@ $(document).ready(function () {
         }
     });*/
     $.ajax({
-        url: '/categories',
+        url: '/rest/categories',
         type: 'get',
         dataType: 'json',
         success: function (data) {

@@ -2,9 +2,8 @@ package com.avito.controllers.rest;
 
 import com.avito.models.Category;
 import com.avito.models.Images;
-import com.avito.models.posting.Posting;
 import com.avito.models.User;
-import org.springframework.http.HttpStatus;
+import com.avito.models.posting.Posting;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,7 +13,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 @RestController
-@RequestMapping("/posting")
+@RequestMapping("/rest/posting")
 public class PostingRestController {
     @GetMapping("/getPostingInfo")
     public ResponseEntity<Posting> getPosting() {
@@ -28,6 +27,6 @@ public class PostingRestController {
         );
         posting.setImagePath(img);
         posting.setPrice(123123L);
-        return new ResponseEntity<>(posting, HttpStatus.OK);
+        return ResponseEntity.ok(posting);
     }
 }

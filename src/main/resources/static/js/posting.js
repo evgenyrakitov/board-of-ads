@@ -16,7 +16,7 @@ $(window).scroll(function () {
 });
 $(document).ready(function () {
     $.ajax({
-        url: '/posting/getPostingInfo',
+        url: '/rest/posting/getPostingInfo',
         type: 'get',
         dataType: 'json',
         success: function (data) {
