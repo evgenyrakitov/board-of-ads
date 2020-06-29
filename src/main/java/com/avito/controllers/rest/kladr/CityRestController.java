@@ -6,6 +6,7 @@ import com.avito.service.interfaces.CityService;
 import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -22,18 +23,18 @@ public class CityRestController {
     private final CityService cityService;
 
     @GetMapping("/allCities")
-    public List<City> getAllCities() {
-        return cityService.findAll();
+    public ResponseEntity<List<City>> getAllCities() {
+        return ResponseEntity.ok(cityService.findAll());
     }
 
     @GetMapping
-    public List<City> getCitiesByName(@RequestParam String name) {
-        return cityService.findAllByName(name);
+    public ResponseEntity<List<City>> getCitiesByName(@RequestParam String name) {
+        return ResponseEntity.ok(cityService.findAllByName(name));
     }
 
     @GetMapping("/regionCities")
-    public List<City> getCitiesByRegionId(@RequestParam Long id) {
-        return cityService.findAllByRegionId(id);
+    public ResponseEntity<List<City>> getCitiesByRegionId(@RequestParam Long id) {
+        return ResponseEntity.ok(cityService.findAllByRegionId(id));
     }
 
 }
