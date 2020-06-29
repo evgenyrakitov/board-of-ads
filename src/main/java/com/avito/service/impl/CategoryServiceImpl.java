@@ -1,7 +1,7 @@
 package com.avito.service.impl;
 
-import com.avito.dao.interfaces.CategoryDao;
 import com.avito.models.Category;
+import com.avito.repository.interfaces.CategoryRepository;
 import com.avito.service.interfaces.CategoryService;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
@@ -13,21 +13,20 @@ import org.springframework.stereotype.Service;
 public class CategoryServiceImpl implements CategoryService {
     private static final Logger logger = LoggerFactory.getLogger(CategoryServiceImpl.class);
 
-
-    private final CategoryDao categoryDao;
+    private final CategoryRepository categoryRepository;
 
     @Override
     public Category addCategory(Category category) {
-        return categoryDao.addCategory(category);
+        return categoryRepository.save(category);
     }
 
     @Override
     public Category updateCategory(Category category) {
-        return categoryDao.updateCategory(category);
+        return categoryRepository.save(category);
     }
 
     @Override
     public void deleteCategory(long id) {
-        categoryDao.deleteCategory(id);
+        categoryRepository.deleteById(id);
     }
 }

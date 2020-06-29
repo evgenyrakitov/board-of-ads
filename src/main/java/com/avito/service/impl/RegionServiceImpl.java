@@ -1,7 +1,7 @@
 package com.avito.service.impl;
 
-import com.avito.dao.interfaces.RegionRepository;
 import com.avito.models.kladr.Region;
+import com.avito.repository.interfaces.RegionRepository;
 import com.avito.service.interfaces.RegionService;
 import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
@@ -19,7 +19,8 @@ public class RegionServiceImpl implements RegionService {
 
     @Override
     public List<Region> getAllRegions() {
-        return regionRepository.findAll();}
+        return regionRepository.findAll();
+    }
 
     @Override
     public Region findByName(String name) {

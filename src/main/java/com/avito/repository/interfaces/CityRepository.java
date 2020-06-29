@@ -1,4 +1,4 @@
-package com.avito.dao.interfaces;
+package com.avito.repository.interfaces;
 
 import com.avito.models.kladr.City;
 import org.springframework.data.jpa.repository.JpaRepository;

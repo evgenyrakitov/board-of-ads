@@ -1,7 +1,7 @@
 package com.avito.service.impl;
 
-import com.avito.dao.interfaces.UserDao;
 import com.avito.models.User;
+import com.avito.repository.interfaces.UserRepository;
 import com.avito.service.interfaces.UserService;
 import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
@@ -21,22 +21,22 @@ public class UserServiceImpl implements UserService {
 
     private final PasswordEncoder passwordEncoder;
 
-    private final UserDao userDao;
+    private final UserRepository userRepository;
 
     @Override
     public List<User> getAllUsers() {
-        return userDao.getAllUsers();
+        return userRepository.findAll();
     }
 
     @Override
     public User findUserByLogin(String login) {
-        return userDao.findUserByLogin(login);
+        return userRepository.findUserByLogin(login);
     }
 
     @Override
     public User addUser(User user) {
         user.setPassword(passwordEncoder.encode(user.getPassword()));
-        return userDao.addUser(user);
+        return userRepository.save(user);
     }
 
     @Override
@@ -45,11 +45,11 @@ public class UserServiceImpl implements UserService {
         if (!user.getPassword().equals("")) {
             user.setPassword(passwordEncoder.encode(user.getPassword()));
         }
-        return userDao.updateUser(userUpdate);
+        return userRepository.save(userUpdate);
     }
 
     @Override
     public void deleteUser(long id) {
-        userDao.deleteUser(id);
+        userRepository.deleteById(id);
     }
 }
