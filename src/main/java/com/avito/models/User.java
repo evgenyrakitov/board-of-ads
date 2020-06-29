@@ -59,6 +59,8 @@ public class User implements UserDetails {
         return password;
     }
 
+    //base cons
+
     //Override methods
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
