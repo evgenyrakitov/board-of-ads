@@ -96,6 +96,13 @@
             <scope>provided</scope>
         </dependency>
 
+        <!-- add namor from enable extended annotations  -->
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <version>2.9.2</version>
+        </dependency>
+
         <!--Зависимость по подклюючении Авторизации гугл-->
         <dependency>
             <groupId>org.springframework.security.oauth.boot</groupId>
