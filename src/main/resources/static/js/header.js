@@ -18,24 +18,6 @@ $(document).ready(function () {
                 $(".dropdown-toggle").html('<img src="images/header/en.svg" width="30">');
             }
     }
-    /*Ненужный функционал?
-    Данные поля в навигации страницы статические и должны быть прописаны в теле для интернационализации*/
-
-        /*$.ajax({
-        url: '/avitoNavigation',
-        type: 'get',
-        dataType: 'json',
-        success: function (data) {
-            $("#avitoNavigation").empty();
-            for (var i in data) {
-                $("#avitoNavigation").append(
-                    ' <li class="nav-item">\n' +
-                    '     <a class="nav-link" href="/">' + data[i] + '</a>\n' +
-                    ' </li>'
-                );
-            }
-        }
-    });*/
     $.ajax({
         url: '/rest/categories',
         type: 'get',
