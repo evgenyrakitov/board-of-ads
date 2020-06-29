@@ -1,7 +1,7 @@
 package com.avito.service.impl;
 
 import com.avito.models.Role;
-import com.avito.repository.interfaces.RoleRepository;
+import com.avito.repository.RoleRepository;
 import com.avito.service.interfaces.RoleService;
 import lombok.AllArgsConstructor;
 import org.slf4j.Logger;

@@ -1,4 +1,4 @@
-package com.avito.repository.interfaces;
+package com.avito.repository;
 
 import com.avito.models.kladr.Region;
 import org.springframework.data.jpa.repository.JpaRepository;

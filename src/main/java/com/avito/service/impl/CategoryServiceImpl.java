@@ -1,7 +1,7 @@
 package com.avito.service.impl;
 
 import com.avito.models.Category;
-import com.avito.repository.interfaces.CategoryRepository;
+import com.avito.repository.CategoryRepository;
 import com.avito.service.interfaces.CategoryService;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;

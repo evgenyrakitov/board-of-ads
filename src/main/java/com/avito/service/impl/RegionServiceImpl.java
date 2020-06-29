@@ -1,7 +1,7 @@
 package com.avito.service.impl;
 
 import com.avito.models.kladr.Region;
-import com.avito.repository.interfaces.RegionRepository;
+import com.avito.repository.RegionRepository;
 import com.avito.service.interfaces.RegionService;
 import lombok.AllArgsConstructor;
 import org.slf4j.Logger;

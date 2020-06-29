@@ -1,7 +1,7 @@
 package com.avito.service.impl;
 
 import com.avito.models.User;
-import com.avito.repository.interfaces.UserRepository;
+import com.avito.repository.UserRepository;
 import com.avito.service.interfaces.UserService;
 import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
