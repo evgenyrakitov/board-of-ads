@@ -37,7 +37,8 @@ public class Category {
     @JoinColumn(name = "parentCategory")
     private Category parentCategory;
 
-    @JsonIgnore
+    @JsonIgnore // как сделать певую категорию
+
     @OneToMany(cascade = CascadeType.ALL)
     @Column
     private Set<Category> subCategories;

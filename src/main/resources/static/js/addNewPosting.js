@@ -137,7 +137,7 @@ $(document).ready(function () {
             for (var i in data) {
                 if (data[i].parentCategory==null) {
                     $("#rootCategory").append(
-                        "<button type='button' class='btn cascader-table-category-2PKmD btnFirstCategory" + "' >" + data[i].name + "</button>"
+                        "<button type='button' class='btn cascader-table-category-2PKmD btnFirstCategory' onclick='hello(this)')>" + data[i].name + "</button>"
                     );
                 }
             }
@@ -146,7 +146,34 @@ $(document).ready(function () {
 });
 const btnSecondCategory = "btnSecondCategory";
 
+
+
+function hello(qwqw){
+
+   // alert($(qwqw).text())
+    $.ajax({
+        url: '/rest/categories',
+        type: 'get',
+        dataType: 'json',
+        success: function (data) {
+            for (var i in data) {
+                if (data[i].parentCategory==$(qwqw).text()) {
+                    $("#secCategory").append(
+                        "<button type='button' class='btn cascader-table-category-2PKmD btnFirstCategory' onclick='hello(this)')>" + data[i].name + "</button>"
+                    );
+                }
+            }
+        }
+    });
+};
+
+
+
+
+
+
 $(".btnFirstCategory").click(function () {
+    alert("skdfsldf");
     $.ajax({
         url: '/rest/categories',
         type: 'get',
@@ -158,7 +185,7 @@ $(".btnFirstCategory").click(function () {
 
                 // el.forEach((value, key) => value.setAttribute("style", "display: block"));
 
-             //   $("#secCategory")
+               $("#colCategory2").setAttribute("style", "display: block")
                 $("#rootCategory")
                     // .setAttribute("style", "display: block")
                     .append(
