@@ -9,6 +9,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Service
 @Transactional
 @AllArgsConstructor
@@ -20,6 +22,11 @@ public class RoleServiceImpl implements RoleService {
     @Override
     public void addRole(Role role) {
         roleRepository.save(role);
+    }
+
+    @Override
+    public List<Role> getAllRoles() {
+        return roleRepository.findAll();
     }
 
     @Override
