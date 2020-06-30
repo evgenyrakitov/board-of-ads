@@ -59,20 +59,18 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public Posting addFavoritePosting(Long id) {
-        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        user = userRepository.getOne(user.getId());
-        Posting posting = postingRepository.getOne(id);
+    public User addFavoritePosting(Long id_posting, Long id_user) {
+        User user = userRepository.getOne(id_user);
+        Posting posting = postingRepository.getOne(id_posting);
         user.getFavoritePostings().add(posting);
         userRepository.save(user);
-        return posting;
+        return user;
     }
 
     @Override
-    public void deleteFavoritePosting(Long id) {
-        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        user = userRepository.getOne(user.getId());
-        Posting posting = postingRepository.getOne(id);
+    public void deleteFavoritePosting(Long id_posting, Long id_user) {
+        User user = userRepository.getOne(id_user);
+        Posting posting = postingRepository.getOne(id_posting);
         user.getFavoritePostings().remove(posting);
         userRepository.save(user);
     }

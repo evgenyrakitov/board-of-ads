@@ -1,8 +1,10 @@
 package com.avito.controllers.rest;
 
 import com.avito.models.User;
-import com.avito.models.posting.Posting;
 import com.avito.service.interfaces.UserService;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
 import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -10,10 +12,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
-import io.swagger.annotations.*;
 
 import java.util.List;
-import java.util.Set;
 
 @RestController
 @AllArgsConstructor
@@ -56,13 +56,15 @@ public class UserRestController {
     }
 
     @PostMapping("/favoritePostings/add")
-    public ResponseEntity<Posting> addFavoritePosting(Long id) {
-        return ResponseEntity.ok(userService.addFavoritePosting(id));
+    public ResponseEntity<User> addFavoritePosting(Long id) {
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        return ResponseEntity.ok(userService.addFavoritePosting(id, user.getId()));
     }
 
     @PostMapping("/favoritePostings/delete")
     public void deleteFavoritePosting(Long id) {
-        userService.deleteFavoritePosting(id);
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        userService.deleteFavoritePosting(id, user.getId());
     }
 
 }
