@@ -1,12 +1,13 @@
 package com.avito.service.impl;
 
-import com.avito.dao.interfaces.PostingDao;
 import com.avito.models.User;
 import com.avito.models.posting.Posting;
+import com.avito.repository.PostingRepository;
 import com.avito.service.interfaces.PostingService;
 import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -17,25 +18,26 @@ public class PostingServiceImpl implements PostingService {
 
     private static final Logger logger = LoggerFactory.getLogger(CityServiceImpl.class);
 
-    private final PostingDao postingDao;
+    private final PostingRepository postingRepository;
 
     @Override
     public Posting addPosting(Posting posting) {
-        return postingDao.addPosting(posting);
+        return postingRepository.save(posting);
     }
 
     @Override
+    @Nullable
     public Posting getPostingById(Long id) {
-        return postingDao.getPostingById(id);
+        return postingRepository.findById(id).orElse(null);
     }
 
     @Override
     public List<Posting> getUserPostings(User user) {
-        return postingDao.getUserPostings(user);
+        return postingRepository.findAllByUser(user);
     }
 
     @Override
     public List<Posting> getAllPostings() {
-        return postingDao.getAllPostings();
+        return postingRepository.findAll();
     }
 }
