@@ -157,7 +157,11 @@ function hello(qwqw){
         dataType: 'json',
         success: function (data) {
             for (var i in data) {
-                if (data[i].parentCategory==$(qwqw).text()) {
+                alert(data[i].parentCategory.value());
+                alert($(qwqw).innerText);
+                alert(data[i].parentCategory===$(qwqw).innerText);
+
+                if (data[i].parentCategory===$(qwqw).innerText) {
                     $("#secCategory").append(
                         "<button type='button' class='btn cascader-table-category-2PKmD btnFirstCategory' onclick='hello(this)')>" + data[i].name + "</button>"
                     );
