@@ -1,6 +1,5 @@
 package com.avito.controllers.simple;
 
-import com.avito.configs.security.AuthProvider;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;

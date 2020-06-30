@@ -2,10 +2,15 @@ package com.avito.controllers.rest;
 
 import com.avito.models.User;
 import com.avito.service.interfaces.UserService;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
 import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -19,15 +24,19 @@ public class UserRestController {
 
     private final UserService userService;
 
-
-    @PutMapping("/add")
-    public ResponseEntity<User> create(User user) {
-        return ResponseEntity.ok(userService.addUser(user));
+    @CrossOrigin()  //далее - поправить, сделано чтобы работала страничка
+    @ApiOperation(value = "create new User", code = 201, response = User.class)
+    @ApiResponses(value = {@ApiResponse(code = 201, message = "Successfully create user")})
+    @PostMapping(value = "/add", consumes = {"application/json"}) //согласно рекомендациям госкомстандарта - создание это post, not put. fixed
+    public ResponseEntity<User> create(@RequestBody User user) {
+        userService.addUser(user);
+        return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
-    @PostMapping("/edit")
-    public ResponseEntity<User> update(User user) {
-        return ResponseEntity.ok(userService.updateUser(user));
+
+    @PutMapping("/edit")   // post -> put
+    public User update(User user) {
+        return userService.updateUser(user);
     }
 
     @DeleteMapping("/delete/{id}")
@@ -44,6 +53,18 @@ public class UserRestController {
     @GetMapping("/users")
     public ResponseEntity<List<User>> getAllUsers() {
         return ResponseEntity.ok(userService.getAllUsers());
+    }
+
+    @PostMapping("/favoritePostings/add")
+    public ResponseEntity<User> addFavoritePosting(Long id) {
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        return ResponseEntity.ok(userService.addFavoritePosting(id, user.getId()));
+    }
+
+    @PostMapping("/favoritePostings/delete")
+    public void deleteFavoritePosting(Long id) {
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        userService.deleteFavoritePosting(id, user.getId());
     }
 
 }
