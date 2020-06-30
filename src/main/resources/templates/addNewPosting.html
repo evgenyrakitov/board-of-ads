@@ -53,7 +53,7 @@
         <!-- Content -->
     </div>
 </div>
-<button type="button" class="btn cascader-table-category-2PKmD" id="btnTest">Транспорт</button>
+<!--<button type="button" class="btn cascader-table-category-2PKmD" id="btnTest">Транспорт</button>-->
 
 <!--<div class="row">-->
 <!--    <div class="col-1">-->
@@ -336,26 +336,36 @@
     <div class="col-1">
     </div>
     <div class="col-3 rootCat ADDssa">
-        <div class="btn-group-vertical cascader-table-column-2cmhR" id="rootCategory">
-            <div class="cascader-table-title-maiFW">
+        <div class="btn-group-vertical cascader-table-column-2cmhR">
+            <div class="cascader-table-title-maiFW" id="rootCategoryHeader">
                 Категория
             </div>
-<!--            <button type="button" class="btn cascader-table-category-2PKmD" id="btnTransport">Транспорт</button>-->
+            <div id="rootCategory">
+
+            </div>
+            <!--            <button type="button" class="btn cascader-table-category-2PKmD" id="btnTransport">Транспорт</button>-->
         </div>
     </div>
-    <div class="col-3 ADDssa" style="display: block" name="colCategory2">
-        <div class="btn-group-vertical cascader-table-column-2cmhR" id="secCategory">
-            <div class="cascader-table-title-maiFW">
+    <div class="col-3 ADDssa" style="display: none" id="colCategory2">
+        <div class="btn-group-vertical cascader-table-column-2cmhR">
+            <div class="cascader-table-title-maiFW" id="secCategoryHeader">
                 Транспорт
             </div>
-            <button type="button" class="btn cascader-table-category-2PKmD" id="btnAuto">Автомобили</button>
+            <div id="secCategory">
+
+            </div>
+
+            <!--            <button type="button" class="btn cascader-table-category-2PKmD" id="btnAuto">Автомобили</button>-->
         </div>
     </div>
     <!--3 категория машины-->
-    <div class="col-3 ADDssa" style="display: none" id="auto" name="colCategory3">
+    <div class="col-3 ADDssa" style="display: none" id="colCategory3">
         <div class="btn-group-vertical cascader-table-column-2cmhR">
-            <div class="cascader-table-title-maiFW">
+            <div class="cascader-table-title-maiFW" id="threeCategoryHeader">
                 Автомобили
+            </div>
+            <div id="threeCategory">
+
             </div>
             <button type="button" class="btn cascader-table-category-2PKmD">С пробегом</button>
         </div>

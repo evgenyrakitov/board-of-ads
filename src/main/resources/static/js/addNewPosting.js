@@ -1,133 +1,3 @@
-const btn = $("<button type='button' class='btn cascader-table-category-2PKmD' ></button>");
-
-// $(document).ready(function () {
-//     $("#btnTransport").click(function () {
-//         hideAllDiv2col()
-//         hideAllDiv3col()
-//         var el = document.getElementById('transport');
-//         // var el = $('#transport');
-//         el.getAttribute("style") === "display: none" ? el.setAttribute("style", "display: block") : el.setAttribute("style", "display: none");
-//         // el.getAttribute("style") ==="display: none"? el.setAttribute("style","display: block") : el.setAttribute("style","display: none") ;
-//     });
-//     $("#btnImmovables").click(function () {
-//         hideAllDiv2col()
-//         hideAllDiv3col()
-//         var el = document.getElementById('immovables');
-//         el.getAttribute("style") === "display: none" ? el.setAttribute("style", "display: block") : el.setAttribute("style", "display: none");
-//     });
-//     $("#btnJob").click(function () {
-//         hideAllDiv2col()
-//         hideAllDiv3col()
-//         var el = document.getElementById('job');
-//         el.getAttribute("style") === "display: none" ? el.setAttribute("style", "display: block") : el.setAttribute("style", "display: none");
-//     });
-//     $("#btnAuto").click(function () {
-//         hideAllDiv3col()
-//         var el = document.getElementById('auto');
-//         el.getAttribute("style") === "display: none" ? el.setAttribute("style", "display: block") : el.setAttribute("style", "display: none");
-//     });
-//     $("#btnMotorcycle").click(function () {
-//         hideAllDiv3col()
-//         var el = document.getElementById('motorcycle');
-//         el.getAttribute("style") === "display: none" ? el.setAttribute("style", "display: block") : el.setAttribute("style", "display: none");
-//     });
-//     $("#btnTruck").click(function () {
-//         hideAllDiv3col()
-//         var el = document.getElementById('truck');
-//         el.getAttribute("style") === "display: none" ? el.setAttribute("style", "display: block") : el.setAttribute("style", "display: none");
-//     });
-//     $("#btnWaterTransport").click(function () {
-//         hideAllDiv3col()
-//         var el = document.getElementById('waterTransport');
-//         el.getAttribute("style") === "display: none" ? el.setAttribute("style", "display: block") : el.setAttribute("style", "display: none");
-//     });
-//     $("#btnParts").click(function () {
-//         hideAllDiv3col()
-//     });
-//     $("#btnApartments").click(function () {
-//         hideAllDiv3col()
-//         var el = document.getElementById('apartments');
-//         el.getAttribute("style") === "display: none" ? el.setAttribute("style", "display: block") : el.setAttribute("style", "display: none");
-//     });
-//     $("#btnSmallApartments").click(function () {
-//         hideAllDiv3col()
-//         var el = document.getElementById('smallApartments');
-//         el.getAttribute("style") === "display: none" ? el.setAttribute("style", "display: block") : el.setAttribute("style", "display: none");
-//     });
-//     $("#btnCottage").click(function () {
-//         hideAllDiv3col()
-//         var el = document.getElementById('cottage');
-//         el.getAttribute("style") === "display: none" ? el.setAttribute("style", "display: block") : el.setAttribute("style", "display: none");
-//     });
-//     $("#btnPlace").click(function () {
-//         hideAllDiv3col()
-//         var el = document.getElementById('place');
-//         el.getAttribute("style") === "display: none" ? el.setAttribute("style", "display: block") : el.setAttribute("style", "display: none");
-//     });
-//     $("#btnAutoHouse").click(function () {
-//         hideAllDiv3col()
-//         var el = document.getElementById('autoHouse');
-//         el.getAttribute("style") === "display: none" ? el.setAttribute("style", "display: block") : el.setAttribute("style", "display: none");
-//     });
-//     $("#btnComercApartments").click(function () {
-//         hideAllDiv3col()
-//         var el = document.getElementById('comercApartments');
-//         el.getAttribute("style") === "display: none" ? el.setAttribute("style", "display: block") : el.setAttribute("style", "display: none");
-//     });
-//     $("#btnApartmentsAbroad").click(function () {
-//         hideAllDiv3col()
-//         var el = document.getElementById('apartmentsAbroad');
-//         el.getAttribute("style") === "display: none" ? el.setAttribute("style", "display: block") : el.setAttribute("style", "display: none");
-//     });
-//     $("#btnVacancy").click(function () {
-//         hideAllDiv3col()
-//         var el = document.getElementById('vacancy');
-//         el.getAttribute("style") === "display: none" ? el.setAttribute("style", "display: block") : el.setAttribute("style", "display: none");
-//     });
-//     $("#btnSummary").click(function () {
-//         hideAllDiv3col()
-//         var el = document.getElementById('summary');
-//         el.getAttribute("style") === "display: none" ? el.setAttribute("style", "display: block") : el.setAttribute("style", "display: none");
-//     });
-//     $("#btnPersonalItems").click(function () {
-//         hideAllDiv2col()
-//         hideAllDiv3col()
-//     });
-//     $("#btnForHome").click(function () {
-//         hideAllDiv2col()
-//         hideAllDiv3col()
-//     });
-//     $("#btnConsumerElectronics").click(function () {
-//         hideAllDiv2col()
-//         hideAllDiv3col()
-//     });
-//     $("#btnHobby").click(function () {
-//         hideAllDiv2col()
-//         hideAllDiv3col()
-//     });
-//     $("#btnAnimals").click(function () {
-//         hideAllDiv2col()
-//         hideAllDiv3col()
-//     });
-//     $("#btnForBusiness").click(function () {
-//         hideAllDiv2col()
-//         hideAllDiv3col()
-//     });
-// });
-//
-//
-// function hideAllDiv2col() {
-//     var el = document.getElementsByName("colCategory2");
-//     el.forEach((value, key) => value.setAttribute("style", "display: none"))
-// }
-//
-// function hideAllDiv3col() {
-//     var el = document.getElementsByName("colCategory3");
-//     el.forEach((value, key) => value.setAttribute("style", "display: none"))
-// }
-
-//
-const btnFirstCategory = "btnFirstCategory";
 $(document).ready(function () {
     $.ajax({
         url: '/rest/categories',
@@ -135,46 +5,88 @@ $(document).ready(function () {
         dataType: 'json',
         success: function (data) {
             for (var i in data) {
-                if (data[i].parentCategory==null) {
-                    $("#rootCategory").append(
-                        "<button type='button' class='btn cascader-table-category-2PKmD btnFirstCategory' onclick='hello(this)')>" + data[i].name + "</button>"
-                    );
+                if (data[i].parentCategory == null) {
+                    if (countChildren(data, data[i].name) > 0) {
+                        $("#rootCategory").append(
+                            "<button type='button' class='btn cascader-table-category-2PKmD btnFirstCategory' onclick='funcLevel2Menu(this)')>" + data[i].name + "</button>"
+                        );
+                    } else {
+                        $("#rootCategory").append(
+                            "<button type='button' class='btn cascader-table-category-2PKmD btnFirstCategory' onclick='window.location.replace(`/newPosting/" + data[i].name + "`)'>" + data[i].name + "</button>"
+                        );
+                    }
                 }
             }
         }
     });
 });
-const btnSecondCategory = "btnSecondCategory";
 
+var countChildren = function (data, parentName) {
+    var count = 0;
+    data.forEach(function (el) {
+        if (el.parentCategory != null) {
+            if (el.parentCategory.name === parentName) {
+                count++;
+            }
+        }
+    });
+    return count;
+}
 
-
-function hello(qwqw){
-
-   // alert($(qwqw).text())
+function funcLevel2Menu(nameButtonCategory) {
+    document.getElementById('colCategory2').setAttribute("style", "display: none");
+    document.getElementById('colCategory3').setAttribute("style", "display: none");
+    $("#secCategory").empty();
     $.ajax({
         url: '/rest/categories',
         type: 'get',
         dataType: 'json',
         success: function (data) {
-            for (var i in data) {
-                alert(data[i].parentCategory.value());
-                alert($(qwqw).innerText);
-                alert(data[i].parentCategory===$(qwqw).innerText);
-
-                if (data[i].parentCategory===$(qwqw).innerText) {
-                    $("#secCategory").append(
-                        "<button type='button' class='btn cascader-table-category-2PKmD btnFirstCategory' onclick='hello(this)')>" + data[i].name + "</button>"
-                    );
+            if (countChildren(data, $(nameButtonCategory).text()) > 0) {
+                for (var i in data) {
+                    if (data[i].parentCategory !== null && data[i].parentCategory.name === $(nameButtonCategory).text()) {
+                        document.getElementById('colCategory2').setAttribute("style", "display: block");
+                        $("#secCategoryHeader").text(data[i].parentCategory.name);
+                        if (countChildren(data, data[i].name) > 0) {
+                            document.getElementById('colCategory2').setAttribute("style", "display: block");
+                            $("#secCategory").append(
+                                "<button type='button' class='btn cascader-table-category-2PKmD btnSecondCategory' onclick='funcLevel3Menu(this)')>" + data[i].name + "</button>"
+                            );
+                        } else {
+                            document.getElementById('colCategory2').setAttribute("style", "display: block");
+                            $("#secCategory").append(
+                                "<button type='button' class='btn cascader-table-category-2PKmD btnSecondCategory' onclick='window.location.replace(`/newPosting/" + data[i].name + "`)'>" + data[i].name + "</button>"
+                            );
+                        }
+                    }
                 }
             }
         }
     });
-};
+}
 
-
-
-
-
+function funcLevel3Menu(nameButtonCategory) {
+    document.getElementById('colCategory3').setAttribute("style", "display: none");
+    $("#threeCategory").empty();
+    $.ajax({
+        url: '/rest/categories',
+        type: 'get',
+        dataType: 'json',
+        success: function (data) {
+            if (countChildren(data, $(nameButtonCategory).text()) > 0) {
+                for (var i in data) {
+                    if (data[i].parentCategory !== null && data[i].parentCategory.name === $(nameButtonCategory).text()) {
+                        document.getElementById('colCategory3').setAttribute("style", "display: block");
+                        $("#threeCategoryHeader").text(data[i].parentCategory.name);
+                        $("#threeCategory").append(
+                            "<button type='button' class='btn cascader-table-category-2PKmD btnFirstCategory' onclick='window.location.replace(`/newPosting/" + data[i].name + "`)'>" + data[i].name + "</button>"
+                        );
+                    }
+                }
+            }
+        }
+    });
+}
 
 $(".btnFirstCategory").click(function () {
     alert("skdfsldf");
@@ -183,15 +95,9 @@ $(".btnFirstCategory").click(function () {
         type: 'get',
         dataType: 'json',
         success: function (data) {
-            // $(".secCategory");
             for (var i in data) {
-
-
-                // el.forEach((value, key) => value.setAttribute("style", "display: block"));
-
-               $("#colCategory2").setAttribute("style", "display: block")
+                $("#colCategory2").setAttribute("style", "display: block");
                 $("#rootCategory")
-                    // .setAttribute("style", "display: block")
                     .append(
                         "<button type='button' class='btn cascader-table-category-2PKmD btnSecondCategory'>" + data.name + "</button>"
                     );
@@ -199,21 +105,3 @@ $(".btnFirstCategory").click(function () {
         }
     });
 });
-
-// рабочее заполнение
-// $("#btnTest").click(function () {
-//     $.ajax({
-//         url: '/rest/categories',
-//         type: 'get',
-//         dataType: 'json',
-//         success: function (data) {
-//             //$(".ADDssa");
-//             // for (var i in data) {
-//                 $("#rootCategory").append(
-//                 "<button type='button' class='btn cascader-table-category-2PKmD' >"+data+"</button>"
-//                 );
-//             // }
-//         }
-//     });
-//
-// });
