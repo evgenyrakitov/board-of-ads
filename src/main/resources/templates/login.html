@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Sign In</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link href="https://getbootstrap.com/docs/4.0/examples/signin/signin.css" rel="stylesheet" crossorigin="anonymous"/>
+</head>
+<body>
+<div class="container-fluid">
+    <div style="float: right">
+        <a href="?locale=ru"><img src="images/header/ru.svg" width="40" alt="Пример"></a>
+        <a href="?locale=en"><img src="images/header/en.svg" width="40" alt="Пример"></a>
+    </div>
+    <form class="form-signin" method="post" action="/login">
+        <h2 class="form-signin-heading" th:text="#{login.sing_in}"></h2>
+        <p>
+            <input id="email" name="email" type="email" class="form-control"
+                   th:placeholder="#{login.email_input_placeholder}" required autofocus>
+        </p>
+        <p>
+            <input id="password" name="password" class="form-control" type="password"
+                   th:placeholder="#{login.password_input_placeholder}" required>
+        </p>
+        <button type="submit" class="btn btn-success btn-lg btn-block" th:text="#{login.sing_in_button}">Sign in
+        </button>
+        <br>
+        <div align="center">
+                    <span class="social-network-item-icon">
+                        <img src="https://static.avito.ru/s/cc/resources/a0a0fd5f488d.svg"> <a href="/login/google" th:text="#{login.login_with_google}"></a>
+                    </span>
+
+        </div>
+        <div align="center">
+            <span class="social-network-item-icon">
+                <img src="https://static.avito.ru/s/cc/resources/3cdd200f5194.svg"><a href="/login/vk" th:text="#{login.login_with_vk}"></a>
+            </span>
+        </div>
+        <div th:if="${param.error}" th:text="#{login.error_message}"></div>
+    </form>
+</div>
+</body>
+</html>
