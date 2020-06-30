@@ -18,5 +18,8 @@ public class MainPageController {
     public String getDetailsPage() {
         return "posting";
     }
-
+    @GetMapping("/addNewPosting")
+    public String getNewPostingPage() {
+        return "addNewPosting";
+    }
 }
