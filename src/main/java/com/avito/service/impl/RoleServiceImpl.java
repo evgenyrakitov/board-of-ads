@@ -1,7 +1,7 @@
 package com.avito.service.impl;
 
-import com.avito.dao.interfaces.RoleDao;
 import com.avito.models.Role;
+import com.avito.repository.RoleRepository;
 import com.avito.service.interfaces.RoleService;
 import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
@@ -15,15 +15,15 @@ import org.springframework.transaction.annotation.Transactional;
 public class RoleServiceImpl implements RoleService {
     private static final Logger logger = LoggerFactory.getLogger(RoleServiceImpl.class);
 
-    private final RoleDao roleDao;
+    private final RoleRepository roleRepository;
 
     @Override
     public void addRole(Role role) {
-        roleDao.addRole(role);
+        roleRepository.save(role);
     }
 
     @Override
     public Role findRoleByName(String name) {
-        return roleDao.findRoleByName(name);
+        return roleRepository.findRoleByName(name);
     }
 }

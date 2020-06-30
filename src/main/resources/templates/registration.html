@@ -21,33 +21,34 @@
                 <div class="row">
                     <div class="col-4"> </div> <!-- empty -->
                     <div class="col-3">
-                        <p class="text-center font-weight-bold">Email<br> <input type="text" th:field="*{email}" placeholder="Input your email" class="form-control" required></p>
+                        <p class="text-center font-weight-bold">Email<br> <input type="text" id="login" th:field="*{email}" placeholder="Input your email" class="form-control" required></p>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="col-4"></div> <!-- empty -->
                     <div class="col-3 font-weight-bold text-center">
-                        <p>Password <br><input type="password" placeholder="password" th:field="*{password}" class="form-control" required></p>
+                        <p>Password <br><input type="password" id="password" placeholder="password" th:field="*{password}" class="form-control" required></p>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="col-4"></div>
                     <div class="col-3">
-                        <p class="font-weight-bold text-center">Password confirm<br> <input type="password" placeholder="retype password" th:field="*{passwordConfirm}" class="form-control" required></p>
+                        <p class="font-weight-bold text-center">Password confirm<br> <input type="password" id="password_confirm" placeholder="retype password" th:field="*{passwordConfirm}" class="form-control" required></p>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="col-5"></div>
                     <div class="col-3">
-                        <button class="btn bnt-lg btn-success" type="submit">Add new user</button>
+                        <button class="btn bnt-lg btn-success" id="bb" onclick="dd()">Add new user</button>
                     </div>
                 </div>
             </form>
         </div>
     </div>
 </div>
+<script src="../static/js/registration.js"></script>
 </body>
 </html>
