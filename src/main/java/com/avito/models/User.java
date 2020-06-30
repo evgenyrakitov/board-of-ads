@@ -1,6 +1,5 @@
 package com.avito.models;
 
-import com.avito.configs.security.AuthProvider;
 import com.avito.models.posting.Posting;
 import lombok.*;
 import org.slf4j.Logger;
@@ -16,14 +15,13 @@ import java.util.Collection;
 import java.util.Set;
 
 @Data
-@RequiredArgsConstructor
 @AllArgsConstructor
+@RequiredArgsConstructor
 @NoArgsConstructor
 @Entity
 @Table(name = "users")
 public class User implements UserDetails {
     private static final Logger logger = LoggerFactory.getLogger(User.class);
-
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -53,6 +51,11 @@ public class User implements UserDetails {
     @ManyToMany(fetch = FetchType.LAZY)
     private Set<Posting> favoritePostings;
 
+    @OneToMany(mappedBy = "user",
+    cascade = {CascadeType.PERSIST, CascadeType.REMOVE}) //по умолчанию FetchType.LAZY
+    private Set<Posting> userPostings; //возможность сохранить все посты пользователя вместе с пользователем
+    //возможность удалить все посты пользователя, если пользователь будет удален
+
     private String userIcons;
 
     @OneToMany(cascade = CascadeType.ALL)
@@ -62,8 +65,6 @@ public class User implements UserDetails {
     public String getPassword() {
         return password;
     }
-
-    //base cons
 
     //Override methods
     @Override
