@@ -15,4 +15,5 @@ public interface CategoryService {
 
     List<Category> getAllCategories();
 
+    List<Category> getRootCategories();
 }
