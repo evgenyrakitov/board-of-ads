@@ -3,16 +3,9 @@
 
 <head>
     <title>Avito clone</title>
-    <!--    <div th:replace="~{fragments/headerSmall.html :: links}"></div>-->
-
-    <!-- COmmon styles  -->
-    <!--        необходимо заменить на локальные версии шрифтов -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <!--        -->
     <link rel="stylesheet" href="webjars/bootstrap/4.5.0/css/bootstrap.min.css">
-
-
     <link rel="stylesheet" type="text/css"
           href="../../static/css/media/header-media.css" th:href="@{/css/media/header-media.css}"/>
     <link id="favicon" rel="shortcut icon" type="image/x-icon" href="../../static/favicon.ico"
@@ -25,24 +18,12 @@
     <link rel="stylesheet" type="text/css"
           href="../static/css/header-styles.css" th:href="@{/css/header-styles.css}"/>
     <link rel="stylesheet" href="/css/modal_reg.css">
-
 </head>
 <body>
-
-
-<!--<div th:replace="~{fragments/headerSmall.html :: headerSmall}"></div>-->
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-
+<br><br><br><br><br><br><br>
 
 <div class="row">
     <div class="col-1">
-        <!-- Content -->
     </div>
     <div class="col-3">
         <br>
@@ -50,49 +31,30 @@
         <br>
     </div>
     <div class="col-3">
-        <!-- Content -->
     </div>
 </div>
 
 <div class="row    auto">
-    <div class="col-1">
-    </div>
+    <div class="col-1"></div>
     <div class="col-3 rootCat ADDssa">
         <div class="btn-group-vertical cascader-table-column-2cmhR">
-            <div class="cascader-table-title-maiFW" id="rootCategoryHeader">
-                Категория
-            </div>
-            <div id="rootCategory">
-
-            </div>
-            <!--            <button type="button" class="btn cascader-table-category-2PKmD" id="btnTransport">Транспорт</button>-->
+            <div class="cascader-table-title-maiFW" id="rootCategoryHeader">Категория</div>
+            <div id="rootCategory"></div>
         </div>
     </div>
     <div class="col-3 ADDssa" style="display: none" id="colCategory2">
         <div class="btn-group-vertical cascader-table-column-2cmhR">
-            <div class="cascader-table-title-maiFW" id="secCategoryHeader">
-                Транспорт
-            </div>
-            <div id="secCategory">
-
-            </div>
-
-            <!--            <button type="button" class="btn cascader-table-category-2PKmD" id="btnAuto">Автомобили</button>-->
+            <div class="cascader-table-title-maiFW" id="secCategoryHeader">Транспорт</div>
+            <div id="secCategory"></div>
         </div>
     </div>
-    <!--3 категория машины-->
     <div class="col-3 ADDssa" style="display: none" id="colCategory3">
         <div class="btn-group-vertical cascader-table-column-2cmhR">
-            <div class="cascader-table-title-maiFW" id="threeCategoryHeader">
-                Автомобили
-            </div>
-            <div id="threeCategory">
-
-            </div>
+            <div class="cascader-table-title-maiFW" id="threeCategoryHeader">Автомобили</div>
+            <div id="threeCategory"></div>
             <button type="button" class="btn cascader-table-category-2PKmD">С пробегом</button>
         </div>
     </div>
-
 </div>
 
 <div th:fragment="script">
