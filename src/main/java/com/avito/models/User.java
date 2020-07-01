@@ -29,7 +29,7 @@ public class User implements UserDetails {
 
     @Email
     @NonNull
-    private String login;   //email is login
+    private String email;   //email is login
     //!notice! check use regexp valid email!
 
     @NonNull
@@ -43,6 +43,9 @@ public class User implements UserDetails {
     @NonNull
     @Transient
     private String passwordConfirm;
+
+    @NonNull
+    private String phone;
 
     @NonNull
     @ManyToMany(fetch = FetchType.EAGER)
@@ -74,7 +77,7 @@ public class User implements UserDetails {
 
     @Override
     public String getUsername() {
-        return login;
+        return email;
     }
 
     @Override

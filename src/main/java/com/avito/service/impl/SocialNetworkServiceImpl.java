@@ -28,7 +28,7 @@ public class SocialNetworkServiceImpl implements SocialNetworkService {
         User user = null;
         if (map.containsKey("sub")) { //sub есть у google
             String googleUsername = (String) map.get("email");
-            user = userService.findUserByLogin(googleUsername);
+            user = userService.findUserByEmail(googleUsername);
             if (user == null) {
                 user = new User();
                 Role role = roleService.findRoleByName("USER");
@@ -37,7 +37,7 @@ public class SocialNetworkServiceImpl implements SocialNetworkService {
                 }*/
                 user.setRoles(Collections.singleton(role));
             }
-            user.setLogin((String) map.get("email"));
+            user.setEmail((String) map.get("email"));
             user.setPublicName((String) map.get("name"));
             user.setUserIcons((String) map.get("picture"));
             user.setPassword(passwordEncoder.encode("oauth2user"));
