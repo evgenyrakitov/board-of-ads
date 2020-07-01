@@ -1,9 +1,11 @@
 $(document).ready(function () {
+
     $.ajax({
         url: '/rest/categories',
         type: 'get',
         dataType: 'json',
         success: function (data) {
+            $("#rootCategory").empty();
             for (var i in data) {
                 if (data[i].parentCategory == null) {
                     if (countChildren(data, data[i].name) > 0) {
