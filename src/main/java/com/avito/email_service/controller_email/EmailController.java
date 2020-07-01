@@ -4,6 +4,7 @@ import com.avito.email_service.service_email.IUserService;
 import com.avito.email_service.securyti_email.UserSecurityService;
 import com.avito.email_service.model_email.GenericResponse;
 import com.avito.models.User;
+import com.avito.service.impl.EmailService;
 import com.avito.service.interfaces.UserService;
 import lombok.AllArgsConstructor;
 import org.springframework.context.MessageSource;
@@ -25,9 +26,8 @@ public class EmailController {
 
     private final UserService userService;
     private final IUserService iUserService;
-    private final JavaMailSender mailSender;
     private final MessageSource messages;
-    private final Environment env;
+    private final EmailService emailService;
     private final UserSecurityService userSecurityService;
 
     @PostMapping("/user/resetPassword")
@@ -37,29 +37,29 @@ public class EmailController {
         if (user != null) {
             final String token = UUID.randomUUID().toString();
             iUserService.createPasswordResetTokenForUser(user, token);
-            mailSender.send(constructResetTokenEmail(getAppUrl(request), request.getLocale(), token, user));
-
+            String subject = "Reset Password";
+            String body = getBody(getAppUrl(request), request.getLocale(), token);
+            emailService .sendMail(subject, body, user);
+            //mailSender.send(constructResetTokenEmail(getAppUrl(request), request.getLocale(), token, user));
         }
         return new GenericResponse(messages.getMessage("message.resetPasswordEmail", null, request.getLocale()));
     }
-    private SimpleMailMessage constructResetTokenEmail(final String contextPath, final Locale locale, final String token, final User user) {
+    private String getBody(final String contextPath, final Locale locale, final String token){
+        final String url = contextPath + "/user/changePassword?token=" + token;
+        final String message = messages.getMessage("message.resetPassword", null, locale);
+        return message + " \r\n" + url;
+    }
+   /* private SimpleMailMessage constructResetTokenEmail(final String contextPath, final Locale locale, final String token, final User user) {
         final String url = contextPath + "/user/changePassword?token=" + token;
         final String message = messages.getMessage("message.resetPassword", null, locale);
         return constructEmail("Reset Password", message + " \r\n" + url, user);
-    }
+    }*/
 
     private String getAppUrl(HttpServletRequest request) {
         return "http://" + request.getServerName() + ":" + request.getServerPort() + request.getContextPath();
     }
 
-    private SimpleMailMessage constructEmail(String subject, String body, User user) {
-        final SimpleMailMessage email = new SimpleMailMessage();
-        email.setSubject(subject);
-        email.setText(body);
-        email.setTo(user.getEmail());
-        email.setFrom(env.getProperty("support.email"));
-        return email;
-    }
+
 
     @GetMapping("/user/changePassword")
     public String showChangePasswordPage(Locale locale, Model model,
