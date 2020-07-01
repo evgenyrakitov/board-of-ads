@@ -3,9 +3,20 @@ $("#location").click(function(){
 });
 $('#locationModal').on('shown.bs.modal', function () {
     $('#location-search').focus();
+    $("#location-search").val("");
+    $("#location-list").empty();
+    $(".location").click(function () {
+        console.log("OK");
+        let locationId = $(this).attr("id");
+        let locationName = $(this).text();
+        $("#location-search").val(locationName);
+        $("#location-list").empty();
+        console.log(locationName);
+        console.log(locationId);
+    })
 })
 
-$("#location-search").keypress(function () {
+$("#location-search").keyup(function () {
     setTimeout(function () {
         let location = $("#location-search").val();
         $.ajax({
@@ -15,9 +26,9 @@ $("#location-search").keypress(function () {
             success: function (data) {
                 $("#location-list").empty();
                 data.forEach(region => {
-                    $("#location-list").append(`<a id="${region.id}" href="#" 
-                    class="list-group-item list-group-item-action list-group-item-light">
-                    ${region.name} ${region.shortType}</a>`)
+                    $("#location-list").prepend(`<a id="${region.code}" href="#" 
+                    class="list-group-item list-group-item-action">
+                    ${region.name} ${region.shortType} </a>`)
                 })
             }
         })
@@ -27,12 +38,23 @@ $("#location-search").keypress(function () {
             dataType: 'json',
             success: function (data) {
                 data.forEach(city => {
-                    $("#location-list").append(`<a id="${city.id}" href="#" 
-                    class="list-group-item list-group-item-action list-group-item-light">
-                    ${city.name} ${city.shortType}</a>`)
+                    $("#location-list").append(`<a id="${city.code}" href="#" 
+                    class="location list-group-item list-group-item-action">
+                    ${city.shortType} ${city.name} (${city.region.name} ${city.region.shortType})</a>`)
                 })
             }
         })
     },200)
 
 })
+
+$("#location-list").click(function (event) {
+    let id = event.target.id;
+    let name = event.target.text;
+    name = name.replace(/\s+/g, ' ').trim();
+    $("#location-search").attr('data', id);
+    $("#location-search").val(name);
+    $("#location-list").empty();
+
+})
+

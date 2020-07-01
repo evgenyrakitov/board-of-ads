@@ -276,7 +276,6 @@ svg {
     height: 25vh;
     overflow: auto
 }
-.modal{
-    position: relative;
-    z-index: 9999999;
+#locationModal{
+    top: 20%;
 }
