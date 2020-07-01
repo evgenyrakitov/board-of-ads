@@ -87,6 +87,7 @@
     </div>
 </div>
 
+<!-- регистрации модалка -->
 <div class="modal fade" id="modal-reg-2" role="dialog">
     <div class="modal-dialog">
 
@@ -101,22 +102,29 @@
                 <form action="/rest/admin/add" id="add-reg-form">
                     <div class="form-item-login">
                         <label class="input-login">
-                            Введите email :<br><input name="email" placeholder="email" type="email" required>
+                            Введите email :<br><input name="email" placeholder="email" type="email"  id="login" required>
                         </label>
                     </div>
                     <div class="form-item-password">
                         <label class="input-password">
-                            Введите password :<br><input name="password" placeholder="password" type="password" autocomplete="off">
+                            Введите password :<br><input name="password" placeholder="password" type="password" id="password" autocomplete="off">
                         </label>
                     </div>
+
+                    <div class="form-item-password">
+                        <label class="input-password">
+                            Подтвердите password :<br><input name="password_confirm" placeholder="password_confirm" type="password" id="password_confirm" autocomplete="off">
+                        </label>
+                    </div>
+
                     <div class="form-item-publicName">
                         <label class="input-publicName">
-                            Введите publicName :<br><input name="publicName" placeholder="publicName" type="text" required>
+                            Введите publicName :<br><input name="publicName" placeholder="publicName" type="text" id="public_name" required>
                         </label>
                     </div>
                     <div class="form-item-phone">
                         <label class="input-phone">
-                            Введите phone :<br><input name="phone" placeholder="phone" type="tel" required>
+                            Введите phone :<br><input name="phone" placeholder="phone" type="tel" id="phone" required>
                         </label>
                     </div>
                     <div class="form-reg-button">

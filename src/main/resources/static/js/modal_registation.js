@@ -1,26 +1,31 @@
 $("#open-modal-1").click(function(){
-    $("#modal-reg-1").modal('show');
+    $("#modal-reg-1").modal('show');    //при клике сюда открыть окну входа
 });
 $("#open-modal-2").click(function () {
-    $("#modal-reg-2").modal("show");
+    $("#modal-reg-2").modal("show");    //при клике на регистрация открыть новую окну регистрации
 });
 $("#open-modal-3").click(function () {
-    $("#modal-reg-3").modal("show");
+    $("#modal-reg-3").modal("show");    //а это восстановление пароля
 });
 
-$("#btn-reg").click(function (event) {
+//begin отрисовка окна словно бы юзер вошёл в систему, типа заглушка
+$("#btn-reg").click(function (event) {  //в окне регистрации
     event.preventDefault();
-    let user_1 = $("#add-reg-form").serialize();
+    let user_1 = $("#add-reg-form").serialize();    //тут уже есть юзер
+    //begin namor script
+
+
+    //end script
+
     $.post($("#add-reg-form").attr("action"), user_1, function(user){
         let k = [];
         k = user;
 
-
-            let email_ = user.email;
+            let email_ = user.email;    //это в зеленый круг, ниже выпадающее меню.
             let menu = "<div class='dropdown'>" +
                 "  <button class='dropbtn'>"+email_+"</button>" +
                 "  <div class='dropdown-content'>" +
-                "    <a href='#'>Мои объявления</a>" +
+                "    <a href='#'>Мои объяБления</a>" +
                 "    <a href='#'>Мои отзывы</a>" +
                 "    <a href='#'>Избранное</a>" +
                 "<a href='#'>Сообщения</a>" +
@@ -34,6 +39,7 @@ $("#btn-reg").click(function (event) {
         });
 
 });
+//end
 
 $("#btn-open").click(function (event) {
     event.preventDefault();
@@ -46,6 +52,7 @@ $("#btn-open").click(function (event) {
         }
     });
 });
+
 $("#btn-modal-3").click(function (event) {
     event.preventDefault();
     $.ajax({
