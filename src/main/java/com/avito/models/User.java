@@ -1,6 +1,6 @@
 package com.avito.models;
 
-import com.avito.configs.security.AuthProvider;
+import com.avito.models.posting.Posting;
 import lombok.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,14 +15,13 @@ import java.util.Collection;
 import java.util.Set;
 
 @Data
-@RequiredArgsConstructor
 @AllArgsConstructor
+@RequiredArgsConstructor
 @NoArgsConstructor
 @Entity
 @Table(name = "users")
 public class User implements UserDetails {
     private static final Logger logger = LoggerFactory.getLogger(User.class);
-
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,7 +29,7 @@ public class User implements UserDetails {
 
     @Email
     @NonNull
-    private String login;   //email is login
+    private String email;   //email is login
     //!notice! check use regexp valid email!
 
     @NonNull
@@ -46,8 +45,19 @@ public class User implements UserDetails {
     private String passwordConfirm;
 
     @NonNull
+    private String phone;
+
+    @NonNull
     @ManyToMany(fetch = FetchType.EAGER)
     private Set<Role> roles;
+
+    @ManyToMany(fetch = FetchType.LAZY)
+    private Set<Posting> favoritePostings;
+
+    @OneToMany(mappedBy = "user",
+    cascade = {CascadeType.PERSIST, CascadeType.REMOVE}) //по умолчанию FetchType.LAZY
+    private Set<Posting> userPostings; //возможность сохранить все посты пользователя вместе с пользователем
+    //возможность удалить все посты пользователя, если пользователь будет удален
 
     private String userIcons;
 
@@ -59,8 +69,6 @@ public class User implements UserDetails {
         return password;
     }
 
-    //base cons
-
     //Override methods
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -69,7 +77,7 @@ public class User implements UserDetails {
 
     @Override
     public String getUsername() {
-        return login;
+        return email;
     }
 
     @Override
@@ -91,4 +99,5 @@ public class User implements UserDetails {
     public boolean isEnabled() {
         return true;
     }
+
 }

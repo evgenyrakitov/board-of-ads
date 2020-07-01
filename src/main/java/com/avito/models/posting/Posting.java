@@ -34,13 +34,12 @@ public class Posting {
     private String title;
 
     @NonNull
-    @OneToOne(cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.LAZY)
     private Category category;
 
     @NonNull
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.LAZY)
     private User user;
-
 
     @NonNull
     @Column(name = "full_description")
