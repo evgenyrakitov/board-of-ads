@@ -37,6 +37,7 @@ public class Category {
     private Category parentCategory;
 
 
+    @Transient
     @OneToMany(cascade = CascadeType.ALL)
     @Column
     private Set<Category> subCategories;
