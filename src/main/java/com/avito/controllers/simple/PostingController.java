@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
 @Controller
-public class NewPostingController {
-    private static final Logger logger = LoggerFactory.getLogger(NewPostingController.class);
+public class PostingController {
+    private static final Logger logger = LoggerFactory.getLogger(PostingController.class);
 
     @GetMapping("/newPosting/{name}")
     public String getMainPage(@PathVariable String name) {
