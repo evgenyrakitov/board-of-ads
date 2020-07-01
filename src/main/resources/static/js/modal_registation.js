@@ -10,13 +10,31 @@ $("#open-modal-3").click(function () {
 
 $("#btn-reg").click(function (event) {
     event.preventDefault();
-    $.ajax({
-        url: $("#add-reg-form").attr("action"),
-        method: "PUT",
-        data: $("#add-reg-form").serialize(),
-        success: alert("OK")
-    });
+    let user_1 = $("#add-reg-form").serialize();
+    $.post($("#add-reg-form").attr("action"), user_1, function(user){
+        let k = [];
+        k = user;
+
+
+            let email_ = user.email;
+            let menu = "<div class='dropdown'>" +
+                "  <button class='dropbtn'>"+email_+"</button>" +
+                "  <div class='dropdown-content'>" +
+                "    <a href='#'>Мои объявления</a>" +
+                "    <a href='#'>Мои отзывы</a>" +
+                "    <a href='#'>Избранное</a>" +
+                "<a href='#'>Сообщения</a>" +
+                "<a href='#'>Уведомления</a>" +
+                "<a href='#'>Кошелек</a>" +
+                "<a href='#'>Платные услуги</a>" +
+                "<a href='#'>Настройки</a>" +
+                "<a href='/logout'>Выйти</a>" +
+                "</div></div>";
+            $("#li").html(menu);
+        });
+
 });
+
 $("#btn-open").click(function (event) {
     event.preventDefault();
     $.ajax({

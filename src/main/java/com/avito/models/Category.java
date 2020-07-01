@@ -1,6 +1,7 @@
 package com.avito.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.avito.models.posting.Posting;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -37,11 +38,15 @@ public class Category {
     @JoinColumn(name = "parentCategory")
     private Category parentCategory;
 
-    @JsonIgnore // как сделать певую категорию
+    @JsonIgnore
 
     @OneToMany(cascade = CascadeType.ALL)
     @Column
     private Set<Category> subCategories;
+
+    @OneToMany(mappedBy = "category",
+            cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
+    private Set<Posting> postingsInCategory;
 
     public static Logger getLogger() {
         return logger;

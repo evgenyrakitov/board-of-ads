@@ -33,9 +33,9 @@ public class AuthProvider implements AuthenticationProvider {
         String username = authentication.getName();
         String password = (String) authentication.getCredentials();
 
-        User user = userService.findUserByLogin(username);
+        User user = userService.findUserByEmail(username);
 
-        if (user != null && (user.getUsername().equals(username) || user.getLogin().equals(username))) {
+        if (user != null && (user.getUsername().equals(username) || user.getEmail().equals(username))) {
             if (!passwordEncoder.matches(password, user.getPassword())) {
                 throw new BadCredentialsException("Wrong password");
             }

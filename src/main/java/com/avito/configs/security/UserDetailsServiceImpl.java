@@ -21,9 +21,9 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     private final UserService userService;
 
     @Override
-    public UserDetails loadUserByUsername(String login) throws UsernameNotFoundException {
+    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
 
-        User user = userService.findUserByLogin(login);
+        User user = userService.findUserByEmail(email);
 
         if (user == null) {
             throw new UsernameNotFoundException("User not found");
