@@ -1,6 +1,5 @@
 package com.avito.models;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.avito.models.posting.Posting;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,10 +18,10 @@ public class Category {
     }
 
 
-    public Category(String name, Category parentCategory, Set<Category> subCategories) {
+    public Category(String name, Category parentCategory) {
         this.name = name;
         this.parentCategory = parentCategory;
-        this.subCategories = subCategories;
+//        this.subCategories = subCategories;
     }
 
     @Id
@@ -35,14 +34,9 @@ public class Category {
 
 
     @ManyToOne(cascade = CascadeType.ALL)
+
     @JoinColumn(name = "parentCategory")
     private Category parentCategory;
-
-    @JsonIgnore
-
-    @OneToMany(cascade = CascadeType.ALL)
-    @Column
-    private Set<Category> subCategories;
 
     @OneToMany(mappedBy = "category",
             cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
@@ -76,11 +70,11 @@ public class Category {
         this.parentCategory = parentCategory;
     }
 
-    public Set<Category> getSubCategories() {
-        return subCategories;
-    }
-
-    public void setSubCategories(Set<Category> subCategories) {
-        this.subCategories = subCategories;
-    }
+//    public Set<Category> getSubCategories() {
+//        return subCategories;
+//    }
+//
+//    public void setSubCategories(Set<Category> subCategories) {
+//        this.subCategories = subCategories;
+//    }
 }
