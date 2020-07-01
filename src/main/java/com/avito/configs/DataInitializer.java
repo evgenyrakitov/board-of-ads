@@ -56,8 +56,8 @@ public class DataInitializer {
         Set<Role> userRoles = new HashSet<>();
         userRoles.add(roleService.findRoleByName("USER"));
 
-        User userAdmin = new User("admin@gmail.com", "Test Admin name", "admin", "admin", adminRoles);
-        User userUser = new User("test.email.1@gmail.com", "test 1 public name", "qwerty1", "qwerty1", userRoles);
+        User userAdmin = new User("admin@gmail.com", "Test Admin name", "admin", "admin", "89185552623", adminRoles);
+        User userUser = new User("test.email.1@gmail.com", "test 1 public name", "qwerty1", "qwerty1", "89526321452", userRoles);
 
         userService.addUser(userAdmin);
         userService.addUser(userUser);
@@ -68,8 +68,8 @@ public class DataInitializer {
             return;
         }
 
-        User userUser = userService.findUserByLogin("test.email.1@gmail.com");
-        User adminUser = userService.findUserByLogin("admin@gmail.com");
+        User userUser = userService.findUserByEmail("test.email.1@gmail.com");
+        User adminUser = userService.findUserByEmail("admin@gmail.com");
 
         List<Category> categories = categoryService.getRootCategories().stream().sorted((Comparator.comparing(Category::getName))).collect(Collectors.toList());
         assert categories.size() >= 3;

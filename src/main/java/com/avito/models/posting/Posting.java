@@ -5,7 +5,6 @@ import com.avito.models.Images;
 import com.avito.models.Message;
 import com.avito.models.User;
 import lombok.*;
-import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.persistence.*;
@@ -13,6 +12,7 @@ import java.util.Set;
 
 //kalinin_begin_change
 //import java.util.logging.Logger;
+import org.slf4j.Logger;
 //kalinin_end
 
 @Data
@@ -24,6 +24,7 @@ import java.util.Set;
 public class Posting {
     private static final Logger logger = LoggerFactory.getLogger(Posting.class);
 
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "posting_id")
@@ -33,11 +34,11 @@ public class Posting {
     private String title;
 
     @NonNull
-    @OneToOne(targetEntity = Category.class)
+    @ManyToOne(fetch = FetchType.LAZY)
     private Category category;
 
     @NonNull
-    @ManyToOne(targetEntity = User.class)
+    @ManyToOne(fetch = FetchType.LAZY)
     private User user;
 
     @NonNull
