@@ -124,6 +124,7 @@ let user_profile = {
             let html = [];
             let i = 0;
 
+            html.push('<h1 class="heading">Мои объявления</h1>')
             html.push('<div class="js-personal-items">');
             postingsDTOs.forEach(function (dto) {
                 i++;
