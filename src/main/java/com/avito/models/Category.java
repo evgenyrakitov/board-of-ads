@@ -17,50 +17,47 @@ public class Category {
 
     }
 
-    @OneToMany(cascade = {CascadeType.REFRESH})
-    private Set<Posting> postingsInCategory;
+
+    public Category(String nameRu, String nameEn, Category parentCategory, Set<Posting> postingsInCategory) {
+        this.nameRu = nameRu;
+        this.parentCategory = parentCategory;
+        this.nameEn = nameEn;
+        this.postingsInCategory = postingsInCategory;
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
 
-    @Column(name = "name")
-    private String name;
+    @Column
+    private String nameRu;
+
+    @Column
+    private String nameEn;
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "parentCategory")
     private Category parentCategory;
 
+    @OneToMany(cascade = {CascadeType.REFRESH})
 
-    public Category(String name, Category parentCategory, String local, Set<Posting> postingsInCategory) {
-        this.name = name;
-        this.parentCategory = parentCategory;
-        this.local = local;
-//        this.postingsInCategory = postingsInCategory;
+    private Set<Posting> postingsInCategory;
+
+    public String getNameRu() {
+        return nameRu;
     }
 
-    @Column(name = "local")
-    private String local;
-
-    public static Logger getLogger() {
-        return logger;
+    public void setNameRu(String nameRu) {
+        this.nameRu = nameRu;
     }
 
-    public Long getId() {
-        return id;
+    public String getNameEn() {
+        return nameEn;
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
+    public void setNameEn(String nameEn) {
+        this.nameEn = nameEn;
     }
 
     public Category getParentCategory() {
@@ -77,13 +74,5 @@ public class Category {
 
     public void setPostingsInCategory(Set<Posting> postingsInCategory) {
         this.postingsInCategory = postingsInCategory;
-    }
-
-    public String getLocal() {
-        return local;
-    }
-
-    public void setLocal(String local) {
-        this.local = local;
     }
 }

@@ -27,7 +27,6 @@ public class Posting {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "posting_id")
     private Long id;
 
     @NonNull
