@@ -1,9 +1,18 @@
 package com.avito.models;
 
-import com.avito.models.posting.Posting;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
 
-import javax.persistence.*;
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 import java.time.LocalDateTime;
 
 
@@ -30,15 +39,7 @@ public class Message {
     private User author;
 
     @NonNull
-    @ManyToOne(cascade = CascadeType.ALL)
-    private Posting posting;
-
-    @NonNull
     private ReadStatus readStatus = ReadStatus.NOT_READ;
-
-    public User getRecipient() {
-        return posting.getUser();
-    }
 
     public enum ReadStatus {
         READ,
