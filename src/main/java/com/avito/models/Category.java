@@ -44,7 +44,7 @@ public class Category {
 
     private Set<Posting> postingsInCategory;
 
-    public String getNameRU() {
+    public String getNameRu() {
         return nameRu;
     }
 
@@ -58,14 +58,6 @@ public class Category {
 
     public void setNameEn(String nameEn) {
         this.nameEn = nameEn;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public Category getParentCategory() {
@@ -83,6 +75,4 @@ public class Category {
     public void setPostingsInCategory(Set<Posting> postingsInCategory) {
         this.postingsInCategory = postingsInCategory;
     }
-
-
 }
