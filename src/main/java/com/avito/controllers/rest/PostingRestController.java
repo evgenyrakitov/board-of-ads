@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @RestController
@@ -46,6 +47,11 @@ public class PostingRestController {
     @GetMapping("/all")
     public ResponseEntity<String> getAllPostings() {
         return new ResponseEntity<>(new Gson().toJson(postingService.getAllPostings()), HttpStatus.OK);
+    }
+
+    @GetMapping("/all/{locationCode}")
+    public ResponseEntity<List<Posting>> getPostingsByLocationCode(@PathVariable String locationCode) {
+        return ResponseEntity.ok(postingService.getPostingsByLocationCode(locationCode));
     }
 
     @GetMapping("/user/{id}")

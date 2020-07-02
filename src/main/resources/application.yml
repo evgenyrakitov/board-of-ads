@@ -6,7 +6,7 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/avito?useUnicode=yes&characterEncoding=UTF-8&serverTimezone=UTC
     username: root
-    password: admin
+    password: root
     initialization-mode: always
   jpa:
     show-sql: false

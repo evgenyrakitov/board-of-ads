@@ -1,4 +1,4 @@
-$("#location").click(function(){
+$("#location").click(function () {
     $("#locationModal").modal('show');
 });
 $('#locationModal').on('shown.bs.modal', function () {
@@ -6,13 +6,10 @@ $('#locationModal').on('shown.bs.modal', function () {
     $("#location-search").val("");
     $("#location-list").empty();
     $(".location").click(function () {
-        console.log("OK");
         let locationId = $(this).attr("id");
         let locationName = $(this).text();
         $("#location-search").val(locationName);
         $("#location-list").empty();
-        console.log(locationName);
-        console.log(locationId);
     })
 })
 
@@ -44,7 +41,7 @@ $("#location-search").keyup(function () {
                 })
             }
         })
-    },200)
+    }, 200)
 
 })
 
@@ -56,5 +53,35 @@ $("#location-list").click(function (event) {
     $("#location-search").val(name);
     $("#location-list").empty();
 
+})
+
+$("#location-close").click(function () {
+    let locationCode = $("#location-search").attr("data");
+    if (typeof locationCode !== typeof undefined && locationCode !== false) {
+        $.ajax({
+            url: `/rest/posting/all/${locationCode}`,
+            type: 'get',
+            dataType: 'json',
+            success: function (data) {
+                $("#locationModal").modal('hide');
+                $(".container_cus").empty();
+                data.forEach(posting => {
+                    $(".container_cus").prepend(
+                        '<div class="card">\n' +
+                        '            <img src="' + posting.imagePath[0].imagePath + '" class="card-img-top" alt="...">\n' +
+                        '            <div class="card-body">\n' +
+                        '                <h5 class="card-title">' + posting.title + '</h5>\n' +
+                        '                <p class="card-text">' + posting.price + '</p>\n' +
+                        '                <a href="adDetails" class="btn btn-primary" ' +
+                        'th:text="#{main-page.go_to_ad}">Перейти к объявлению</a>\n' +
+                        '            </div>\n' +
+                        '        </div>'
+                    );
+                })
+            }
+        });
+    } else {
+        $("#locationModal").modal('hide');
+    }
 })
 
