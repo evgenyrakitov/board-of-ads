@@ -7,6 +7,9 @@ import com.avito.service.interfaces.PasswordResetService;
 import com.avito.service.interfaces.UserService;
 import lombok.AllArgsConstructor;
 import org.springframework.context.MessageSource;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -17,40 +20,15 @@ import java.util.UUID;
 
 @AllArgsConstructor
 @Controller
+@RequestMapping("/user")
 public class ResetPasswordController {
 
     private final UserService userService;
     private final MessageSource messages;
-    private final EmailService emailService;
     private final PasswordResetService passwordResetService;
 
 
-    @PostMapping("/user/resetPassword")
-    @ResponseBody
-    public GenericResponse resetPassword(final HttpServletRequest request, @RequestParam("email") final String userEmail) {
-        final User user = userService.findUserByEmail(userEmail);
-        if (user != null) {
-            final String token = UUID.randomUUID().toString();
-            passwordResetService.createPasswordResetTokenForUser(user, token);
-            String subject = "Reset Password";
-            String body = getBody(getAppUrl(request), request.getLocale(), token);
-            emailService .sendMail(subject, body, user);
-        }
-        return new GenericResponse(messages.getMessage("message.resetPasswordEmail", null, request.getLocale()));
-    }
-    private String getBody(final String contextPath, final Locale locale, final String token){
-        final String url = contextPath + "/user/changePassword?token=" + token;
-        final String message = messages.getMessage("message.resetPassword", null, locale);
-        return message + " \r\n" + url;
-    }
-
-    private String getAppUrl(HttpServletRequest request) {
-        return "http://" + request.getServerName() + ":" + request.getServerPort() + request.getContextPath();
-    }
-
-
-
-    @GetMapping("/user/changePassword")
+    @GetMapping("/changePassword")
     public String showChangePasswordPage(Locale locale, Model model,
             /*@RequestParam("id") long id, */@RequestParam("token") String token) {
         String result = passwordResetService.validatePasswordResetToken(token);
@@ -64,7 +42,7 @@ public class ResetPasswordController {
 
     }
 
-    @RequestMapping(value = "/user/savePassword", method = RequestMethod.POST)
+    @RequestMapping(value = "/savePassword", method = RequestMethod.POST)
     public String savePassword(@RequestParam("password") String password,
                                @RequestParam("passwordConfirm") String passwordConfirm,
                                @RequestParam("token") String token) {
