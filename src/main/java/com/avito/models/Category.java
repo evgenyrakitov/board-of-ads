@@ -18,10 +18,10 @@ public class Category {
     }
 
 
-    public Category(String nameRU, String nameEN, Category parentCategory, Set<Posting> postingsInCategory) {
-        this.nameRU = nameRU;
+    public Category(String nameRu, String nameEn, Category parentCategory, Set<Posting> postingsInCategory) {
+        this.nameRu = nameRu;
         this.parentCategory = parentCategory;
-        this.nameEN = nameEN;
+        this.nameEn = nameEn;
         this.postingsInCategory = postingsInCategory;
     }
 
@@ -30,11 +30,11 @@ public class Category {
     private Long id;
 
 
-    @Column(name = "nameRU")
-    private String nameRU;
+    @Column
+    private String nameRu;
 
-    @Column(name = "nameEN")
-    private String nameEN;
+    @Column
+    private String nameEn;
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "parentCategory")
@@ -45,19 +45,19 @@ public class Category {
     private Set<Posting> postingsInCategory;
 
     public String getNameRU() {
-        return nameRU;
+        return nameRu;
     }
 
     public void setNameRU(String nameRU) {
-        this.nameRU = nameRU;
+        this.nameRu = nameRU;
     }
 
     public String getNameEN() {
-        return nameEN;
+        return nameEn;
     }
 
     public void setNameEN(String nameEN) {
-        this.nameEN = nameEN;
+        this.nameEn = nameEN;
     }
 
     public Long getId() {
