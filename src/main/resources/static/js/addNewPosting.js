@@ -1,26 +1,27 @@
 $(document).ready(function () {
-
-    $.ajax({
-        url: '/rest/categories',
-        type: 'get',
-        dataType: 'json',
-        success: function (data) {
-            $("#rootCategory").empty();
-            for (var i in data) {
-                if (data[i].parentCategory == null) {
-                    if (countChildren(data, data[i].name) > 0) {
-                        $("#rootCategory").append(
-                            "<button type='button' class='btn cascader-table-category-2PKmD btnFirstCategory' onclick='funcLevel2Menu(this)')>" + data[i].name + "</button>"
-                        );
-                    } else {
-                        $("#rootCategory").append(
-                            "<button type='button' class='btn cascader-table-category-2PKmD btnFirstCategory' onclick='window.location.replace(`/newPosting/" + data[i].name + "`)'>" + data[i].name + "</button>"
-                        );
+    if (localStorage.getItem("locale") === "ru"){
+        $.ajax({
+            url: '/rest/categories',
+            type: 'get',
+            dataType: 'json',
+            success: function (data) {
+                $("#rootCategory").empty();
+                for (var i in data) {
+                    if (data[i].parentCategory == null) {
+                        if (countChildren(data, data[i].name) > 0) {
+                            $("#rootCategory").append(
+                                "<button type='button' class='btn cascader-table-category-2PKmD btnFirstCategory' onclick='funcLevel2Menu(this)')>" + data[i].name + "</button>"
+                            );
+                        } else {
+                            $("#rootCategory").append(
+                                "<button type='button' class='btn cascader-table-category-2PKmD btnFirstCategory' onclick='window.location.replace(`/newPosting/" + data[i].name + "`)'>" + data[i].name + "</button>"
+                            );
+                        }
                     }
                 }
             }
-        }
-    });
+        });
+    }
 });
 
 var countChildren = function (data, parentName) {
