@@ -1,23 +1,26 @@
-package com.avito.service;
-
+package com.avito.service.impl;
 import com.avito.models.User;
+import com.avito.service.interfaces.EmailService;
 import lombok.AllArgsConstructor;
 import org.springframework.core.env.Environment;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
+import java.util.Objects;
+
 @Service
 @AllArgsConstructor
-public class EmailService {
+public class EmailServiceIml implements EmailService {
 
     private final JavaMailSender mailSender;
     private final Environment env;
 
-/*Метод для отправки почты
-String subject - Название сообщения
-String body - Тело сообщения
- */
+    /*Метод для отправки почты
+    String subject - Название сообщения
+    String body - Тело сообщения
+     */
+    @Override
     public void sendMail(String subject, String body, User user){
         mailSender.send(constructEmail(subject, body, user));
     }
@@ -27,7 +30,7 @@ String body - Тело сообщения
         email.setSubject(subject);
         email.setText(body);
         email.setTo(user.getEmail());
-        email.setFrom(env.getProperty("support.email"));
+        email.setFrom(Objects.requireNonNull(env.getProperty("support.email")));
         return email;
     }
 }

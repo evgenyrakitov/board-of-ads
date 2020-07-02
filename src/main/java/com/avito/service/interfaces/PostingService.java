@@ -15,4 +15,6 @@ public interface PostingService {
 
     List<Posting> getAllPostings();
 
+    List<Posting> getPostingsByLocationCode(String locationCode);
+
 }
