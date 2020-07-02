@@ -1,3 +1,5 @@
+var messages = [];
+
 let formatMoney = function (x) {
     var parts = x.toString().split(".");
     parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, " ");
@@ -5,6 +7,16 @@ let formatMoney = function (x) {
 }
 
 let on_profile_page_load = function () {
+
+    $.ajax({
+        url: "/rest/i18n/profile",
+        type: "get",
+        async: false,
+        success: function (msgs) {
+            messages = msgs;
+        }
+    });
+
     $('#navlink-my-postings').click(function (e) {
         user_profile.show_postings(this);
         return true;
@@ -87,32 +99,32 @@ let user_profile = {
     show_feedbacks: function (element) {
         this.deselectAllNavLinks();
         element.classList.add("profile-sidebar-navigation-link-active-3sgHn");
-        document.getElementById("user_page_content").innerHTML = "<h1 class=\"heading\">Мои отзывы</h1>";
+        document.getElementById("user_page_content").innerHTML = "<h1 class=\"heading\">" + messages['profile.feedbacks.title'] + "</h1>";
     },
     show_favorites: function (element) {
         this.deselectAllNavLinks();
         element.classList.add("profile-sidebar-navigation-link-active-3sgHn");
-        document.getElementById("user_page_content").innerHTML = "<h1 class=\"heading\">Избранное</h1>";
+        document.getElementById("user_page_content").innerHTML = "<h1 class=\"heading\">" + messages['profile.favorites.title'] + "</h1>";
     },
     show_messages: function (element) {
         this.deselectAllNavLinks();
         element.classList.add("profile-sidebar-navigation-link-active-3sgHn");
-        document.getElementById("user_page_content").innerHTML = "<h1 class=\"heading\">Сообщения</h1>";
+        document.getElementById("user_page_content").innerHTML = "<h1 class=\"heading\">" + messages['profile.messages.title'] + "</h1>";
     },
     show_notifications: function (element) {
         this.deselectAllNavLinks();
         element.classList.add("profile-sidebar-navigation-link-active-3sgHn");
-        document.getElementById("user_page_content").innerHTML = "<h1 class=\"heading\">Уведомления</h1>";
+        document.getElementById("user_page_content").innerHTML = "<h1 class=\"heading\">" + messages['profile.notification.title'] + "</h1>";
     },
     show_settings: function (element) {
         this.deselectAllNavLinks();
         element.classList.add("profile-sidebar-navigation-link-active-3sgHn");
-        document.getElementById("user_page_content").innerHTML = "<h1 class=\"heading\">Настройки</h1>";
+        document.getElementById("user_page_content").innerHTML = "<h1 class=\"heading\">" + messages['profile.settings.title'] + "</h1>";
     },
     show_rating: function (element) {
         this.deselectAllNavLinks();
         $("#navlink-my-rating").attr("style", "color: black");
-        document.getElementById("user_page_content").innerHTML = "<h1 class=\"heading\">Рейтинг</h1>";
+        document.getElementById("user_page_content").innerHTML = "<h1 class=\"heading\">" + messages['profile.feedbacks.title'] + "</h1>";
     },
 
     ///////// HTML GENERATORS ////////
@@ -124,7 +136,7 @@ let user_profile = {
             let html = [];
             let i = 0;
 
-            html.push('<h1 class="heading">Мои объявления</h1>')
+            html.push('<h1 class="heading">' + messages['profile.postings.title'] + '</h1>')
             html.push('<div class="js-personal-items">');
             postingsDTOs.forEach(function (dto) {
                 i++;
@@ -154,7 +166,7 @@ let user_profile = {
                 html.push('</div>');
                 html.push('<div class="item-info-root-wBabw item-snippet-column-1FtP4 item-snippet-column_info-2khYL" data-marker="item-info/1148965022">');
                 html.push('<div class="actions-dropdown-root-jPjxy" data-marker="item-info/1148965022/dropdown-button"><span class="tooltip-tooltip-box-2rApK"><span class="tooltip-target-wrapper-XcPdv"><button class="actions-dropdown-button-3vVVq" type="button">•••</button></span></span></div>');
-                html.push('<div class="item-info-row-2W-ds"><span class="text-text-1PdBw text-size-s-1PUdo">Информация о сроке размещения</span></div>');
+                html.push('<div class="item-info-row-2W-ds"><span class="text-text-1PdBw text-size-s-1PUdo">' + messages['profile.postings.dto_placement_text'] + '</span></div>');
                 html.push('<div class="item-info-row-2W-ds"></div>');
                 html.push('<div class="item-info-row-2W-ds"></div>');
                 html.push('<div class="item-info-row-2W-ds"></div>');
@@ -162,7 +174,7 @@ let user_profile = {
                 html.push(`<div class="counters-link-wrap-38XDX"><a href="` + dto.url + `" target="_self" class="link-link-39EVK link-design-default-2sPEv link-novisited-1w4JY"><i class="counters-icon-2rkLp counters-icon_views-1_u_8" style="background-image: url('/images/views.svg');"></i><span class="counters-text-2nXu_ text-text-1PdBw text-size-s-1PUdo"><span class="text-text-1PdBw">` + dto.viewCount + `</span></span></a></div>`);
                 html.push(`<div class="counters-link-wrap-38XDX"><a href="` + dto.url + `" target="_self" class="link-link-39EVK link-design-default-2sPEv link-novisited-1w4JY"><i class="counters-icon-2rkLp counters-icon_favorites-1dqSi" style="background-image: url('/images/likes.svg');"></i><span class="counters-text-2nXu_ text-text-1PdBw text-size-s-1PUdo"><span class="text-text-1PdBw">` + dto.favoritesCount + `</span></span></a></div>`);
                 html.push('</div>');
-                html.push('<div class="actions-root-1xyPW"><button type="button" data-marker="publish-button/1148965022" class="button-button-2Fo5k button-size-s-3-rn6 button-default-mSfac width-width-12-2VZLz" aria-busy="false"><span class="button-textBox-Row9K">Редактировать</span></button></div>');
+                html.push('<div class="actions-root-1xyPW"><button type="button" data-marker="publish-button/1148965022" class="button-button-2Fo5k button-size-s-3-rn6 button-default-mSfac width-width-12-2VZLz" aria-busy="false"><span class="button-textBox-Row9K">' + messages['profile.postings.dto_button_text'] + '</span></button></div>');
                 html.push('</div>');
                 html.push('</div>');
                 html.push('</div>');

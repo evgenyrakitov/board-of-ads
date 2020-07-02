@@ -17,12 +17,8 @@ public class Category {
 
     }
 
-    public Category(String name, Category parentCategory, String local,Set<Posting> postingsInCategory) {
-        this.name = name;
-        this.parentCategory = parentCategory;
-        this.local = local;
-        this.postingsInCategory = postingsInCategory;
-    }
+    @OneToMany(cascade = {CascadeType.REFRESH})
+    private Set<Posting> postingsInCategory;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -36,10 +32,13 @@ public class Category {
     @JoinColumn(name = "parentCategory")
     private Category parentCategory;
 
-    @OneToMany(mappedBy = "category",
-            cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
 
-    private Set<Posting> postingsInCategory;
+    public Category(String name, Category parentCategory, String local, Set<Posting> postingsInCategory) {
+        this.name = name;
+        this.parentCategory = parentCategory;
+        this.local = local;
+//        this.postingsInCategory = postingsInCategory;
+    }
 
     @Column(name = "local")
     private String local;
