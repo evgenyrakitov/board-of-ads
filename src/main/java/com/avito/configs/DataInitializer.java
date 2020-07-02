@@ -107,9 +107,9 @@ public class DataInitializer {
 
     private void initCategories() {
 
-//        if (categoryService.getAllCategories().size() != 0) {
-//            return;
-//        }
+        if (categoryService.getAllCategories().size() != 0) {
+            return;
+        }
 
         Set<Posting> postings = new HashSet<>();
 
@@ -793,12 +793,15 @@ public class DataInitializer {
         Category settlementsSellLand = new Category("Поселений (ИЖС)", "Settlements (IHC)", null, postings);
         Category agriculturalPurposesSellLand = new Category("Сельхозназначения (СНТ, ДНП)", "Agricultural purposes (HNPP,DNPP)", null, postings);
         Category industrialPurposesSellLand = new Category("Промназначения", "Industrial purposes", null, postings);
+
         Category settlementsRentLand = new Category("Поселений (ИЖС)", "Settlements (IHC)", null, postings);
         Category agriculturalPurposesRentLand = new Category("Сельхозназначения (СНТ, ДНП)", "Agricultural purposes (HNPP,DNPP)", null, postings);
         Category industrialPurposesRentLand = new Category("Промназначения", "Industrial purposes", null, postings);
+
         Category settlementsBuyLand = new Category("Поселений (ИЖС)", "Settlements (IHC)", null, postings);
         Category agriculturalPurposesBuyLand = new Category("Сельхозназначения (СНТ, ДНП)", "Agricultural purposes (HNPP,DNPP)", null, postings);
         Category industrialPurposesBuyLand = new Category("Промназначения", "Industrial purposes", null, postings);
+
         Category settlementsSnimLand = new Category("Поселений (ИЖС)", "Settlements (IHC)", null, postings);
         Category agriculturalPurposesSnimLand = new Category("Сельхозназначения (СНТ, ДНП)", "Agricultural purposes (HNPP,DNPP)", null, postings);
         Category industrialPurposesSnimLand = new Category("Промназначения", "Industrial purposes", null, postings);
@@ -828,7 +831,7 @@ public class DataInitializer {
 
         settlementsRentLand.setParentCategory(rentLand);
         agriculturalPurposesRentLand.setParentCategory(rentLand);
-        industrialPurposesSellLand.setParentCategory(rentLand);
+        industrialPurposesRentLand.setParentCategory(rentLand);
 
         settlementsBuyLand.setParentCategory(buyLand);
         agriculturalPurposesBuyLand.setParentCategory(buyLand);
@@ -1119,24 +1122,31 @@ public class DataInitializer {
         categoryService.updateCategory(premiseSellCommerc);
         categoryService.updateCategory(warehouseSellCommerc);
         categoryService.updateCategory(facilitySellCommerc);
-
         categoryService.updateCategory(cateringSellCommerc);
         categoryService.updateCategory(hotelSellCommerc);
+
         categoryService.updateCategory(officeRentCommerc);
         categoryService.updateCategory(placementRoomRentCommerc);
         categoryService.updateCategory(premiseRentCommerc);
-
         categoryService.updateCategory(warehouseRentCommerc);
         categoryService.updateCategory(facilityRentCommerc);
         categoryService.updateCategory(cateringRentCommerc);
         categoryService.updateCategory(hotelRentCommerc);
-        categoryService.updateCategory(officeBuyCommerc);
 
+        categoryService.updateCategory(officeBuyCommerc);
         categoryService.updateCategory(placementRoomBuyCommerc);
         categoryService.updateCategory(premiseBuyCommerc);
         categoryService.updateCategory(warehouseBuyCommerc);
         categoryService.updateCategory(facilityBuyCommerc);
         categoryService.updateCategory(cateringBuyCommerc);
+        categoryService.updateCategory(hotelBuyCommerc);
 
+        categoryService.updateCategory(officeSnimCommerc);
+        categoryService.updateCategory(placementRoomSnimCommerc);
+        categoryService.updateCategory(premiseSnimCommerc);
+        categoryService.updateCategory(warehouseSnimCommerc);
+        categoryService.updateCategory(facilitySnimCommerc);
+        categoryService.updateCategory(cateringSnimCommerc);
+        categoryService.updateCategory(hotelSnimCommerc);
     }
 }
