@@ -2,7 +2,7 @@ package com.avito.controllers.simple;
 import com.avito.models.reset_password.GenericResponse;
 
 import com.avito.models.User;
-import com.avito.service.EmailService;
+import com.avito.service.interfaces.EmailService;
 import com.avito.service.interfaces.PasswordResetService;
 import com.avito.service.interfaces.UserService;
 import lombok.AllArgsConstructor;
