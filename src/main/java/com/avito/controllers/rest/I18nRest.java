@@ -1,6 +1,6 @@
 package com.avito.controllers.rest;
 
-import com.avito.configs.extensions.CustomMessageSource;
+import com.avito.extensions.CustomMessageSource;
 import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

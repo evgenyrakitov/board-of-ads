@@ -1,6 +1,6 @@
 package com.avito.configs;
 
-import com.avito.configs.extensions.CustomMessageSource;
+import com.avito.extensions.CustomMessageSource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.MessageSource;
