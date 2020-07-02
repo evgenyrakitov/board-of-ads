@@ -17,11 +17,11 @@ public class Category {
 
     }
 
-
-    public Category(String name, Category parentCategory) {
+    public Category(String name, Category parentCategory, String local,Set<Posting> postingsInCategory) {
         this.name = name;
         this.parentCategory = parentCategory;
-//        this.subCategories = subCategories;
+        this.local = local;
+        this.postingsInCategory = postingsInCategory;
     }
 
     @Id
@@ -32,15 +32,17 @@ public class Category {
     @Column(name = "name")
     private String name;
 
-
     @ManyToOne(cascade = CascadeType.ALL)
-
     @JoinColumn(name = "parentCategory")
     private Category parentCategory;
 
     @OneToMany(mappedBy = "category",
             cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
+
     private Set<Posting> postingsInCategory;
+
+    @Column(name = "local")
+    private String local;
 
     public static Logger getLogger() {
         return logger;
@@ -70,11 +72,19 @@ public class Category {
         this.parentCategory = parentCategory;
     }
 
-//    public Set<Category> getSubCategories() {
-//        return subCategories;
-//    }
-//
-//    public void setSubCategories(Set<Category> subCategories) {
-//        this.subCategories = subCategories;
-//    }
+    public Set<Posting> getPostingsInCategory() {
+        return postingsInCategory;
+    }
+
+    public void setPostingsInCategory(Set<Posting> postingsInCategory) {
+        this.postingsInCategory = postingsInCategory;
+    }
+
+    public String getLocal() {
+        return local;
+    }
+
+    public void setLocal(String local) {
+        this.local = local;
+    }
 }
