@@ -2,11 +2,14 @@ package com.avito.controllers.simple;
 import com.avito.models.reset_password.GenericResponse;
 
 import com.avito.models.User;
+import com.avito.models.reset_password.PasswordResetToken;
 import com.avito.service.EmailService;
 import com.avito.service.interfaces.PasswordResetService;
 import com.avito.service.interfaces.UserService;
 import lombok.AllArgsConstructor;
 import org.springframework.context.MessageSource;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -25,7 +28,7 @@ public class ResetPasswordController {
     private final PasswordResetService passwordResetService;
 
 
-    @PostMapping("/user/resetPassword")
+   /* @PostMapping("/user/resetPassword")
     @ResponseBody
     public GenericResponse resetPassword(final HttpServletRequest request, @RequestParam("email") final String userEmail) {
         final User user = userService.findUserByEmail(userEmail);
@@ -35,9 +38,27 @@ public class ResetPasswordController {
             String subject = "Reset Password";
             String body = getBody(getAppUrl(request), request.getLocale(), token);
             emailService .sendMail(subject, body, user);
+
+            return new GenericResponse(messages.getMessage("message.resetPasswordEmail", null, request.getLocale()));
+        } else {
+            return new GenericResponse(messages.getMessage("message.resetPasswordNotEmail", new Object[]{"Paul Smith"}, request.getLocale()));
         }
-        return new GenericResponse(messages.getMessage("message.resetPasswordEmail", null, request.getLocale()));
-    }
+
+    }*/
+   @PostMapping("/user/resetPassword")
+   @ResponseBody
+   public ResponseEntity<User> resetPassword(final HttpServletRequest request, @RequestParam("email") final String userEmail) {
+       final User user = userService.findUserByEmail(userEmail);
+       if (user != null) {
+           final String token = UUID.randomUUID().toString();
+           passwordResetService.createPasswordResetTokenForUser(user, token);
+           String subject = "Reset Password";
+           String body = getBody(getAppUrl(request), request.getLocale(), token);
+           emailService .sendMail(subject, body, user);
+       }
+       return new ResponseEntity<>(user, HttpStatus.OK);
+   }
+
     private String getBody(final String contextPath, final Locale locale, final String token){
         final String url = contextPath + "/user/changePassword?token=" + token;
         final String message = messages.getMessage("message.resetPassword", null, locale);
