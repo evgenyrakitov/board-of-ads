@@ -1,7 +1,6 @@
 $(document).ready(function () {
-    if (localStorage.getItem("locale") === "ru"){
         $.ajax({
-            url: '/rest/categories',
+            url: '/rest/categories/dto',
             type: 'get',
             dataType: 'json',
             success: function (data) {
@@ -21,7 +20,6 @@ $(document).ready(function () {
                 }
             }
         });
-    }
 });
 
 var countChildren = function (data, parentName) {
@@ -41,7 +39,7 @@ var funcLevel2Menu = function funcLevel2Menu(nameButtonCategory) {
     document.getElementById('colCategory3').setAttribute("style", "display: none");
     $("#secCategory").empty();
     $.ajax({
-        url: '/rest/categories',
+        url: '/rest/categories/dto',
         type: 'get',
         dataType: 'json',
         success: function (data) {
@@ -72,7 +70,7 @@ var funcLevel3Menu = function funcLevel3Menu(nameButtonCategory) {
     document.getElementById('colCategory3').setAttribute("style", "display: none");
     $("#threeCategory").empty();
     $.ajax({
-        url: '/rest/categories',
+        url: '/rest/categories/dto',
         type: 'get',
         dataType: 'json',
         success: function (data) {

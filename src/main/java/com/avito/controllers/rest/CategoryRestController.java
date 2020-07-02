@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 @RestController
 @AllArgsConstructor
@@ -37,14 +38,35 @@ public class CategoryRestController {
     }
 
     @GetMapping
-    public ResponseEntity<List<CategoryDTO>> getListOfCategory() {
-        List<Category> allCategories = categoryService.getAllCategories();
-        List<CategoryDTO> allCategoriesDTO = new ArrayList<>();
-        for (Category allCategory : allCategories) {
-            new CategoryDTO();
-        }
-
-        return null;
+    public ResponseEntity<List<Category>> getListOfCategory() {
+        return ResponseEntity.ok(categoryService.getAllCategories());
     }
 
+    @GetMapping("/dto")
+    public ResponseEntity<List<CategoryDTO>> getListOfCategory(Locale locale) {
+        List<Category> allCategories = categoryService.getAllCategories();
+        List<CategoryDTO> allCategoriesDTO = new ArrayList<>();
+        CategoryDTO dto;
+        for (Category allCategory : allCategories) {
+            dto = new CategoryDTO();
+            if ("en".equals(locale.toString())) {
+                dto.setName(allCategory.getNameEn());
+                if (null != allCategory.getParentCategory()) {
+                    dto.setParentCategory(allCategory.getParentCategory().getNameEn());
+                } else {
+                    dto.setParentCategory(null);
+                }
+            } else {
+                dto.setName(allCategory.getNameRu());
+                if (null != allCategory.getParentCategory()) {
+                    dto.setParentCategory(allCategory.getParentCategory().getNameRu());
+                } else {
+                    dto.setParentCategory(null);
+                }
+            }
+
+            allCategoriesDTO.add(dto);
+        }
+        return ResponseEntity.ok(allCategoriesDTO);
+    }
 }
