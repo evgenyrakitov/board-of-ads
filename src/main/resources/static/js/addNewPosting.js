@@ -36,7 +36,7 @@ var countChildren = function (data, parentName) {
     return count;
 }
 
-function funcLevel2Menu(nameButtonCategory) {
+var funcLevel2Menu = function funcLevel2Menu(nameButtonCategory) {
     document.getElementById('colCategory2').setAttribute("style", "display: none");
     document.getElementById('colCategory3').setAttribute("style", "display: none");
     $("#secCategory").empty();
@@ -68,7 +68,7 @@ function funcLevel2Menu(nameButtonCategory) {
     });
 }
 
-function funcLevel3Menu(nameButtonCategory) {
+var funcLevel3Menu = function funcLevel3Menu(nameButtonCategory) {
     document.getElementById('colCategory3').setAttribute("style", "display: none");
     $("#threeCategory").empty();
     $.ajax({
@@ -91,20 +91,20 @@ function funcLevel3Menu(nameButtonCategory) {
     });
 }
 
-$(".btnFirstCategory").click(function () {
-    alert("skdfsldf");
-    $.ajax({
-        url: '/rest/categories',
-        type: 'get',
-        dataType: 'json',
-        success: function (data) {
-            for (var i in data) {
-                $("#colCategory2").setAttribute("style", "display: block");
-                $("#rootCategory")
-                    .append(
-                        "<button type='button' class='btn cascader-table-category-2PKmD btnSecondCategory'>" + data.name + "</button>"
-                    );
-            }
-        }
-    });
-});
+// $(".btnFirstCategory").click(function () {
+//     alert("skdfsldf");
+//     $.ajax({
+//         url: '/rest/categories',
+//         type: 'get',
+//         dataType: 'json',
+//         success: function (data) {
+//             for (var i in data) {
+//                 $("#colCategory2").setAttribute("style", "display: block");
+//                 $("#rootCategory")
+//                     .append(
+//                         "<button type='button' class='btn cascader-table-category-2PKmD btnSecondCategory'>" + data.name + "</button>"
+//                     );
+//             }
+//         }
+//     });
+// });

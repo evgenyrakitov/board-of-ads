@@ -17,10 +17,11 @@ public class Category {
 
     }
 
-    public Category(String name, Category parentCategory, String local,Set<Posting> postingsInCategory) {
-        this.name = name;
+
+    public Category(String nameRU, String nameEN, Category parentCategory, Set<Posting> postingsInCategory) {
+        this.nameRU = nameRU;
         this.parentCategory = parentCategory;
-        this.local = local;
+        this.nameEN = nameEN;
         this.postingsInCategory = postingsInCategory;
     }
 
@@ -29,23 +30,34 @@ public class Category {
     private Long id;
 
 
-    @Column(name = "name")
-    private String name;
+    @Column(name = "nameRU")
+    private String nameRU;
+
+    @Column(name = "nameEN")
+    private String nameEN;
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "parentCategory")
     private Category parentCategory;
 
-    @OneToMany(mappedBy = "category",
-            cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
+    @OneToMany(cascade = {CascadeType.REFRESH})
 
     private Set<Posting> postingsInCategory;
 
-    @Column(name = "local")
-    private String local;
+    public String getNameRU() {
+        return nameRU;
+    }
 
-    public static Logger getLogger() {
-        return logger;
+    public void setNameRU(String nameRU) {
+        this.nameRU = nameRU;
+    }
+
+    public String getNameEN() {
+        return nameEN;
+    }
+
+    public void setNameEN(String nameEN) {
+        this.nameEN = nameEN;
     }
 
     public Long getId() {
@@ -54,14 +66,6 @@ public class Category {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public Category getParentCategory() {
@@ -80,11 +84,5 @@ public class Category {
         this.postingsInCategory = postingsInCategory;
     }
 
-    public String getLocal() {
-        return local;
-    }
 
-    public void setLocal(String local) {
-        this.local = local;
-    }
 }

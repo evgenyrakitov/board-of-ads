@@ -7,6 +7,8 @@ import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
+import java.util.Objects;
+
 @Service
 @AllArgsConstructor
 public class EmailServiceIml implements EmailService {
@@ -28,7 +30,7 @@ public class EmailServiceIml implements EmailService {
         email.setSubject(subject);
         email.setText(body);
         email.setTo(user.getEmail());
-        email.setFrom(env.getProperty("support.email"));
+        email.setFrom(Objects.requireNonNull(env.getProperty("support.email")));
         return email;
     }
 }
