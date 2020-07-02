@@ -1,4 +1,4 @@
-package com.avito.service.impl;
+package com.avito.service;
 
 import com.avito.models.User;
 import lombok.AllArgsConstructor;
