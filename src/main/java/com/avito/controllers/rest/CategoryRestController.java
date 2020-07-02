@@ -1,6 +1,7 @@
 package com.avito.controllers.rest;
 
 import com.avito.models.Category;
+import com.avito.models.dto.CategoryDTO;
 import com.avito.service.interfaces.CategoryService;
 import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
@@ -8,6 +9,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -35,8 +37,14 @@ public class CategoryRestController {
     }
 
     @GetMapping
-    public ResponseEntity<List<Category>> getListOfCategory() {
-        return ResponseEntity.ok(categoryService.getAllCategories());
+    public ResponseEntity<List<CategoryDTO>> getListOfCategory() {
+        List<Category> allCategories = categoryService.getAllCategories();
+        List<CategoryDTO> allCategoriesDTO = new ArrayList<>();
+        for (Category allCategory : allCategories) {
+            new CategoryDTO();
+        }
+
+        return null;
     }
 
 }
