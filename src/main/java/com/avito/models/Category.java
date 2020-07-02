@@ -48,16 +48,16 @@ public class Category {
         return nameRu;
     }
 
-    public void setNameRU(String nameRU) {
-        this.nameRu = nameRU;
+    public void setNameRu(String nameRu) {
+        this.nameRu = nameRu;
     }
 
-    public String getNameEN() {
+    public String getNameEn() {
         return nameEn;
     }
 
-    public void setNameEN(String nameEN) {
-        this.nameEn = nameEN;
+    public void setNameEn(String nameEn) {
+        this.nameEn = nameEn;
     }
 
     public Long getId() {
