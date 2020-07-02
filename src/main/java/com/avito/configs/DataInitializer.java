@@ -107,9 +107,9 @@ public class DataInitializer {
 
     private void initCategories() {
 
-//        if (categoryService.getAllCategories().size() != 0) {
-//            return;
-//        }
+        if (categoryService.getAllCategories().size() != 0) {
+            return;
+        }
 
         Set<Posting> postings = new HashSet<>();
 
