@@ -40,9 +40,7 @@ public class UserRestController {
         roleSet.add(role);
         user.setRoles(roleSet);
         userService.addUser(user);
-        ResponseEntity<User> responseEntity = new ResponseEntity<>(user, HttpStatus.CREATED);
-
-        return responseEntity;
+        return new ResponseEntity<>(user, HttpStatus.CREATED);
     }
 
 
