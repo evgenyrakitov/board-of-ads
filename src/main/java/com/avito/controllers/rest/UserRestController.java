@@ -10,11 +10,17 @@ import io.swagger.annotations.ApiResponses;
 import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.HashSet;
 import java.util.List;
@@ -53,12 +59,6 @@ public class UserRestController {
     public void delete(@PathVariable("id") Long id) {
         userService.deleteUser(id);
     }
-
-    // На случай если надо будет получить пользователя по ИД
-//    @GetMapping("/get/{id}")
-//    public User getUser(@PathVariable("id") String id) {
-//       return  userService.findById(id);
-//    }
 
     @GetMapping("/users")
     public ResponseEntity<List<User>> getAllUsers() {
