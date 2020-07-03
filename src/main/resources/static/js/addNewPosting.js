@@ -7,9 +7,9 @@ $(document).ready(function () {
             $("#rootCategory").empty();
             for (var i in data) {
                 if (data[i].parentCategory == null) {
-                    if (countChildren(data, data[i].name) > 0) {
+                    if (countChildren(data, data[i].id) > 0) {
                         $("#rootCategory").append(
-                            "<button type='button' class='btn cascader-table-category-2PKmD btnFirstCategory' onclick='funcLevel2Menu(this)')>" + data[i].name + "</button>"
+                            "<button type='button' class='btn cascader-table-category-2PKmD btnFirstCategory' onclick='funcLevel2Menu(" + data[i].id + ")')>" + data[i].name + "</button>"
                         );
                     } else {
                         $("#rootCategory").append(
@@ -22,20 +22,7 @@ $(document).ready(function () {
     });
 });
 
-var countChildren = function (data, parentName) {
-    var count = 0;
-    data.forEach(function (el) {
-        if (el.parentCategory != null) {
-            if (el.parentCategory === parentName) {
-                count++;
-            }
-        }
-    });
-    return count;
-}
-
 var funcLevel2Menu = function funcLevel2Menu(nameButtonCategory) {
-    document.getElementById('colCategory2').setAttribute("style", "display: none");
     document.getElementById('colCategory3').setAttribute("style", "display: none");
     document.getElementById('colCategory4').setAttribute("style", "display: none");
     $("#secCategory").empty();
@@ -44,20 +31,19 @@ var funcLevel2Menu = function funcLevel2Menu(nameButtonCategory) {
         type: 'get',
         dataType: 'json',
         success: function (data) {
-            if (countChildren(data, $(nameButtonCategory).text()) > 0) {
+            if (countChildren(data, nameButtonCategory) > 0) {
                 for (var i in data) {
-                    if (data[i].parentCategory !== null && data[i].parentCategory === $(nameButtonCategory).text()) {
-                        document.getElementById('colCategory2').setAttribute("style", "display: block");
+                    if (data[i].parentCategory !== null && data[i].parentId === nameButtonCategory) {
                         $("#secCategoryHeader").text(data[i].parentCategory);
-                        if (countChildren(data, data[i].name) > 0) {
+                        if (countChildren(data, data[i].id) > 0) {
                             document.getElementById('colCategory2').setAttribute("style", "display: block");
                             $("#secCategory").append(
-                                "<button type='button' class='btn cascader-table-category-2PKmD btnSecondCategory' onclick='funcLevel3Menu(this)')>" + data[i].name + "</button>"
+                                "<button type='button' class='btn cascader-table-category-2PKmD btn3Category' onclick='funcLevel3Menu(" + data[i].id + ")')>" + data[i].name + "</button>"
                             );
                         } else {
                             document.getElementById('colCategory2').setAttribute("style", "display: block");
                             $("#secCategory").append(
-                                "<button type='button' class='btn cascader-table-category-2PKmD btnSecondCategory' onclick='window.location.replace(`/newPosting/" + data[i].name + "`)'>" + data[i].name + "</button>"
+                                "<button type='button' class='btn cascader-table-category-2PKmD btn3Category' onclick='window.location.replace(`/newPosting/" + data[i].name + "`)'>" + data[i].name + "</button>"
                             );
                         }
                     }
@@ -68,7 +54,6 @@ var funcLevel2Menu = function funcLevel2Menu(nameButtonCategory) {
 }
 
 var funcLevel3Menu = function funcLevel3Menu(nameButtonCategory) {
-    document.getElementById('colCategory3').setAttribute("style", "display: none");
     document.getElementById('colCategory4').setAttribute("style", "display: none");
     $("#threeCategory").empty();
     $.ajax({
@@ -76,18 +61,41 @@ var funcLevel3Menu = function funcLevel3Menu(nameButtonCategory) {
         type: 'get',
         dataType: 'json',
         success: function (data) {
-            if (countChildren(data, $(nameButtonCategory).text()) > 0) {
+            if (countChildren(data, nameButtonCategory) > 0) {
                 for (var i in data) {
-                    if (data[i].parentCategory !== null && data[i].parentCategory === $(nameButtonCategory).text()) {
-                        document.getElementById('colCategory3').setAttribute("style", "display: block");
+                    if (data[i].parentCategory !== null && data[i].parentId === nameButtonCategory) {
                         $("#threeCategoryHeader").text(data[i].parentCategory);
-                        $("#threeCategory").append(
-                            "<button type='button' class='btn cascader-table-category-2PKmD btnSecondCategory' onclick='funcLevel4Menu(this)')>" + data[i].name + "</button>"
-                        );
-                    } else {
-                        document.getElementById('colCategory3').setAttribute("style", "display: block");
-                        $("#threeCategory").append(
-                            "<button type='button' class='btn cascader-table-category-2PKmD btnSecondCategory' onclick='window.location.replace(`/newPosting/" + data[i].name + "`)'>" + data[i].name + "</button>"
+                        if (countChildren(data, data[i].id) > 0) {
+                            document.getElementById('colCategory3').setAttribute("style", "display: block");
+                            $("#threeCategory").append(
+                                "<button type='button' class='btn cascader-table-category-2PKmD btn4Category' onclick='funcLevel4Menu(" + data[i].id + ")')>" + data[i].name + "</button>"
+                            );
+                        } else {
+                            document.getElementById('colCategory3').setAttribute("style", "display: block");
+                            $("#threeCategory").append(
+                                "<button type='button' class='btn cascader-table-category-2PKmD btn4Category' onclick='window.location.replace(`/newPosting/" + data[i].name + "`)'>" + data[i].name + "</button>"
+                            );
+                        }
+                    }
+                }
+            }
+        }
+    });
+}
+var funcLevel4Menu = function funcLevel4Menu(nameButtonCategory) {
+    $("#forCategory").empty();
+    $.ajax({
+        url: '/rest/categories/dto',
+        type: 'get',
+        dataType: 'json',
+        success: function (data) {
+            if (countChildren(data, nameButtonCategory) > 0) {
+                for (var i in data) {
+                    if (data[i].parentCategory !== null && data[i].parentId === nameButtonCategory) {
+                        $("#forCategoryHeader").text(data[i].parentCategory);
+                        document.getElementById('colCategory4').setAttribute("style", "display: block");
+                        $("#forCategory").append(
+                            "<button type='button' class='btn cascader-table-category-2PKmD btn5Category' onclick='window.location.replace(`/newPosting/" + data[i].name + "`)'>" + data[i].name + "</button>"
                         );
                     }
                 }
@@ -96,25 +104,14 @@ var funcLevel3Menu = function funcLevel3Menu(nameButtonCategory) {
     });
 }
 
-var funcLevel4Menu = function funcLevel4Menu(nameButtonCategory) {
-    document.getElementById('colCategory4').setAttribute("style", "display: none");
-    $("#threeCategory").empty();
-    $.ajax({
-        url: '/rest/categories/dto',
-        type: 'get',
-        dataType: 'json',
-        success: function (data) {
-            if (countChildren(data, $(nameButtonCategory).text()) > 0) {
-                for (var i in data) {
-                    if (data[i].parentCategory !== null && data[i].parentCategory === $(nameButtonCategory).text()) {
-                        document.getElementById('colCategory4').setAttribute("style", "display: block");
-                        $("#forCategoryHeader").text(data[i].parentCategory);
-                        $("#forCategory").append(
-                            "<button type='button' class='btn cascader-table-category-2PKmD btnFirstCategory' onclick='window.location.replace(`/newPosting/" + data[i].name + "`)'>" + data[i].name + "</button>"
-                        );
-                    }
-                }
+var countChildren = function (data, parentName) {
+    var count = 0;
+    data.forEach(function (el) {
+        if (el.parentCategory != null) {
+            if (el.parentId === parentName) {
+                count++;
             }
         }
     });
+    return count;
 }

@@ -4,7 +4,16 @@ import com.avito.models.posting.Posting;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import javax.persistence.*;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 import java.util.Set;
 
 
@@ -74,5 +83,9 @@ public class Category {
 
     public void setPostingsInCategory(Set<Posting> postingsInCategory) {
         this.postingsInCategory = postingsInCategory;
+    }
+
+    public Long getId() {
+        return id;
     }
 }

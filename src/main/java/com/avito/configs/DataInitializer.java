@@ -48,9 +48,9 @@ public class DataInitializer {
     }
 
     private void initUsers() {
-        if (userService.getAllUsers().size() != 0) {
-            return;
-        }
+//        if (userService.getAllUsers().size() != 0) {
+//            return;
+//        }
 
         Set<Role> adminRoles = new HashSet<>();
         adminRoles.add(roleService.findRoleByName("ADMIN"));
@@ -582,29 +582,29 @@ public class DataInitializer {
         Category sellHouses = new Category("Продам", "Sell", null, postings);
         Category sellLand = new Category("Продам", "Sell", null, postings);
         Category sellGarage = new Category("Продам", "Sell", null, postings);
-        Category sellCommerc = new Category("Продам", "Sell", null, postings);
         Category sellAbroad = new Category("Продам", "Sell", null, postings);
+        Category sellCommerc = new Category("Продам", "Sell", null, postings);
 
-        Category rentLand = new Category("Сдам", "Pass", null, postings);
         Category rentApart = new Category("Сдам", "Pass", null, postings);
         Category rentRooms = new Category("Сдам", "Pass", null, postings);
         Category rentHouses = new Category("Сдам", "Pass", null, postings);
+        Category rentLand = new Category("Сдам", "Pass", null, postings);
         Category rentGarage = new Category("Сдам", "Pass", null, postings);
         Category rentAbroad = new Category("Сдам", "Pass", null, postings);
         Category rentCommerc = new Category("Сдам", "Pass", null, postings);
 
-        Category buyLand = new Category("Куплю", "Buy", null, postings);
         Category buyApart = new Category("Куплю", "Buy", null, postings);
         Category buyRooms = new Category("Куплю", "Buy", null, postings);
         Category buyHouses = new Category("Куплю", "Buy", null, postings);
+        Category buyLand = new Category("Куплю", "Buy", null, postings);
         Category buyGarage = new Category("Куплю", "Buy", null, postings);
         Category buyAbroad = new Category("Куплю", "Buy", null, postings);
         Category buyCommerc = new Category("Куплю", "Buy", null, postings);
 
-        Category snimLand = new Category("Сниму", "Rent", null, postings);
-        Category snimOutApart = new Category("Сниму", "Rent", null, postings);
-        Category snimOutRooms = new Category("Сниму", "Rent", null, postings);
+        Category snimApart = new Category("Сниму", "Rent", null, postings);
+        Category snimRooms = new Category("Сниму", "Rent", null, postings);
         Category snimHouses = new Category("Сниму", "Rent", null, postings);
+        Category snimLand = new Category("Сниму", "Rent", null, postings);
         Category snimGarage = new Category("Сниму", "Rent", null, postings);
         Category snimAbroad = new Category("Сниму", "Rent", null, postings);
         Category snimCommerc = new Category("Сниму", "Rent", null, postings);
@@ -636,8 +636,8 @@ public class DataInitializer {
         categoryService.addCategory(buyCommerc);
 
         categoryService.addCategory(snimLand);
-        categoryService.addCategory(snimOutApart);
-        categoryService.addCategory(snimOutRooms);
+        categoryService.addCategory(snimApart);
+        categoryService.addCategory(snimRooms);
         categoryService.addCategory(snimHouses);
         categoryService.addCategory(snimGarage);
         categoryService.addCategory(snimAbroad);
@@ -660,13 +660,13 @@ public class DataInitializer {
         categoryService.updateCategory(sellCommerc);
         categoryService.updateCategory(sellAbroad);
 
-        rentLand.setParentCategory(categoryApartments);
-        rentApart.setParentCategory(categoryRooms);
-        rentRooms.setParentCategory(categoryHousesSummerResidencesCottages);
-        rentHouses.setParentCategory(categoryLand);
+        rentApart.setParentCategory(categoryApartments);
+        rentRooms.setParentCategory(categoryRooms);
+        rentHouses.setParentCategory(categoryHousesSummerResidencesCottages);
+        rentLand.setParentCategory(categoryLand);
         rentGarage.setParentCategory(categoryGaragesAndParkingSpaces);
-        rentAbroad.setParentCategory(categoryCommercialProperty);
-        rentCommerc.setParentCategory(nullAbroad);
+        rentCommerc.setParentCategory(categoryCommercialProperty);
+        rentAbroad.setParentCategory(nullAbroad);
         categoryService.updateCategory(rentLand);
         categoryService.updateCategory(rentApart);
         categoryService.updateCategory(rentRooms);
@@ -675,13 +675,13 @@ public class DataInitializer {
         categoryService.updateCategory(rentAbroad);
         categoryService.updateCategory(rentCommerc);
 
-        buyLand.setParentCategory(categoryApartments);
-        buyApart.setParentCategory(categoryRooms);
-        buyRooms.setParentCategory(categoryHousesSummerResidencesCottages);
-        buyHouses.setParentCategory(categoryLand);
+        buyLand.setParentCategory(categoryLand);
+        buyApart.setParentCategory(categoryApartments);
+        buyRooms.setParentCategory(categoryRooms);
+        buyHouses.setParentCategory(categoryHousesSummerResidencesCottages);
         buyGarage.setParentCategory(categoryGaragesAndParkingSpaces);
-        buyAbroad.setParentCategory(categoryCommercialProperty);
-        buyCommerc.setParentCategory(nullAbroad);
+        buyAbroad.setParentCategory(nullAbroad);
+        buyCommerc.setParentCategory(categoryCommercialProperty);
         categoryService.updateCategory(buyLand);
         categoryService.updateCategory(buyApart);
         categoryService.updateCategory(buyRooms);
@@ -690,16 +690,16 @@ public class DataInitializer {
         categoryService.updateCategory(buyAbroad);
         categoryService.updateCategory(buyCommerc);
 
-        snimLand.setParentCategory(categoryApartments);
-        snimOutApart.setParentCategory(categoryRooms);
-        snimOutRooms.setParentCategory(categoryHousesSummerResidencesCottages);
-        snimHouses.setParentCategory(categoryLand);
+        snimLand.setParentCategory(categoryLand);
+        snimApart.setParentCategory(categoryApartments);
+        snimRooms.setParentCategory(categoryRooms);
+        snimHouses.setParentCategory(categoryHousesSummerResidencesCottages);
         snimGarage.setParentCategory(categoryGaragesAndParkingSpaces);
-        snimAbroad.setParentCategory(categoryCommercialProperty);
-        snimCommerc.setParentCategory(nullAbroad);
+        snimAbroad.setParentCategory(nullAbroad);
+        snimCommerc.setParentCategory(categoryCommercialProperty);
         categoryService.updateCategory(snimLand);
-        categoryService.updateCategory(snimOutApart);
-        categoryService.updateCategory(snimOutRooms);
+        categoryService.updateCategory(snimApart);
+        categoryService.updateCategory(snimRooms);
         categoryService.updateCategory(snimHouses);
         categoryService.updateCategory(snimGarage);
         categoryService.updateCategory(snimAbroad);
@@ -709,8 +709,10 @@ public class DataInitializer {
 
         Category secondaryApart = new Category("Вторичка", "Secondary", null, postings);
         Category newBuildingApart = new Category("Новостройка", "New building", null, postings);
+
         Category forLongTermRentApart = new Category("На длительный срок", "For long term", null, postings);
         Category forLongTermSnimApart = new Category("На длительный срок", "For long term", null, postings);
+
         Category byTheDayRentApart = new Category("Посуточно", "By the day", null, postings);
         Category byTheDaySnimApart = new Category("Посуточно", "By the day", null, postings);
 
@@ -718,8 +720,10 @@ public class DataInitializer {
 
         categoryService.addCategory(secondaryApart);
         categoryService.addCategory(newBuildingApart);
+
         categoryService.addCategory(forLongTermRentApart);
         categoryService.addCategory(forLongTermSnimApart);
+
         categoryService.addCategory(byTheDayRentApart);
         categoryService.addCategory(byTheDaySnimApart);
 
@@ -727,10 +731,13 @@ public class DataInitializer {
 
         secondaryApart.setParentCategory(sellApart);
         newBuildingApart.setParentCategory(sellApart);
+
         forLongTermRentApart.setParentCategory(rentApart);
-        forLongTermSnimApart.setParentCategory(snimOutApart);
+        forLongTermSnimApart.setParentCategory(snimApart);
+
         byTheDayRentApart.setParentCategory(rentApart);
-        byTheDaySnimApart.setParentCategory(snimOutApart);
+        byTheDaySnimApart.setParentCategory(snimApart);
+
         categoryService.updateCategory(secondaryApart);
         categoryService.updateCategory(newBuildingApart);
         categoryService.updateCategory(forLongTermRentApart);
@@ -755,9 +762,9 @@ public class DataInitializer {
         //4 вкладка   Категории  комнаты назначение родителей
 
         forLongTermRentRoom.setParentCategory(rentRooms);
-        forLongTermSnimRoom.setParentCategory(snimOutRooms);
+        forLongTermSnimRoom.setParentCategory(snimRooms);
         byTheDayRentRoom.setParentCategory(rentRooms);
-        byTheDaySnimRoom.setParentCategory(snimOutRooms);
+        byTheDaySnimRoom.setParentCategory(snimRooms);
         categoryService.updateCategory(forLongTermRentRoom);
         categoryService.updateCategory(forLongTermSnimRoom);
         categoryService.updateCategory(byTheDayRentRoom);
