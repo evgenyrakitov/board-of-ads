@@ -4,7 +4,16 @@ import com.avito.models.posting.Posting;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import javax.persistence.*;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 import java.util.Set;
 
 
@@ -12,18 +21,6 @@ import java.util.Set;
 @Table(name = "categories")
 public class Category {
     private static final Logger logger = LoggerFactory.getLogger(Category.class);
-
-    public Category() {
-
-    }
-
-
-    public Category(String nameRu, String nameEn, Category parentCategory, Set<Posting> postingsInCategory) {
-        this.nameRu = nameRu;
-        this.parentCategory = parentCategory;
-        this.nameEn = nameEn;
-        this.postingsInCategory = postingsInCategory;
-    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -43,6 +40,17 @@ public class Category {
     @OneToMany(cascade = {CascadeType.REFRESH})
 
     private Set<Posting> postingsInCategory;
+
+    public Category() {
+
+    }
+
+    public Category(String nameRu, String nameEn, Category parentCategory, Set<Posting> postingsInCategory) {
+        this.nameRu = nameRu;
+        this.parentCategory = parentCategory;
+        this.nameEn = nameEn;
+        this.postingsInCategory = postingsInCategory;
+    }
 
     public String getNameRu() {
         return nameRu;

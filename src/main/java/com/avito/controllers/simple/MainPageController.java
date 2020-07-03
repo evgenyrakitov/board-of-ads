@@ -17,14 +17,4 @@ public class MainPageController {
         modelMap.addAttribute("user", SecurityContextHolder.getContext().getAuthentication().getPrincipal());
         return "main-page";
     }
-
-    @GetMapping("/posting")
-    public String getDetailsPage() {
-        return "posting";
-    }
-
-    @GetMapping("/addNewPosting")
-    public String getNewPostingPage() {
-        return "addNewPosting";
-    }
 }
