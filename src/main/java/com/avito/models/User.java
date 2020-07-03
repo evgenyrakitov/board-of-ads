@@ -100,4 +100,8 @@ public class User implements UserDetails {
         return true;
     }
 
+    @Override
+    public String toString() {
+        return getEmail();
+    }
 }

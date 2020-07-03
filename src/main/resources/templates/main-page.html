@@ -8,6 +8,7 @@
           href="../static/css/main_page.css" th:href="@{/css/main_page.css}"/>
 </head>
 <body>
+
 <!--***********************-->
 <div class="modal fade" id="modal-reg-1">
     <div class="modal-dialog">
@@ -20,7 +21,7 @@
 
             </div>
             <div class="modal-body text-center">
-                <form class="" action="/login"  style="align-content: center" id="open-form-modal">
+                <form class="" method="post" action="/login"  style="align-content: center" id="open-form-modal">
                     <div class="form-item">
                         <div class="form-item-login">
                             <label class="input-login">
@@ -45,9 +46,15 @@
 
                         </div><br>
                         <div class="form-item-button">
-                            <button type="submit" name="submit" class="btn btn-primary" id="btn-open" data-dismiss="modal">
+                            <button type="submit" name="submit" class="btn btn-primary" id="btn-open">
                                 <span>Войти</span>
                             </button>
+<!--
+                            <button type="submit">
+                                <span>Войти</span>
+                            </button>
+-->
+
                         </div><br>
                     </div>
                 </form>
