@@ -22,18 +22,6 @@ import java.util.Set;
 public class Category {
     private static final Logger logger = LoggerFactory.getLogger(Category.class);
 
-    public Category() {
-
-    }
-
-
-    public Category(String nameRu, String nameEn, Category parentCategory, Set<Posting> postingsInCategory) {
-        this.nameRu = nameRu;
-        this.parentCategory = parentCategory;
-        this.nameEn = nameEn;
-        this.postingsInCategory = postingsInCategory;
-    }
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -52,6 +40,17 @@ public class Category {
     @OneToMany(cascade = {CascadeType.REFRESH})
 
     private Set<Posting> postingsInCategory;
+
+    public Category() {
+
+    }
+
+    public Category(String nameRu, String nameEn, Category parentCategory, Set<Posting> postingsInCategory) {
+        this.nameRu = nameRu;
+        this.parentCategory = parentCategory;
+        this.nameEn = nameEn;
+        this.postingsInCategory = postingsInCategory;
+    }
 
     public String getNameRu() {
         return nameRu;

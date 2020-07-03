@@ -43,6 +43,6 @@ public class UserProfileRestController {
             dtoList.add(dto);
         }
 
-        return new ResponseEntity<>(dtoList, HttpStatus.OK);
+        return ResponseEntity.ok(dtoList);
     }
 }
