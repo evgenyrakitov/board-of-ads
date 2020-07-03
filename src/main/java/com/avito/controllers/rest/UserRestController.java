@@ -22,7 +22,7 @@ import java.util.Set;
 
 @RestController
 @AllArgsConstructor
-@RequestMapping("/rest/admin")
+@RequestMapping("/rest")
 public class UserRestController {
 
     private static final Logger logger = LoggerFactory.getLogger(UserRestController.class);
@@ -33,7 +33,7 @@ public class UserRestController {
     @CrossOrigin()  //далее - поправить, сделано чтобы работала страничка
     @ApiOperation(value = "create new User", code = 201, response = User.class)
     @ApiResponses(value = {@ApiResponse(code = 201, message = "Successfully create user")})
-    @PostMapping(value = "/add"/*, consumes = {"application/json"}*/) //согласно рекомендациям госкомстандарта - создание это post, not put. fixed
+    @PostMapping(value = "/admin/add"/*, consumes = {"application/json"}*/) //согласно рекомендациям госкомстандарта - создание это post, not put. fixed
     public ResponseEntity<User> create(User user) {
         Set<Role> roleSet = new HashSet<>();
         Role role = roleService.findRoleByName("USER");
@@ -46,7 +46,7 @@ public class UserRestController {
     }
 
 
-    @PutMapping("/edit")   // post -> put
+    @PutMapping("/admin/edit")   // post -> put
     public User update(User user) {
         return userService.updateUser(user);
     }
@@ -62,7 +62,7 @@ public class UserRestController {
 //       return  userService.findById(id);
 //    }
 
-    @GetMapping("/users")
+    @GetMapping("/admin/users")
     public ResponseEntity<List<User>> getAllUsers() {
         return ResponseEntity.ok(userService.getAllUsers());
     }
@@ -73,7 +73,7 @@ public class UserRestController {
         return ResponseEntity.ok(userService.addFavoritePosting(id, user.getId()));
     }
 
-    @PostMapping("/favoritePostings/delete")
+    @PostMapping("/admin/favoritePostings/delete")
     public void deleteFavoritePosting(Long id) {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         userService.deleteFavoritePosting(id, user.getId());
