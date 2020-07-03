@@ -138,10 +138,11 @@
 
 <div th:fragment="script">
     <script src="webjars/jquery/3.5.1/jquery.min.js"></script>
-    <script src="webjars/popper.js/1.16.0/popper.min.js"></script>
+    <script src="webjars/popper.js/1.16.0/popper.min.js" type="module"></script>
     <script src="webjars/bootstrap/4.5.0/js/bootstrap.min.js"></script>
     <script src="../static/js/header.js" th:src="@{/js/header.js}"></script>
-    <script src="/js/modal_registation.js" th:src="@{/js/modal_registation.js}"></script>
+    <script src="../static/js/modal_registation.js" th:src="@{/js/modal_registation.js}" type="module"></script>
+<!--    <script src="../static/js/registration.js" th:src="@{/js/registration.js}" type="text/javascript"></script>-->
 </div>
 </body>
 </html>

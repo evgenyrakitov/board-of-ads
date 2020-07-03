@@ -1,3 +1,5 @@
+export {passwordExist, save, dd, checker, warningField, successField, infoField, passwordEquals, summator};
+
 function passwordExist (word) {
     if (word.length > 0) {
         return true;
@@ -18,9 +20,9 @@ function passwordEquals (password, password_confirm) {
     }
 }
 
-function checker(password, regexpRow) {
+function checker(word, regexpRow) {
     var re = new RegExp(regexpRow);
-    var myArray = re.exec(password);
+    var myArray = re.exec(word);
     try {
         myArray.length > 0;
         return 1;
@@ -29,19 +31,26 @@ function checker(password, regexpRow) {
     }
 }
 
-function summator(arr) {
-    let summ = 0;
-    for (var i = 0; i < arr.length; i++) {
-        let tmp = arr[i];
-        if (tmp === 1) {
-            summ += tmp;
-        }
-    }
+function summator(password) {
+    var summ = 0;
+    summ += checker(password, "[A-Z]");
+    summ += checker(password, "\\d");
+    summ += checker(password, "\\W");
+    summ += checker(password, "\\w");
+
     return summ;
 }
 
-function warningPass(field) {
+function warningField(field) {
     $(field).css("background-color", "red");
+}
+
+function successField(field) {
+    $(field).css("background-color", "green");
+}
+
+function infoField(field) {
+    $(field).css("background-color", "yellow");
 }
 
 function save(login, password) {
@@ -65,7 +74,9 @@ function save(login, password) {
 }
 
 function dd () {
+    alert("start dd function OF registration.js!")
     let login = $("#login").val();
+    alert(login);
     let password = $("#password").val();
     let password_confirm = $("#password_confirm").val();
     let resultArray = new Array();
@@ -76,8 +87,8 @@ function dd () {
         console.log("оба пароля существуют!");
     }
     else {
-        warningPass("#password");
-        warningPass("#password_confirm");
+        warningField("#password");
+        warningField("#password_confirm");
         $("#password_confirm").css('background-color', 'red');
         alert("увы, не введён пароль...");
         resultArray.push(false);
@@ -90,8 +101,8 @@ function dd () {
     }
     else {
         resultArray.push(false);    //1
-        warningPass("#password");
-        warningPass("#password_confirm");
+        warningField("#password");
+        warningField("#password_confirm");
         alert("пароли не совпадают!");
         exit(1);
     }

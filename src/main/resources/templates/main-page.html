@@ -124,11 +124,11 @@
                     </div>
                     <div class="form-item-phone">
                         <label class="input-phone">
-                            Введите phone :<br><input name="phone" placeholder="phone" type="tel" id="phone" required>
+                            Введите phone :<br><input name="phone" placeholder="912-345-67-89" type="tel" id="phone" required>
                         </label>
                     </div>
                     <div class="form-reg-button">
-                        <button type="submit" name="submit"  class="btn btn-primary" id="btn-reg" data-dismiss="modal">
+                        <button type="button" class="btn btn-primary" id="btn-reg" onclick="dd()">
                             <span >Зарегистрироваться</span>
                         </button>
                     </div>
@@ -184,6 +184,5 @@
 
 <div th:replace="~{fragments/header.html :: script}"></div>
 <script src="../static/js/main_page.js" th:src="@{/js/main_page.js}"></script>
-
 </body>
 </html>
