@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -71,6 +72,26 @@ public class PostingRestController {
     @GetMapping("/{id}")
     public ResponseEntity<String> getPostingById(@PathVariable("id") Long id) {
         return ResponseEntity.ok(new Gson().toJson(postingService.getPostingById(id)));
+    }
+
+    @GetMapping("/getProductCards")
+    public ResponseEntity<List<Posting>> getProductCards() {
+        Set<Images> img = new HashSet<>();
+        Images images = new Images();
+        images.setImagePath("/images/image-placeholder.png");
+        img.add(images);
+        Posting posting = new Posting();
+        posting.setPrice(123123L);
+        posting.setImagePath(img);
+        posting.setShortDescription("Краткое описание");
+        posting.setTitle("Автокресло 0-1");
+        List<Posting> list = new ArrayList<>();
+        for (int i = 0; i< 77; i++){
+            list.add(posting);
+        }
+        return !list.isEmpty()
+                ? new ResponseEntity<>(list, HttpStatus.OK)
+                : new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
 }
