@@ -19,6 +19,22 @@ spring:
         format_sql: false
         jdbc:
           timezone: UTC
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    protocol: smtp
+    username: test.avit2020@gmail.com
+    password: javamentor2020
+    properties:
+      mail:
+        transport:
+          protocol: smtp
+        smtp:
+          auth: true
+          timeout: 8000
+          starttls.enable: true
+support:
+  email: test.avit2020@gmail.com
 
 google:
   client:
@@ -43,3 +59,5 @@ vk:
   resource:
     userInfoUri: https://api.vk.com/method/users.get
     preferTokenInfo: true
+
+

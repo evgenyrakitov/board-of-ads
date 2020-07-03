@@ -11,12 +11,14 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @RestController
@@ -48,10 +50,21 @@ public class PostingRestController {
         return new ResponseEntity<>(new Gson().toJson(postingService.getAllPostings()), HttpStatus.OK);
     }
 
+    @GetMapping("/all/{locationCode}")
+    public ResponseEntity<List<Posting>> getPostingsByLocationCode(@PathVariable String locationCode) {
+        return ResponseEntity.ok(postingService.getPostingsByLocationCode(locationCode));
+    }
+
     @GetMapping("/user/{id}")
     public ResponseEntity<String> getAllPostingsForUserId(@PathVariable("id") Long id) {
         User user = new User();
         user.setId(id);
+        return new ResponseEntity<>(new Gson().toJson(postingService.getUserPostings(user)), HttpStatus.OK);
+    }
+
+    @GetMapping("/user/current")
+    public ResponseEntity<String> getAllPostingsForCurrentUser() {
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         return new ResponseEntity<>(new Gson().toJson(postingService.getUserPostings(user)), HttpStatus.OK);
     }
 

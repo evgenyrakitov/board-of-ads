@@ -18,10 +18,11 @@ public class Category {
     }
 
 
-    public Category(String name, Category parentCategory, Set<Category> subCategories) {
-        this.name = name;
+    public Category(String nameRu, String nameEn, Category parentCategory, Set<Posting> postingsInCategory) {
+        this.nameRu = nameRu;
         this.parentCategory = parentCategory;
-        this.subCategories = subCategories;
+        this.nameEn = nameEn;
+        this.postingsInCategory = postingsInCategory;
     }
 
     @Id
@@ -29,41 +30,34 @@ public class Category {
     private Long id;
 
 
-    @Column(name = "name")
-    private String name;
+    @Column
+    private String nameRu;
 
+    @Column
+    private String nameEn;
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "parentCategory")
     private Category parentCategory;
 
+    @OneToMany(cascade = {CascadeType.REFRESH})
 
-    @OneToMany(cascade = CascadeType.ALL)
-    @Column
-    private Set<Category> subCategories;
-
-    @OneToMany(mappedBy = "category",
-            cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
     private Set<Posting> postingsInCategory;
 
-    public static Logger getLogger() {
-        return logger;
+    public String getNameRu() {
+        return nameRu;
     }
 
-    public Long getId() {
-        return id;
+    public void setNameRu(String nameRu) {
+        this.nameRu = nameRu;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public String getNameEn() {
+        return nameEn;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
+    public void setNameEn(String nameEn) {
+        this.nameEn = nameEn;
     }
 
     public Category getParentCategory() {
@@ -74,11 +68,11 @@ public class Category {
         this.parentCategory = parentCategory;
     }
 
-    public Set<Category> getSubCategories() {
-        return subCategories;
+    public Set<Posting> getPostingsInCategory() {
+        return postingsInCategory;
     }
 
-    public void setSubCategories(Set<Category> subCategories) {
-        this.subCategories = subCategories;
+    public void setPostingsInCategory(Set<Posting> postingsInCategory) {
+        this.postingsInCategory = postingsInCategory;
     }
 }

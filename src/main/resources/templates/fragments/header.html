@@ -67,7 +67,7 @@
                         <a class="nav-link text-primary" href="/logout" style="white-space: nowrap">Выйти</a>
                     </li>
                     <li class="nav-item d-flex justify-content-lg-center align-items-center">
-                        <a class="btn btn-primary" href="/posting" th:text="#{header.post_a_ad}">Подать объявления</a>
+                        <a class="btn btn-primary" href="/addNewPosting" th:text="#{header.post_a_ad}">Подать объявления</a>
                     </li>
                 </ul>
             </div>
@@ -115,8 +115,8 @@
                     <input type="text" th:placeholder="#{header.search_by_announcements}" placeholder="Поиск по объвлениям"
                            class="form-control">
                 </div>
-                <select class="form-control col-8 col-sm-8  col-md-2 col-lg-1">
-                    <option th:text="#{header.mosсow}">Москва</option>
+                <select id="location" class="form-control col-8 col-sm-8  col-md-2 col-lg-1">
+                    <option selected>Москва</option>
                 </select>
                 <div class="col-8 col-sm-8 col-md-2 col-lg-1">
                     <button type="button" class="btn btn-light" th:text="#{header.search}">Найти</button>
@@ -137,15 +137,43 @@
         </form>
     </div>
     <a href="#" class="btn btn-primary open_search">Поиск</a>
+
 </header>
+<div th:fragment="modals">
+<div id="locationModal" class="modal" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" th:text="#{header.location.modalHeader}">Город или регион</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body text-center">
+                <form role="form">
+                    <div class="form-group padding">
+                        <input id="location-search" type="text" class="form-control">
+                        <div id="location-list" class="list-group text-left">
 
-
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button id="location-close" type="button" class="btn btn-primary" data-dismiss="modal"
+                        th:text="#{header.location.modalFooter}">Показать объявления</button>
+            </div>
+        </div>
+    </div>
+    </div>
+</div>
 <div th:fragment="script">
     <script src="webjars/jquery/3.5.1/jquery.min.js"></script>
     <script src="webjars/popper.js/1.16.0/popper.min.js"></script>
     <script src="webjars/bootstrap/4.5.0/js/bootstrap.min.js"></script>
     <script src="../static/js/header.js" th:src="@{/js/header.js}"></script>
     <script src="/js/modal_registation.js" th:src="@{/js/modal_registation.js}"></script>
+    <script src="/js/modal_registation.js" th:src="@{/js/modal_location.js}"></script>
 </div>
 </body>
 </html>

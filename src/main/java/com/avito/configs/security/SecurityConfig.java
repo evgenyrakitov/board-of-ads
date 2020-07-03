@@ -73,6 +73,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/", "/login/**", "/css/**", "/images/**", "/js/**", "/webjars/**", "/categories/**",  "/rest/admin/add").permitAll()
                 .anyRequest().authenticated();
 /*
+                .antMatchers("/", "/login/**", "/css/**", "/images/**", "/js/**", "/webjars/**",
+                        "/categories/**",  "/rest/admin/add", "/user/**", "/updatePassword", "/rest/posting/*").permitAll()
+               // .anyRequest().authenticated()
                 .and()
                 .formLogin()
                 .defaultSuccessUrl("/")

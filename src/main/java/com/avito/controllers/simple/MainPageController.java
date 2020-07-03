@@ -23,4 +23,8 @@ public class MainPageController {
         return "posting";
     }
 
+    @GetMapping("/addNewPosting")
+    public String getNewPostingPage() {
+        return "addNewPosting";
+    }
 }

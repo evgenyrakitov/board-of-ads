@@ -51,15 +51,20 @@ $("#btn-open").click(function (event) {
 
 $("#btn-modal-3").click(function (event) {
     event.preventDefault();
+    let user_2 = $("#form-modal-3").serialize();
     $.ajax({
-        url: $("#form-modal-3").attr("action"),
+        url: "/user/resetPassword",
+        data: user_2,
         method: "POST",
-        data: $("#form-modal-3").serialize(),
-        success: function (user) {
-            alert("Ваш пароль - "+user.password);
+        success: function (data) {
+            let emal_ = data.message;
+            $("#modal-reg-password").modal("show");
+            $("#reg-password").html("<p>"+emal_+"</p>");
+
         }
     });
-})
+
+});
 
 
 
