@@ -1,6 +1,6 @@
 package com.avito.repository;
 
-import com.avito.models.reset_password.PasswordResetToken;
+import com.avito.models.PasswordResetToken;
 import com.avito.models.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;

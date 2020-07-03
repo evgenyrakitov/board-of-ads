@@ -50,13 +50,18 @@ $("#btn-modal-3").click(function (event) {
     event.preventDefault();
     let user_2 = $("#form-modal-3").serialize();
     $.ajax({
-        url: "/user/resetPassword",
+        url: "/rest/resetPassword",
         data: user_2,
         method: "POST",
-        success: function (data) {
-            let emal_ = data.message;
-            $("#modal-reg-password").modal("show");
-            $("#reg-password").html("<p>"+emal_+"</p>");
+        success: function (bool) {
+            if (bool){
+                $("#modal-reg-password").modal("show");
+                $("#reg-password").html("<p>Вскоре вы получите электронное письмо для сброса пароля</p>");
+            } else {
+                $("#modal-reg-2").modal("show");
+                $("#message-reset-password").html("<h4>Пользователь с таким Email не зарегистрирован</h4>" +
+                    "<br><p>Пройдите регистрацию</p>");
+            }
 
         }
     });
