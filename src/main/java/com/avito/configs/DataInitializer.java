@@ -74,7 +74,9 @@ public class DataInitializer {
         User userUser = userService.findUserByEmail("test.email.1@gmail.com");
         User adminUser = userService.findUserByEmail("admin@gmail.com");
 
-        List<Category> categories = categoryService.getAllCategories().stream().sorted((Comparator.comparing(Category::getNameRu))).collect(Collectors.toList());
+
+        List<Category> categories = categoryService.getAllCategories().stream().sorted(Comparator.comparing(Category::getNameRu)).collect(Collectors.toList());
+
         assert categories.size() >= 3;
 
         Posting posting = new Posting();

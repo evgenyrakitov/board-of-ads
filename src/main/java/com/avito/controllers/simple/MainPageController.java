@@ -13,14 +13,4 @@ public class MainPageController {
     public String getMainPage() {
         return "main-page";
     }
-
-    @GetMapping("/posting")
-    public String getDetailsPage() {
-        return "posting";
-    }
-
-    @GetMapping("/addNewPosting")
-    public String getNewPostingPage() {
-        return "addNewPosting";
-    }
 }

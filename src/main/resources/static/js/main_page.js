@@ -4,7 +4,7 @@ var end = 0;
 var scrollOn = 1000;
 $(document).ready(function () {
     $.ajax({
-        url: '/getProductCards',
+        url: '/rest/posting/getProductCards',
         type: 'get',
         dataType: 'json',
         success: function (data) {

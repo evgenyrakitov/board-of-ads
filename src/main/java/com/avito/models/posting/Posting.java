@@ -24,7 +24,6 @@ import java.util.Set;
 public class Posting {
     private static final Logger logger = LoggerFactory.getLogger(Posting.class);
 
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
