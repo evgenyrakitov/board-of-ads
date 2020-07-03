@@ -47,7 +47,7 @@ public class PostingRestController {
 
     @GetMapping("/all")
     public ResponseEntity<String> getAllPostings() {
-        return new ResponseEntity<>(new Gson().toJson(postingService.getAllPostings()), HttpStatus.OK);
+        return ResponseEntity.ok(new Gson().toJson(postingService.getAllPostings()));
     }
 
     @GetMapping("/all/{locationCode}")
@@ -59,18 +59,18 @@ public class PostingRestController {
     public ResponseEntity<String> getAllPostingsForUserId(@PathVariable("id") Long id) {
         User user = new User();
         user.setId(id);
-        return new ResponseEntity<>(new Gson().toJson(postingService.getUserPostings(user)), HttpStatus.OK);
+        return ResponseEntity.ok(new Gson().toJson(postingService.getUserPostings(user)));
     }
 
     @GetMapping("/user/current")
     public ResponseEntity<String> getAllPostingsForCurrentUser() {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        return new ResponseEntity<>(new Gson().toJson(postingService.getUserPostings(user)), HttpStatus.OK);
+        return ResponseEntity.ok(new Gson().toJson(postingService.getUserPostings(user)));
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<String> getPostingById(@PathVariable("id") Long id) {
-        return new ResponseEntity<>(new Gson().toJson(postingService.getPostingById(id)), HttpStatus.OK);
+        return ResponseEntity.ok(new Gson().toJson(postingService.getPostingById(id)));
     }
 
 }

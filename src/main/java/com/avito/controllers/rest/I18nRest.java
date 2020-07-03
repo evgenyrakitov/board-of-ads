@@ -34,6 +34,6 @@ public class I18nRest {
                 map.put(e.getKey().toString(), e.getValue().toString());
             }
         }
-        return new ResponseEntity<>(map, HttpStatus.OK);
+        return ResponseEntity.ok(map);
     }
 }
