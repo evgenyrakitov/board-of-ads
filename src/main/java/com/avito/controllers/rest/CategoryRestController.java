@@ -39,4 +39,18 @@ public class CategoryRestController {
         return ResponseEntity.ok(categoryService.getAllCategories());
     }
 
+    @GetMapping("/root_categories")
+    public ResponseEntity<List<Category>> getRootCategories() {
+        return ResponseEntity.ok(categoryService.getRootCategories());
+    }
+    @GetMapping("/getCategoriesByParentCategory/{id}")
+    public ResponseEntity<List<Category>> getCategoriesByParentCategory(@PathVariable("id") Long id) {
+        Category category = categoryService.getCategoryById(id);
+        List<Category> categoriesByParentCategory = categoryService.getCategoriesByParentCategory(category);
+        return ResponseEntity.ok(categoriesByParentCategory);
+    }
+//    @GetMapping("/getCategoryById/{id}")
+//    public ResponseEntity<Category> getCategoryById( ) {
+//        return ResponseEntity.ok(categoryService.getCategoryById(name));
+//    }
 }
