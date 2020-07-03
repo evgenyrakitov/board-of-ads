@@ -23,7 +23,7 @@ import java.util.Map;
 public class I18nRest {
 
     private static final Logger logger = LoggerFactory.getLogger(RoleRestController.class);
-    @Autowired
+
     private final MessageSource messageSource;
 
     @GetMapping("/{prefix}")
