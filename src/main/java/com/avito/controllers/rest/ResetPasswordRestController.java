@@ -1,4 +1,4 @@
-package com.avito.controllers.rest;
+/*package com.avito.controllers.rest;
 
 import com.avito.models.User;
 import com.avito.service.interfaces.EmailService;
@@ -44,4 +44,4 @@ public class ResetPasswordRestController {
         }
             return new ResponseEntity<>(boll, HttpStatus.OK);
     }
-}
+}*/

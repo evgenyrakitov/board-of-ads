@@ -2,6 +2,7 @@ package com.avito.controllers.rest;
 
 import com.avito.models.Role;
 import com.avito.models.User;
+import com.avito.service.interfaces.EmailService;
 import com.avito.service.interfaces.RoleService;
 import com.avito.service.interfaces.UserService;
 import io.swagger.annotations.ApiOperation;
@@ -10,15 +11,15 @@ import io.swagger.annotations.ApiResponses;
 import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.context.MessageSource;
+import org.springframework.core.env.Environment;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 @RestController
 @AllArgsConstructor
@@ -29,6 +30,9 @@ public class UserRestController {
 
     private final UserService userService;
     private final RoleService roleService;
+    private final MessageSource messages;
+    private final EmailService emailService;
+    private final Environment env;
 
     @CrossOrigin()  //далее - поправить, сделано чтобы работала страничка
     @ApiOperation(value = "create new User", code = 201, response = User.class)
@@ -77,6 +81,25 @@ public class UserRestController {
     public void deleteFavoritePosting(Long id) {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         userService.deleteFavoritePosting(id, user.getId());
+    }
+    @PostMapping("/resetPassword")
+    public ResponseEntity<Boolean> resetPassword(@RequestParam("email") String userEmail,
+                                                 Locale locale){
+        User user = userService.findUserByEmail(userEmail);
+        boolean boll = (user != null);
+        if (boll) {
+            String token = UUID.randomUUID().toString();
+            userService.createPasswordResetTokenForUser(user, token);
+            String subject = messages.getMessage("message.resetPassword", null, locale);
+            String body = messages.getMessage("message.resetPassword", null, locale)+
+                    " \r\n http://"+
+                    Objects.requireNonNull(env.getProperty("server.domain"))+":"+
+                    Objects.requireNonNull(env.getProperty("server.port")) +
+                    "/reset/changePassword?token=" +
+                    token;
+            emailService .sendMail(subject, body, user);
+        }
+        return new ResponseEntity<>(boll, HttpStatus.OK);
     }
 
 }
