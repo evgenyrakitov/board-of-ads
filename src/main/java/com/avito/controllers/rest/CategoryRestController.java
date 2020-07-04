@@ -49,8 +49,4 @@ public class CategoryRestController {
         List<Category> categoriesByParentCategory = categoryService.getCategoriesByParentCategory(category);
         return ResponseEntity.ok(categoriesByParentCategory);
     }
-//    @GetMapping("/getCategoryById/{id}")
-//    public ResponseEntity<Category> getCategoryById( ) {
-//        return ResponseEntity.ok(categoryService.getCategoryById(name));
-//    }
 }

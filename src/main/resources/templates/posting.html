@@ -10,7 +10,10 @@
           href="../static/css/media/posting-media.css" th:href="@{/css/media/posting-media.css}"/>
 </head>
 <body>
-<div th:replace="~{fragments/header.html :: header}"></div>
+<!--<div th:replace="~{fragments/header.html :: header}"></div>-->
+<header>
+    <div th:replace="~{fragments/header.html :: upper_header}"></div>
+</header>
 <div class="container_main">
     <div class="bread_crumb">
         <nav aria-label="breadcrumb">
