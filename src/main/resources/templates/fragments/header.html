@@ -58,9 +58,13 @@
                             </svg>
                         </a>
                     </li>
-                    <li class="nav-item" id="li">
+                    <li th:if="${user.getClass().getSimpleName() == 'String'}" class="nav-item" id="li">
                         <a class="nav-link text-primary" href="#" style="white-space: nowrap" id="open-modal-1"
                            th:text="#{header.login_and_register}">Вход и регистрация</a>
+                    </li>
+                    <li th:if="${user.getClass().getSimpleName() == 'User'}" class="nav-item">
+                        <div th:text="${user.getEmail()}"></div>
+                        <a class="nav-link text-primary" href="/logout" style="white-space: nowrap">Выйти</a>
                     </li>
                     <li class="nav-item d-flex justify-content-lg-center align-items-center">
                         <a class="btn btn-primary" href="/addNewPosting" th:text="#{header.post_a_ad}">Подать объявления</a>
@@ -173,7 +177,7 @@
 
                 </div>
                 <div class="modal-body text-center">
-                    <form class="" action="/login"  style="align-content: center" id="open-form-modal">
+                    <form class="" method="post" action="/login"  style="align-content: center" id="open-form-modal">
                         <div class="form-item">
                             <div class="form-item-login">
                                 <label class="input-login">
@@ -198,7 +202,7 @@
 
                             </div><br>
                             <div class="form-item-button">
-                                <button type="submit" name="submit" class="btn btn-primary" id="btn-open" data-dismiss="modal">
+                                <button type="submit" name="submit" class="btn btn-primary" id="btn-open">
                                     <span>Войти</span>
                                 </button>
                             </div><br>

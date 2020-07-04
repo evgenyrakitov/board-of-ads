@@ -48,9 +48,9 @@ public class DataInitializer {
     }
 
     private void initUsers() {
-//        if (userService.getAllUsers().size() != 0) {
-//            return;
-//        }
+        if (userService.getAllUsers().size() != 0) {
+            return;
+        }
 
         Set<Role> adminRoles = new HashSet<>();
         adminRoles.add(roleService.findRoleByName("ADMIN"));

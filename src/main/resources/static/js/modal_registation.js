@@ -35,6 +35,7 @@ $("#btn-reg").click(function (event) {
 
 });
 
+/*
 $("#btn-open").click(function (event) {
     event.preventDefault();
     $.ajax({
@@ -42,10 +43,12 @@ $("#btn-open").click(function (event) {
         method: "POST",
         data: $("#open-form-modal").serialize(),
         success: function (user) {
-        $("#open-modal-1").html("<span>"+user.publicName+"</span>");
+        // $("#open-modal-1").html("<span>"+user.publicName+"</span>");
         }
     });
 });
+*/
+
 $("#btn-modal-3").click(function (event) {
     event.preventDefault();
     let user_2 = $("#form-modal-3").serialize();
