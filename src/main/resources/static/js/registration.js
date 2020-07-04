@@ -53,13 +53,15 @@ function infoField(field) {
     $(field).css("background-color", "yellow");
 }
 
-function save(login, password) {
-    let url = "/rest/add";
+function save(login, password, public_name, phone) {
+    let url = "/rest/admin/add";
     let type = "POST";
     let data = {
         user: {
-            login: login,
-            password: password
+            email: login,
+            password: password,
+            publicName: public_name,
+            phone: phone,
         },
     };
 
@@ -70,7 +72,7 @@ function save(login, password) {
         dataType: 'json',
         cache: false,
         data: JSON.stringify(data.user)
-        }).always(alert("я схоронил юзера!"))
+        }).done(alert("я схоронил юзера!"))
 }
 
 function dd () {

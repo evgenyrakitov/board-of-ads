@@ -16,7 +16,7 @@ $("#btn-reg").click(function (event) {  //в окне регистрации
     event.preventDefault();
     //let user_1 = $("#add-reg-form").serialize();    //тут уже есть юзер
     //begin namor script
-    let login = $("#login").val();
+    let email = $("#login").val();
     let password = $("#password").val();
     let password_confirm = $("#password_confirm").val();
     let public_name = $('#public_name').val();
@@ -30,7 +30,7 @@ $("#btn-reg").click(function (event) {  //в окне регистрации
 
     //=============== test 0 -  login is email ========//
     let loginRe = new RegExp("@");
-    if ((checker(login, loginRe) == 1) && (login.length > 7)) {
+    if ((checker(email, loginRe) == 1) && (email.length > 7)) {
         successField("#login");
     } else {
         warningField("#login");
@@ -58,6 +58,7 @@ $("#btn-reg").click(function (event) {  //в окне регистрации
         warningField("#password");
         warningField("#password_confirm");
         alert("проверьте совпадение паролей!");
+        exit(1);
     }
     //=========  password strong? ===============//
     var passwordStrong = summator(password);
@@ -78,6 +79,7 @@ $("#btn-reg").click(function (event) {  //в окне регистрации
         warningField("#phone");
         alert("введите номер телефоне в формате 913-123-45-67");
     }
+    save(email, password, public_name, phone);
     //end script
 
     $.post($("#add-reg-form").attr("action"), user_1, function(user){
