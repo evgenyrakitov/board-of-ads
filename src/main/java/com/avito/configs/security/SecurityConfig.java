@@ -1,5 +1,6 @@
 package com.avito.configs.security;
 
+import com.avito.configs.security.handler.LoginSuccessHandler;
 import com.avito.service.interfaces.SocialNetworkService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,6 +18,8 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.oauth2.client.OAuth2ClientContext;
@@ -26,6 +29,7 @@ import org.springframework.security.oauth2.client.filter.OAuth2ClientContextFilt
 import org.springframework.security.oauth2.client.token.grant.code.AuthorizationCodeResourceDetails;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableOAuth2Client;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import org.springframework.web.filter.CompositeFilter;
 import org.thymeleaf.extras.springsecurity5.dialect.SpringSecurityDialect;
 
@@ -50,16 +54,25 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private SocialNetworkService socialNetworkService;
 
+    @Autowired
+    @Qualifier("UserDetailsServiceImpl")
+    private UserDetailsService userDetailsService;
+
     //Провайдер аутентификации
     @Override
-    protected void configure(AuthenticationManagerBuilder auth) {
-        auth.authenticationProvider(authProvider);
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+        //auth.authenticationProvider(authProvider);
+        auth.userDetailsService(userDetailsService);
+
     }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
+                .antMatchers("/", "/login/**", "/css/**", "/images/**", "/js/**", "/webjars/**", "/categories/**",  "/rest/admin/add").permitAll()
+                .anyRequest().authenticated();
+/*
                 .antMatchers("/", "/login/**", "/css/**", "/images/**", "/js/**", "/webjars/**",
                         "/categories/**",  "/rest/admin/add", "/reset/**", "/rest/resetPassword", "/updatePassword", "/rest/posting/*").permitAll()
                // .anyRequest().authenticated()
@@ -74,7 +87,29 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                     .permitAll()
                 .and()
                     .csrf().disable();
+*/
 
+        http.formLogin()
+                //.loginPage("/login")
+                //указываем логику обработки при логине
+                .successHandler(new LoginSuccessHandler())
+                // указываем action с формы логина
+                .loginProcessingUrl("/login")
+                // Указываем параметры логина и пароля с формы логина
+                .usernameParameter("email")
+                .passwordParameter("password")
+                // даем доступ к форме логина всем
+                .permitAll();
+
+        http.logout()
+                // разрешаем делать логаут всем
+                .permitAll()
+                // указываем URL логаута
+                .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+                // указываем URL при удачном логауте
+                .logoutSuccessUrl("/")
+                //выклчаем кроссдоменную секьюрность (на этапе обучения неважна)
+                .and().csrf().disable();
 
         //Добавление фильтра в конфигурацию
         http
