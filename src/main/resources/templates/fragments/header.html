@@ -25,69 +25,71 @@
 <body>
 
 <header th:fragment="header">
-    <div class="min_header">
-        <div id="menuToggle">
-            <input type="checkbox"/>
-            <span id="span1"></span>
-            <span id="span2"></span>
-            <span id="span3"></span>
-        </div>
-        <div class="logo_min">
-            <img src="images/header/logo.png" alt="">
-        </div>
-    </div>
-    <div class="bg_black_header"></div>
-    <div class=" header-container bg-light nav_first">
-        <nav class="navbar navbar-expand-sm navbar-light header-element">
-            <div class="d-flex justify-content-between align-items-center">
-                <ul class="navbar-nav mr-auto" id="avitoNavigation">
-                    <li class="nav-item"><a class="nav-link" href="/" th:text="#{header.ads}">Объявления</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/" th:text="#{header.shops}">Магазины</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/" th:text="#{header.business}">Бизнес</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/" th:text="#{header.help}">Помощь</a></li>
-                </ul>
-                <ul class="navbar-nav sign_up">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <span class="favourites"></span>
-                            <svg xmlns="http://www.w3.org/2000/svg" th:title="Избранное" width="24" height="24"
-                                 viewBox="0 0 24 24"
-                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                 stroke-linejoin="round" class="feather feather-heart">
-                                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
-                            </svg>
-                        </a>
-                    </li>
-                    <li class="nav-item" id="li">
-                        <a class="nav-link text-primary" href="#" style="white-space: nowrap" id="open-modal-1"
-                           th:text="#{header.login_and_register}">Вход и регистрация</a>
-                    </li>
-                    <li class="nav-item d-flex justify-content-lg-center align-items-center">
-                        <a class="btn btn-primary" href="/addNewPosting" th:text="#{header.post_a_ad}">Подать объявления</a>
-                    </li>
-                </ul>
+    <div>
+        <div class="min_header">
+            <div id="menuToggle">
+                <input type="checkbox"/>
+                <span id="span1"></span>
+                <span id="span2"></span>
+                <span id="span3"></span>
             </div>
-            <div class="locale">
-                <div class="dropdown">
-                    <button class=" dropdown-toggle" type="button" id="dropdownMenu2"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-<!--                        <img src="images/header/ru.svg" width="30">-->
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                        <button class="dropdown-item locale_ru" type="button">
-                            <a  href="?locale=ru">
-                                <img src="images/header/ru.svg" width="30" >
+            <div class="logo_min">
+                <img src="images/header/logo.png" alt="">
+            </div>
+        </div>
+        <div class="bg_black_header"></div>
+        <div class=" header-container bg-light nav_first">
+            <nav class="navbar navbar-expand-sm navbar-light header-element">
+                <div class="d-flex justify-content-between align-items-center">
+                    <ul class="navbar-nav mr-auto" id="avitoNavigation">
+                        <li class="nav-item"><a class="nav-link" href="/" th:text="#{header.ads}">Объявления</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/" th:text="#{header.shops}">Магазины</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/" th:text="#{header.business}">Бизнес</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/" th:text="#{header.help}">Помощь</a></li>
+                    </ul>
+                    <ul class="navbar-nav sign_up">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <span class="favourites"></span>
+                                <svg xmlns="http://www.w3.org/2000/svg" th:title="Избранное" width="24" height="24"
+                                     viewBox="0 0 24 24"
+                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                     stroke-linejoin="round" class="feather feather-heart">
+                                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                                </svg>
                             </a>
+                        </li>
+                        <li class="nav-item" id="li">
+                            <a class="nav-link text-primary" href="#" style="white-space: nowrap" id="open-modal-1"
+                               th:text="#{header.login_and_register}">Вход и регистрация</a>
+                        </li>
+                        <li class="nav-item d-flex justify-content-lg-center align-items-center">
+                            <a class="btn btn-primary" href="/addNewPosting" th:text="#{header.post_a_ad}">Подать объявления</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="locale">
+                    <div class="dropdown">
+                        <button class=" dropdown-toggle" type="button" id="dropdownMenu2"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <!--                        <img src="images/header/ru.svg" width="30">-->
                         </button>
-                        <button class="dropdown-item locale_en" type="button">
-                            <a href="?locale=en">
-                                <img src="images/header/en.svg" width="30" >
-                            </a>
-                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                            <button class="dropdown-item locale_ru" type="button">
+                                <a  href="?locale=ru">
+                                    <img src="images/header/ru.svg" width="30" >
+                                </a>
+                            </button>
+                            <button class="dropdown-item locale_en" type="button">
+                                <a href="?locale=en">
+                                    <img src="images/header/en.svg" width="30" >
+                                </a>
+                            </button>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </nav>
+            </nav>
+        </div>
     </div>
     <div class=" header-container nav_second">
         <nav class="navbar navbar-expand-sm navbar-light bg-white header-element ">

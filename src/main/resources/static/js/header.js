@@ -25,16 +25,21 @@ $(document).ready(function () {
         success: function (data) {
             $("#header_category_list").empty();
             categories = data;
+            var count = 0;
+            var more = "еще...";
+            if (localStorage.getItem('locale') == "en"){
+                more = "more..."
+            }
             for (var i in data) {
                 if (data[i].local == localStorage.getItem('locale')) {
-                    if (i == 0) {
+                    if (count == 0) {
                         $("#header_category_list").append(
-                            "<li class='nav-item nav_category'><span class='all_category'  onclick='openAllCategories()'>еще...</span>\n" +
+                            "<li class='nav-item nav_category'><span class='all_category'  onclick='openAllCategories()'>"+ more +"</span>\n" +
                             "     <ul class='navbar-nav' id='moreCategories'></ul>" +
                             "</li>"
                         );
                     }
-                    if (i < 5) {
+                    if (count < 5) {
                         $("#header_category_list").prepend(
                             "<li class='nav-item '>\n" +
                             "     <a class='nav-link text-primary' href='#'>" + data[i].name + "</a>\n" +
@@ -46,13 +51,13 @@ $(document).ready(function () {
                         '       <div class="top-rubricator-blockTitle">\n' +
                         '           <a href="">' + data[i].name + '</a>\n' +
                         '       </div>\n' +
-                        '       <ul class="sub_categories navbar-nav" id="sub_categories_'+ data[i].id +'"></ul>\n' +
+                        '       <ul class="sub_categories navbar-nav" id="sub_categories_' + data[i].id + '"></ul>\n' +
                         '   </div>'
                     );
                     $("#findFromCategory").append(
                         '<option class="bgOption">' + data[i].name + '</option>'
                     );
-
+                    count++;
                 }
             }
         }
@@ -72,7 +77,7 @@ function openAllCategories() {
                 success: function (info) {
                     for (var j in info) {
                         $("#sub_categories_" + categories[i].id + "").append(
-                            '<li class="nav-item"><a href="/posting/'+ info[j].id +'">' + info[j].name + '</a></li>'
+                            '<li class="nav-item"><a href="/posting/' + info[j].id + '">' + info[j].name + '</a></li>'
                         );
                         $("#findFromCategory").append(
                             '<option>' + info[j].name + '</option>'
