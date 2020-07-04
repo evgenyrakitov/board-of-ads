@@ -1,6 +1,7 @@
 package com.avito.service.interfaces;
 
 
+import com.avito.models.PasswordResetToken;
 import com.avito.models.User;
 import com.avito.models.posting.Posting;
 
@@ -14,4 +15,8 @@ public interface UserService {
         void deleteUser (long id);
         User addFavoritePosting(Long id_posting, Long id_user);
         void deleteFavoritePosting(Long id_posting, Long id_user);
+        void addPasswordToken(PasswordResetToken passwordResetToken);
+        String validatePasswordResetToken(String token);
+        void createPasswordResetTokenForUser(User user, String token);
+        PasswordResetToken findByToken(String token);
 }

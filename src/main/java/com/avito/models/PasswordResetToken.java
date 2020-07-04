@@ -1,6 +1,4 @@
-package com.avito.models.reset_password;
-
-import com.avito.models.User;
+package com.avito.models;
 
 import javax.persistence.*;
 import java.util.Calendar;

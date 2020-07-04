@@ -194,7 +194,7 @@
                                 </label>
 
 
-                                <a style="font-size: 10pt" href="#" id="open-modal-3" data-dismiss="modal">Забыли пароль?</a>
+                                <a style="font-size: 10pt" href="#" id="open-modal-3" data-dismiss="modal" th:text="#{message.resetPassword}">Забыли пароль?</a>
 
                             </div><br>
                             <div class="form-item-button">
@@ -245,8 +245,8 @@
 
             <!-- Modal content-->
             <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title">Регистрация</h4>
+                <div class="modal-header" >
+                    <h4 class="modal-title" id="message-reset-password">Регистрация</h4>
                     <button type="button" class="close" data-dismiss="modal">×</button>
 
                 </div>
