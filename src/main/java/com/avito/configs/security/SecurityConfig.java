@@ -61,7 +61,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     //Провайдер аутентификации
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.authenticationProvider(authProvider);
+        //auth.authenticationProvider(authProvider);
         auth.userDetailsService(userDetailsService);
 
     }
@@ -90,6 +90,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 */
 
         http.formLogin()
+                //.loginPage("/login")
                 //указываем логику обработки при логине
                 .successHandler(new LoginSuccessHandler())
                 // указываем action с формы логина
