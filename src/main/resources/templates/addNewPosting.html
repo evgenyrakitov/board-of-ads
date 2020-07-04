@@ -3,23 +3,30 @@
 
 <head>
     <title>Avito clone</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="webjars/bootstrap/4.5.0/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css"
-          href="../../static/css/media/header-media.css" th:href="@{/css/media/header-media.css}"/>
-    <link id="favicon" rel="shortcut icon" type="image/x-icon" href="../../static/favicon.ico"
-          th:href="@{favicon.ico}"/>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+
+    <div th:replace="~{fragments/header.html :: links}"></div>
+    <!--    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">-->
+    <!--    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">-->
+    <!--    <link rel="stylesheet" href="webjars/bootstrap/4.5.0/css/bootstrap.min.css">-->
+    <!--    <link rel="stylesheet" type="text/css"-->
+    <!--          href="../../static/css/media/header-media.css" th:href="@{/css/media/header-media.css}"/>-->
+    <!--    <link id="favicon" rel="shortcut icon" type="image/x-icon" href="../../static/favicon.ico"-->
+    <!--          th:href="@{favicon.ico}"/>-->
+    <!--    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">-->
+    <!--    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>-->
+    <!--    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>-->
     <link rel="stylesheet" type="text/css"
           href="../static/css/normalize.css" th:href="@{/css/addNewPosting.css}"/>
-    <link rel="stylesheet" type="text/css"
-          href="../static/css/header-styles.css" th:href="@{/css/header-styles.css}"/>
-    <link rel="stylesheet" href="/css/modal_reg.css">
+    <!--    <link rel="stylesheet" type="text/css"-->
+    <!--          href="../static/css/header-styles.css" th:href="@{/css/header-styles.css}"/>-->
+    <!--    <link rel="stylesheet" href="/css/modal_reg.css">-->
 </head>
 <body>
+<!--<header>-->
+<!--    <div th:replace="~{fragments/header.html :: upper_header}"></div>-->
+<!--</header>-->
+
 
 <form class="item-edit-form">
     <div class="header-posting-auto">
@@ -106,12 +113,8 @@
 
 </form>
 </div>
-<div th:fragment="script">
-    <script src="webjars/jquery/3.5.1/jquery.min.js"></script>
-    <script src="webjars/popper.js/1.16.0/popper.min.js"></script>
-    <script src="webjars/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-    <script src="../../static/js/addNewPosting.js" th:src="@{/js/addNewPosting.js}"></script>
-</div>
+<div th:replace="~{fragments/header.html :: script}"></div>
+<script src="../../static/js/addNewPosting.js" th:src="@{/js/addNewPosting.js}"></script>
 
 </body>
 </html>
