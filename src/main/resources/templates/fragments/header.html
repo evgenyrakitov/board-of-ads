@@ -25,73 +25,76 @@
 <body>
 
 <header th:fragment="header">
-    <div class="min_header">
-        <div id="menuToggle">
-            <input type="checkbox"/>
-            <span id="span1"></span>
-            <span id="span2"></span>
-            <span id="span3"></span>
-        </div>
-        <div class="logo_min">
-            <img src="images/header/logo.png" alt="">
-        </div>
-    </div>
-    <div class="bg_black_header"></div>
-    <div class=" header-container bg-light nav_first" th:fragment="top-nav-bar">
-        <nav class="navbar navbar-expand-sm navbar-light header-element">
-            <div class="d-flex justify-content-between align-items-center">
-                <ul class="navbar-nav mr-auto" id="avitoNavigation">
-                    <li class="nav-item"><a class="nav-link" href="/" th:text="#{header.ads}">Объявления</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/" th:text="#{header.shops}">Магазины</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/" th:text="#{header.business}">Бизнес</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/" th:text="#{header.help}">Помощь</a></li>
-                </ul>
-                <ul class="navbar-nav sign_up">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <span class="favourites"></span>
-                            <svg xmlns="http://www.w3.org/2000/svg" th:title="Избранное" width="24" height="24"
-                                 viewBox="0 0 24 24"
-                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                 stroke-linejoin="round" class="feather feather-heart">
-                                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
-                            </svg>
-                        </a>
-                    </li>
-                    <li th:if="${user.getClass().getSimpleName() == 'String'}" class="nav-item" id="li">
-                        <a class="nav-link text-primary" href="#" style="white-space: nowrap" id="open-modal-1"
-                           th:text="#{header.login_and_register}">Вход и регистрация</a>
-                    </li>
-                    <li th:if="${user.getClass().getSimpleName() == 'User'}" class="nav-item">
-                        <div th:text="${user.getEmail()}"></div>
-                        <a class="nav-link text-primary" href="/logout" style="white-space: nowrap">Выйти</a>
-                    </li>
-                    <li class="nav-item d-flex justify-content-lg-center align-items-center">
-                        <a class="btn btn-primary" href="/addNewPosting" th:text="#{header.post_a_ad}">Подать объявления</a>
-                    </li>
-                </ul>
+    <div th:fragment="upper_header">
+        <div class="min_header">
+            <div id="menuToggle">
+                <input type="checkbox"/>
+                <span id="span1"></span>
+                <span id="span2"></span>
+                <span id="span3"></span>
             </div>
-            <div class="locale">
-                <div class="dropdown">
-                    <button class=" dropdown-toggle" type="button" id="dropdownMenu2"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-<!--                        <img src="images/header/ru.svg" width="30">-->
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                        <button class="dropdown-item locale_ru" type="button">
-                            <a  href="?locale=ru">
-                                <img src="images/header/ru.svg" width="30" >
+            <div class="logo_min">
+                <img src="images/header/logo.png" alt="">
+            </div>
+        </div>
+        <div class="bg_black_header"></div>
+        <div class=" header-container bg-light nav_first" th:fragment="top-nav-bar">
+            <nav class="navbar navbar-expand-sm navbar-light header-element">
+                <div class="d-flex justify-content-between align-items-center">
+                    <ul class="navbar-nav mr-auto" id="avitoNavigation">
+                        <li class="nav-item"><a class="nav-link" href="/" th:text="#{header.ads}">Объявления</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/" th:text="#{header.shops}">Магазины</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/" th:text="#{header.business}">Бизнес</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/" th:text="#{header.help}">Помощь</a></li>
+                    </ul>
+                    <ul class="navbar-nav sign_up">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <span class="favourites"></span>
+                                <svg xmlns="http://www.w3.org/2000/svg" th:title="Избранное" width="24" height="24"
+                                     viewBox="0 0 24 24"
+                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                     stroke-linejoin="round" class="feather feather-heart">
+                                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                                </svg>
                             </a>
+                        </li>
+                        <li th:if="${user.getClass().getSimpleName() == 'String'}" class="nav-item" id="li">
+                            <a class="nav-link text-primary" href="#" style="white-space: nowrap" id="open-modal-1"
+                               th:text="#{header.login_and_register}">Вход и регистрация</a>
+                        </li>
+                        <li th:if="${user.getClass().getSimpleName() == 'User'}" class="nav-item">
+                            <div th:text="${user.getEmail()}"></div>
+                            <a class="nav-link text-primary" href="/logout" style="white-space: nowrap">Выйти</a>
+                        </li>
+                        <li class="nav-item d-flex justify-content-lg-center align-items-center">
+                            <a class="btn btn-primary" href="/addNewPosting" th:text="#{header.post_a_ad}">Подать
+                                объявления</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="locale">
+                    <div class="dropdown">
+                        <button class=" dropdown-toggle" type="button" id="dropdownMenu2"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <!--                        <img src="images/header/ru.svg" width="30">-->
                         </button>
-                        <button class="dropdown-item locale_en" type="button">
-                            <a href="?locale=en">
-                                <img src="images/header/en.svg" width="30" >
-                            </a>
-                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                            <button class="dropdown-item locale_ru" type="button">
+                                <a href="?locale=ru">
+                                    <img src="images/header/ru.svg" width="30">
+                                </a>
+                            </button>
+                            <button class="dropdown-item locale_en" type="button">
+                                <a href="?locale=en">
+                                    <img src="images/header/en.svg" width="30">
+                                </a>
+                            </button>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </nav>
+            </nav>
+        </div>
     </div>
     <div class=" header-container nav_second">
         <nav class="navbar navbar-expand-sm navbar-light bg-white header-element ">
@@ -112,7 +115,8 @@
                     <option selected value th:text="#{header.any_category}">Любая категория</option>
                 </select>
                 <div class="form-group col-8 col-sm-8  col-md-5 col-lg-8">
-                    <input type="text" th:placeholder="#{header.search_by_announcements}" placeholder="Поиск по объвлениям"
+                    <input type="text" th:placeholder="#{header.search_by_announcements}"
+                           placeholder="Поиск по объвлениям"
                            class="form-control">
                 </div>
                 <select id="location" class="form-control col-8 col-sm-8  col-md-2 col-lg-1">
@@ -140,31 +144,32 @@
 
 </header>
 <div th:fragment="modals">
-<div id="locationModal" class="modal" role="dialog">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" th:text="#{header.location.modalHeader}">Город или регион</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body text-center">
-                <form role="form">
-                    <div class="form-group padding">
-                        <input id="location-search" type="text" class="form-control">
-                        <div id="location-list" class="list-group text-left">
+    <div id="locationModal" class="modal" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" th:text="#{header.location.modalHeader}">Город или регион</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body text-center">
+                    <form role="form">
+                        <div class="form-group padding">
+                            <input id="location-search" type="text" class="form-control">
+                            <div id="location-list" class="list-group text-left">
 
+                            </div>
                         </div>
-                    </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button id="location-close" type="button" class="btn btn-primary" data-dismiss="modal"
-                        th:text="#{header.location.modalFooter}">Показать объявления</button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button id="location-close" type="button" class="btn btn-primary" data-dismiss="modal"
+                            th:text="#{header.location.modalFooter}">Показать объявления
+                    </button>
+                </div>
             </div>
         </div>
-    </div>
     </div>
     <div class="modal fade" id="modal-reg-1">
         <div class="modal-dialog">
@@ -177,18 +182,20 @@
 
                 </div>
                 <div class="modal-body text-center">
-                    <form class="" method="post" action="/login"  style="align-content: center" id="open-form-modal">
+                    <form class="" method="post" action="/login" style="align-content: center" id="open-form-modal">
                         <div class="form-item">
                             <div class="form-item-login">
                                 <label class="input-login">
                                     <input name="email" placeholder="email" type="email">
                                 </label>
-                            </div><br>
+                            </div>
+                            <br>
                             <div class="form-item-password">
                                 <label class="input-password">
                                     <input placeholder="Password" name="password" autocomplete="off">
                                 </label>
-                            </div><br>
+                            </div>
+                            <br>
 
                             <div class="form-item-radio-remember">
 
@@ -198,14 +205,17 @@
                                 </label>
 
 
-                                <a style="font-size: 10pt" href="#" id="open-modal-3" data-dismiss="modal" th:text="#{message.resetPassword}">Забыли пароль?</a>
+                                <a style="font-size: 10pt" href="#" id="open-modal-3" data-dismiss="modal"
+                                   th:text="#{message.resetPassword}">Забыли пароль?</a>
 
-                            </div><br>
+                            </div>
+                            <br>
                             <div class="form-item-button">
                                 <button type="submit" name="submit" class="btn btn-primary" id="btn-open">
                                     <span>Войти</span>
                                 </button>
-                            </div><br>
+                            </div>
+                            <br>
                         </div>
                     </form>
 
@@ -225,11 +235,12 @@
 
 
                 </div>
-                <a class="text-center" href="#"  id="open-modal-2" data-dismiss="modal">Регистрация</a>
+                <a class="text-center" href="#" id="open-modal-2" data-dismiss="modal">Регистрация</a>
                 <div class="modal-footer">
 
 
-                    <div class="auth-app-doc" style="font-size: 7pt; color: #7f8fa6">При входе вы подтверждаете согласие с&nbsp;
+                    <div class="auth-app-doc" style="font-size: 7pt; color: #7f8fa6">При входе вы подтверждаете согласие
+                        с&nbsp;
                         <a href="#">
                             <span>условиями использования ?????????</span>
                         </a>
@@ -249,7 +260,7 @@
 
             <!-- Modal content-->
             <div class="modal-content">
-                <div class="modal-header" >
+                <div class="modal-header">
                     <h4 class="modal-title" id="message-reset-password">Регистрация</h4>
                     <button type="button" class="close" data-dismiss="modal">×</button>
 
@@ -263,12 +274,14 @@
                         </div>
                         <div class="form-item-password">
                             <label class="input-password">
-                                Введите password :<br><input name="password" placeholder="password" type="password" autocomplete="off">
+                                Введите password :<br><input name="password" placeholder="password" type="password"
+                                                             autocomplete="off">
                             </label>
                         </div>
                         <div class="form-item-publicName">
                             <label class="input-publicName">
-                                Введите publicName :<br><input name="publicName" placeholder="publicName" type="text" required>
+                                Введите publicName :<br><input name="publicName" placeholder="publicName" type="text"
+                                                               required>
                             </label>
                         </div>
                         <div class="form-item-phone">
@@ -277,8 +290,9 @@
                             </label>
                         </div>
                         <div class="form-reg-button">
-                            <button type="submit" name="submit"  class="btn btn-primary" id="btn-reg" data-dismiss="modal">
-                                <span >Зарегистрироваться</span>
+                            <button type="submit" name="submit" class="btn btn-primary" id="btn-reg"
+                                    data-dismiss="modal">
+                                <span>Зарегистрироваться</span>
                             </button>
                         </div>
                     </form>
@@ -297,7 +311,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h4 class="modal-title">Восстановление пароля</h4>
-                    <button type="button" class="close"  data-dismiss="modal">×</button>
+                    <button type="button" class="close" data-dismiss="modal">×</button>
 
                 </div>
                 <div class="modal-body text-center">
@@ -309,8 +323,9 @@
                             </label>
                         </div>
                         <div class="form-reg-button">
-                            <button type="submit" name="submit"  class="btn btn-primary" data-dismiss="modal" id="btn-modal-3">
-                                <span >Отправить</span>
+                            <button type="submit" name="submit" class="btn btn-primary" data-dismiss="modal"
+                                    id="btn-modal-3">
+                                <span>Отправить</span>
                             </button>
                         </div>
                     </form>

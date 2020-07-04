@@ -279,3 +279,18 @@ svg {
 #locationModal{
     top: 20%;
 }
+
+.bg_black_header {
+    width: 2000px;
+    height: 2000px;
+    position: fixed;
+    opacity: 0;
+    pointer-events: none;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+.bg_black_header.on-off {
+    opacity: 1;
+    pointer-events: auto;
+}
