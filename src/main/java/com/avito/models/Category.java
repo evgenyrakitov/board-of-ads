@@ -83,4 +83,8 @@ public class Category {
     public void setPostingsInCategory(Set<Posting> postingsInCategory) {
         this.postingsInCategory = postingsInCategory;
     }
+
+    public Long getId() {
+        return id;
+    }
 }
