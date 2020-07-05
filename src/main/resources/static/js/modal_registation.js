@@ -5,6 +5,9 @@ $("#open-modal-1").click(function(){
 });
 $("#open-modal-2").click(function () {
     $("#modal-reg-2").modal("show");    //при клике на регистрация открыть новую окну регистрации
+    // $("#modal-reg-2").on("shown.bs.modal", function () {    //фокусироваться на первом поле
+    //     $("#login").focus();
+    // })
 });
 $("#open-modal-3").click(function () {
     $("#modal-reg-3").modal("show");    //а это восстановление пароля
@@ -49,7 +52,7 @@ $("#btn-reg").click(function (event) {  //в окне регистрации
         warningField("#password_confirm");
         alert("увы, не введён пароль...");
         resultArray.push(false);
-        exit(1);
+        exit(1);    //!! не работает!!!1 не стопиться!
     }
     //=========== password equals? =============//
     if (passwordEquals(password, password_confirm) == true) {
@@ -63,7 +66,7 @@ $("#btn-reg").click(function (event) {  //в окне регистрации
     //=========  password strong? ===============//
     var passwordStrong = summator(password);
     console.log(passwordStrong);
-    if ((passwordStrong < 3) || (password.length < 5)){
+    if ((passwordStrong < 2) || (password.length < 5)){
         infoField("#password");
         infoField("#password_confirm");
         alert("пожалуйста, используйте более сложный пароль.");
@@ -79,10 +82,19 @@ $("#btn-reg").click(function (event) {  //в окне регистрации
         warningField("#phone");
         alert("введите номер телефоне в формате 913-123-45-67");
     }
-    save(email, password, public_name, phone);
+    //если успешно иначе оставляем подсветку
+    var next = 0;
+    if (next == 1) {
+        save(email, password, public_name, phone);
+       $("#modal-reg-2").modal('toggle');
+    }
+    else {
+        console.log("это последний шанс всё  исправить...");
+    }
     //end script
 
-    $.post($("#add-reg-form").attr("action"), user_1, function(user){
+    $.post($("#add-reg-form").attr("action"), function(user){
+    // $("#add-reg-form").attr("action");
         let k = [];
         k = user;
 
@@ -102,7 +114,7 @@ $("#btn-reg").click(function (event) {  //в окне регистрации
                 "</div></div>";
             $("#li").html(menu);
         });
-
+    // $('#add-reg-form').modal('toggle');"#open-modal-2"
 });
 //end
 
