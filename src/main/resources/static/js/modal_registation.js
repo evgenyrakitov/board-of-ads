@@ -25,16 +25,14 @@ $("#btn-reg").click(function (event) {  //в окне регистрации
     let public_name = $('#public_name').val();
     let phone = $("#phone").val();
     let resultArray = new Array();
-    let sum;
+    let sum = 0;
 
-    var loginTrue;
-    var public_nameTrue;
-    var phoneTrue;
 
     //=============== test 0 -  login is email ========//
     let loginRe = new RegExp("@");
     if ((checker(email, loginRe) == 1) && (email.length > 7)) {
         successField("#login");
+        sum++;  //1
     } else {
         warningField("#login");
     }
@@ -44,24 +42,23 @@ $("#btn-reg").click(function (event) {  //в окне регистрации
         console.log("это код из modal_registration: оба пароля существуют!");
         successField("#password");
         successField("#password_confirm");
+        sum++;  //2
     }
     else {
         //вдруг один из паролей - пуст....
         console.log("это код из modal_registration. один из паролей пуст");
         warningField("#password");
         warningField("#password_confirm");
-        alert("увы, не введён пароль...");
-        resultArray.push(false);
-        exit(1);    //!! не работает!!!1 не стопиться!
+        alert("увы, не введён пароль...");  //!! поменять на нормальный вывод
     }
     //=========== password equals? =============//
     if (passwordEquals(password, password_confirm) == true) {
         console.log("пароли совпали. хорошо.");
+        sum++;  //3
     } else {
         warningField("#password");
         warningField("#password_confirm");
         alert("проверьте совпадение паролей!");
-        exit(1);
     }
     //=========  password strong? ===============//
     var passwordStrong = summator(password);
@@ -70,21 +67,30 @@ $("#btn-reg").click(function (event) {  //в окне регистрации
         infoField("#password");
         infoField("#password_confirm");
         alert("пожалуйста, используйте более сложный пароль.");
+    } else {
+        sum++;  //4
     }
     //========== check phone number ============/
     var correctPhone = new RegExp("\\d{10}|(\\d{3}(\\s|-)){2}(\\d{2}(\\s|-)\\d{2})");
     if(checker(phone, correctPhone) == 1) {
         console.log("формат телефона - верен");
         successField("#phone");
+        sum++;  //5
     }
     else {
         console.log("неверный формат телефона");
         warningField("#phone");
         alert("введите номер телефоне в формате 913-123-45-67");
     }
+    //============== check exist public name  ==========//
+    if(public_name.length > 3) {
+        successField('#public_name');
+        sum++;  //6!
+    } else {
+        warningField('#public_name');
+    }
     //если успешно иначе оставляем подсветку
-    var next = 0;
-    if (next == 1) {
+    if (sum == 6) {
         save(email, password, public_name, phone);
        $("#modal-reg-2").modal('toggle');
     }
