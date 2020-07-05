@@ -4,7 +4,7 @@ var end = 0;
 var scrollOn = 1000;
 $(document).ready(function () {
     $.ajax({
-        url: '/rest/posting/getProductCards',
+        url: '/rest/posting/all',
         type: 'get',
         dataType: 'json',
         success: function (data) {
@@ -21,7 +21,7 @@ $(document).ready(function () {
                     '            <div class="card-body">\n' +
                     '                <h5 class="card-title">' + posting[i].title + '</h5>\n' +
                     '                <p class="card-text">' + posting[i].price + '</p>\n' +
-                    '                <a href="adDetails" class="btn btn-primary" ' +
+                    '                <a href="posting/'+ posting[i].id +'" class="btn btn-primary" ' +
                     'th:text="#{main-page.go_to_ad}">Перейти к объявлению</a>\n' +
                     '            </div>\n' +
                     '        </div>'

@@ -20,3 +20,15 @@
         justify-content: center;
     }
 }
+.card-body {
+    -ms-flex: 1 1 auto;
+    flex: 2 1 auto;
+    min-height: 1px;
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.card img{
+    max-height: 190px;
+}
