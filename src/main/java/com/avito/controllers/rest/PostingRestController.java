@@ -52,7 +52,7 @@ public class PostingRestController {
     }
 
     @GetMapping("/searchByCity/{cityId}")
-    public ResponseEntity<List<Posting>> getPostingsByStreetId(@PathVariable("cityId") String cityId) {
+    public ResponseEntity<List<Posting>> getPostingsByCityId(@PathVariable("cityId") String cityId) {
         return ResponseEntity.ok(postingService.getPostingsByCityId(cityId));
     }
 
