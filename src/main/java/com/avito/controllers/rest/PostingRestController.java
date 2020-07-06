@@ -52,7 +52,7 @@ public class PostingRestController {
     }
 
     @GetMapping("/all/{locationCode}")
-    public ResponseEntity<List<Posting>> getPostingsByLocationCode(@PathVariable String locationCode) {
+    public ResponseEntity<List<Posting>> getPostingsByLocationCode(@PathVariable("locationCode") String locationCode) {
         return ResponseEntity.ok(postingService.getPostingsByLocationCode(locationCode));
     }
 

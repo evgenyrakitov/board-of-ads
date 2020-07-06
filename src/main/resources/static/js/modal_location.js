@@ -57,14 +57,17 @@ $("#location-list").click(function (event) {
 
 $("#location-close").click(function () {
     let locationCode = $("#location-search").attr("data");
+    var locationName = $("#location-search").val();
+    locationName = locationName.replace(/\([^()]*\)/g, '');
+    $("#locationModal").modal('hide');
+    $("#location-name").text(locationName);
     if (typeof locationCode !== typeof undefined && locationCode !== false) {
         $.ajax({
             url: `/rest/posting/all/${locationCode}`,
             type: 'get',
             dataType: 'json',
             success: function (data) {
-                $("#locationModal").modal('hide');
-                $(".container_cus").empty();
+               $(".container_cus").empty();
                 data.forEach(posting => {
                     $(".container_cus").prepend(
                         '<div class="card">\n' +
