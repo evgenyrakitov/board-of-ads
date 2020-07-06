@@ -52,8 +52,7 @@ public class User implements UserDetails {
     @ManyToMany(fetch = FetchType.LAZY)
     private Set<Posting> favoritePostings;
 
-    @OneToMany(mappedBy = "user",
-    cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
+    @OneToMany(cascade = {CascadeType.REFRESH})
     private Set<Posting> userPostings;
 
     private String userIcons;
