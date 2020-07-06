@@ -272,3 +272,10 @@ svg {
     background: transparent;
     border: 1px solid gainsboro;
 }
+#location-list{
+    height: 25vh;
+    overflow: auto
+}
+#locationModal{
+    top: 20%;
+}

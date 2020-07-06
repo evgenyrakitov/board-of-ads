@@ -37,7 +37,7 @@
         </div>
     </div>
     <div class="bg_black_header"></div>
-    <div class=" header-container bg-light nav_first">
+    <div class=" header-container bg-light nav_first" th:fragment="top-nav-bar">
         <nav class="navbar navbar-expand-sm navbar-light header-element">
             <div class="d-flex justify-content-between align-items-center">
                 <ul class="navbar-nav mr-auto" id="avitoNavigation">
@@ -58,9 +58,13 @@
                             </svg>
                         </a>
                     </li>
-                    <li class="nav-item" id="li">
+                    <li th:if="${user.getClass().getSimpleName() == 'String'}" class="nav-item" id="li">
                         <a class="nav-link text-primary" href="#" style="white-space: nowrap" id="open-modal-1"
                            th:text="#{header.login_and_register}">Вход и регистрация</a>
+                    </li>
+                    <li th:if="${user.getClass().getSimpleName() == 'User'}" class="nav-item">
+                        <div th:text="${user.getEmail()}"></div>
+                        <a class="nav-link text-primary" href="/logout" style="white-space: nowrap">Выйти</a>
                     </li>
                     <li class="nav-item d-flex justify-content-lg-center align-items-center">
                         <a class="btn btn-primary" href="/addNewPosting" th:text="#{header.post_a_ad}">Подать объявления</a>
@@ -111,8 +115,8 @@
                     <input type="text" th:placeholder="#{header.search_by_announcements}" placeholder="Поиск по объвлениям"
                            class="form-control">
                 </div>
-                <select class="form-control col-8 col-sm-8  col-md-2 col-lg-1">
-                    <option th:text="#{header.mosсow}">Москва</option>
+                <select id="location" class="form-control col-8 col-sm-8  col-md-2 col-lg-1">
+                    <option selected>Москва</option>
                 </select>
                 <div class="col-8 col-sm-8 col-md-2 col-lg-1">
                     <button type="button" class="btn btn-light" th:text="#{header.search}">Найти</button>
@@ -133,16 +137,231 @@
         </form>
     </div>
     <a href="#" class="btn btn-primary open_search">Поиск</a>
+
 </header>
+<div th:fragment="modals">
+<div id="locationModal" class="modal" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" th:text="#{header.location.modalHeader}">Город или регион</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body text-center">
+                <form role="form">
+                    <div class="form-group padding">
+                        <input id="location-search" type="text" class="form-control">
+                        <div id="location-list" class="list-group text-left">
+
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button id="location-close" type="button" class="btn btn-primary" data-dismiss="modal"
+                        th:text="#{header.location.modalFooter}">Показать объявления</button>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="modal fade" id="modal-reg-1">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Вход</h4>
+                    <button type="button" class="close" data-dismiss="modal">×</button>
+
+                </div>
+                <div class="modal-body text-center">
+                    <form class="" method="post" action="/login"  style="align-content: center" id="open-form-modal">
+                        <div class="form-item">
+                            <div class="form-item-login">
+                                <label class="input-login">
+                                    <input name="email" placeholder="email" type="email">
+                                </label>
+                            </div><br>
+                            <div class="form-item-password">
+                                <label class="input-password">
+                                    <input placeholder="Password" name="password" autocomplete="off">
+                                </label>
+                            </div><br>
+
+                            <div class="form-item-radio-remember">
+
+                                <label class="checkbox" style="vertical-align: middle; font-size: 10pt">
+                                    <input name="remember" class="" type="checkbox" checked="">
+                                    <span>Запомнить пароль</span>
+                                </label>
 
 
+                                <a style="font-size: 10pt" href="#" id="open-modal-3" data-dismiss="modal" th:text="#{message.resetPassword}">Забыли пароль?</a>
+
+                            </div><br>
+                            <div class="form-item-button">
+                                <button type="submit" name="submit" class="btn btn-primary" id="btn-open">
+                                    <span>Войти</span>
+                                </button>
+                            </div><br>
+                        </div>
+                    </form>
+
+                    <span style="font-size: 10pt">или продолжить через</span>
+                    <div class="social">
+                            <span class="social-vk">
+                                <img src="/images/vk.svg">
+                            </span>
+                        <span class="social-ok">
+                                <img src="/images/ok.svg">
+                            </span>
+                        <span class="social-fb">
+                                <img src="/images/google.svg">
+                            </span>
+
+                    </div>
+
+
+                </div>
+                <a class="text-center" href="#"  id="open-modal-2" data-dismiss="modal">Регистрация</a>
+                <div class="modal-footer">
+
+
+                    <div class="auth-app-doc" style="font-size: 7pt; color: #7f8fa6">При входе вы подтверждаете согласие с&nbsp;
+                        <a href="#">
+                            <span>условиями использования ?????????</span>
+                        </a>
+                        &nbsp;и&nbsp;
+                        <a href="#">
+                            <span>политикой о&nbsp;данных пользователей.</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="modal fade" id="modal-reg-2" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header" >
+                    <h4 class="modal-title" id="message-reset-password">Регистрация</h4>
+                    <button type="button" class="close" data-dismiss="modal">×</button>
+
+                </div>
+                <div class="modal-body text-center">
+                    <form action="/rest/admin/add" id="add-reg-form">
+                        <div class="form-item-login">
+                            <label class="input-login">
+                                Введите email :<br><input name="email" placeholder="email" type="email" id="login" required>
+                            </label>
+                        </div>
+                        <div class="form-item-password">
+                            <label class="input-password">
+                                Введите password :<br><input name="password" placeholder="password" id="password" type="password" autocomplete="off">
+                            </label>
+                        </div>
+
+                        <div class="form-item-password">
+                            <label class="input-password">
+                                Подтвердите password :<br><input name="password_confirm" placeholder="password_confirm" type="password" id="password_confirm" autocomplete="off">
+                            </label>
+                        </div>
+
+                        <div class="form-item-publicName">
+                            <label class="input-publicName">
+                                Введите publicName :<br><input name="publicName" id="public_name" placeholder="publicName" type="text" required>
+                            </label>
+                        </div>
+
+                        <div class="form-item-phone">
+                            <label class="input-phone">
+                                Введите phone :<br><input name="phone" placeholder="912-345-67-89" type="tel" id="phone" required>
+                            </label>
+                        </div>
+                        <div class="form-reg-button">
+                            <button type="button" class="btn btn-primary" id="btn-reg" data-dismiss="modal">
+                                <span >Зарегистрироваться</span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="modal fade" id="modal-reg-3" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Восстановление пароля</h4>
+                    <button type="button" class="close"  data-dismiss="modal">×</button>
+
+                </div>
+                <div class="modal-body text-center">
+                    <form action="/user/resetPassword" id="form-modal-3">
+
+                        <div class="form-item-login">
+                            <label class="input-login">
+                                Введите EMAIL: <input name="email" placeholder="email" type="text" required>
+                            </label>
+                        </div>
+                        <div class="form-reg-button">
+                            <button type="submit" name="submit"  class="btn btn-primary" data-dismiss="modal" id="btn-modal-3">
+                                <span >Отправить</span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="modal fade" id="modal-reg-password" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Восстановление пароля</h4>
+                    <button type="button" class="close" data-dismiss="modal">×</button>
+
+                </div>
+                <div class="modal-body text-center" id="reg-password">
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
 <div th:fragment="script">
     <script src="webjars/jquery/3.5.1/jquery.min.js"></script>
     <script src="webjars/popper.js/1.16.0/popper.min.js" type="module"></script>
     <script src="webjars/bootstrap/4.5.0/js/bootstrap.min.js"></script>
     <script src="../static/js/header.js" th:src="@{/js/header.js}"></script>
+<!--<<<<<<< HEAD-->
     <script src="../static/js/modal_registation.js" th:src="@{/js/modal_registation.js}" type="module"></script>
-<!--    <script src="../static/js/registration.js" th:src="@{/js/registration.js}" type="text/javascript"></script>-->
+<!--=======-->
+    <script src="/js/modal_registation.js" th:src="@{/js/modal_registation.js}"></script>
+    <script src="/js/modal_registation.js" th:src="@{/js/modal_location.js}"></script>
+<!--&gt;>>>>>> dev  зОчем две одинаковых строки?!-->
 </div>
 </body>
 </html>

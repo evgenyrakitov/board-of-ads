@@ -5,6 +5,7 @@ import com.avito.models.Images;
 import com.avito.models.Message;
 import com.avito.models.User;
 import lombok.*;
+import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.persistence.*;
@@ -12,7 +13,6 @@ import java.util.Set;
 
 //kalinin_begin_change
 //import java.util.logging.Logger;
-import org.slf4j.Logger;
 //kalinin_end
 
 @Data
@@ -24,10 +24,8 @@ import org.slf4j.Logger;
 public class Posting {
     private static final Logger logger = LoggerFactory.getLogger(Posting.class);
 
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "posting_id")
     private Long id;
 
     @NonNull
@@ -50,6 +48,8 @@ public class Posting {
     private String shortDescription;
 
     private long price;
+
+    private String locationCode;
 
     @OneToMany(cascade = CascadeType.ALL)
     @Column(name = "image_path")

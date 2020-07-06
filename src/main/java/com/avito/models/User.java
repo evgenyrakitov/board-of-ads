@@ -29,12 +29,10 @@ public class User implements UserDetails {
 
     @Email
     @NonNull
-    private String email;   //email is login
-    //!notice! check use regexp valid email!
+    private String email;
 
     @NonNull
-    private String publicName;   //view from any user name
-    //check if word not in blacklist.
+    private String publicName;
 
     @NonNull
     @Size(min = 5, message = "пароль должен быть более 5 символов!")
@@ -55,9 +53,8 @@ public class User implements UserDetails {
     private Set<Posting> favoritePostings;
 
     @OneToMany(mappedBy = "user",
-    cascade = {CascadeType.PERSIST, CascadeType.REMOVE}) //по умолчанию FetchType.LAZY
-    private Set<Posting> userPostings; //возможность сохранить все посты пользователя вместе с пользователем
-    //возможность удалить все посты пользователя, если пользователь будет удален
+    cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
+    private Set<Posting> userPostings;
 
     private String userIcons;
 
@@ -69,7 +66,6 @@ public class User implements UserDetails {
         return password;
     }
 
-    //Override methods
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return getRoles();
@@ -100,4 +96,8 @@ public class User implements UserDetails {
         return true;
     }
 
+    @Override
+    public String toString() {
+        return getEmail();
+    }
 }

@@ -1,11 +1,19 @@
 package com.avito.models;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.avito.models.posting.Posting;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import javax.persistence.*;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 import java.util.Set;
 
 
@@ -14,58 +22,50 @@ import java.util.Set;
 public class Category {
     private static final Logger logger = LoggerFactory.getLogger(Category.class);
 
-    public Category() {
-
-    }
-
-
-    public Category(String name, Category parentCategory, Set<Category> subCategories) {
-        this.name = name;
-        this.parentCategory = parentCategory;
-        this.subCategories = subCategories;
-    }
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
 
-    @Column(name = "name")
-    private String name;
+    @Column
+    private String nameRu;
 
+    @Column
+    private String nameEn;
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "parentCategory")
     private Category parentCategory;
 
-    @JsonIgnore
+    @OneToMany(cascade = {CascadeType.REFRESH})
 
-    @OneToMany(cascade = CascadeType.ALL)
-    @Column
-    private Set<Category> subCategories;
-
-    @OneToMany(mappedBy = "category",
-            cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
     private Set<Posting> postingsInCategory;
 
-    public static Logger getLogger() {
-        return logger;
+    public Category() {
+
     }
 
-    public Long getId() {
-        return id;
+    public Category(String nameRu, String nameEn, Category parentCategory, Set<Posting> postingsInCategory) {
+        this.nameRu = nameRu;
+        this.parentCategory = parentCategory;
+        this.nameEn = nameEn;
+        this.postingsInCategory = postingsInCategory;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public String getNameRu() {
+        return nameRu;
     }
 
-    public String getName() {
-        return name;
+    public void setNameRu(String nameRu) {
+        this.nameRu = nameRu;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public String getNameEn() {
+        return nameEn;
+    }
+
+    public void setNameEn(String nameEn) {
+        this.nameEn = nameEn;
     }
 
     public Category getParentCategory() {
@@ -76,11 +76,15 @@ public class Category {
         this.parentCategory = parentCategory;
     }
 
-    public Set<Category> getSubCategories() {
-        return subCategories;
+    public Set<Posting> getPostingsInCategory() {
+        return postingsInCategory;
     }
 
-    public void setSubCategories(Set<Category> subCategories) {
-        this.subCategories = subCategories;
+    public void setPostingsInCategory(Set<Posting> postingsInCategory) {
+        this.postingsInCategory = postingsInCategory;
+    }
+
+    public Long getId() {
+        return id;
     }
 }

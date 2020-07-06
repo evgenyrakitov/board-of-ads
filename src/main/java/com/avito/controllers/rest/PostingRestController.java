@@ -11,12 +11,15 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @RestController
@@ -45,19 +48,50 @@ public class PostingRestController {
 
     @GetMapping("/all")
     public ResponseEntity<String> getAllPostings() {
-        return new ResponseEntity<>(new Gson().toJson(postingService.getAllPostings()), HttpStatus.OK);
+        return ResponseEntity.ok(new Gson().toJson(postingService.getAllPostings()));
+    }
+
+    @GetMapping("/all/{locationCode}")
+    public ResponseEntity<List<Posting>> getPostingsByLocationCode(@PathVariable String locationCode) {
+        return ResponseEntity.ok(postingService.getPostingsByLocationCode(locationCode));
     }
 
     @GetMapping("/user/{id}")
     public ResponseEntity<String> getAllPostingsForUserId(@PathVariable("id") Long id) {
         User user = new User();
         user.setId(id);
-        return new ResponseEntity<>(new Gson().toJson(postingService.getUserPostings(user)), HttpStatus.OK);
+        return ResponseEntity.ok(new Gson().toJson(postingService.getUserPostings(user)));
+    }
+
+    @GetMapping("/user/current")
+    public ResponseEntity<String> getAllPostingsForCurrentUser() {
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        return ResponseEntity.ok(new Gson().toJson(postingService.getUserPostings(user)));
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<String> getPostingById(@PathVariable("id") Long id) {
-        return new ResponseEntity<>(new Gson().toJson(postingService.getPostingById(id)), HttpStatus.OK);
+        return ResponseEntity.ok(new Gson().toJson(postingService.getPostingById(id)));
+    }
+
+    @GetMapping("/getProductCards")
+    public ResponseEntity<List<Posting>> getProductCards() {
+        Set<Images> img = new HashSet<>();
+        Images images = new Images();
+        images.setImagePath("/images/image-placeholder.png");
+        img.add(images);
+        Posting posting = new Posting();
+        posting.setPrice(123123L);
+        posting.setImagePath(img);
+        posting.setShortDescription("Краткое описание");
+        posting.setTitle("Автокресло 0-1");
+        List<Posting> list = new ArrayList<>();
+        for (int i = 0; i< 77; i++){
+            list.add(posting);
+        }
+        return !list.isEmpty()
+                ? new ResponseEntity<>(list, HttpStatus.OK)
+                : new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
 }

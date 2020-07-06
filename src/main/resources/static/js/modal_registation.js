@@ -5,9 +5,6 @@ $("#open-modal-1").click(function(){
 });
 $("#open-modal-2").click(function () {
     $("#modal-reg-2").modal("show");    //при клике на регистрация открыть новую окну регистрации
-    // $("#modal-reg-2").on("shown.bs.modal", function () {    //фокусироваться на первом поле
-    //     $("#login").focus();
-    // })
 });
 $("#open-modal-3").click(function () {
     $("#modal-reg-3").modal("show");    //а это восстановление пароля
@@ -100,11 +97,10 @@ $("#btn-reg").click(function (event) {  //в окне регистрации
     //end script
 
     $.post($("#add-reg-form").attr("action"), function(user){
-    // $("#add-reg-form").attr("action");
         let k = [];
         k = user;
 
-            let email_ = user.email;    //это в зеленый круг, ниже выпадающее меню.
+            let email_ = user.email;
             let menu = "<div class='dropdown'>" +
                 "  <button class='dropbtn'>"+email_+"</button>" +
                 "  <div class='dropdown-content'>" +
@@ -124,6 +120,7 @@ $("#btn-reg").click(function (event) {  //в окне регистрации
 });
 //end
 
+/*
 $("#btn-open").click(function (event) {
     event.preventDefault();
     $.ajax({
@@ -131,22 +128,33 @@ $("#btn-open").click(function (event) {
         method: "POST",
         data: $("#open-form-modal").serialize(),
         success: function (user) {
-        $("#open-modal-1").html("<span>"+user.publicName+"</span>");
+        // $("#open-modal-1").html("<span>"+user.publicName+"</span>");
         }
     });
 });
+*/
 
 $("#btn-modal-3").click(function (event) {
     event.preventDefault();
+    let user_2 = $("#form-modal-3").serialize();
     $.ajax({
-        url: $("#form-modal-3").attr("action"),
+        url: "/rest/resetPassword",
+        data: user_2,
         method: "POST",
-        data: $("#form-modal-3").serialize(),
-        success: function (user) {
-            alert("Ваш пароль - "+user.password);
+        success: function (bool) {
+            if (bool){
+                $("#modal-reg-password").modal("show");
+                $("#reg-password").html("<p>Вскоре вы получите электронное письмо для сброса пароля</p>");
+            } else {
+                $("#modal-reg-2").modal("show");
+                $("#message-reset-password").html("<h4>Пользователь с таким Email не зарегистрирован</h4>" +
+                    "<br><p>Пройдите регистрацию</p>");
+            }
+
         }
     });
-})
+
+});
 
 
 
