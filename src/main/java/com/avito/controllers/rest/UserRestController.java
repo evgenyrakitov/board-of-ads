@@ -98,14 +98,14 @@ public class UserRestController {
         if (boll) {
             String token = UUID.randomUUID().toString();
             userService.createPasswordResetTokenForUser(user, token);
-            String subject = messages.getMessage("message.resetPassword", null, locale);
-            String body = messages.getMessage("message.resetPassword", null, locale)+
-                    " \r\n http://"+
-                    Objects.requireNonNull(env.getProperty("server.domain"))+":"+
+            String subject = messages.getMessage("reset_password.message.reset_password", null, locale);
+            String body = messages.getMessage("reset_password.message.reset_password", null, locale) +
+                    " \r\n http://" +
+                    Objects.requireNonNull(env.getProperty("server.domain")) + ":" +
                     Objects.requireNonNull(env.getProperty("server.port")) +
                     "/reset/changePassword?token=" +
                     token;
-            emailService .sendMail(subject, body, user);
+            emailService.sendMail(subject, body, user);
         }
         return new ResponseEntity<>(boll, HttpStatus.OK);
     }

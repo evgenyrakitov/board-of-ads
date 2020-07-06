@@ -73,7 +73,7 @@ $("#location-close").click(function () {
                         '                <h5 class="card-title">' + posting.title + '</h5>\n' +
                         '                <p class="card-text">' + posting.price + '</p>\n' +
                         '                <a href="adDetails" class="btn btn-primary" ' +
-                        'th:text="#{main-page.go_to_ad}">Перейти к объявлению</a>\n' +
+                        'th:text="#{main_page.go_to_ad}">Перейти к объявлению</a>\n' +
                         '            </div>\n' +
                         '        </div>'
                     );
