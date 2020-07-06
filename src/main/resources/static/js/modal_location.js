@@ -5,13 +5,7 @@ $('#locationModal').on('shown.bs.modal', function () {
     $('#location-search').focus();
     $("#location-search").val("");
     $("#location-list").empty();
-    /*$(".location").click(function () {
-        let locationId = $(this).attr("id");
-        let locationName = $(this).text();
-        $("#location-search").attr("data", locationId);
-        $("#location-search").val(locationName);
-        $("#location-list").empty();
-    })*/
+
 })
 
 $("#location-search").keyup(function () {
