@@ -13,7 +13,6 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
-import java.util.Collection;
 import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
@@ -115,6 +114,8 @@ public class DataInitializer {
         posting.setShortDescription("Коттедж");
         posting.setImagePath(set1);
         posting.setPrice(3_500_000);
+        posting.setRegionId("23");
+        posting.setCityId("212");
         postingService.addPosting(posting);
 
         posting = new Posting();
@@ -125,6 +126,8 @@ public class DataInitializer {
         posting.setShortDescription("Коттедж 266 м² на участке 4.8 сот.");
         posting.setPrice(300_000_000);
         posting.setImagePath(set2);
+        posting.setRegionId("23");
+        posting.setCityId("212");
         postingService.addPosting(posting);
 
         posting = new Posting();
@@ -135,6 +138,8 @@ public class DataInitializer {
         posting.setShortDescription("Дом 240 м² на участке 6.5 сот.");
         posting.setPrice(8_004_500);
         posting.setImagePath(set3);
+        posting.setRegionId("50");
+        posting.setCityId("758");
         postingService.addPosting(posting);
 
 
@@ -171,6 +176,8 @@ public class DataInitializer {
         posting.setShortDescription("BMW 5 серия, 2006");
         posting.setImagePath(seta1);
         posting.setPrice(680_000);
+        posting.setRegionId("77");
+        posting.setCityId("1400");
         postingService.addPosting(posting);
 
         posting = new Posting();
@@ -181,6 +188,8 @@ public class DataInitializer {
         posting.setShortDescription("Mercedes-Benz Sprinter, 1996");
         posting.setPrice(390_000);
         posting.setImagePath(seta2);
+        posting.setRegionId("77");
+        posting.setCityId("1400");
         postingService.addPosting(posting);
 
         posting = new Posting();
@@ -191,6 +200,8 @@ public class DataInitializer {
         posting.setShortDescription("Renault Logan, 2014");
         posting.setPrice(422_500);
         posting.setImagePath(seta3);
+        posting.setRegionId("50");
+        posting.setCityId("740");
         postingService.addPosting(posting);
 
     //////////////// Бытовая техника
@@ -226,6 +237,8 @@ public class DataInitializer {
         posting.setShortDescription("Пылесос Zelmer");
         posting.setImagePath(setb2);
         posting.setPrice(20_000);
+        posting.setRegionId("50");
+        posting.setCityId("740");
         postingService.addPosting(posting);
 
         posting = new Posting();
@@ -236,6 +249,8 @@ public class DataInitializer {
         posting.setShortDescription("Стиральная машина");
         posting.setPrice(3_000);
         posting.setImagePath(setb1);
+        posting.setRegionId("50");
+        posting.setCityId("740");
         postingService.addPosting(posting);
 
         posting = new Posting();
@@ -246,6 +261,8 @@ public class DataInitializer {
         posting.setShortDescription("электро котел Zota lux 12");
         posting.setPrice(6_500);
         posting.setImagePath(setb3);
+        posting.setRegionId("50");
+        posting.setCityId("758");
         postingService.addPosting(posting);
 
  //////////////// Бытовая техника
@@ -281,6 +298,8 @@ public class DataInitializer {
         posting.setShortDescription("Свадебное платье");
         posting.setImagePath(setc1);
         posting.setPrice(3_000);
+        posting.setRegionId("50");
+        posting.setCityId("758");
         postingService.addPosting(posting);
 
         posting = new Posting();
@@ -291,6 +310,8 @@ public class DataInitializer {
         posting.setShortDescription("Кеды");
         posting.setPrice(300);
         posting.setImagePath(setc2);
+        posting.setRegionId("50");
+        posting.setCityId("758");
         postingService.addPosting(posting);
 
         posting = new Posting();
@@ -301,6 +322,8 @@ public class DataInitializer {
         posting.setShortDescription("Комбинезон и шапке зима");
         posting.setPrice(6_500);
         posting.setImagePath(setc3);
+        posting.setRegionId("50");
+        posting.setCityId("758");
         postingService.addPosting(posting);
 
 

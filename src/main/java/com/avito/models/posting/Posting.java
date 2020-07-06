@@ -66,7 +66,8 @@ public class Posting {
 
     private long price;
 
-    private String locationCode;
+    private String cityId;
+    private String regionId;
 
     @OneToMany(cascade = CascadeType.ALL)
     @Column(name = "image_path")

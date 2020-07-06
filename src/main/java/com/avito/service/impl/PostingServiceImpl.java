@@ -42,7 +42,14 @@ public class PostingServiceImpl implements PostingService {
     }
 
     @Override
-    public List<Posting> getPostingsByLocationCode(String locationCode) {
-        return postingRepository.findAllByLocationCode(locationCode);
+    public List<Posting> getPostingsByRegionId(String regionId) {
+        return postingRepository.findAllByRegionId(regionId);
+    }
+
+    @Override
+    public List<Posting> getPostingsByCityId(String cityId) {
+        return postingRepository.findAllByCityId(cityId);
+
+
     }
 }

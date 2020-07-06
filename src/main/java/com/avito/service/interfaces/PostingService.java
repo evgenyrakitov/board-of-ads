@@ -15,6 +15,8 @@ public interface PostingService {
 
     List<Posting> getAllPostings();
 
-    List<Posting> getPostingsByLocationCode(String locationCode);
+    List<Posting> getPostingsByCityId(String cityId);
+
+    List<Posting> getPostingsByRegionId(String regionId);
 
 }
