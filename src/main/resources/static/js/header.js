@@ -87,3 +87,21 @@ $(".locale_ru").click(function () {
 $(".locale_en").click(function () {
     localStorage.setItem("locale", "en");
 });
+
+//нужно взять id user-a с main.page и сделать запрос
+$(document).ready(function getUnreadMessage() {
+    $.ajax({
+        type: 'GET',
+        url: '/rest/messages/unreadCount/1',
+        data: $(this).serialize(),
+        dataType: 'json',
+        success: function (data) {
+            let interval;
+            // $('.message_count').val(data);// first set the value
+            if (data!=0){
+                $('.message_count').html(data);
+            }
+            interval = setTimeout(getUnreadMessage, 20000);
+        }
+    });
+});
