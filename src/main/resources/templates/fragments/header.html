@@ -59,7 +59,7 @@
                         </a>
                     </li>
                     <li th:if="${user.getClass().getSimpleName() == 'String'}" class="nav-item" id="li">
-                        <a class="nav-link text-primary" href="#" style="white-space: nowrap" id="open-modal-1"
+                        <a class="nav-link text-primary open-modal-1" href="#" style="white-space: nowrap"
                            th:text="#{header.login_and_register}">Вход и регистрация</a>
                     </li>
                     <li th:if="${user.getClass().getSimpleName() == 'User'}" class="nav-item">
@@ -166,50 +166,52 @@
         </div>
     </div>
     </div>
-    <div class="modal fade" id="modal-reg-1">
-        <div class="modal-dialog">
+
+    <!-- Login Modal -->
+    <div class="modal" id="modal-reg-1">
+        <div class="modal-dialog modal-dialog-centered">
 
             <!-- Modal content-->
             <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title">Вход</h4>
-                    <button type="button" class="close" data-dismiss="modal">×</button>
-
-                </div>
                 <div class="modal-body text-center">
+                    <div type="button" class="close" data-dismiss="modal">
+                        <div class="leftright"></div>
+                        <div class="rightleft"></div>
+                    </div>
+
                     <form class="" method="post" action="/login"  style="align-content: center" id="open-form-modal">
+                        <div class="form-title font-weight-bolder">Вход</div>
                         <div class="form-item">
                             <div class="form-item-login">
                                 <label class="input-login">
-                                    <input name="email" placeholder="email" type="email">
+                                    <input class="form-control" name="email" placeholder="Электронная почта" type="email">
                                 </label>
-                            </div><br>
+                            </div>
                             <div class="form-item-password">
                                 <label class="input-password">
-                                    <input placeholder="Password" name="password" autocomplete="off">
+                                    <input class="form-control" name="password" placeholder="Пароль" autocomplete="off">
                                 </label>
-                            </div><br>
+                            </div>
 
-                            <div class="form-item-radio-remember">
-
-                                <label class="checkbox" style="vertical-align: middle; font-size: 10pt">
-                                    <input name="remember" class="" type="checkbox" checked="">
-                                    <span>Запомнить пароль</span>
-                                </label>
-
-
+                            <div class="form-password-items-container">
+                                <div class="form-item-radio-remember">
+                                    <label class="checkbox" style="vertical-align: middle; font-size: 10pt">
+                                        <input name="remember" class="" type="checkbox" checked="">
+                                        <span>Запомнить пароль</span>
+                                    </label>
+                                </div>
                                 <a style="font-size: 10pt" href="#" id="open-modal-3" data-dismiss="modal" th:text="#{message.resetPassword}">Забыли пароль?</a>
+                            </div>
 
-                            </div><br>
                             <div class="form-item-button">
                                 <button type="submit" name="submit" class="btn btn-primary" id="btn-open">
                                     <span>Войти</span>
                                 </button>
-                            </div><br>
+                            </div>
                         </div>
                     </form>
 
-                    <span style="font-size: 10pt">или продолжить через</span>
+                    <span style="padding: 10px 0">или продолжить через</span>
                     <div class="social">
                             <span class="social-vk">
                                 <img src="/images/vk.svg">
@@ -220,18 +222,14 @@
                         <span class="social-fb">
                                 <img src="/images/google.svg">
                             </span>
-
                     </div>
-
-
                 </div>
-                <a class="text-center" href="#"  id="open-modal-2" data-dismiss="modal">Регистрация</a>
+
                 <div class="modal-footer">
-
-
-                    <div class="auth-app-doc" style="font-size: 7pt; color: #7f8fa6">При входе вы подтверждаете согласие с&nbsp;
+                    <a class="text-center" style="margin: auto" href="#"  id="open-modal-2" data-dismiss="modal">Зарегистрироваться</a>
+                    <div class="auth-app-doc" style="font-size: 13px; color: #858585">При входе вы подтверждаете согласие с&nbsp;
                         <a href="#">
-                            <span>условиями использования ?????????</span>
+                            <span>условиями использования Авито</span>
                         </a>
                         &nbsp;и&nbsp;
                         <a href="#">
@@ -244,36 +242,38 @@
         </div>
     </div>
 
-    <div class="modal fade" id="modal-reg-2" role="dialog">
-        <div class="modal-dialog">
+    <!-- Registration Modal -->
+    <div class="modal" id="modal-reg-2" role="dialog">
+        <div class="modal-dialog modal-dialog-centered">
 
             <!-- Modal content-->
             <div class="modal-content">
-                <div class="modal-header" >
-                    <h4 class="modal-title" id="message-reset-password">Регистрация</h4>
-                    <button type="button" class="close" data-dismiss="modal">×</button>
-
-                </div>
                 <div class="modal-body text-center">
+                    <div type="button" class="close" data-dismiss="modal">
+                        <div class="leftright"></div>
+                        <div class="rightleft"></div>
+                    </div>
+
                     <form action="/rest/admin/add" id="add-reg-form">
+                        <div class="form-title font-weight-bolder" id="message-reset-password">Регистрация</div>
                         <div class="form-item-login">
                             <label class="input-login">
-                                Введите email :<br><input name="email" placeholder="email" type="email" required>
+                                <input name="email" class="form-control" placeholder="Электронная почта" type="email" required>
                             </label>
                         </div>
                         <div class="form-item-password">
                             <label class="input-password">
-                                Введите password :<br><input name="password" placeholder="password" type="password" autocomplete="off">
+                                <input name="password" class="form-control" placeholder="Пароль" type="password" autocomplete="off">
                             </label>
                         </div>
                         <div class="form-item-publicName">
                             <label class="input-publicName">
-                                Введите publicName :<br><input name="publicName" placeholder="publicName" type="text" required>
+                                <input name="publicName" class="form-control" placeholder="Ваше Имя" type="text" required>
                             </label>
                         </div>
                         <div class="form-item-phone">
                             <label class="input-phone">
-                                Введите phone :<br><input name="phone" placeholder="phone" type="tel" required>
+                                <input name="phone" class="form-control" placeholder="Номер телефона" type="tel" required>
                             </label>
                         </div>
                         <div class="form-reg-button">
@@ -284,28 +284,30 @@
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <span class="text-center open-modal-1">У вас уже есть учётная запись? <a href="#" data-dismiss="modal">Войти</a></span>
                 </div>
             </div>
 
         </div>
     </div>
-    <div class="modal fade" id="modal-reg-3" role="dialog">
-        <div class="modal-dialog">
+
+    <!-- Password Restoration Modal -->
+    <div class="modal" id="modal-reg-3" role="dialog">
+        <div class="modal-dialog modal-dialog-centered">
 
             <!-- Modal content-->
             <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title">Восстановление пароля</h4>
-                    <button type="button" class="close"  data-dismiss="modal">×</button>
-
-                </div>
                 <div class="modal-body text-center">
-                    <form action="/user/resetPassword" id="form-modal-3">
+                    <div type="button" class="close" data-dismiss="modal">
+                        <div class="leftright"></div>
+                        <div class="rightleft"></div>
+                    </div>
 
+                    <form action="/user/resetPassword" id="form-modal-3">
+                        <div class="form-title font-weight-bolder">Восстановление пароля</div>
                         <div class="form-item-login">
                             <label class="input-login">
-                                Введите EMAIL: <input name="email" placeholder="email" type="text" required>
+                                <input name="email" class="form-control" placeholder="Электронная почта" type="email" required>
                             </label>
                         </div>
                         <div class="form-reg-button">
@@ -316,14 +318,15 @@
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <span class="text-center open-modal-1">Вспомнили пароль? <a href="#" data-dismiss="modal">Войти</a></span>
                 </div>
             </div>
-
         </div>
     </div>
-    <div class="modal fade" id="modal-reg-password" role="dialog">
-        <div class="modal-dialog">
+
+    <!-- TODO - Two Duplicates of Password Restoration Modals - Remove This One? -->
+    <div class="modal" id="modal-reg-password" role="dialog">
+        <div class="modal-dialog modal-dialog-centered">
 
             <!-- Modal content-->
             <div class="modal-content">
@@ -339,9 +342,9 @@
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                 </div>
             </div>
-
         </div>
     </div>
+
 </div>
 <div th:fragment="script">
     <script src="webjars/jquery/3.5.1/jquery.min.js"></script>
