@@ -70,20 +70,7 @@ $("#location-close").click(function () {
             type: 'get',
             dataType: 'json',
             success: function (data) {
-               $(".container_cus").empty();
-                data.forEach(posting => {
-                    $(".container_cus").append(
-                        '<div class="card">\n' +
-                        '            <img src="' + posting.imagePath[0].imagePath + '" class="card-img-top" alt="...">\n' +
-                        '            <div class="card-body">\n' +
-                        '                <h5 class="card-title">' + posting.title + '</h5>\n' +
-                        '                <p class="card-text">' + posting.price + '</p>\n' +
-                        '                <a href="adDetails" class="btn btn-primary" ' +
-                        'th:text="#{main-page.go_to_ad}">Перейти к объявлению</a>\n' +
-                        '            </div>\n' +
-                        '        </div>'
-                    );
-                })
+                drawPosting(data);
             }
         });
     } else if (typeof dataId !== typeof undefined && dataId !== false && dataId.includes("city")) {
@@ -93,22 +80,25 @@ $("#location-close").click(function () {
             type: 'get',
             dataType: 'json',
             success: function (data) {
-                $(".container_cus").empty();
-                data.forEach(posting => {
-                    $(".container_cus").append(
-                        '<div class="card">\n' +
-                        '            <img src="' + posting.imagePath[0].imagePath + '" class="card-img-top" alt="...">\n' +
-                        '            <div class="card-body">\n' +
-                        '                <h5 class="card-title">' + posting.title + '</h5>\n' +
-                        '                <p class="card-text">' + posting.price + '</p>\n' +
-                        '                <a href="adDetails" class="btn btn-primary" ' +
-                        'th:text="#{main-page.go_to_ad}">Перейти к объявлению</a>\n' +
-                        '            </div>\n' +
-                        '        </div>'
-                    );
-                })
+                drawPosting(data);
             }
         });
     }
 })
 
+function drawPosting(data) {
+    $(".container_cus").empty();
+    data.forEach(posting => {
+        $(".container_cus").append(
+            '<div class="card">\n' +
+            '            <img src="' + posting.imagePath[0].imagePath + '" class="card-img-top" alt="...">\n' +
+            '            <div class="card-body">\n' +
+            '                <h5 class="card-title">' + posting.title + '</h5>\n' +
+            '                <p class="card-text">' + posting.price + '</p>\n' +
+            '                <a href="adDetails" class="btn btn-primary" ' +
+            'th:text="#{main-page.go_to_ad}">Перейти к объявлению</a>\n' +
+            '            </div>\n' +
+            '        </div>'
+        );
+    })
+}
