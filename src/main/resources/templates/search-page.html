@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="https://www.thymeleaf.org">
+
+<head>
+    <title>Search rezult</title>
+
+</head>
+<body>
+<h1 th:text="${'Объявления по запросу '+ h1}">Объявления по запросу</h1>
+
+<th:block th:each="posting : ${postingList}">
+    <div class="item__line"th:id="${posting.getId()}">
+        <div class="item-photo" data-marker="item-photo">
+            <a class="js-item-slider" href="#" target="_blank">
+                <ul class="item-slider-list" >
+                    <li class="item-slider-item">
+                        <div class="item-slider-image">
+                            <img src="#" class="large-picture-img" alt="">
+                        </div>
+                    </li>
+                </ul>
+            </a>
+            <div>
+                <div class="favorites-add">
+                    <a class="favorites-add__link" href="#" title="Добавить в избранное">
+                        <i class="i"></i>
+                        <span class="favorites-add__label">В избранное</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="item_table-wrapper">
+            <div class="description">
+                <div class="snippet-title-row">
+                    <h3 class="snippet-title">
+                        <a class="snippet-link" href="#" target="_blank" th:text="${posting.getTitle()}"></a>
+                    </h3>
+                </div>
+                <div class="snippet-price-row">
+                    <span class="snippet-price" th:text="${posting.getPrice()}"></span>
+                </div>
+                <div class="snippet-badges"></div>
+                <div class="data">
+                    <p>Компания</p>
+                    <div>
+                        <div class="item-address">
+                            <div>
+                                <span class="item-address__string">Московская область, Дубна</span>
+                                <div class="item-address-georeferences"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="snippet-date-row">
+                        <div class="snippet-date-info">2 дня назад</div>
+                    </div>
+                </div>
+            </div>
+            <div class="item_table-aside">
+                <div class="js-item_table-extended-contacts">
+                    <button style="" class="js-item-extended-contacts" th:text="${posting.getUser().getPhone()}">
+                        Показать телефон
+                    </button>
+                    <div class="item-extended-contacts-messenger">
+                    <span class="js-messenger-button">
+                        <div class="messenger-button-root-3gcie">
+                            <a href="#" target="_self" class="button-button-2Fo5k">
+                                <div class="">Написать</div>
+                            </a>
+                        </div>
+                    </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="snippet-vas"></div>
+        </div>
+    </div>
+
+
+</th:block>
+
+
+
+
+</body>
+</html>
+<!--<td th:text="${user.getId()}"></td>
+<td th:text="${user.getUsername()}"></td>
+<td th:text="${user.getPassword()}"></td>
+<td th:text="${user.getFirstName()}"></td>
+<td th:text="${user.getLastName()}"></td>
+<td th:text="${user.getEmail()()}"></td>
+<td>
+    <span th:each="role: ${user.getRoles()}" th:text="${role.getRole() + ' '}"></span><br>
+</td>
+<form action="/admin/user-update" method="get">
+    <input type="hidden" name="id" value="${user.id}">
+    <input type="hidden" name="username" th:value="${user.getId()}">
+    <input type="hidden" name="password" th:value="${user.password}">
+    <input type="hidden" name="firstName" th:value="${user.firstName}">
+    <input type="hidden" name="lastName" th:value="${user.lastName}">
+    <input type="hidden" name="email" th:value="${user.email}">
+
+    <input type="submit" value="update">
+    <td><a th:href="'/admin/user-delete/'+${user.getId()}">Delete</a></td>-->

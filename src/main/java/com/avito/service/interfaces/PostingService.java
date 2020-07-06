@@ -1,5 +1,6 @@
 package com.avito.service.interfaces;
 
+import com.avito.models.Category;
 import com.avito.models.User;
 import com.avito.models.posting.Posting;
 
@@ -16,5 +17,9 @@ public interface PostingService {
     List<Posting> getAllPostings();
 
     List<Posting> getPostingsByLocationCode(String locationCode);
+
+    List<Posting> findByCategory(Category category);
+
+    List<Posting> findAllByFullDescription(String fullDescription);
 
 }

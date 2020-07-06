@@ -1,5 +1,6 @@
 package com.avito.service.impl;
 
+import com.avito.models.Category;
 import com.avito.models.User;
 import com.avito.models.posting.Posting;
 import com.avito.repository.PostingRepository;
@@ -45,4 +46,15 @@ public class PostingServiceImpl implements PostingService {
     public List<Posting> getPostingsByLocationCode(String locationCode) {
         return postingRepository.findAllByLocationCode(locationCode);
     }
+
+    @Override
+    public List<Posting> findByCategory(Category category) {
+        return postingRepository.findByCategory(category);
+    }
+
+    @Override
+    public List<Posting> findAllByFullDescription(String fullDescription) {
+        return postingRepository.findAllByFullDescription(fullDescription);
+    }
+
 }

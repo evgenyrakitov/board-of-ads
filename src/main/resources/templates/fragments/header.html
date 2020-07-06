@@ -106,30 +106,34 @@
         </nav>
     </div>
     <div class=" header-container search">
-        <form class=" header-element">
+        <form class="header-element" action="/search"  id="search-form" method="get">
             <div class="form-row justify-content-center">
-                <select class="form-control col-8 col-sm-8  col-md-3 col-lg-2" id="findFromCategory">
+                <select class="form-control col-8 col-sm-8  col-md-3 col-lg-2" id="findFromCategory" autofocus required
+                name="category">
                     <option selected value th:text="#{header.any_category}">Любая категория</option>
                 </select>
                 <div class="form-group col-8 col-sm-8  col-md-5 col-lg-8">
                     <input type="text" th:placeholder="#{header.search_by_announcements}" placeholder="Поиск по объвлениям"
-                           class="form-control">
+                           class="form-control" name="search">
                 </div>
-                <select id="location" class="form-control col-8 col-sm-8  col-md-2 col-lg-1">
+                <select id="location" class="form-control col-8 col-sm-8  col-md-2 col-lg-1" autofocus required
+                        name="region">
                     <option selected>Москва</option>
                 </select>
                 <div class="col-8 col-sm-8 col-md-2 col-lg-1">
-                    <button type="button" class="btn btn-light" th:text="#{header.search}">Найти</button>
+                    <button type="submit" class="btn btn-light" th:text="#{header.search}" >Найти</button>
                 </div>
             </div>
             <div class="form-row justify-content-center">
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="only_in_names"
+                           name="only_in_names">
                     <label class="form-check-label" for="inlineCheckbox1"
                            th:text="#{header.only_in_titles}">только в названиях</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="with_photo_only"
+                    name="with_photo_only">
                     <label class="form-check-label" for="inlineCheckbox2"
                            th:text="#{header.only_with_photos}">только с фото</label>
                 </div>
@@ -140,7 +144,7 @@
 
 </header>
 <div th:fragment="modals">
-<div id="locationModal" class="modal" role="dialog">
+<div id="" class="modal" role="dialog">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
@@ -350,6 +354,7 @@
     <script src="../static/js/header.js" th:src="@{/js/header.js}"></script>
     <script src="/js/modal_registation.js" th:src="@{/js/modal_registation.js}"></script>
     <script src="/js/modal_registation.js" th:src="@{/js/modal_location.js}"></script>
+    <script src="/js/search.js" th:src="@{/js/search.js}"></script>
 </div>
 </body>
 </html>
