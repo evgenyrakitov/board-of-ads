@@ -238,7 +238,7 @@ svg {
     justify-content: center;
 }
 
-.modal-footer .auth-app-doc * {
+.modal-footer .auth-app-doc a * {
     text-decoration: underline;
     color: #858585;
 }

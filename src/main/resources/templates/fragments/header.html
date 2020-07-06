@@ -180,16 +180,16 @@
                     </div>
 
                     <form class="" method="post" action="/login"  style="align-content: center" id="open-form-modal">
-                        <div class="form-title font-weight-bolder">Вход</div>
+                        <div class="form-title font-weight-bolder" th:text="#{header.modal.login.login}">Вход</div>
                         <div class="form-item">
                             <div class="form-item-login">
                                 <label class="input-login">
-                                    <input class="form-control" name="email" placeholder="Электронная почта" type="email">
+                                    <input class="form-control" name="email" th:placeholder="#{header.modal.placeholder.email}" placeholder="Электронная почта" type="email">
                                 </label>
                             </div>
                             <div class="form-item-password">
                                 <label class="input-password">
-                                    <input class="form-control" name="password" placeholder="Пароль" autocomplete="off">
+                                    <input class="form-control" name="password" th:placeholder="#{header.modal.placeholder.password}" placeholder="Пароль" autocomplete="off">
                                 </label>
                             </div>
 
@@ -197,7 +197,7 @@
                                 <div class="form-item-radio-remember">
                                     <label class="checkbox" style="vertical-align: middle; font-size: 10pt">
                                         <input name="remember" class="" type="checkbox" checked="">
-                                        <span>Запомнить пароль</span>
+                                        <span th:text="#{header.modal.login.rememberPassword}">Запомнить пароль</span>
                                     </label>
                                 </div>
                                 <a style="font-size: 10pt" href="#" id="open-modal-3" data-dismiss="modal" th:text="#{message.resetPassword}">Забыли пароль?</a>
@@ -205,13 +205,13 @@
 
                             <div class="form-item-button">
                                 <button type="submit" name="submit" class="btn btn-primary" id="btn-open">
-                                    <span>Войти</span>
+                                    <span th:text="#{header.modal.login.signIn}">Войти</span>
                                 </button>
                             </div>
                         </div>
                     </form>
 
-                    <span style="padding: 10px 0">или продолжить через</span>
+                    <span style="padding: 10px 0" th:text="#{header.modal.login.orSignInWith}">или продолжить через</span>
                     <div class="social">
                             <span class="social-vk">
                                 <img src="/images/vk.svg">
@@ -226,14 +226,14 @@
                 </div>
 
                 <div class="modal-footer">
-                    <a class="text-center" style="margin: auto" href="#"  id="open-modal-2" data-dismiss="modal">Зарегистрироваться</a>
-                    <div class="auth-app-doc" style="font-size: 13px; color: #858585">При входе вы подтверждаете согласие с&nbsp;
+                    <a class="text-center" style="margin: auto" href="#"  id="open-modal-2" data-dismiss="modal" th:text="#{header.modal.login.register}">Зарегистрироваться</a>
+                    <div class="auth-app-doc" style="font-size: 13px; color: #858585">
+                        <span th:text="#{header.modal.login.userAgreementP1}">При входе вы подтверждаете согласие с</span>
                         <a href="#">
-                            <span>условиями использования Авито</span>
+                            <span th:text="#{header.modal.login.userAgreementP2}">условиями использования Авито</span>
                         </a>
-                        &nbsp;и&nbsp;
                         <a href="#">
-                            <span>политикой о&nbsp;данных пользователей.</span>
+                            <span th:text="#{header.modal.login.userAgreementP3}">и политикой о&nbsp;данных пользователей.</span>
                         </a>
                     </div>
                 </div>
@@ -255,36 +255,39 @@
                     </div>
 
                     <form action="/rest/admin/add" id="add-reg-form">
-                        <div class="form-title font-weight-bolder" id="message-reset-password">Регистрация</div>
+                        <div class="form-title font-weight-bolder" id="message-reset-password" th:text="#{header.modal.registration}">Регистрация</div>
                         <div class="form-item-login">
                             <label class="input-login">
-                                <input name="email" class="form-control" placeholder="Электронная почта" type="email" required>
+                                <input name="email" class="form-control" th:placeholder="#{header.modal.placeholder.email}" placeholder="Электронная почта" type="email" required>
                             </label>
                         </div>
                         <div class="form-item-password">
                             <label class="input-password">
-                                <input name="password" class="form-control" placeholder="Пароль" type="password" autocomplete="off">
+                                <input name="password" class="form-control" th:placeholder="#{header.modal.placeholder.password}" placeholder="Пароль" type="password" autocomplete="off">
                             </label>
                         </div>
                         <div class="form-item-publicName">
                             <label class="input-publicName">
-                                <input name="publicName" class="form-control" placeholder="Ваше Имя" type="text" required>
+                                <input name="publicName" class="form-control" th:placeholder="#{header.modal.placeholder.yourName}" placeholder="Ваше Имя" type="text" required>
                             </label>
                         </div>
                         <div class="form-item-phone">
                             <label class="input-phone">
-                                <input name="phone" class="form-control" placeholder="Номер телефона" type="tel" required>
+                                <input name="phone" class="form-control" th:placeholder="#{header.modal.placeholder.phoneNumber}" placeholder="Номер телефона" type="tel" required>
                             </label>
                         </div>
                         <div class="form-reg-button">
                             <button type="submit" name="submit"  class="btn btn-primary" id="btn-reg" data-dismiss="modal">
-                                <span >Зарегистрироваться</span>
+                                <span th:text="#{header.modal.register}">Зарегистрироваться</span>
                             </button>
                         </div>
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <span class="text-center open-modal-1">У вас уже есть учётная запись? <a href="#" data-dismiss="modal">Войти</a></span>
+                    <span class="text-center"
+                          th:text="#{header.modal.register.hasAccount}">У вас уже есть учётная запись?</span><span><a
+                    class="open-modal-1" data-dismiss="modal" href="#"
+                    th:text="#{header.modal.login.signIn}">Войти</a></span>
                 </div>
             </div>
 
@@ -304,21 +307,24 @@
                     </div>
 
                     <form action="/user/resetPassword" id="form-modal-3">
-                        <div class="form-title font-weight-bolder">Восстановление пароля</div>
+                        <div class="form-title font-weight-bolder" th:text="#{header.modal.accountRecovery}">Восстановление пароля</div>
                         <div class="form-item-login">
                             <label class="input-login">
-                                <input name="email" class="form-control" placeholder="Электронная почта" type="email" required>
+                                <input name="email" class="form-control" th:placeholder="#{header.modal.placeholder.email}" placeholder="Электронная почта" type="email" required>
                             </label>
                         </div>
                         <div class="form-reg-button">
                             <button type="submit" name="submit"  class="btn btn-primary" data-dismiss="modal" id="btn-modal-3">
-                                <span >Отправить</span>
+                                <span th:text="#{header.modal.submit}">Отправить</span>
                             </button>
                         </div>
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <span class="text-center open-modal-1">Вспомнили пароль? <a href="#" data-dismiss="modal">Войти</a></span>
+                    <span class="text-center"
+                          th:text="#{header.modal.rememberedPassword}">Вспомнили пароль?</span><span><a
+                    class="open-modal-1" data-dismiss="modal" href="#"
+                    th:text="#{header.modal.login.signIn}">Войти</a></span>
                 </div>
             </div>
         </div>
