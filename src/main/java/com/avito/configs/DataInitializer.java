@@ -1,6 +1,7 @@
 package com.avito.configs;
 
 import com.avito.models.Category;
+import com.avito.models.Images;
 import com.avito.models.Role;
 import com.avito.models.User;
 import com.avito.models.posting.Posting;
@@ -12,11 +13,13 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
+import java.util.Collection;
 import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 @Component
 @AllArgsConstructor
@@ -77,34 +80,230 @@ public class DataInitializer {
 
         List<Category> categories = categoryService.getAllCategories().stream().sorted(Comparator.comparing(Category::getNameRu)).collect(Collectors.toList());
 
+        /////// Постинг категории Недвижимость
+
+        Images images1 = new Images();
+        images1.setImagePath("/images/posting_img/realty/1/1.png");
+        Images images2 = new Images();
+        images2.setImagePath("/images/posting_img/realty/1/2.png");
+        Images images3 = new Images();
+        images3.setImagePath("/images/posting_img/realty/1/3.png");
+        Images images4 = new Images();
+        images4.setImagePath("/images/posting_img/realty/2/1.png");
+        Images images5= new Images();
+        images5.setImagePath("/images/posting_img/realty/2/2.png");
+        Images images6 = new Images();
+        images6.setImagePath("/images/posting_img/realty/2/3.png");
+        Images images7 = new Images();
+        images7.setImagePath("/images/posting_img/realty/3/1.png");
+        Images images8 = new Images();
+        images8.setImagePath("/images/posting_img/realty/3/2.png");
+        Images images9 = new Images();
+        images9.setImagePath("/images/posting_img/realty/3/3.png");
+
+        Set<Images> set1 = Stream.of(images1, images2, images3).collect(Collectors.toSet());
+        Set<Images> set2 = Stream.of(images4, images5, images6).collect(Collectors.toSet());
+        Set<Images> set3 = Stream.of(images7, images8, images9).collect(Collectors.toSet());
+
         assert categories.size() >= 3;
 
         Posting posting = new Posting();
         posting.setTitle("Коттедж 400 м² на участке 3 сот.");
-        posting.setCategory(categories.get(0));
+        posting.setCategory(categories.get(13));
         posting.setUser(adminUser);
-        posting.setFullDescription("Коттедж на два хозяина. На первом этаже кухня, зал и туалет с душем, второй этаж три комнаты и туалет с ванной, третий этаж-две комнаты. Цокольный этаж с гаражом и комнатой. Готов к заселению, возможна долгосрочная аренда.");
+        posting.setFullDescription("Коттедж на два хозяина. На первом этаже кут с ванной, третий этаж-две комнаты. Цокольный этаж .");
         posting.setShortDescription("Коттедж");
+        posting.setImagePath(set1);
         posting.setPrice(3_500_000);
         postingService.addPosting(posting);
 
         posting = new Posting();
-        posting.setTitle("Posting title");
-        posting.setCategory(categories.get(1));
+        posting.setTitle("Коттедж 266 м² на участке 4.8 сот.");
+        posting.setCategory(categories.get(41));
         posting.setUser(adminUser);
-        posting.setFullDescription("Full description, long text.");
-        posting.setShortDescription("Some posting");
-        posting.setPrice(30_000);
+        posting.setFullDescription("Для тех кто хочет жить в элиземли рядом с Воронежским водохранилищем! - на первом этаже: п...");
+        posting.setShortDescription("Коттедж 266 м² на участке 4.8 сот.");
+        posting.setPrice(300_000_000);
+        posting.setImagePath(set2);
         postingService.addPosting(posting);
 
         posting = new Posting();
-        posting.setTitle("Posting title 2");
-        posting.setCategory(categories.get(2));
+        posting.setTitle("Дом 240 м² на участке 6.5 сот.");
+        posting.setCategory(categories.get(22));
         posting.setUser(userUser);
-        posting.setFullDescription("Full description, long text. (owner must be user)");
-        posting.setShortDescription("Some posting of user");
-        posting.setPrice(4_500);
+        posting.setFullDescription("Продаю без посредников половину 3-х этажного дома (без подвал Вторая половина дома 280 кв.м.");
+        posting.setShortDescription("Дом 240 м² на участке 6.5 сот.");
+        posting.setPrice(8_004_500);
+        posting.setImagePath(set3);
         postingService.addPosting(posting);
+
+
+    //////////////// Постинг категории Автомобили
+
+        Images imagesa1 = new Images();
+        imagesa1.setImagePath("/images/posting_img/avto/1/1.png");
+        Images imagesa2 = new Images();
+        imagesa2.setImagePath("/images/posting_img/avto/1/2.png");
+        Images imagesa3 = new Images();
+        imagesa3.setImagePath("/images/posting_img/avto/1/3.png");
+        Images imagesa4 = new Images();
+        imagesa4.setImagePath("/images/posting_img/avto/2/1.png");
+        Images imagesa5= new Images();
+        imagesa5.setImagePath("/images/posting_img/avto/2/2.png");
+        Images imagesa6 = new Images();
+        imagesa6.setImagePath("/images/posting_img/avto/2/3.png");
+        Images imagesa7 = new Images();
+        imagesa7.setImagePath("/images/posting_img/avto/3/1.png");
+        Images imagesa8 = new Images();
+        imagesa8.setImagePath("/images/posting_img/avto/3/2.png");
+        Images imagesa9 = new Images();
+        imagesa9.setImagePath("/images/posting_img/avto/3/3.png");
+
+        Set<Images> seta1 = Stream.of(imagesa1, imagesa2, imagesa3).collect(Collectors.toSet());
+        Set<Images> seta2 = Stream.of(imagesa4, imagesa5, imagesa6).collect(Collectors.toSet());
+        Set<Images> seta3 = Stream.of(imagesa7, imagesa8, imagesa9).collect(Collectors.toSet());
+
+        posting = new Posting();
+        posting.setTitle("BMW 5 серия, 2006");
+        posting.setCategory(categories.get(10));
+        posting.setUser(adminUser);
+        posting.setFullDescription("Учет Армения! BMW 530I M-пакет с завода,объемт р ,за наличку! на обмен 740т.р");
+        posting.setShortDescription("BMW 5 серия, 2006");
+        posting.setImagePath(seta1);
+        posting.setPrice(680_000);
+        postingService.addPosting(posting);
+
+        posting = new Posting();
+        posting.setTitle("Mercedes-Benz Sprinter, 1996");
+        posting.setCategory(categories.get(11));
+        posting.setUser(adminUser);
+        posting.setFullDescription("Продам микроавтобус . Состояние хорошее вложение не требует. Категория В. Установлен газ.");
+        posting.setShortDescription("Mercedes-Benz Sprinter, 1996");
+        posting.setPrice(390_000);
+        posting.setImagePath(seta2);
+        postingService.addPosting(posting);
+
+        posting = new Posting();
+        posting.setTitle("Renault Logan, 2014");
+        posting.setCategory(categories.get(140));
+        posting.setUser(userUser);
+        posting.setFullDescription("В хорошем состоянии, юридичиски чистасло не есть , коробка ходовая на отлично.");
+        posting.setShortDescription("Renault Logan, 2014");
+        posting.setPrice(422_500);
+        posting.setImagePath(seta3);
+        postingService.addPosting(posting);
+
+    //////////////// Бытовая техника
+
+        Images imagesb1 = new Images();
+        imagesb1.setImagePath("/images/posting_img/appliances/1/1.png");
+        Images imagesb2 = new Images();
+        imagesb2.setImagePath("/images/posting_img/appliances/1/2.png");
+        Images imagesb3 = new Images();
+        imagesb3.setImagePath("/images/posting_img/appliances/1/3.png");
+        Images imagesb4 = new Images();
+        imagesb4.setImagePath("/images/posting_img/appliances/2/1.png");
+        Images imagesb5= new Images();
+        imagesb5.setImagePath("/images/posting_img/appliances/2/2.png");
+        Images imagesb6 = new Images();
+        imagesb6.setImagePath("/images/posting_img/appliances/2/3.png");
+        Images imagesb7 = new Images();
+        imagesb7.setImagePath("/images/posting_img/appliances/3/1.png");
+        Images imagesb8 = new Images();
+        imagesb8.setImagePath("/images/posting_img/appliances/3/2.png");
+        Images imagesb9 = new Images();
+        imagesb9.setImagePath("/images/posting_img/appliances/3/3.png");
+
+        Set<Images> setb1 = Stream.of(imagesb1, imagesb2, imagesb3).collect(Collectors.toSet());
+        Set<Images> setb2 = Stream.of(imagesb4, imagesb5, imagesb6).collect(Collectors.toSet());
+        Set<Images> setb3 = Stream.of(imagesb7, imagesb8, imagesb9).collect(Collectors.toSet());
+
+        posting = new Posting();
+        posting.setTitle("Пылесос Zelmer");
+        posting.setCategory(categories.get(11));
+        posting.setUser(adminUser);
+        posting.setFullDescription("Пылесос в хорошем состоянии, все исправно, все насадки как новые, сменные мешки имеются, 2100w");
+        posting.setShortDescription("Пылесос Zelmer");
+        posting.setImagePath(setb2);
+        posting.setPrice(20_000);
+        postingService.addPosting(posting);
+
+        posting = new Posting();
+        posting.setTitle("Стиральная машина");
+        posting.setCategory(categories.get(120));
+        posting.setUser(adminUser);
+        posting.setFullDescription("Стиральная машина Samsung S803J. Загрузка 3.5кг. Состояние отличное. Гарантия. Доставка. Семафорная 271 стр.7.");
+        posting.setShortDescription("Стиральная машина");
+        posting.setPrice(3_000);
+        posting.setImagePath(setb1);
+        postingService.addPosting(posting);
+
+        posting = new Posting();
+        posting.setTitle("электро котел Zota lux 12");
+        posting.setCategory(categories.get(10));
+        posting.setUser(userUser);
+        posting.setFullDescription("Продаю из за покупки более мощного. Так как купил дом больше в 2 раза.");
+        posting.setShortDescription("электро котел Zota lux 12");
+        posting.setPrice(6_500);
+        posting.setImagePath(setb3);
+        postingService.addPosting(posting);
+
+ //////////////// Бытовая техника
+
+        Images imagesc1 = new Images();
+        imagesc1.setImagePath("/images/posting_img/clothes/1/1.png");
+        Images imagesc2 = new Images();
+        imagesc2.setImagePath("/images/posting_img/clothes/1/2.png");
+        Images imagesc3 = new Images();
+        imagesc3.setImagePath("/images/posting_img/clothes/1/3.png");
+        Images imagesc4 = new Images();
+        imagesc4.setImagePath("/images/posting_img/clothes/2/1.png");
+        Images imagesc5= new Images();
+        imagesc5.setImagePath("/images/posting_img/clothes/2/2.png");
+        Images imagesc6 = new Images();
+        imagesc6.setImagePath("/images/posting_img/clothes/2/3.png");
+        Images imagesc7 = new Images();
+        imagesc7.setImagePath("/images/posting_img/clothes/3/1.png");
+        Images imagesc8 = new Images();
+        imagesc8.setImagePath("/images/posting_img/clothes/3/2.png");
+        Images imagesc9 = new Images();
+        imagesc9.setImagePath("/images/posting_img/clothes/3/3.png");
+
+        Set<Images> setc1 = Stream.of(imagesc1, imagesc2, imagesc3).collect(Collectors.toSet());
+        Set<Images> setc2 = Stream.of(imagesc4, imagesc5, imagesc6).collect(Collectors.toSet());
+        Set<Images> setc3 = Stream.of(imagesc7, imagesc8, imagesc9).collect(Collectors.toSet());
+
+        posting = new Posting();
+        posting.setTitle("Свадебное платье");
+        posting.setCategory(categories.get(10));
+        posting.setUser(adminUser);
+        posting.setFullDescription("Продам Новые свадебные платья, размер 38—40. 4 модели. Торг уместен");
+        posting.setShortDescription("Свадебное платье");
+        posting.setImagePath(setc1);
+        posting.setPrice(3_000);
+        postingService.addPosting(posting);
+
+        posting = new Posting();
+        posting.setTitle("Кеды");
+        posting.setCategory(categories.get(10));
+        posting.setUser(adminUser);
+        posting.setFullDescription("Товар новый. Причина продажи: не подошел размер.");
+        posting.setShortDescription("Кеды");
+        posting.setPrice(300);
+        posting.setImagePath(setc2);
+        postingService.addPosting(posting);
+
+        posting = new Posting();
+        posting.setTitle("Комбинезон и шапке зима");
+        posting.setCategory(categories.get(10));
+        posting.setUser(userUser);
+        posting.setFullDescription("Комбинезон Guliver... б/у один сезон идеальном состоянии 6т окончательно... покупала за 12т.");
+        posting.setShortDescription("Комбинезон и шапке зима");
+        posting.setPrice(6_500);
+        posting.setImagePath(setc3);
+        postingService.addPosting(posting);
+
+
     }
 
     private void initCategories() {

@@ -22,8 +22,6 @@ public class PostingController {
 
     @GetMapping("/newPosting/{name}")
     public String getMainPage(@PathVariable String name) {
-        //для редиректа на будущие заготовки страниц для новых объявлений
-        return "addNewPosting";
+        return "posting/clearPosting";
     }
-
 }
