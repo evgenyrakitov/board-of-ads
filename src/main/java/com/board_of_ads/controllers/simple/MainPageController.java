@@ -13,7 +13,6 @@ public class MainPageController {
 
     @GetMapping("/")
     public String getMainPage(ModelMap modelMap) {
-        modelMap.addAttribute("user", SecurityContextHolder.getContext().getAuthentication().getPrincipal());
         return "main-page";
     }
 }
