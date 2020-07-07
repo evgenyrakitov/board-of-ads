@@ -25,8 +25,6 @@ public class UserController {
     private final UserService userService;
     private final MessageSource messages;
 
-
-
     @GetMapping("/admin_page")
     public String getAdminPage(ModelMap modelMap) {
         modelMap.addAttribute("user", SecurityContextHolder.getContext().getAuthentication().getPrincipal());
@@ -37,6 +35,7 @@ public class UserController {
     public String userProfile(ModelMap modelMap) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         modelMap.addAttribute("currentUser", authentication.getPrincipal());
+        modelMap.addAttribute("user", SecurityContextHolder.getContext().getAuthentication().getPrincipal());
         return "user-profile";
     }
 
