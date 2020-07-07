@@ -1,22 +1,83 @@
+/* Modal Forms */
+
 .form-item-login{
-    margin-top: 30px;
-    margin-bottom: 30px;
+    margin: 0 -10px ;
+    padding: 10px 0;
 }
+.form-item-password{
+    margin: 0 -10px ;
+    padding: 10px 0;
+ }
+.form-item-publicName{
+    margin: 0 -10px ;
+    padding: 10px 0;
+  }
+.form-item-phone {
+    margin: 0 -10px;
+    padding: 10px 0;
+}
+
+.form-password-items-container {
+    display: inline-block;
+    width: 70%;
+}
+
+.form-password-items-container * {
+    display: inline;
+    padding-top: 0;
+    padding-bottom: 0;
+    font-size: 14px;
+}
+
+.form-password-items-container a {
+    float: right;
+    font-size: 15px;
+}
+
+.form-password-items-container label {
+    float: left;
+}
+
+.form-password-items-container label * {
+    float: left;
+}
+
+.form-password-items-container label input {
+    height: 18px;
+    width: 18px;
+    display: inline-block;
+    float: left;
+    background: #3e8e41;
+}
+
+.form-password-items-container label span {
+    display: inline-block;
+    padding-left: 10px;
+    float: left;
+}
+
+.form-item-button {
+    padding: 15px 0;
+}
+
+.form-item-button button, .form-reg-button button {
+    width: 50%;
+    height: 44px;
+    background-color: #00AAFF;
+}
+
+
+/* Modal Social Network Links */
+
+.social {
+    padding: 10px 0;
+}
+
 .social img{
     width: 15%;
 }
-.form-item-password{
-     margin-top: 30px;
-     margin-bottom: 30px;
- }
-.form-item-publicName{
-      margin-top: 30px;
-      margin-bottom: 30px;
-  }
-.form-item-phone{
-    margin-top: 30px;
-    margin-bottom: 30px;
-}
+
+
 
 /* Dropdown Button */
 .dropbtn {
