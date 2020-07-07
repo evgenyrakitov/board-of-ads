@@ -28,7 +28,8 @@ public class UserController {
 
 
     @GetMapping("/admin_page")
-    public String getAdminPage() {
+    public String getAdminPage(ModelMap modelMap) {
+        modelMap.addAttribute("user", SecurityContextHolder.getContext().getAuthentication().getPrincipal());
         return "admin-page";
     }
 
