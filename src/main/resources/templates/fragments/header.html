@@ -116,7 +116,7 @@
                            class="form-control">
                 </div>
                 <select id="location" class="form-control col-8 col-sm-8  col-md-2 col-lg-1">
-                    <option selected>Москва</option>
+                    <option id="location-name" selected data="city-1400">Москва</option>
                 </select>
                 <div class="col-8 col-sm-8 col-md-2 col-lg-1">
                     <button type="button" class="btn btn-light" th:text="#{header.search}">Найти</button>
@@ -152,7 +152,7 @@
             <div class="modal-body text-center">
                 <form role="form">
                     <div class="form-group padding">
-                        <input id="location-search" type="text" class="form-control">
+                        <input id="location-search" type="text" class="form-control" autocomplete="off">
                         <div id="location-list" class="list-group text-left">
 
                         </div>

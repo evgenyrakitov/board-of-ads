@@ -51,9 +51,14 @@ public class PostingRestController {
         return ResponseEntity.ok(new Gson().toJson(postingService.getAllPostings()));
     }
 
-    @GetMapping("/all/{locationCode}")
-    public ResponseEntity<List<Posting>> getPostingsByLocationCode(@PathVariable String locationCode) {
-        return ResponseEntity.ok(postingService.getPostingsByLocationCode(locationCode));
+    @GetMapping("/searchByCity/{cityId}")
+    public ResponseEntity<List<Posting>> getPostingsByCityId(@PathVariable("cityId") String cityId) {
+        return ResponseEntity.ok(postingService.getPostingsByCityId(cityId));
+    }
+
+    @GetMapping("/searchByRegion/{regionId}")
+    public ResponseEntity<List<Posting>> getPostingsByRegionId(@PathVariable("regionId") String regionId) {
+        return ResponseEntity.ok(postingService.getPostingsByRegionId(regionId));
     }
 
     @GetMapping("/user/{id}")
