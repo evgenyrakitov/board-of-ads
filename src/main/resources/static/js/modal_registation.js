@@ -1,4 +1,4 @@
-$("#open-modal-1").click(function(){
+$(".open-modal-1").click(function(){
     $("#modal-reg-1").modal('show');
 });
 $("#open-modal-2").click(function () {
