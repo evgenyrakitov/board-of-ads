@@ -1,9 +1,8 @@
 package com.avito.controllers.simple;
 
 import com.avito.models.User;
-
-import com.avito.service.interfaces.EmailService;
 import com.avito.service.interfaces.UserService;
+import java.util.Locale;
 import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,8 +16,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-
-import java.util.Locale;
 
 @Controller
 @AllArgsConstructor
@@ -44,7 +41,7 @@ public class UserController {
 
     @GetMapping("/reset/changePassword")
     public String showChangePasswordPage(Locale locale, Model model,
-                                        @RequestParam("token") String token) {
+            @RequestParam("token") String token) {
         String result = userService.validatePasswordResetToken(token);
         if (result != null) {
             model.addAttribute("message",
@@ -57,8 +54,8 @@ public class UserController {
 
     @RequestMapping(value = "/reset/savePassword", method = RequestMethod.POST)
     public String savePassword(@RequestParam("password") String password,
-                               @RequestParam("passwordConfirm") String passwordConfirm,
-                               @RequestParam("token") String token) {
+            @RequestParam("passwordConfirm") String passwordConfirm,
+            @RequestParam("token") String token) {
         User user = userService.findByToken(token).getUser();
         user.setPassword(password);
         user.setPasswordConfirm(passwordConfirm);
