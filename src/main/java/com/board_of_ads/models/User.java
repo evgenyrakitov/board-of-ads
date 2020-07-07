@@ -1,6 +1,6 @@
-package com.avito.models;
+package com.board_of_ads.models;
 
-import com.avito.models.posting.Posting;
+import com.board_of_ads.models.posting.Posting;
 import lombok.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

@@ -1,9 +1,9 @@
-package com.avito.service.impl;
+package com.board_of_ads.service.impl;
 
-import com.avito.models.User;
-import com.avito.models.posting.Posting;
-import com.avito.repository.PostingRepository;
-import com.avito.service.interfaces.PostingService;
+import com.board_of_ads.models.User;
+import com.board_of_ads.models.posting.Posting;
+import com.board_of_ads.repository.PostingRepository;
+import com.board_of_ads.service.interfaces.PostingService;
 import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

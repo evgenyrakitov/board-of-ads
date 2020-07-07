@@ -1,6 +1,6 @@
-package com.avito.repository;
+package com.board_of_ads.repository;
 
-import com.avito.models.kladr.City;
+import com.board_of_ads.models.kladr.City;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;

@@ -1,10 +1,10 @@
-package com.avito.service.impl;
+package com.board_of_ads.service.impl;
 
-import com.avito.models.Role;
-import com.avito.models.User;
-import com.avito.service.interfaces.RoleService;
-import com.avito.service.interfaces.SocialNetworkService;
-import com.avito.service.interfaces.UserService;
+import com.board_of_ads.models.Role;
+import com.board_of_ads.models.User;
+import com.board_of_ads.service.interfaces.RoleService;
+import com.board_of_ads.service.interfaces.SocialNetworkService;
+import com.board_of_ads.service.interfaces.UserService;
 import lombok.AllArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;

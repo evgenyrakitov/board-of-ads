@@ -1,6 +1,6 @@
-package com.avito.repository;
+package com.board_of_ads.repository;
 
-import com.avito.models.Role;
+import com.board_of_ads.models.Role;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface RoleRepository extends JpaRepository<Role, Long> {

@@ -1,7 +1,7 @@
-package com.avito.service.interfaces;
+package com.board_of_ads.service.interfaces;
 
-import com.avito.models.User;
-import com.avito.models.posting.Posting;
+import com.board_of_ads.models.User;
+import com.board_of_ads.models.posting.Posting;
 
 import java.util.List;
 

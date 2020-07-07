@@ -1,7 +1,7 @@
-package com.avito.controllers.simple;
+package com.board_of_ads.controllers.simple;
 
-import com.avito.models.User;
-import com.avito.service.interfaces.UserService;
+import com.board_of_ads.models.User;
+import com.board_of_ads.service.interfaces.UserService;
 import java.util.Locale;
 import lombok.AllArgsConstructor;
 import org.slf4j.Logger;

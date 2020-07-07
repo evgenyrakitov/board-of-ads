@@ -1,8 +1,8 @@
-package com.avito.service.impl;
+package com.board_of_ads.service.impl;
 
-import com.avito.models.Role;
-import com.avito.repository.RoleRepository;
-import com.avito.service.interfaces.RoleService;
+import com.board_of_ads.models.Role;
+import com.board_of_ads.repository.RoleRepository;
+import com.board_of_ads.service.interfaces.RoleService;
 import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

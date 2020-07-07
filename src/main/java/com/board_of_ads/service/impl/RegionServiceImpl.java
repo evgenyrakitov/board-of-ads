@@ -1,8 +1,8 @@
-package com.avito.service.impl;
+package com.board_of_ads.service.impl;
 
-import com.avito.models.kladr.Region;
-import com.avito.repository.RegionRepository;
-import com.avito.service.interfaces.RegionService;
+import com.board_of_ads.models.kladr.Region;
+import com.board_of_ads.repository.RegionRepository;
+import com.board_of_ads.service.interfaces.RegionService;
 import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

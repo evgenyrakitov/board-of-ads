@@ -1,8 +1,8 @@
-package com.avito.configs.security;
+package com.board_of_ads.configs.security;
 
 
-import com.avito.models.User;
-import com.avito.service.interfaces.UserService;
+import com.board_of_ads.models.User;
+import com.board_of_ads.service.interfaces.UserService;
 import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

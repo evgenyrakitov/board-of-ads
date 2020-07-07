@@ -1,20 +1,18 @@
-package com.avito.service.impl;
+package com.board_of_ads.service.impl;
 
-import com.avito.models.PasswordResetToken;
-import com.avito.models.User;
-import com.avito.models.posting.Posting;
-import com.avito.repository.PasswordResetTokenRepository;
-import com.avito.repository.PostingRepository;
-import com.avito.repository.UserRepository;
-import com.avito.service.interfaces.UserService;
+import com.board_of_ads.models.PasswordResetToken;
+import com.board_of_ads.models.User;
+import com.board_of_ads.models.posting.Posting;
+import com.board_of_ads.repository.PasswordResetTokenRepository;
+import com.board_of_ads.repository.PostingRepository;
+import com.board_of_ads.repository.UserRepository;
+import com.board_of_ads.service.interfaces.UserService;
 import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.CrossOrigin;
 
 import java.util.Calendar;
 import java.util.List;

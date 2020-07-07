@@ -1,10 +1,10 @@
-package com.avito.controllers.rest;
+package com.board_of_ads.controllers.rest;
 
-import com.avito.models.Role;
-import com.avito.models.User;
-import com.avito.service.interfaces.EmailService;
-import com.avito.service.interfaces.RoleService;
-import com.avito.service.interfaces.UserService;
+import com.board_of_ads.models.Role;
+import com.board_of_ads.models.User;
+import com.board_of_ads.service.interfaces.EmailService;
+import com.board_of_ads.service.interfaces.RoleService;
+import com.board_of_ads.service.interfaces.UserService;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;

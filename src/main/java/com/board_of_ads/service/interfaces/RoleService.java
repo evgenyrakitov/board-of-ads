@@ -1,6 +1,6 @@
-package com.avito.service.interfaces;
+package com.board_of_ads.service.interfaces;
 
-import com.avito.models.Role;
+import com.board_of_ads.models.Role;
 
 import java.util.List;
 

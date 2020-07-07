@@ -1,8 +1,8 @@
-package com.avito.service.impl;
+package com.board_of_ads.service.impl;
 
-import com.avito.models.Category;
-import com.avito.repository.CategoryRepository;
-import com.avito.service.interfaces.CategoryService;
+import com.board_of_ads.models.Category;
+import com.board_of_ads.repository.CategoryRepository;
+import com.board_of_ads.service.interfaces.CategoryService;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

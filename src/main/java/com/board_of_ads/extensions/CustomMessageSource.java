@@ -1,4 +1,4 @@
-package com.avito.extensions;
+package com.board_of_ads.extensions;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

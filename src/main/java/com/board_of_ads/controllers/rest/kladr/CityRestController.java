@@ -1,8 +1,8 @@
-package com.avito.controllers.rest.kladr;
+package com.board_of_ads.controllers.rest.kladr;
 
 
-import com.avito.models.kladr.City;
-import com.avito.service.interfaces.CityService;
+import com.board_of_ads.models.kladr.City;
+import com.board_of_ads.service.interfaces.CityService;
 import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

@@ -1,7 +1,7 @@
-package com.avito.service.interfaces;
+package com.board_of_ads.service.interfaces;
 
 
-import com.avito.models.Category;
+import com.board_of_ads.models.Category;
 
 import java.util.List;
 

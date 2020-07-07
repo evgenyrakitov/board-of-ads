@@ -1,7 +1,7 @@
-package com.avito.configs.security;
+package com.board_of_ads.configs.security;
 
-import com.avito.configs.security.handler.LoginSuccessHandler;
-import com.avito.service.interfaces.SocialNetworkService;
+import com.board_of_ads.configs.security.handler.LoginSuccessHandler;
+import com.board_of_ads.service.interfaces.SocialNetworkService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

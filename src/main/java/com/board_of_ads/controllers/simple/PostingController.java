@@ -1,4 +1,4 @@
-package com.avito.controllers.simple;
+package com.board_of_ads.controllers.simple;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

@@ -1,6 +1,6 @@
-package com.avito.configs;
+package com.board_of_ads.configs;
 
-import com.avito.extensions.CustomMessageSource;
+import com.board_of_ads.extensions.CustomMessageSource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.MessageSource;

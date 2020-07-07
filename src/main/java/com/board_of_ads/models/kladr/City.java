@@ -1,4 +1,4 @@
-package com.avito.models.kladr;
+package com.board_of_ads.models.kladr;
 
 
 import lombok.Data;

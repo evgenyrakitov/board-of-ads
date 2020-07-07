@@ -1,7 +1,7 @@
-package com.avito.controllers.rest;
+package com.board_of_ads.controllers.rest;
 
-import com.avito.models.Role;
-import com.avito.service.interfaces.RoleService;
+import com.board_of_ads.models.Role;
+import com.board_of_ads.service.interfaces.RoleService;
 import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

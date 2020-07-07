@@ -1,6 +1,6 @@
-package com.avito.service.impl;
-import com.avito.models.User;
-import com.avito.service.interfaces.EmailService;
+package com.board_of_ads.service.impl;
+import com.board_of_ads.models.User;
+import com.board_of_ads.service.interfaces.EmailService;
 import lombok.AllArgsConstructor;
 import org.springframework.core.env.Environment;
 import org.springframework.mail.SimpleMailMessage;

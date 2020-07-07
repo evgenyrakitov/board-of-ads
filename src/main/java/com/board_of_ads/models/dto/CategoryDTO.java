@@ -1,4 +1,4 @@
-package com.avito.models.dto;
+package com.board_of_ads.models.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

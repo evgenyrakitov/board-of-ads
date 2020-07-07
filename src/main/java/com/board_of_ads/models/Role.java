@@ -1,4 +1,4 @@
-package com.avito.models;
+package com.board_of_ads.models;
 
 import lombok.*;
 import org.slf4j.Logger;

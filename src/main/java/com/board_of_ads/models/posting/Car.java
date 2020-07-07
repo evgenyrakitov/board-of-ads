@@ -1,4 +1,4 @@
-package com.avito.models.posting;
+package com.board_of_ads.models.posting;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

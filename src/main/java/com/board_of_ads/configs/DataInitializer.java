@@ -1,14 +1,14 @@
-package com.avito.configs;
+package com.board_of_ads.configs;
 
-import com.avito.models.Category;
-import com.avito.models.Images;
-import com.avito.models.Role;
-import com.avito.models.User;
-import com.avito.models.posting.Posting;
-import com.avito.service.interfaces.CategoryService;
-import com.avito.service.interfaces.PostingService;
-import com.avito.service.interfaces.RoleService;
-import com.avito.service.interfaces.UserService;
+import com.board_of_ads.models.Category;
+import com.board_of_ads.models.Images;
+import com.board_of_ads.models.Role;
+import com.board_of_ads.models.User;
+import com.board_of_ads.models.posting.Posting;
+import com.board_of_ads.service.interfaces.CategoryService;
+import com.board_of_ads.service.interfaces.PostingService;
+import com.board_of_ads.service.interfaces.RoleService;
+import com.board_of_ads.service.interfaces.UserService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 

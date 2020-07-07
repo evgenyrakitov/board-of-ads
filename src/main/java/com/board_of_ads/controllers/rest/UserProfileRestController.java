@@ -1,13 +1,12 @@
-package com.avito.controllers.rest;
+package com.board_of_ads.controllers.rest;
 
-import com.avito.models.User;
-import com.avito.models.dto.ProfilePostingDTO;
-import com.avito.models.posting.Posting;
-import com.avito.service.interfaces.PostingService;
+import com.board_of_ads.models.User;
+import com.board_of_ads.models.dto.ProfilePostingDTO;
+import com.board_of_ads.models.posting.Posting;
+import com.board_of_ads.service.interfaces.PostingService;
 import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.GetMapping;

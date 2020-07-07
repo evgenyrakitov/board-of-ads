@@ -1,6 +1,6 @@
-package com.avito.service.interfaces;
+package com.board_of_ads.service.interfaces;
 
-import com.avito.models.kladr.Region;
+import com.board_of_ads.models.kladr.Region;
 
 import java.util.List;
 

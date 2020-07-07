@@ -1,9 +1,9 @@
-package com.avito.models.posting;
+package com.board_of_ads.models.posting;
 
-import com.avito.models.Category;
-import com.avito.models.Images;
-import com.avito.models.Message;
-import com.avito.models.User;
+import com.board_of_ads.models.Category;
+import com.board_of_ads.models.Images;
+import com.board_of_ads.models.Message;
+import com.board_of_ads.models.User;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

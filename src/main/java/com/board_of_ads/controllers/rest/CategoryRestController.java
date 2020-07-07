@@ -1,8 +1,8 @@
-package com.avito.controllers.rest;
+package com.board_of_ads.controllers.rest;
 
-import com.avito.models.Category;
-import com.avito.models.dto.CategoryDTO;
-import com.avito.service.interfaces.CategoryService;
+import com.board_of_ads.models.Category;
+import com.board_of_ads.models.dto.CategoryDTO;
+import com.board_of_ads.service.interfaces.CategoryService;
 import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

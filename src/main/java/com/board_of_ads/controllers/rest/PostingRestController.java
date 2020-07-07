@@ -1,10 +1,10 @@
-package com.avito.controllers.rest;
+package com.board_of_ads.controllers.rest;
 
-import com.avito.models.Category;
-import com.avito.models.Images;
-import com.avito.models.User;
-import com.avito.models.posting.Posting;
-import com.avito.service.interfaces.PostingService;
+import com.board_of_ads.models.Category;
+import com.board_of_ads.models.Images;
+import com.board_of_ads.models.User;
+import com.board_of_ads.models.posting.Posting;
+import com.board_of_ads.service.interfaces.PostingService;
 import com.google.gson.Gson;
 import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
