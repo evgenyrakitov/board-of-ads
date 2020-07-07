@@ -5,12 +5,7 @@ $('#locationModal').on('shown.bs.modal', function () {
     $('#location-search').focus();
     $("#location-search").val("");
     $("#location-list").empty();
-    $(".location").click(function () {
-        let locationId = $(this).attr("id");
-        let locationName = $(this).text();
-        $("#location-search").val(locationName);
-        $("#location-list").empty();
-    })
+
 })
 
 $("#location-search").keyup(function () {
@@ -23,7 +18,7 @@ $("#location-search").keyup(function () {
             success: function (data) {
                 $("#location-list").empty();
                 data.forEach(region => {
-                    $("#location-list").prepend(`<a id="${region.code}" href="#" 
+                    $("#location-list").prepend(`<a id="region-${region.id}" href="#" 
                     class="list-group-item list-group-item-action">
                     ${region.name} ${region.shortType} </a>`)
                 })
@@ -35,7 +30,7 @@ $("#location-search").keyup(function () {
             dataType: 'json',
             success: function (data) {
                 data.forEach(city => {
-                    $("#location-list").append(`<a id="${city.code}" href="#" 
+                    $("#location-list").append(`<a id="city-${city.id}" href="#" 
                     class="location list-group-item list-group-item-action">
                     ${city.shortType} ${city.name} (${city.region.name} ${city.region.shortType})</a>`)
                 })
@@ -56,32 +51,48 @@ $("#location-list").click(function (event) {
 })
 
 $("#location-close").click(function () {
-    let locationCode = $("#location-search").attr("data");
-    if (typeof locationCode !== typeof undefined && locationCode !== false) {
+    let dataId = $("#location-search").attr("data");
+    let locationName = $("#location-search").val();
+    locationName = locationName.replace(/\([^()]*\)/g, '');
+    $("#locationModal").modal('hide');
+    $("#location-name").text(locationName);
+    $("#location-name").attr("data", dataId);
+    if (typeof dataId !== typeof undefined && dataId !== false && dataId.includes("region")) {
+        let regionId = dataId.slice(7);
         $.ajax({
-            url: `/rest/posting/all/${locationCode}`,
+            url: `/rest/posting/searchByRegion/${regionId}`,
             type: 'get',
             dataType: 'json',
             success: function (data) {
-                $("#locationModal").modal('hide');
-                $(".container_cus").empty();
-                data.forEach(posting => {
-                    $(".container_cus").prepend(
-                        '<div class="card">\n' +
-                        '            <img src="' + posting.imagePath[0].imagePath + '" class="card-img-top" alt="...">\n' +
-                        '            <div class="card-body">\n' +
-                        '                <h5 class="card-title">' + posting.title + '</h5>\n' +
-                        '                <p class="card-text">' + posting.price + '</p>\n' +
-                        '                <a href="adDetails" class="btn btn-primary" ' +
-                        'th:text="#{main_page.go_to_ad}">Перейти к объявлению</a>\n' +
-                        '            </div>\n' +
-                        '        </div>'
-                    );
-                })
+                drawPosting(data);
             }
         });
-    } else {
-        $("#locationModal").modal('hide');
+    } else if (typeof dataId !== typeof undefined && dataId !== false && dataId.includes("city")) {
+        let cityId = dataId.slice(5);
+        $.ajax({
+            url: `/rest/posting/searchByCity/${cityId}`,
+            type: 'get',
+            dataType: 'json',
+            success: function (data) {
+                drawPosting(data);
+            }
+        });
     }
 })
 
+function drawPosting(data) {
+    $(".container_cus").empty();
+    data.forEach(posting => {
+        $(".container_cus").append(
+            '<div class="card">\n' +
+            '            <img src="' + posting.imagePath[0].imagePath + '" class="card-img-top" alt="...">\n' +
+            '            <div class="card-body">\n' +
+            '                <h5 class="card-title">' + posting.title + '</h5>\n' +
+            '                <p class="card-text">' + posting.price + '</p>\n' +
+            '                <a href="adDetails" class="btn btn-primary" ' +
+            'th:text="#{main-page.go_to_ad}">Перейти к объявлению</a>\n' +
+            '            </div>\n' +
+            '        </div>'
+        );
+    })
+}
