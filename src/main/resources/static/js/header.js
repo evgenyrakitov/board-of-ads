@@ -90,7 +90,23 @@ $(".locale_en").click(function () {
 
 $('#modal-reg-1').on('shown.bs.modal', function () {
     $('#spanIncorrectLoginPass').attr("hidden", true);
+    $('#spanIncorrectLoginPass').slideUp();
 })
+
+document.getElementById("frmLoginInputEmail").addEventListener("keyup", function(event) {
+    if (event.key === "Enter") {
+        event.preventDefault();
+        document.getElementById("btnLogin").click();
+    }
+});
+
+document.getElementById("frmLoginInputPassword").addEventListener("keyup", function(event) {
+    if (event.key === "Enter") {
+        event.preventDefault();
+        document.getElementById("btnLogin").click();
+    }
+});
+
 $("#btnLogin").click(function () {
     $.ajax({
         url: "/login",
@@ -102,6 +118,7 @@ $("#btnLogin").click(function () {
         })
         .fail(function() {
             $('#spanIncorrectLoginPass').attr("hidden", false);
+            $('#spanIncorrectLoginPass').slideDown();
+            $('#spanIncorrectLoginPass').delay(3000).slideUp();
         })
-
 });
