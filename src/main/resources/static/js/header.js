@@ -87,3 +87,21 @@ $(".locale_ru").click(function () {
 $(".locale_en").click(function () {
     localStorage.setItem("locale", "en");
 });
+
+$('#modal-reg-1').on('shown.bs.modal', function () {
+    $('#spanIncorrectLoginPass').attr("hidden", true);
+})
+$("#btnLogin").click(function () {
+    $.ajax({
+        url: "/login",
+        type: 'POST',
+        data: $("#formLogin").serialize()
+    })
+        .done(function() {
+            window.location.href = '/';
+        })
+        .fail(function() {
+            $('#spanIncorrectLoginPass').attr("hidden", false);
+        })
+
+});

@@ -182,7 +182,7 @@
                         <div class="rightleft"></div>
                     </div>
 
-                    <form class="" method="post" action="/login"  style="align-content: center" id="open-form-modal">
+                    <form class="" method="post" action="/login"  style="align-content: center" id="formLogin">
                         <div class="form-title font-weight-bolder" th:text="#{header.modal.login.login}">Вход</div>
                         <div class="form-item">
                             <div class="form-item-login">
@@ -205,9 +205,11 @@
                                 </div>
                                 <a style="font-size: 10pt" href="#" id="open-modal-3" data-dismiss="modal" th:text="#{message.resetPassword}">Забыли пароль?</a>
                             </div>
-
+                            <div class="form-password-items-container">
+                                <span th:text="#{login.error_message}" id="spanIncorrectLoginPass" style="color: red;">Не верная комбинация логина и пароля</span>
+                            </div>
                             <div class="form-item-button">
-                                <button type="submit" name="submit" class="btn btn-primary" id="btn-open">
+                                <button type="button" name="submit" class="btn btn-primary" id="btnLogin">
                                     <span th:text="#{header.modal.login.signIn}">Войти</span>
                                 </button>
                             </div>
