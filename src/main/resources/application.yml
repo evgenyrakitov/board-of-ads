@@ -7,12 +7,12 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/board_of_ads?useUnicode=yes&characterEncoding=UTF-8&serverTimezone=UTC
     username: root
-    password: 1234
+    password: root
     initialization-mode: always
   jpa:
     show-sql: false
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQL57Dialect
@@ -53,12 +53,10 @@ vk:
   client:
     clientId: 7517722
     clientSecret: gsG85MUAQiOdmSVdBogN
-    accessTokenUri: https://oauth.vk.com/access_token
-    userAuthorizationUri: https://oauth.vk.com/authorize?v=5.52
+    accessTokenUri: https://api.vk.com/oauth/token
+    userAuthorizationUri: https://oauth.vk.com/authorize?v=5.8
     scope: id,first_name,last_name,photo_50, offline
     clientAuthenticationScheme: form
   resource:
-    userInfoUri: https://api.vk.com/method/users.get?v=5.52
+    userInfoUri: https://api.vk.com/method/users.get
     preferTokenInfo: true
-
-
