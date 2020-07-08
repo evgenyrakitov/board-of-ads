@@ -21,8 +21,8 @@ public class MessageRestController {
 
     @GetMapping("/unreadCount/{id}")
     public ResponseEntity<Long> getCountUnreadMessages(@PathVariable("id") Long id) {
-        Long response = messageService.getCountUnreadMessagesForUserId(id);
-        return ResponseEntity.ok(response);
+        Long countUnreadMessages = messageService.getCountUnreadMessagesForUserId(id);
+        return ResponseEntity.ok(countUnreadMessages);
     }
 
 }
