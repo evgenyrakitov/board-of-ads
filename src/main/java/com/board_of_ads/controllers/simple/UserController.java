@@ -2,13 +2,10 @@ package com.board_of_ads.controllers.simple;
 
 import com.board_of_ads.models.User;
 import com.board_of_ads.service.interfaces.UserService;
-import java.util.Locale;
 import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.MessageSource;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -16,6 +13,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import java.util.Locale;
 
 @Controller
 @AllArgsConstructor
@@ -26,14 +25,12 @@ public class UserController {
     private final MessageSource messages;
 
     @GetMapping("/admin_page")
-    public String getAdminPage(ModelMap modelMap) {
+    public String getAdminPage() {
         return "admin-page";
     }
 
     @GetMapping("/profile")
     public String userProfile(ModelMap modelMap) {
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        modelMap.addAttribute("currentUser", authentication.getPrincipal());
         return "user-profile";
     }
 
