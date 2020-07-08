@@ -1,6 +1,7 @@
 package com.board_of_ads.configs.security;
 
 import com.board_of_ads.configs.security.handler.LoginSuccessHandler;
+import com.board_of_ads.configs.security.handler.CustomAuthenticationFailureHandler;
 import com.board_of_ads.service.interfaces.SocialNetworkService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -27,6 +28,7 @@ import org.springframework.security.oauth2.client.filter.OAuth2ClientAuthenticat
 import org.springframework.security.oauth2.client.filter.OAuth2ClientContextFilter;
 import org.springframework.security.oauth2.client.token.grant.code.AuthorizationCodeResourceDetails;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableOAuth2Client;
+import org.springframework.security.web.authentication.AuthenticationFailureHandler;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import org.springframework.web.filter.CompositeFilter;
@@ -69,7 +71,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers("/", "/login/**", "/css/**", "/images/**", "/js/**", "/webjars/**", "/categories/**",  "/rest/admin/add", "/rest/kladr/*", "/rest/posting/*").permitAll()
+                .antMatchers("/", "/login/**", "/css/**", "/images/**", "/js/**", "/webjars/**", "/categories/**",  "/rest/admin/add", "/rest/kladr/*", "/rest/posting/*","/rest/messages/**").permitAll()
                 .anyRequest().permitAll();
 /*
                 .antMatchers("/", "/login/**", "/css/**", "/images/**", "/js/**", "/webjars/**",
@@ -98,7 +100,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .usernameParameter("email")
                 .passwordParameter("password")
                 // даем доступ к форме логина всем
-                .permitAll();
+                .permitAll()
+                // Обработчик не верного ввода логина и пароля
+                .failureHandler(customAuthenticationFailureHandler());
 
         http.logout()
                 // разрешаем делать логаут всем
@@ -174,6 +178,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @ConfigurationProperties("vk")
     public ClientResources vk () {
         return new ClientResources();
+    }
+
+    @Bean
+    public AuthenticationFailureHandler customAuthenticationFailureHandler() {
+        return new CustomAuthenticationFailureHandler();
     }
 
     class ClientResources {
