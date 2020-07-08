@@ -39,6 +39,7 @@ public class UserProfileRestController {
             dto.setFavoritesCount(0);
             dto.setViewCount(0);
             dto.setUrl("#URL_WILL_BE_HERE");
+            dto.setImages(posting.getImagePath());
             dtoList.add(dto);
         }
 

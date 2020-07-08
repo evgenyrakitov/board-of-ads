@@ -165,18 +165,20 @@ let user_profile = {
             html.push('<div class="js-personal-items">');
             postingsDTOs.forEach(function (dto) {
                 i++;
+                let imageUrl = '/images/image-placeholder.png';
+                if (dto.images.length > 0) {
+                    imageUrl = dto.images[0].imagePath;
+                }
 
                 html.push('<div class="personal-items-line-3mthn"></div>');
-
                 if (i == 1) {
                     html.push('<div class="item-snippet-root-1ZIn9" data-marker="item-snippet/1148965022">');
                 } else {
                     html.push('<div class="item-snippet-root-1ZIn9" data-marker="item-snippet/1148965022" style="border-top: 1px solid #f5f5f5;">');
                 }
-
                 html.push('<div class="item-snippet-snippet-1XIaf">');
                 html.push('<a class="item-preview-root-PsYRy item-snippet-column-1FtP4 item-snippet-column_preview-1O6d5" href="' + dto.url + '">');
-                html.push(`<div class="item-preview-image-16c92" style="background-image: url('/images/image-placeholder.png');"></div>`);
+                html.push(`<div class="item-preview-image-16c92" style="background-image: url(` + imageUrl + `); background-size: cover;"></div>`);
                 html.push('<div class="item-preview-icons-2ty4_"><i class="item-preview-icon-2pte7 item-preview-icon_photo-2wudU">1</i></div>');
                 html.push('</a>');
                 html.push('<div class="item-body-root-371IO item-snippet-column-1FtP4 item-snippet-column_body-2uA-_">');
