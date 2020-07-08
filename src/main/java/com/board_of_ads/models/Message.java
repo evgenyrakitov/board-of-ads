@@ -1,5 +1,6 @@
 package com.board_of_ads.models;
 
+import com.board_of_ads.models.posting.Posting;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -8,6 +9,8 @@ import lombok.RequiredArgsConstructor;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -36,14 +39,23 @@ public class Message {
 
     @NonNull
     @ManyToOne(cascade = CascadeType.ALL)
+    private Posting posting;
+
+    @NonNull
+    @ManyToOne(cascade = CascadeType.ALL)
     private User author;
 
     @NonNull
+    @Enumerated(EnumType.STRING)
     private ReadStatus readStatus = ReadStatus.NOT_READ;
 
     public enum ReadStatus {
         READ,
         NOT_READ
+    }
+
+    public User getRecipient() {
+        return posting.getUser();
     }
 
 }

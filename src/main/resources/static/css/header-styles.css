@@ -339,3 +339,7 @@ svg {
 #locationModal{
     top: 20%;
 }
+.message_count {
+    position: absolute;
+    top: 3px;
+}
