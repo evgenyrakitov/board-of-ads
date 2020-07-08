@@ -269,29 +269,34 @@
                     <form action="/rest/admin/add" id="add-reg-form">
                         <div class="form-item-login">
                             <label class="input-login">
-                                Введите email :<br><input name="email" placeholder="email" type="email" required>
+                                Введите email :<br><input name="email" id="login" placeholder="email" type="email" required>
                             </label>
                         </div>
                         <div class="form-item-password">
                             <label class="input-password">
-                                Введите password :<br><input name="password" placeholder="password" type="password"
+                                Введите password :<br><input name="password" id="password" placeholder="password" type="password"
+                                                             autocomplete="off">
+                            </label>
+                        </div>
+                        <div class="form-item-password">
+                            <label class="input-password">
+                                Введите подтверждение :<br><input name="password" id="password_confirm" placeholder="password" type="password"
                                                              autocomplete="off">
                             </label>
                         </div>
                         <div class="form-item-publicName">
                             <label class="input-publicName">
-                                Введите publicName :<br><input name="publicName" placeholder="publicName" type="text"
+                                Введите publicName :<br><input id="public_name" name="publicName" placeholder="publicName" type="text"
                                                                required>
                             </label>
                         </div>
                         <div class="form-item-phone">
                             <label class="input-phone">
-                                Введите phone :<br><input name="phone" placeholder="phone" type="tel" required>
+                                Введите phone :<br><input name="phone" placeholder="phone" type="tel" id="phone" required>
                             </label>
                         </div>
                         <div class="form-reg-button">
-                            <button type="submit" name="submit" class="btn btn-primary" id="btn-reg"
-                                    data-dismiss="modal">
+                            <button type="submit" name="submit" class="btn btn-primary" id="btn-reg">
                                 <span>Зарегистрироваться</span>
                             </button>
                         </div>
@@ -360,11 +365,11 @@
 </div>
 <div th:fragment="script">
     <script src="webjars/jquery/3.5.1/jquery.min.js"></script>
-    <script src="webjars/popper.js/1.16.0/popper.min.js"></script>
+    <script src="webjars/popper.js/1.16.0/popper.min.js" type="module"></script>
     <script src="webjars/bootstrap/4.5.0/js/bootstrap.min.js"></script>
     <script src="../static/js/header.js" th:src="@{/js/header.js}"></script>
-    <script src="/js/modal_registation.js" th:src="@{/js/modal_registation.js}"></script>
-    <script src="/js/modal_registation.js" th:src="@{/js/modal_location.js}"></script>
+    <script src="/js/modal_registation.js" th:src="@{/js/modal_registation.js}" type="module"></script>
+    <script src="/js/modal_registation.js" th:src="@{/js/registration.js}" type="module"></script>
+    <script src="../static/js/modal_registation.js" type="module" th:src="@{/js/modal_location.js}"></script>
 </div>
 </body>
-</html>
