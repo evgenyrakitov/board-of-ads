@@ -63,7 +63,7 @@
                     </li>
                     <li th:if="${user.getClass().getSimpleName() == 'String'}" class="nav-item" id="li">
                         <a class="nav-link text-primary open-modal-1" href="#" style="white-space: nowrap"
-                           th:text="#{header.login_and_register}">Вход и регистрация</a>
+                           th:text="#{header.login_and_register}" id="open-modal-1">Вход и регистрация</a>
                     </li>
                     <li th:if="${user.getClass().getSimpleName() == 'User'}" class="nav-item">
                         <div th:text="${user.getEmail()}"></div>
@@ -272,7 +272,7 @@
 
                         <div class="form-item-password">
                             <label class="input-password">
-                                Подтвердите password :<br><input name="password_confirm" placeholder="password_confirm" type="password" id="password_confirm" autocomplete="off">
+                                Подтвердите password :<br><input class="form-control" name="password_confirm" placeholder="password_confirm" type="password" id="password_confirm" autocomplete="off">
                             </label>
                         </div>
 
@@ -284,7 +284,7 @@
 
                         <div class="form-item-phone">
                             <label class="input-phone">
-                                Введите phone :<br><input name="phone" placeholder="912-345-67-89" type="tel" id="phone" th:placeholder="#{header.modal.placeholder.phoneNumber}" required >
+                                Введите phone :<br><input name="phone" class="form-control" placeholder="912-345-67-89" type="tel" id="phone" th:placeholder="#{header.modal.placeholder.phoneNumber}" required >
                             </label>
                         </div>
                         <div class="form-reg-button">
