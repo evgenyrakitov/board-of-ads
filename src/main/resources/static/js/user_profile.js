@@ -52,6 +52,16 @@ let on_profile_page_load = function () {
         return true;
     });
 
+    $('#navlink-my-wallet').click(function (e) {
+        user_profile.show_wallet(this);
+        return true;
+    });
+
+    $('#navlink-my-paid-services').click(function (e) {
+        user_profile.show_paid_services(this);
+        return true;
+    });
+
     let event = new Event("click");
     switch (window.location.hash) {
         case "#postings":
@@ -75,6 +85,12 @@ let on_profile_page_load = function () {
         case "#rating":
             document.getElementById("navlink-my-rating").dispatchEvent(event);
             break;
+        case "#wallet":
+            document.getElementById("navlink-my-wallet").dispatchEvent(event);
+            break;
+        case "#paid_services":
+            document.getElementById("navlink-my-paid-services").dispatchEvent(event);
+            break;
         default:
             document.getElementById("navlink-my-postings").dispatchEvent(event);
             break;
@@ -94,7 +110,6 @@ let user_profile = {
         this.deselectAllNavLinks();
         element.classList.add("profile-sidebar-navigation-link-active-3sgHn");
         this.draw_postings_block();
-        //document.getElementById("user_page_content").innerHTML = "<h1 class=\"heading\">Мои объявления</h1>";
     },
     show_feedbacks: function (element) {
         this.deselectAllNavLinks();
@@ -125,6 +140,16 @@ let user_profile = {
         this.deselectAllNavLinks();
         $("#navlink-my-rating").attr("style", "color: black");
         document.getElementById("user_page_content").innerHTML = "<h1 class=\"heading\">" + messages['profile.feedbacks.title'] + "</h1>";
+    },
+    show_wallet: function (element) {
+        this.deselectAllNavLinks();
+        element.classList.add("profile-sidebar-navigation-link-active-3sgHn");
+        document.getElementById("user_page_content").innerHTML = "<h1 class=\"heading\">" + messages['profile.wallet.title'] + "</h1>";
+    },
+    show_paid_services: function (element) {
+        this.deselectAllNavLinks();
+        element.classList.add("profile-sidebar-navigation-link-active-3sgHn");
+        document.getElementById("user_page_content").innerHTML = "<h1 class=\"heading\">" + messages['profile.paid_services.title'] + "</h1>";
     },
 
     ///////// HTML GENERATORS ////////

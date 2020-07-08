@@ -59,7 +59,8 @@
                         </div>
                         <div class="profile-sidebar-head-name-2sYdZ">
                             <span class="text-text-1PdBw text-size-xl-K3Rr2 text-bold-3R9dt">
-                                <div class="profile-sidebar-head-name-text-S-6L8" th:text="${user.publicName}">USER NAME</div>
+                                <div class="profile-sidebar-head-name-text-S-6L8"
+                                     th:text="${user.publicName}">USER NAME</div>
                             </span>
                         </div>
                         <div class="profile-sidebar-head-rating-36hRS">
@@ -177,6 +178,23 @@
                         </li>
                         <li class="profile-sidebar-navigation-group-1pqeC">
                             <ul class="profile-sidebar-navigation-group-list-3CHh3">
+                                <li class="profile-sidebar-navigation-item-1fHT7 js-side-menu-list-item-wallet profile-sidebar-navigation-item-with-number-2kLls">
+                                    <a class="profile-sidebar-navigation-link-2olMF js-sidebar-menu-list-item-link"
+                                       href="#wallet" id="navlink-my-wallet"
+                                       th:text="#{profile.wallet.title}">Кошелёк</a>
+                                    <div class="profile-sidebar-navigation-number-1u-qz"
+                                         data-marker="sidebar-wallet-value">0&nbsp;₽
+                                    </div>
+                                </li>
+                                <li class="profile-sidebar-navigation-item-1fHT7">
+                                    <a class="profile-sidebar-navigation-link-2olMF js-sidebar-menu-list-item-link"
+                                       href="#paid_services" id="navlink-my-paid-services"
+                                       th:text="#{profile.paid_services.title}">Платные услуги</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="profile-sidebar-navigation-group-1pqeC">
+                            <ul class="profile-sidebar-navigation-group-list-3CHh3">
                                 <li class="profile-sidebar-navigation-item-1fHT7">
                                     <a class="profile-sidebar-navigation-link-2olMF js-sidebar-menu-list-item-link"
                                        href="#settings" id="navlink-my-settings" th:text="#{profile.settings.title}">Настройки</a>
@@ -189,17 +207,7 @@
         </div>
 
         <div class="b-profile-content b-profile-content_narrow" id="user_page_content">
-            <h1 class="heading" th:text="#{profile.postings.title}">Мои объявления</h1>
-            <!--            <ul class="nav-tabs">-->
-            <!--                <li class="nav-tab nav-tab_active" title="Активные&nbsp;&nbsp;10">-->
-            <!--                    <a class="nav-tab-link" href="/profile/items/old">Активные</a>-->
-            <!--                    <span class="nav-tab-num">&nbsp;&nbsp;10</span>-->
-            <!--                </li>-->
-            <!--                <li class="nav-tab" title="Архив&nbsp;&nbsp;20">-->
-            <!--                    <a class="nav-tab-link" href="/profile/items/old">Архив</a>-->
-            <!--                    <span class="nav-tab-num">&nbsp;&nbsp;20</span>-->
-            <!--                </li>-->
-            <!--            </ul>-->
+            <!-- AJAX CONTENT WILL BE HERE -->
         </div>
     </div>
 </div>
