@@ -7,7 +7,7 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/board_of_ads?useUnicode=yes&characterEncoding=UTF-8&serverTimezone=UTC
     username: root
-    password: root
+    password: logrys7
     initialization-mode: always
   jpa:
     show-sql: false
