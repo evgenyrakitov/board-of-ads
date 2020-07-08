@@ -89,8 +89,7 @@ $(".locale_en").click(function () {
 });
 
 $('#modal-reg-1').on('shown.bs.modal', function () {
-    $('#spanIncorrectLoginPass').attr("hidden", true);
-    $('#spanIncorrectLoginPass').slideUp();
+    $('#spanIncorrectLoginPass').slideUp(0);
 })
 
 document.getElementById("frmLoginInputEmail").addEventListener("keyup", function(event) {
@@ -117,11 +116,11 @@ $("#btnLogin").click(function () {
             window.location.href = '/';
         })
         .fail(function() {
-            $('#spanIncorrectLoginPass').attr("hidden", false);
             $('#spanIncorrectLoginPass').slideDown();
             $('#spanIncorrectLoginPass').delay(3000).slideUp();
         })
 });
+
 let userId = $('#userId').text();  //нужно взять id user-a с header и сделать запрос
 $(document).ready(function getUnreadMessage() {
     if (userId !== undefined) {
