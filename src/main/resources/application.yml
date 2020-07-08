@@ -60,5 +60,3 @@ vk:
   resource:
     userInfoUri: https://api.vk.com/method/users.get
     preferTokenInfo: true
-
-
