@@ -46,7 +46,7 @@ $(document).ready(function () {
                         "</li>"
                     );
                 }
-                if (count < 5) {
+                if (count < 4) {
                     $("#header_category_list").prepend(
                         "<li class='nav-item '>\n" +
                         "     <a class='nav-link text-primary' href='#'>" + lang_name + "</a>\n" +
@@ -132,19 +132,19 @@ $('#modal-reg-1').on('shown.bs.modal', function () {
     $('#spanIncorrectLoginPass').slideUp(0);
 })
 
-// document.getElementById("frmLoginInputEmail").addEventListener("keyup", function(event) {
-//     if (event.key === "Enter") {
-//         event.preventDefault();
-//         document.getElementById("btnLogin").click();
-//     }
-// });
+document.getElementById("frmLoginInputEmail").addEventListener("keyup", function(event) {
+    if (event.key === "Enter") {
+        event.preventDefault();
+        document.getElementById("btnLogin").click();
+    }
+});
 
-// document.getElementById("frmLoginInputPassword").addEventListener("keyup", function(event) {
-//     if (event.key === "Enter") {
-//         event.preventDefault();
-//         document.getElementById("btnLogin").click();
-//     }
-// });
+document.getElementById("frmLoginInputPassword").addEventListener("keyup", function(event) {
+    if (event.key === "Enter") {
+        event.preventDefault();
+        document.getElementById("btnLogin").click();
+    }
+});
 
 $("#btnLogin").click(function () {
     $.ajax({
