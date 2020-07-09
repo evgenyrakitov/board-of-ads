@@ -31,4 +31,9 @@ public class CityServiceImpl implements CityService {
     public List<City> findAllByRegionId(Long regionId) {
         return cityRepository.findByRegionId(regionId);
     }
+
+    @Override
+    public City findCityByName(String name) {
+        return cityRepository.findCityByName(name);
+    }
 }

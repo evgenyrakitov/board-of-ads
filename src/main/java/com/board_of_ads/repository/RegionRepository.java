@@ -12,4 +12,6 @@ public interface RegionRepository extends JpaRepository<Region, Long> {
     @Query("select r from Region r where r.name like :name%")
     List<Region> findByName(@Param("name") String name);
 
+    Region findRegionByName (String name);
+
 }

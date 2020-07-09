@@ -1,10 +1,12 @@
 package com.board_of_ads.service.impl;
 
+import com.board_of_ads.models.Category;
 import com.board_of_ads.models.User;
 import com.board_of_ads.models.posting.Posting;
 import com.board_of_ads.repository.PostingRepository;
 import com.board_of_ads.service.interfaces.PostingService;
 import lombok.AllArgsConstructor;
+import lombok.NonNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.lang.Nullable;
@@ -47,9 +49,22 @@ public class PostingServiceImpl implements PostingService {
     }
 
     @Override
+    public List<Posting> findAllByCategoryAndCityId(Category category, String cityId) {
+        return postingRepository.findAllByCategoryAndCityId(category, cityId);
+    }
+
+    @Override
+    public List<Posting> findAllByCategoryAndRegionId(Category category, String regionId) {
+        return postingRepository.findAllByCategoryAndRegionId(category, regionId);
+    }
+
+
+
+    @Override
     public List<Posting> getPostingsByCityId(String cityId) {
         return postingRepository.findAllByCityId(cityId);
 
-
     }
+
+
 }

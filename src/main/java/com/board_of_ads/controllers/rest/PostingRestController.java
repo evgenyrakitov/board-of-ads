@@ -3,8 +3,13 @@ package com.board_of_ads.controllers.rest;
 import com.board_of_ads.models.Category;
 import com.board_of_ads.models.Images;
 import com.board_of_ads.models.User;
+import com.board_of_ads.models.kladr.City;
+import com.board_of_ads.models.kladr.Region;
 import com.board_of_ads.models.posting.Posting;
+import com.board_of_ads.service.interfaces.CategoryService;
+import com.board_of_ads.service.interfaces.CityService;
 import com.board_of_ads.service.interfaces.PostingService;
+import com.board_of_ads.service.interfaces.RegionService;
 import com.google.gson.Gson;
 import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
@@ -15,12 +20,14 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/rest/posting")
@@ -30,6 +37,9 @@ public class PostingRestController {
     private static final Logger logger = LoggerFactory.getLogger(RoleRestController.class);
 
     private final PostingService postingService;
+    private final CategoryService categoryService;
+    private final RegionService regionService;
+    private final CityService cityService;
 
     @GetMapping("/getPostingInfo")
     public ResponseEntity<Posting> getPosting() {
@@ -97,6 +107,76 @@ public class PostingRestController {
         return !list.isEmpty()
                 ? new ResponseEntity<>(list, HttpStatus.OK)
                 : new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    }
+    @GetMapping("/search")
+    public ResponseEntity<List<Posting>> getSearchForm(@RequestParam String category,
+                                                @RequestParam String search,
+                                                @RequestParam String regionCity,
+                                                 @RequestParam(required = false)String ch1,
+                                                 @RequestParam(required = false) String ch2){
+
+        Region region = null;
+        City city = null;
+        List<Posting> postingList = null;
+        List<Posting> newPostingList = new ArrayList<>();
+        List<Posting> newPostingList_1 = new ArrayList<>();
+        Category category1 = null;
+
+        if (regionCity.length() != 0){
+           city = cityService.findCityByName(regionCity.split(" ")[0]);
+            region = regionService.findRegionByName(regionCity.split(" ")[0]);
+        }
+        if (category.length() != 0){
+            category1 = categoryService.findCategoryByNameRu(category);
+            if (city != null){
+                postingList = postingService.findAllByCategoryAndCityId(category1, city.getId().toString());
+            } else {
+                postingList = postingService.findAllByCategoryAndRegionId(category1, region.getId().toString());
+            }
+        } else {
+            if (city != null){
+                postingList = postingService.getPostingsByCityId(city.getName());
+            } else if (region != null){
+                postingList = postingService.getPostingsByRegionId(region.getName());
+            }
+            postingList = postingService.getAllPostings();
+        }
+        if (search.length() != 0) {
+            if (!postingList.isEmpty()) {
+                if (ch1 != null) {
+                    for (Posting post : postingList) {
+                        if (post.getTitle().toLowerCase().contains(search.toLowerCase())) {
+                            newPostingList.add(post);
+                        }
+                    }
+                } else {
+                    for (Posting post : postingList) {
+                        if (post.getFullDescription().toLowerCase().contains(search.toLowerCase())) {
+                            newPostingList.add(post);
+                        }
+                    }
+                }
+            } else {
+                return new ResponseEntity<>(HttpStatus.OK);
+            }
+            if (!newPostingList.isEmpty()) {
+                if (ch2 != null) {
+                    for (Posting post : newPostingList) {
+                        if (!post.getImagePath().isEmpty()) {
+                            newPostingList_1.add(post);
+                        }
+                    }
+                } else {
+                    newPostingList_1.addAll(newPostingList);
+                }
+            } else {
+                return new ResponseEntity<>(HttpStatus.OK);
+            }
+        } else {
+            newPostingList_1.addAll(postingList);
+        }
+
+        return  new ResponseEntity<>(newPostingList_1, HttpStatus.OK);
     }
 
 }
