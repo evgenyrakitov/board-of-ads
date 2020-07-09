@@ -361,10 +361,11 @@
 </div>
 <div th:fragment="script">
     <script th:src="@{/webjars/jquery/3.5.1/jquery.min.js}"></script>
-    <script th:src="@{/webjars/popper.js/1.16.0/popper.min.js}"></script>
+    <script th:src="@{/webjars/popper.js/1.16.0/popper.min.js}" type="module"></script>
     <script th:src="@{/webjars/bootstrap/4.5.0/js/bootstrap.min.js}"></script>
     <script th:src="@{/js/header.js}"></script>
-    <script th:src="@{/js/modal_registation.js}"></script>
-    <script th:src="@{/js/modal_location.js}"></script>
+    <script th:src="@{/js/modal_registation.js}" type="module"></script>
+    <script th:src="@{/js/registration.js}" type="module"></script>
+    <script th:src="@{/js/modal_location.js}" type="module"></script>
 </div>
 </body>
