@@ -183,66 +183,6 @@ svg {
     overflow: scroll;
 }
 
-/* General Modal Styles */
-
-.modal {
-    font-family: Arial,"Helvetica Neue", Helvetica, sans-serif;
-}
-
-.modal form label {
-    width: 70%;
-}
-
-.modal .form-title {
-    font-size: 25px;
-    margin: 15px 0;
-}
-
-.modal .close {
-    margin-right: -20px;
-    position: relative;
-    cursor: pointer;
-    font-size: 25px;
-}
-
-.modal .close .leftright {
-    height: 3px;
-    width: 33px;
-    position: absolute;
-    background-color: black;
-    border-radius: 2px;
-    transform: rotate(45deg);
-    transition: all .3s ease-in;
-}
-
-.modal .close .rightleft {
-    height: 3px;
-    width: 33px;
-    position: absolute;
-    background-color: black;
-    border-radius: 2px;
-    transform: rotate(-45deg);
-    transition: all .3s ease-in;
-}
-
-.modal .close:hover .leftright {
-    transform: rotate(-45deg);
-    background-color: lightgrey;
-}
-.modal .close:hover .rightleft {
-    transform: rotate(45deg);
-    background-color: lightgrey;
-}
-
-.modal-footer {
-    justify-content: center;
-}
-
-.modal-footer .auth-app-doc a * {
-    text-decoration: underline;
-    color: #858585;
-}
-
 .modal_for_example {
     display: none;
 }
@@ -338,4 +278,19 @@ svg {
 }
 #locationModal{
     top: 20%;
+}
+
+.bg_black_header {
+    width: 2000px;
+    height: 2000px;
+    position: fixed;
+    opacity: 0;
+    pointer-events: none;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+.bg_black_header.on-off {
+    opacity: 1;
+    pointer-events: auto;
 }

@@ -4,10 +4,8 @@
 <head>
     <title>Product details</title>
     <div th:replace="~{fragments/header.html :: links}"></div>
-    <link rel="stylesheet" type="text/css"
-          href="../static/css/posting.css" th:href="@{/css/posting.css}"/>
-    <link rel="stylesheet" type="text/css"
-          href="../static/css/media/posting-media.css" th:href="@{/css/media/posting-media.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/posting.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/media/posting-media.css}"/>
 </head>
 <body>
 <div th:replace="~{fragments/header.html :: header}"></div>
@@ -63,15 +61,6 @@
             <div class="slider">
                 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <img src="images/posting_img/1.jpg" class="d-block w-100" alt="...">
-                        </div>
-                        <div class="carousel-item ">
-                            <img src="images/posting_img/2.jpg" class="d-block w-100" alt="...">
-                        </div>
-                        <div class="carousel-item ">
-                            <img src="images/posting_img/3.jpg" class="d-block w-100" alt="...">
-                        </div>
 
                     </div>
                     <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -84,9 +73,7 @@
                     </a>
                 </div>
                 <div class="panel_control_slider">
-                    <img class="active" src="images/posting_img/1.jpg">
-                    <img src="images/posting_img/2.jpg">
-                    <img src="images/posting_img/3.jpg">
+
                 </div>
             </div>
             <div class="google_map">
@@ -176,7 +163,7 @@
     </section>
 </div>
 <div th:replace="~{fragments/header.html :: script}"></div>
-<script src="/js/posting.js"></script>
+<script th:src="@{/js/posting.js}"></script>
 </head>
 </body>
 </html>

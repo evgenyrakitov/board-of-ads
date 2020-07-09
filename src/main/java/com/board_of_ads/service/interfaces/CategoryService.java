@@ -17,7 +17,13 @@ public interface CategoryService {
 
     List<Category> getRootCategories();
 
+
     Category findCategoryByNameRu(String nameRu);
+
+
+    List<Category> getCategoriesByParentCategory(Category category);
+
+    Category getCategoryById(Long id);
 
 
 }
