@@ -56,7 +56,7 @@ public class UserProfileRestController {
             dto.setPrice(posting.getPrice());
             dto.setFavoritesCount(0);
             dto.setViewCount(0);
-            dto.setUrl("#URL_WILL_BE_HERE");
+            dto.setUrl("/posting/" + posting.getId());
             dto.setImages(posting.getImagePath());
             dtoList.add(dto);
         }
