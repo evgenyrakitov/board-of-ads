@@ -1,7 +1,11 @@
 var messages = [];
 
+$(document).ready(function () {
+    on_profile_page_load();
+});
+
 let formatMoney = function (x) {
-    var parts = x.toString().split(".");
+    let parts = x.toString().split(".");
     parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, " ");
     return parts.join(".");
 }
@@ -109,7 +113,7 @@ let user_profile = {
     show_postings: function (element) {
         this.deselectAllNavLinks();
         element.classList.add("profile-sidebar-navigation-link-active-3sgHn");
-        this.draw_postings_block();
+        this.draw_postings_block_header();
     },
     show_feedbacks: function (element) {
         this.deselectAllNavLinks();
@@ -151,23 +155,26 @@ let user_profile = {
         element.classList.add("profile-sidebar-navigation-link-active-3sgHn");
         document.getElementById("user_page_content").innerHTML = "<h1 class=\"heading\">" + messages['profile.paid_services.title'] + "</h1>";
     },
+    show_postings_by_status: function (element) {
+        let status = element.getAttribute("data-status");
 
-    ///////// HTML GENERATORS ////////
+        $(".nav-tab-posting-status").each(function () {
+            this.classList.remove("nav-tab_active");
+        });
+        element.closest("li").classList.add("nav-tab_active");
 
-    draw_postings_block: function () {
-        $.get("/rest/user_profile/postings", function (postingsDTOs) {
+        user_profile.draw_postings_block(status);
+        return false;
+    },
 
-            let postingBlock = document.getElementById("user_page_content");
+    ///////// BEGIN HTML GENERATORS ////////
+
+    draw_postings_block: function (status) {
+        $.get("/rest/user_profile/postings/" + status, function (postingsDTOs) {
+
+            let postingBlock = document.getElementById("postings_content");
             let html = [];
             let i = 0;
-
-            html.push('<h1 class="heading">' + messages['profile.postings.title'] + '</h1>')
-
-            html.push(`<ul class="nav-tabs" style="border-bottom: 0px;">`);
-            html.push(`<li class="nav-tab nav-tab_active" title="Ждут действий&nbsp;&nbsp;1">`);
-            html.push(`<span class="nav-tab-title" title="Ждут действий">Ждут действий</span><span class="nav-tab-num">&nbsp;&nbsp;1</span></li>`);
-            html.push(`<li class="nav-tab" title="Архив&nbsp;&nbsp;6"><a class="nav-tab-link" style="text-decoration: none;" href="/profile/items/old">Архив</a><span class="nav-tab-num">&nbsp;&nbsp;6</span></li>`);
-            html.push(`</ul>`);
 
             html.push('<div class="js-personal-items">');
             postingsDTOs.forEach(function (dto) {
@@ -216,6 +223,38 @@ let user_profile = {
             })
             html.push('</div>');
             postingBlock.innerHTML = html.join('');
+        });
+    },
+
+    draw_postings_block_header: function () {
+        $.get("/rest/user_profile/postingsInfo", function (postingsInfo) {
+
+            let postingBlock = document.getElementById("user_page_content");
+            let html = [];
+            let i = 0;
+            let firstAndActiveStatus = "";
+
+            html.push('<h1 class="heading">' + messages['profile.postings.title'] + '</h1>')
+
+            html.push(`<ul class="nav-tabs" style="border-bottom: 0px;">`);
+            postingsInfo.forEach(function (postingInfo) {
+                i++;
+                if (i === 1) {
+                    html.push(`<li class="nav-tab-posting-status nav-tab nav-tab_active" title="` + postingInfo.status.description_many + `&nbsp;&nbsp;` + postingInfo.count + `"><a id="postings-status-` + postingInfo.status.name + `" class="nav-tab-link" style="text-decoration: none; cursor: pointer;" href="#" data-status="` + postingInfo.status.name + `" onclick="return user_profile.show_postings_by_status(this)">` + postingInfo.status.description_many + `</a><span class="nav-tab-num">&nbsp;&nbsp;` + postingInfo.count + `</span></li>`);
+                    firstAndActiveStatus = postingInfo.status.name;
+                } else {
+                    html.push(`<li class="nav-tab-posting-status nav-tab" title="` + postingInfo.status.description_many + `&nbsp;&nbsp;` + postingInfo.count + `"><a id="postings-status-` + postingInfo.status.name + `" class="nav-tab-link" style="text-decoration: none; cursor: pointer;" href="#" data-status="` + postingInfo.status.name + `" onclick="return user_profile.show_postings_by_status(this)">` + postingInfo.status.description_many + `</a><span class="nav-tab-num">&nbsp;&nbsp;` + postingInfo.count + `</span></li>`);
+                }
+            })
+            html.push(`</ul>`);
+            html.push(`<div id="postings_content"></div>`);
+
+            postingBlock.innerHTML = html.join('');
+
+            if (i >= 1) {
+                let eventClick = new Event('click');
+                document.getElementById("postings-status-" + firstAndActiveStatus).dispatchEvent(eventClick);
+            }
         });
     }
 }

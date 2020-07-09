@@ -19,6 +19,7 @@ public interface PostingStatusRepository extends JpaRepository<PostingStatus, Lo
             "WHERE " +
             "    p.user = :user " +
             "GROUP BY " +
-            "    p.status")
+            "    p.status " +
+            "ORDER BY p.status.id")
     List<PostingStatusStatistics> findPostingStatusStaticsByUser(User user);
 }

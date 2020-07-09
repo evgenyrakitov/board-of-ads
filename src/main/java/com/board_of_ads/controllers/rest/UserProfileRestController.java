@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 @RestController
 @RequestMapping("/rest/user_profile")
@@ -34,34 +35,20 @@ public class UserProfileRestController {
     public ResponseEntity<List<ProfilePostingDTO>> getAllPostingsForCurrentUser() {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         List<Posting> postingList = postingService.getUserPostings(user);
-        List<ProfilePostingDTO> dtoList = new ArrayList<>();
-
-        ProfilePostingDTO dto;
-        for (Posting posting : postingList) {
-            dto = new ProfilePostingDTO();
-            dto.setTitle(posting.getTitle());
-            dto.setPrice(posting.getPrice());
-            dto.setFavoritesCount(0);
-            dto.setViewCount(0);
-            dto.setUrl("#URL_WILL_BE_HERE");
-            dto.setImages(posting.getImagePath());
-            dtoList.add(dto);
-        }
-
+        List<ProfilePostingDTO> dtoList = buildDTOList(postingList);
         return ResponseEntity.ok(dtoList);
     }
 
     @GetMapping("/postings/{status}")
     public ResponseEntity<List<ProfilePostingDTO>> getAllPostingsForCurrentUserAndStatus(@PathVariable String status) {
-        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        PostingStatus postingStatus = postingStatusService.findPostingStatusByName(status);
-        List<Posting> postingList = postingService.getUserPostingsByStatus(user, postingStatus);
+        PostingStatus postingStatus = postingStatusService.getPostingStatusByName(status);
+        List<Posting> postingList = postingService.getUserPostingsByStatus((User) SecurityContextHolder.getContext().getAuthentication().getPrincipal(), postingStatus);
+        List<ProfilePostingDTO> dtoList = buildDTOList(postingList);
+        return ResponseEntity.ok(dtoList);
+    }
+
+    private List<ProfilePostingDTO> buildDTOList(List<Posting> postingList) {
         List<ProfilePostingDTO> dtoList = new ArrayList<>();
-
-
-        List<PostingStatusStatistics> pss = postingStatusService.findPostingStatusStaticsByUser(user);
-        System.out.println(pss);
-
         ProfilePostingDTO dto;
         for (Posting posting : postingList) {
             dto = new ProfilePostingDTO();
@@ -73,7 +60,16 @@ public class UserProfileRestController {
             dto.setImages(posting.getImagePath());
             dtoList.add(dto);
         }
+        return dtoList;
+    }
 
-        return ResponseEntity.ok(dtoList);
+    @GetMapping("/postingsInfo")
+    public ResponseEntity<List<PostingStatusStatistics>> getPostingStatisticByUser(Locale locale) {
+        List<PostingStatusStatistics> pssList =
+                postingStatusService.findPostingStatusStaticsByUser(
+                        (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal());
+
+        pssList = postingStatusService.localizeDescription(pssList, locale);
+        return ResponseEntity.ok(pssList);
     }
 }

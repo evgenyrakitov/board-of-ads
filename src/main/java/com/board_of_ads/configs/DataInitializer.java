@@ -80,29 +80,29 @@ public class DataInitializer {
         PostingStatus postingStatus = new PostingStatus();
         postingStatus.setId(1L);
         postingStatus.setName("active");
-        postingStatus.setDescription_en("Active");
-        postingStatus.setDescription_ru("Активно");
+        postingStatus.setDescription_single("Активно (описание по умолчанию)");
+        postingStatus.setDescription_many("Активные (описание по умолчанию)");
         postingStatusService.addPostingStatus(postingStatus);
 
         postingStatus = new PostingStatus();
         postingStatus.setId(2L);
         postingStatus.setName("archive");
-        postingStatus.setDescription_en("In archive");
-        postingStatus.setDescription_ru("В архиве");
+        postingStatus.setDescription_single("В архиве (описание по умолчанию)");
+        postingStatus.setDescription_many("В архиве (описание по умолчанию)");
         postingStatusService.addPostingStatus(postingStatus);
 
         postingStatus = new PostingStatus();
         postingStatus.setId(3L);
         postingStatus.setName("waiting");
-        postingStatus.setDescription_en("Wait to publish");
-        postingStatus.setDescription_ru("Ожидает публикации");
+        postingStatus.setDescription_single("Ожидает публикации (описание по умолчанию)");
+        postingStatus.setDescription_many("Ожидают публикации (описание по умолчанию)");
         postingStatusService.addPostingStatus(postingStatus);
 
         postingStatus = new PostingStatus();
         postingStatus.setId(4L);
         postingStatus.setName("moderating");
-        postingStatus.setDescription_en("On moderate");
-        postingStatus.setDescription_ru("На модерации");
+        postingStatus.setDescription_single("На модерации (описание по умолчанию)");
+        postingStatus.setDescription_many("На модерации (описание по умолчанию)");
         postingStatusService.addPostingStatus(postingStatus);
     }
 
@@ -167,7 +167,7 @@ public class DataInitializer {
         posting.setImagePath(set2);
         posting.setRegionId("23");
         posting.setCityId("212");
-        posting.setStatus(postingStatuses.get(1));
+        posting.setStatus(postingStatuses.get(2));
         postingService.addPosting(posting);
 
         posting = new Posting();

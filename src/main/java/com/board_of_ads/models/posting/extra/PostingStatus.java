@@ -13,7 +13,7 @@ import javax.persistence.Table;
 @Entity
 @Data
 @NoArgsConstructor
-@Table
+@Table(name = "Posting_Statuses")
 public class PostingStatus {
 
     @Id
@@ -21,13 +21,21 @@ public class PostingStatus {
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "name")
+    /**
+     * Имя - используется для удобства, уникальное как и id
+     */
+    @Column(name = "name", unique = true)
     private String name;
 
-    @Column(name = "description_en")
-    private String description_en;
+    /**
+     * Описание (название) в единственном числе
+     */
+    @Column(name = "description_single")
+    private String description_single;
 
-    @Column(name = "description_ru")
-    private String description_ru;
-
+    /**
+     * Описание (название) во множественном числе.
+     */
+    @Column(name = "description_many")
+    private String description_many;
 }

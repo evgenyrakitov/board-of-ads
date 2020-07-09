@@ -5,16 +5,21 @@ import com.board_of_ads.models.posting.extra.PostingStatus;
 import com.board_of_ads.models.posting.extra.PostingStatusStatistics;
 
 import java.util.List;
+import java.util.Locale;
 
 public interface PostingStatusService {
 
     List<PostingStatus> getAllPostingStatuses();
 
-    PostingStatus findPostingStatusByName(String name);
+    PostingStatus getPostingStatusByName(String name);
 
-    PostingStatus findPostingStatusById(Long id);
+    PostingStatus getPostingStatusById(Long id);
 
     PostingStatus addPostingStatus(PostingStatus postingStatus);
 
     List<PostingStatusStatistics> findPostingStatusStaticsByUser(User user);
+
+    PostingStatus localizeDescription(PostingStatus postingStatus, Locale locale);
+
+    List<PostingStatusStatistics> localizeDescription(List<PostingStatusStatistics> postingStatusStatisticsList, Locale locale);
 }

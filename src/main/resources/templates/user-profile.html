@@ -20,8 +20,6 @@
     <link href="../static/css/modal_reg.css" rel="stylesheet" th:href="@{/css/modal_reg.css}">
     <!-- COmmon styles end -->
     <link href="../static/css/user-profile/profile.css" rel="stylesheet" th:href="@{/css/user-profile/profile.css}">
-    <script src="../static/js/user_avatar_canvas.js" th:src="@{/js/user_avatar_canvas.js}"></script>
-    <script src="../static/js/user_profile.js" th:src="@{/js/user_profile.js}"></script>
 </head>
 <body>
 <div>
@@ -31,6 +29,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/popper.min.js"></script>
     <script src="../static/js/header.js" th:src="@{/js/header.js}"></script>
     <script src="../static/js/modal_registation.js" th:src="@{/js/modal_registation.js}"></script>
+    <script src="../static/js/user_avatar_canvas.js" th:src="@{/js/user_avatar_canvas.js}"></script>
+    <script src="../static/js/user_profile.js" th:src="@{/js/user_profile.js}"></script>
 </div>
 
 <div th:replace="~{fragments/header.html :: top-nav-bar}"></div>
@@ -201,11 +201,5 @@
         </div>
     </div>
 </div>
-
-<script>
-    $(document).ready(function () {
-        on_profile_page_load();
-    });
-</script>
 </body>
 </html>
