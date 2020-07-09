@@ -2,6 +2,7 @@ package com.board_of_ads.service.interfaces;
 
 import com.board_of_ads.models.User;
 import com.board_of_ads.models.posting.Posting;
+import com.board_of_ads.models.posting.extra.PostingStatus;
 
 import java.util.List;
 
@@ -12,6 +13,8 @@ public interface PostingService {
     Posting getPostingById(Long id);
 
     List<Posting> getUserPostings(User user);
+
+    List<Posting> getUserPostingsByStatus(User user, PostingStatus postingStatus);
 
     List<Posting> getAllPostings();
 

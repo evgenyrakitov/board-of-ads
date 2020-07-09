@@ -18,7 +18,7 @@ import java.util.Map;
 @RestController
 @AllArgsConstructor
 @RequestMapping("/rest/i18n")
-public class I18nRest {
+public class I18nRestController {
 
     private static final Logger logger = LoggerFactory.getLogger(RoleRestController.class);
 

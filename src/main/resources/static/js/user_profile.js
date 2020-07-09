@@ -162,6 +162,13 @@ let user_profile = {
             let i = 0;
 
             html.push('<h1 class="heading">' + messages['profile.postings.title'] + '</h1>')
+
+            html.push(`<ul class="nav-tabs" style="border-bottom: 0px;">`);
+            html.push(`<li class="nav-tab nav-tab_active" title="Ждут действий&nbsp;&nbsp;1">`);
+            html.push(`<span class="nav-tab-title" title="Ждут действий">Ждут действий</span><span class="nav-tab-num">&nbsp;&nbsp;1</span></li>`);
+            html.push(`<li class="nav-tab" title="Архив&nbsp;&nbsp;6"><a class="nav-tab-link" style="text-decoration: none;" href="/profile/items/old">Архив</a><span class="nav-tab-num">&nbsp;&nbsp;6</span></li>`);
+            html.push(`</ul>`);
+
             html.push('<div class="js-personal-items">');
             postingsDTOs.forEach(function (dto) {
                 i++;

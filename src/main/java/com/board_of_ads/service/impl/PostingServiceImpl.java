@@ -2,6 +2,7 @@ package com.board_of_ads.service.impl;
 
 import com.board_of_ads.models.User;
 import com.board_of_ads.models.posting.Posting;
+import com.board_of_ads.models.posting.extra.PostingStatus;
 import com.board_of_ads.repository.PostingRepository;
 import com.board_of_ads.service.interfaces.PostingService;
 import lombok.AllArgsConstructor;
@@ -37,6 +38,11 @@ public class PostingServiceImpl implements PostingService {
     }
 
     @Override
+    public List<Posting> getUserPostingsByStatus(User user, PostingStatus postingStatus) {
+        return postingRepository.findAllByUserAndStatus(user, postingStatus);
+    }
+
+    @Override
     public List<Posting> getAllPostings() {
         return postingRepository.findAll();
     }
@@ -49,7 +55,5 @@ public class PostingServiceImpl implements PostingService {
     @Override
     public List<Posting> getPostingsByCityId(String cityId) {
         return postingRepository.findAllByCityId(cityId);
-
-
     }
 }
