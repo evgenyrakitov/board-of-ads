@@ -58,6 +58,10 @@ public class PostingServiceImpl implements PostingService {
         return postingRepository.findAllByCategoryAndRegionId(category, regionId);
     }
 
+    @Override
+    public List<Posting> findAllByCategory(Category category) {
+        return postingRepository.findAllByCategory(category);
+    }
 
 
     @Override

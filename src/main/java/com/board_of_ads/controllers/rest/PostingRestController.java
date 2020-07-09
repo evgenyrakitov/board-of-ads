@@ -130,9 +130,10 @@ public class PostingRestController {
             category1 = categoryService.findCategoryByNameRu(category);
             if (city != null){
                 postingList = postingService.findAllByCategoryAndCityId(category1, city.getId().toString());
-            } else {
+            } else if (region != null){
                 postingList = postingService.findAllByCategoryAndRegionId(category1, region.getId().toString());
             }
+            postingList = postingService.findAllByCategory(category1);
         } else {
             if (city != null){
                 postingList = postingService.getPostingsByCityId(city.getName());

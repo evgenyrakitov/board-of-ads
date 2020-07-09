@@ -25,6 +25,8 @@ public interface PostingService {
 
     List<Posting> findAllByCategoryAndRegionId(Category category, String regionId);
 
+    List<Posting> findAllByCategory(Category category);
+
 
 
 

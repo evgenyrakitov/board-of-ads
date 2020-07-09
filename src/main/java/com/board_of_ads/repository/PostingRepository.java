@@ -26,6 +26,8 @@ public interface PostingRepository extends JpaRepository<Posting, Long> {
 
     List<Posting> findAllByCategoryAndRegionId(Category category, String regionId);
 
+    List<Posting> findAllByCategory(Category category);
+
 
 
 }
