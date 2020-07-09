@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 public class PostingController {
     private static final Logger logger = LoggerFactory.getLogger(PostingController.class);
 
-    @GetMapping("/posting")
-    public String getDetailsPage() {
+    @GetMapping("/posting/{id}")
+    public String getDetailsPage(@PathVariable Long id) {
         return "posting";
     }
 
