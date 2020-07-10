@@ -1,11 +1,9 @@
 section {
     display: flex;
 }
-
-body {
+body{
     min-width: 500px;
 }
-
 .favorites_and_notes {
     display: flex;
 }
@@ -24,7 +22,6 @@ body {
     transition: .3s;
     text-align: center;
 }
-
 .button_follow {
     display: flex;
     /*width: 215px;*/
@@ -53,7 +50,7 @@ body {
 }
 
 .button_favorite:hover,
-.button_follow:hover {
+.button_follow:hover{
     background: #dedee0;
 }
 
@@ -134,10 +131,9 @@ body {
 
 .panel_control_slider img {
     width: 23%;
-    height: 140px;
+    height: auto;
     margin: 5px;
 }
-
 .panel_control_slider img:hover {
     cursor: pointer;;
 }
@@ -159,33 +155,28 @@ a:hover {
     border: 1px solid #0af;
     background: #0af;
 }
-
-.some_info_block {
+.some_info_block{
     width: 350px;
     transition: .5s;
     margin-left: 25px;
 }
-
-.some_info_block.active {
+.some_info_block.active{
     position: fixed;
     left: 50%;
     top: 150px;
     transition: .5s;
 }
-
-.some_info_block.active2 {
+.some_info_block.active2{
     position: fixed;
 
     top: 55px;
     transition: .5s;
 }
-
-.price_button {
+.price_button{
     position: absolute;
     pointer-events: none;
     opacity: 0;
 }
-
 .some_info_block h2 {
     margin-bottom: 53px;
 }
@@ -228,11 +219,9 @@ a:hover {
     letter-spacing: -1px;
     margin-bottom: 5px;
 }
-
-.main_posting_block {
+.main_posting_block{
     width: 50%;
 }
-
 .customer_info {
     margin-bottom: 25px;
 }
@@ -254,83 +243,52 @@ a:hover {
 .follow_customer a span {
     margin: 0;
 }
-
-.serial_number {
+.serial_number{
     margin-top: 50px;
     border-top: 1px solid gainsboro;
     padding-top: 15px;
     display: flex;
 }
-
-.serial_number svg {
+.serial_number svg{
     fill: gainsboro;
     margin-left: 15px;
 }
-
-.google_map {
+.google_map{
     margin-top: 50px;
 }
-
 .card {
     border: none;
 }
-
-.card-header {
+.card-header{
     padding: 0;
     background: none;
 }
-
-#collapseOne {
+#collapseOne{
     transition: 1s;
 }
-
 .btn-link:hover {
     color: #0056b3;
     text-decoration: none !important;
 }
-
 .btn-link {
     color: #0056b3;
     text-decoration: none !important;
 }
-
-.card-header svg {
+.card-header svg{
     fill: #0056b3;
     font-size: 1rem;
     transition: .5s;
     transform: rotateX(180deg);
 }
-
 .card-header .btn {
     display: flex;
     justify-content: flex-end;
     align-items: center;
 }
-
-.card-body {
-    padding: 15px 0 0 0;
+.card-body  {
+    padding: 15px 0 0 0 ;
 }
-
-.card-body iframe {
+.card-body iframe{
     width: 100%;
     height: 400px;
-}
-
-.carousel-item {
-    /*background: rgba(0, 0, 0, .5);*/
-    height: 100%;
-}
-
-.carousel-item img {
-    width: auto !important;
-    height: 100%;
-    margin: 0 auto;
-}
-
-.carousel-control-next, .carousel-control-prev {
-    background: black;
-    opacity: .3;
-}
-.carousel-control-next:hover, .carousel-control-prev:hover {
-    opacity: .5;
 }

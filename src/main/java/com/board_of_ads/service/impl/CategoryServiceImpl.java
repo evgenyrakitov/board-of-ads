@@ -42,14 +42,4 @@ public class CategoryServiceImpl implements CategoryService {
         return categoryRepository.getRootCategories();
     }
 
-    @Override
-    public List<Category> getCategoriesByParentCategory(Category category) {
-        return categoryRepository.getCategoriesByParentCategory(category);
-    }
-
-    @Override
-    public Category getCategoryById(Long id) {
-        return categoryRepository.getCategoryById(id);
-    }
-
 }
