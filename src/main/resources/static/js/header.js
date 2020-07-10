@@ -13,12 +13,12 @@ var categories = null;
 $(document).ready(function () {
     if (localStorage.getItem('locale') == null) {
         localStorage.setItem("locale", "ru");
-        $(".dropdown-toggle").html('<img src="/images/header/ru.svg" width="30">');
+        $(".dropdown-toggle").html('<img src="images/header/ru.svg" width="30">');
     } else {
         if (localStorage.getItem("locale") == "ru") {
-            $(".dropdown-toggle").html('<img src="/images/header/ru.svg" width="30">');
+            $(".dropdown-toggle").html('<img src="images/header/ru.svg" width="30">');
         } else {
-            $(".dropdown-toggle").html('<img src="/images/header/en.svg" width="30">');
+            $(".dropdown-toggle").html('<img src="images/header/en.svg" width="30">');
         }
     }
     $.ajax({

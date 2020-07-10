@@ -1,11 +1,11 @@
 $(window).scroll(function () {
-    if ($(window).width() < 900) {
+    if ( $(window).width() < 900 ) {
         if ($(this).scrollTop() > 80) {
             $(".some_info_block").addClass("active2");
         } else {
             $(".some_info_block").removeClass("active2");
         }
-    } else {
+    }else {
         if ($(this).scrollTop() > 80) {
             $(".some_info_block").addClass("active");
         } else {
@@ -14,10 +14,9 @@ $(window).scroll(function () {
     }
 
 });
-var asd = window.location.pathname;
 $(document).ready(function () {
     $.ajax({
-        url: '/rest' + window.location.pathname,
+        url: '/rest/posting/getPostingInfo',
         type: 'get',
         dataType: 'json',
         success: function (data) {
@@ -25,31 +24,6 @@ $(document).ready(function () {
             $(".some_info_block").prepend("<h2>" + data.price + " ₽</h2>");
             $(".price_button").prepend("<span>" + data.price + " ₽</span>");
             $(".full_description").prepend("<p>" + data.fullDescription + "</p>");
-            $(".show_telephone span").text(data.user.phone);
-            $(".customer_info div a").text(data.user.publicName);
-            for (var i in data.imagePath) {
-                if (i == 0) {
-                    $(".carousel-inner").append(
-                        '<div class="carousel-item active" data-img = "' + data.imagePath[i].imagePath + '">\n' +
-                        '   <img src="' + data.imagePath[i].imagePath + '"  class="d-block w-100" alt="...">\n' +
-                        '</div>'
-                    );
-                    $(".panel_control_slider").append(
-                        '<img class="active" data-img = "' + data.imagePath[i].imagePath + '"  src="' + data.imagePath[i].imagePath + '" onmouseover="f(this)">'
-                    );
-                } else {
-                    $(".carousel-inner").append(
-                        '<div class="carousel-item" data-img = "' + data.imagePath[i].imagePath + '">\n' +
-                        '   <img src="' + data.imagePath[i].imagePath + '" class="d-block w-100" alt="...">\n' +
-                        '</div>'
-                    );
-                    $(".panel_control_slider").append(
-                        '<img class=""  data-img = "' + data.imagePath[i].imagePath + '" src="' + data.imagePath[i].imagePath + '" onmouseover="f(this)">'
-                    );
-                }
-            }
-
-
         }
     });
 });
@@ -85,12 +59,14 @@ $(".in_favorite").click(function () {
         $(".button_favorite span").text("Добавить в избранное");
     }
 });
-
-function f(e) {
-    var id = e.dataset.img;
-    $('.panel_control_slider img').removeClass('active');
-    $('.carousel-item').removeClass('active');
-    $('.carousel-inner [data-img="' + id + '"]').addClass("active");
-    e.classList.add("active");
-}
+$('.panel_control_slider img').eq(0).addClass("active");
+$(document).ready(function () {
+    $('.panel_control_slider img').hover(function (e) {
+        var images = $('.panel_control_slider img').index(this);
+        $('.panel_control_slider img').removeClass('active');
+        $('.panel_control_slider img').eq(images).addClass("active");
+        $('.carousel-item').removeClass('active');
+        $('.carousel-item').eq(images).addClass("active");
+    });
+});
 
