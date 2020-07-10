@@ -10,12 +10,16 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
         <!--        -->
-        <link rel="stylesheet" th:href="@{/webjars/bootstrap/4.5.0/css/bootstrap.min.css}">
-        <link rel="stylesheet" type="text/css" th:href="@{/css/normalize.css}"/>
-        <link rel="stylesheet" type="text/css" th:href="@{/css/header-styles.css}"/>
-        <link rel="stylesheet" type="text/css" th:href="@{/css/media/header-media.css}"/>
-        <link id="favicon" rel="shortcut icon" type="image/x-icon" th:href="@{/favicon.ico}"/>
-        <link rel="stylesheet" th:href="@{/css/modal_reg.css}">
+        <link rel="stylesheet" href="webjars/bootstrap/4.5.0/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css"
+              href="../static/css/normalize.css" th:href="@{/css/normalize.css}"/>
+        <link rel="stylesheet" type="text/css"
+              href="../static/css/header-styles.css" th:href="@{/css/header-styles.css}"/>
+        <link rel="stylesheet" type="text/css"
+              href="../static/css/media/header-media.css" th:href="@{/css/media/header-media.css}"/>
+        <link id="favicon" rel="shortcut icon" type="image/x-icon" href="../static/favicon.ico"
+              th:href="@{favicon.ico}"/>
+        <link rel="stylesheet" href="../static/css/modal_reg.css" th:href="@{/css/modal_reg.css}">
     </div>
 </head>
 <body>
@@ -30,7 +34,7 @@
                 <span id="span3"></span>
             </div>
             <div class="logo_min">
-                <img src="/images/header/logo.png" alt="">
+                <img src="images/header/logo.png" alt="">
             </div>
         </div>
         <div class="bg_black_header"></div>
@@ -78,12 +82,12 @@
                         <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
                             <button class="dropdown-item locale_ru" type="button">
                                 <a href="?locale=ru">
-                                    <img src="/images/header/ru.svg" width="30">
+                                    <img src="images/header/ru.svg" width="30">
                                 </a>
                             </button>
                             <button class="dropdown-item locale_en" type="button">
                                 <a href="?locale=en">
-                                    <img src="/images/header/en.svg" width="30">
+                                    <img src="images/header/en.svg" width="30">
                                 </a>
                             </button>
                         </div>
@@ -96,7 +100,7 @@
         <nav class="navbar navbar-expand-sm navbar-light bg-white header-element ">
             <div class="d-flex justify-content-between align-items-center">
                 <div class="logo">
-                    <img src="/images/header/logo.png" alt="">
+                    <img src="images/header/logo.png" alt="">
                 </div>
                 <ul class="navbar-nav mr-auto category_link" id="header_category_list">
 
@@ -360,11 +364,12 @@
     </div>
 </div>
 <div th:fragment="script">
-    <script th:src="@{/webjars/jquery/3.5.1/jquery.min.js}"></script>
-    <script th:src="@{/webjars/popper.js/1.16.0/popper.min.js}"></script>
-    <script th:src="@{/webjars/bootstrap/4.5.0/js/bootstrap.min.js}"></script>
-    <script th:src="@{/js/header.js}"></script>
-    <script th:src="@{/js/modal_registation.js}"></script>
-    <script th:src="@{/js/modal_location.js}"></script>
+    <script src="webjars/jquery/3.5.1/jquery.min.js"></script>
+    <script src="webjars/popper.js/1.16.0/popper.min.js" type="module"></script>
+    <script src="webjars/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <script src="../static/js/header.js" th:src="@{/js/header.js}"></script>
+    <script src="/js/modal_registation.js" th:src="@{/js/modal_registation.js}" type="module"></script>
+    <script src="/js/modal_registation.js" th:src="@{/js/registration.js}" type="module"></script>
+    <script src="../static/js/modal_registation.js" type="module" th:src="@{/js/modal_location.js}"></script>
 </div>
 </body>
