@@ -1,9 +1,11 @@
 import * as reg from './registration.js';
 
 $(".open-modal-1").click(function(){
+    console.log("я ёбаный вызов ебаного окна входа!")
     $("#modal-reg-1").modal('show');    //окно входа
 });
 $("#open-modal-2").click(function () {
+    console.log("я жалкое окно регистрации!");
     $("#modal-reg-2").modal("show");    //окно регистрации
 });
 $("#open-modal-3").click(function () {

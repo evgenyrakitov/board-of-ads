@@ -95,7 +95,7 @@ function dd () {
         warningPass("#password");
         warningPass("#password_confirm");
         alert("пароли не совпадают!");
-        exit(1);
+        // exit(1);
     }
 
     //===================== test 3 - minimal legth ==========//
