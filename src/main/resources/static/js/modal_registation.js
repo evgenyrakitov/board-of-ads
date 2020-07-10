@@ -1,11 +1,9 @@
 import * as reg from './registration.js';
 
 $(".open-modal-1").click(function(){
-    // console.log("я ёбаный вызов ебаного окна входа!")
     $("#modal-reg-1").modal('show');    //окно входа
 });
 $("#open-modal-2").click(function () {
-    console.log("я жалкое окно регистрации!");
     $("#modal-reg-2").modal("show");    //окно регистрации
 });
 $("#open-modal-3").click(function () {
@@ -14,7 +12,7 @@ $("#open-modal-3").click(function () {
 
 $("#btn-reg").click(function (event) {
     event.preventDefault();
-    let user_1 = $("#add-reg-form").serialize();        //переделать!
+    // let user_1 = $("#add-reg-form").serialize();        //переделать!
 
     //begin namor script
     let email = $("#login").val();
@@ -22,7 +20,6 @@ $("#btn-reg").click(function (event) {
     let password_confirm = $("#password_confirm").val();
     let public_name = $('#public_name').val();
     let phone = $("#phone").val();
-    // let resultArray = new Array();
     let sum = 0;
     console.log("начало функции проверки!");
 
@@ -99,7 +96,7 @@ $("#btn-reg").click(function (event) {
         console.log("это последний шанс всё  исправить...");
     }
     //end script
-
+/*   это было временное решение, используемое Вадимом когда еще не было работающей авторизации с сохранением
     $.post($("#add-reg-form").attr("action"), user_1, function(user){
         let k = [];
         k = user;
@@ -121,7 +118,7 @@ $("#btn-reg").click(function (event) {
                 "</div></div>";
             $("#li").html(menu);
         });
-
+*/
 });
 
 /*
