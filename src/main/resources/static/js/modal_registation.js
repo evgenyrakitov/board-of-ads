@@ -1,8 +1,10 @@
+import * as reg from './registration.js';
+
 $(".open-modal-1").click(function(){
-    $("#modal-reg-1").modal('show');
+    $("#modal-reg-1").modal('show');    //окно входа
 });
 $("#open-modal-2").click(function () {
-    $("#modal-reg-2").modal("show");
+    $("#modal-reg-2").modal("show");    //окно регистрации
 });
 $("#open-modal-3").click(function () {
     $("#modal-reg-3").modal("show");

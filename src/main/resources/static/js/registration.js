@@ -1,3 +1,5 @@
+export default class {}
+
 function passwordExist (word) {
     if (word.length > 0) {
         return true;
