@@ -5,8 +5,10 @@ import com.board_of_ads.models.Images;
 import com.board_of_ads.models.Role;
 import com.board_of_ads.models.User;
 import com.board_of_ads.models.posting.Posting;
+import com.board_of_ads.models.posting.extra.PostingStatus;
 import com.board_of_ads.service.interfaces.CategoryService;
 import com.board_of_ads.service.interfaces.PostingService;
+import com.board_of_ads.service.interfaces.PostingStatusService;
 import com.board_of_ads.service.interfaces.RoleService;
 import com.board_of_ads.service.interfaces.UserService;
 import lombok.AllArgsConstructor;
@@ -28,12 +30,14 @@ public class DataInitializer {
     private final UserService userService;
     private final CategoryService categoryService;
     private final PostingService postingService;
+    private final PostingStatusService postingStatusService;
 
     @PostConstruct
     private void init() {
         initRoles();
         initUsers();
         initCategories();
+        initPostingStatuses();
         initPostings();
     }
 
@@ -68,6 +72,40 @@ public class DataInitializer {
         userService.addUser(userUser);
     }
 
+    private void initPostingStatuses() {
+        if (postingStatusService.getAllPostingStatuses().size() != 0) {
+            return;
+        }
+
+        PostingStatus postingStatus = new PostingStatus();
+        postingStatus.setId(1L);
+        postingStatus.setName("active");
+        postingStatus.setDescription_single("Активно (описание по умолчанию)");
+        postingStatus.setDescription_many("Активные (описание по умолчанию)");
+        postingStatusService.addPostingStatus(postingStatus);
+
+        postingStatus = new PostingStatus();
+        postingStatus.setId(2L);
+        postingStatus.setName("archive");
+        postingStatus.setDescription_single("В архиве (описание по умолчанию)");
+        postingStatus.setDescription_many("В архиве (описание по умолчанию)");
+        postingStatusService.addPostingStatus(postingStatus);
+
+        postingStatus = new PostingStatus();
+        postingStatus.setId(3L);
+        postingStatus.setName("waiting");
+        postingStatus.setDescription_single("Ожидает публикации (описание по умолчанию)");
+        postingStatus.setDescription_many("Ожидают публикации (описание по умолчанию)");
+        postingStatusService.addPostingStatus(postingStatus);
+
+        postingStatus = new PostingStatus();
+        postingStatus.setId(4L);
+        postingStatus.setName("moderating");
+        postingStatus.setDescription_single("На модерации (описание по умолчанию)");
+        postingStatus.setDescription_many("На модерации (описание по умолчанию)");
+        postingStatusService.addPostingStatus(postingStatus);
+    }
+
     private void initPostings() {
         if (postingService.getAllPostings().size() != 0) {
             return;
@@ -78,7 +116,7 @@ public class DataInitializer {
 
 
         List<Category> categories = categoryService.getAllCategories().stream().sorted(Comparator.comparing(Category::getNameRu)).collect(Collectors.toList());
-
+        List<PostingStatus> postingStatuses = postingStatusService.getAllPostingStatuses().stream().sorted(Comparator.comparing(PostingStatus::getId)).collect(Collectors.toList());
         /////// Постинг категории Недвижимость
 
         Images images1 = new Images();
@@ -116,6 +154,7 @@ public class DataInitializer {
         posting.setPrice(3_500_000);
         posting.setRegionId("23");
         posting.setCityId("212");
+        posting.setStatus(postingStatuses.get(0));
         postingService.addPosting(posting);
 
         posting = new Posting();
@@ -128,6 +167,7 @@ public class DataInitializer {
         posting.setImagePath(set2);
         posting.setRegionId("23");
         posting.setCityId("212");
+        posting.setStatus(postingStatuses.get(2));
         postingService.addPosting(posting);
 
         posting = new Posting();
@@ -140,6 +180,7 @@ public class DataInitializer {
         posting.setImagePath(set3);
         posting.setRegionId("50");
         posting.setCityId("758");
+        posting.setStatus(postingStatuses.get(2));
         postingService.addPosting(posting);
 
 
@@ -178,6 +219,7 @@ public class DataInitializer {
         posting.setPrice(680_000);
         posting.setRegionId("77");
         posting.setCityId("1400");
+        posting.setStatus(postingStatuses.get(3));
         postingService.addPosting(posting);
 
         posting = new Posting();
@@ -190,6 +232,7 @@ public class DataInitializer {
         posting.setImagePath(seta2);
         posting.setRegionId("77");
         posting.setCityId("1400");
+        posting.setStatus(postingStatuses.get(0));
         postingService.addPosting(posting);
 
         posting = new Posting();
@@ -202,6 +245,7 @@ public class DataInitializer {
         posting.setImagePath(seta3);
         posting.setRegionId("50");
         posting.setCityId("740");
+        posting.setStatus(postingStatuses.get(2));
         postingService.addPosting(posting);
 
     //////////////// Бытовая техника
@@ -239,6 +283,7 @@ public class DataInitializer {
         posting.setPrice(20_000);
         posting.setRegionId("50");
         posting.setCityId("740");
+        posting.setStatus(postingStatuses.get(0));
         postingService.addPosting(posting);
 
         posting = new Posting();
@@ -251,6 +296,7 @@ public class DataInitializer {
         posting.setImagePath(setb1);
         posting.setRegionId("50");
         posting.setCityId("740");
+        posting.setStatus(postingStatuses.get(3));
         postingService.addPosting(posting);
 
         posting = new Posting();
@@ -263,6 +309,7 @@ public class DataInitializer {
         posting.setImagePath(setb3);
         posting.setRegionId("50");
         posting.setCityId("758");
+        posting.setStatus(postingStatuses.get(0));
         postingService.addPosting(posting);
 
  //////////////// Бытовая техника
@@ -300,6 +347,7 @@ public class DataInitializer {
         posting.setPrice(3_000);
         posting.setRegionId("50");
         posting.setCityId("758");
+        posting.setStatus(postingStatuses.get(0));
         postingService.addPosting(posting);
 
         posting = new Posting();
@@ -312,6 +360,7 @@ public class DataInitializer {
         posting.setImagePath(setc2);
         posting.setRegionId("50");
         posting.setCityId("758");
+        posting.setStatus(postingStatuses.get(1));
         postingService.addPosting(posting);
 
         posting = new Posting();
@@ -324,6 +373,7 @@ public class DataInitializer {
         posting.setImagePath(setc3);
         posting.setRegionId("50");
         posting.setCityId("758");
+        posting.setStatus(postingStatuses.get(3));
         postingService.addPosting(posting);
 
 

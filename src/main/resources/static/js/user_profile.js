@@ -1,7 +1,11 @@
 var messages = [];
 
+$(document).ready(function () {
+    on_profile_page_load();
+});
+
 let formatMoney = function (x) {
-    var parts = x.toString().split(".");
+    let parts = x.toString().split(".");
     parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, " ");
     return parts.join(".");
 }
@@ -52,6 +56,16 @@ let on_profile_page_load = function () {
         return true;
     });
 
+    $('#navlink-my-wallet').click(function (e) {
+        user_profile.show_wallet(this);
+        return true;
+    });
+
+    $('#navlink-my-paid-services').click(function (e) {
+        user_profile.show_paid_services(this);
+        return true;
+    });
+
     let event = new Event("click");
     switch (window.location.hash) {
         case "#postings":
@@ -75,6 +89,12 @@ let on_profile_page_load = function () {
         case "#rating":
             document.getElementById("navlink-my-rating").dispatchEvent(event);
             break;
+        case "#wallet":
+            document.getElementById("navlink-my-wallet").dispatchEvent(event);
+            break;
+        case "#paid_services":
+            document.getElementById("navlink-my-paid-services").dispatchEvent(event);
+            break;
         default:
             document.getElementById("navlink-my-postings").dispatchEvent(event);
             break;
@@ -93,8 +113,7 @@ let user_profile = {
     show_postings: function (element) {
         this.deselectAllNavLinks();
         element.classList.add("profile-sidebar-navigation-link-active-3sgHn");
-        this.draw_postings_block();
-        //document.getElementById("user_page_content").innerHTML = "<h1 class=\"heading\">Мои объявления</h1>";
+        this.draw_postings_block_header();
     },
     show_feedbacks: function (element) {
         this.deselectAllNavLinks();
@@ -126,32 +145,54 @@ let user_profile = {
         $("#navlink-my-rating").attr("style", "color: black");
         document.getElementById("user_page_content").innerHTML = "<h1 class=\"heading\">" + messages['profile.feedbacks.title'] + "</h1>";
     },
+    show_wallet: function (element) {
+        this.deselectAllNavLinks();
+        element.classList.add("profile-sidebar-navigation-link-active-3sgHn");
+        document.getElementById("user_page_content").innerHTML = "<h1 class=\"heading\">" + messages['profile.wallet.title'] + "</h1>";
+    },
+    show_paid_services: function (element) {
+        this.deselectAllNavLinks();
+        element.classList.add("profile-sidebar-navigation-link-active-3sgHn");
+        document.getElementById("user_page_content").innerHTML = "<h1 class=\"heading\">" + messages['profile.paid_services.title'] + "</h1>";
+    },
+    show_postings_by_status: function (element) {
+        let status = element.getAttribute("data-status");
 
-    ///////// HTML GENERATORS ////////
+        $(".nav-tab-posting-status").each(function () {
+            this.classList.remove("nav-tab_active");
+        });
+        element.closest("li").classList.add("nav-tab_active");
 
-    draw_postings_block: function () {
-        $.get("/rest/user_profile/postings", function (postingsDTOs) {
+        user_profile.draw_postings_block(status);
+        return false;
+    },
 
-            let postingBlock = document.getElementById("user_page_content");
+    ///////// BEGIN HTML GENERATORS ////////
+
+    draw_postings_block: function (status) {
+        $.get("/rest/user_profile/postings/" + status, function (postingsDTOs) {
+
+            let postingBlock = document.getElementById("postings_content");
             let html = [];
             let i = 0;
 
-            html.push('<h1 class="heading">' + messages['profile.postings.title'] + '</h1>')
             html.push('<div class="js-personal-items">');
             postingsDTOs.forEach(function (dto) {
                 i++;
+                let imageUrl = '/images/image-placeholder.png';
+                if (dto.images.length > 0) {
+                    imageUrl = dto.images[0].imagePath;
+                }
 
                 html.push('<div class="personal-items-line-3mthn"></div>');
-
                 if (i == 1) {
                     html.push('<div class="item-snippet-root-1ZIn9" data-marker="item-snippet/1148965022">');
                 } else {
                     html.push('<div class="item-snippet-root-1ZIn9" data-marker="item-snippet/1148965022" style="border-top: 1px solid #f5f5f5;">');
                 }
-
                 html.push('<div class="item-snippet-snippet-1XIaf">');
                 html.push('<a class="item-preview-root-PsYRy item-snippet-column-1FtP4 item-snippet-column_preview-1O6d5" href="' + dto.url + '">');
-                html.push(`<div class="item-preview-image-16c92" style="background-image: url('/images/image-placeholder.png');"></div>`);
+                html.push(`<div class="item-preview-image-16c92" style="background-image: url(` + imageUrl + `); background-size: cover;"></div>`);
                 html.push('<div class="item-preview-icons-2ty4_"><i class="item-preview-icon-2pte7 item-preview-icon_photo-2wudU">1</i></div>');
                 html.push('</a>');
                 html.push('<div class="item-body-root-371IO item-snippet-column-1FtP4 item-snippet-column_body-2uA-_">');
@@ -182,6 +223,38 @@ let user_profile = {
             })
             html.push('</div>');
             postingBlock.innerHTML = html.join('');
+        });
+    },
+
+    draw_postings_block_header: function () {
+        $.get("/rest/user_profile/postingsInfo", function (postingsInfo) {
+
+            let postingBlock = document.getElementById("user_page_content");
+            let html = [];
+            let i = 0;
+            let firstAndActiveStatus = "";
+
+            html.push('<h1 class="heading">' + messages['profile.postings.title'] + '</h1>')
+
+            html.push(`<ul class="nav-tabs" style="border-bottom: 0px;">`);
+            postingsInfo.forEach(function (postingInfo) {
+                i++;
+                if (i === 1) {
+                    html.push(`<li class="nav-tab-posting-status nav-tab nav-tab_active" title="` + postingInfo.status.description_many + `&nbsp;&nbsp;` + postingInfo.count + `"><a id="postings-status-` + postingInfo.status.name + `" class="nav-tab-link" style="text-decoration: none; cursor: pointer;" href="#" data-status="` + postingInfo.status.name + `" onclick="return user_profile.show_postings_by_status(this)">` + postingInfo.status.description_many + `</a><span class="nav-tab-num">&nbsp;&nbsp;` + postingInfo.count + `</span></li>`);
+                    firstAndActiveStatus = postingInfo.status.name;
+                } else {
+                    html.push(`<li class="nav-tab-posting-status nav-tab" title="` + postingInfo.status.description_many + `&nbsp;&nbsp;` + postingInfo.count + `"><a id="postings-status-` + postingInfo.status.name + `" class="nav-tab-link" style="text-decoration: none; cursor: pointer;" href="#" data-status="` + postingInfo.status.name + `" onclick="return user_profile.show_postings_by_status(this)">` + postingInfo.status.description_many + `</a><span class="nav-tab-num">&nbsp;&nbsp;` + postingInfo.count + `</span></li>`);
+                }
+            })
+            html.push(`</ul>`);
+            html.push(`<div id="postings_content"></div>`);
+
+            postingBlock.innerHTML = html.join('');
+
+            if (i >= 1) {
+                let eventClick = new Event('click');
+                document.getElementById("postings-status-" + firstAndActiveStatus).dispatchEvent(eventClick);
+            }
         });
     }
 }
