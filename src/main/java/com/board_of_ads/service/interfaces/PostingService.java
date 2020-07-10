@@ -2,6 +2,7 @@ package com.board_of_ads.service.interfaces;
 
 import com.board_of_ads.models.User;
 import com.board_of_ads.models.posting.Posting;
+import com.board_of_ads.models.posting.extra.PostingStatus;
 
 import java.util.List;
 
@@ -19,4 +20,5 @@ public interface PostingService {
 
     List<Posting> getPostingsByRegionId(String regionId);
 
+    List<Posting> getUserPostingsByStatus(User principal, PostingStatus postingStatus);
 }
