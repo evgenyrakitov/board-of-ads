@@ -79,4 +79,5 @@ public class CategoryRestController {
         }
         return ResponseEntity.ok(allCategoriesDTO);
     }
+
 }

@@ -1,69 +1,77 @@
-
+let category = [];
 $("#findFromCategory").click(function () {
     //event.preventDefault();
-    $.get("/rest/categories", null, function (data) {
-        let parentCategory = [];
-        let parentCategory_2 = [];
-        let parentCategory_1 = [];
-        let category = [];
-        let id = "";
+    $.get("/rest/categories/dto", null, function (data) {
+        let parentCategory = "";
+
         category = data;
-        let nameRu = "";
         let option = "";
-        let select = "";
+        let id = "";
+        let name = "";
         for (let i = 0; i < category.length; i++) {
             id = category[i].id;
-            nameRu = category[i].nameRu;
+            name = category[i].name;
             parentCategory = category[i].parentCategory;
-            if (parentCategory == null) {
-                option += "<option style='background: #7f8fa6' id='category"+id+"'>"+nameRu+"</option>";
+            if (parentCategory == null ) {
+                option += "<option style='background: #d6d6d6' id='category" + id +"'>" + name + "</option>";
+                option +=    getCategories(name);
             }
-            for (let j = 0; j < category.length ; j++) {
-                parentCategory_1 = category[j].parentCategory;
-                if (parentCategory_1==null)continue;
-                if(parentCategory_1.id === id){
-                    option += "<option id='1parent-category"+category[j].id+"'>"+category[j].nameRu+"</option>";
-                } else {
-                    parentCategory_2 = parentCategory_1.parentCategory;
-                    if (parentCategory_2 == null)continue;
-                    if (parentCategory_2.id === id){
-                        option += "<option id='2parent-category"+parentCategory_1.id+"'>"+category[j].nameRu+"</option>";
-                    }
-                }
-            }
+
         }
+
         $("#findFromCategory").append(option);
     });
 });
 
-$("#btn-search").click(function () {
-    let search = $("#search-form").serialize();
-    $.ajax({
-        url: "/rest/posting/search",
-        method: "GET",
-        data: search,
-        dataType: 'json',
-        success: function (data) {
-            drawPosting(data);
+
+function getCategories(parentCategory) {
+        let option = "";
+        let parentCategory_1 = "";
+        for (let i = 0; i < category.length; i++) {
+            if (category[i].parentCategory === parentCategory){
+                option += "<option style='font-weight: bold' id='1category" + category[i].id + "'>" + category[i].name + "</option>";
+                for (let j = 0; j < category.length; j++) {
+                    parentCategory_1 = category[j].parentCategory;
+                    if (parentCategory_1 === category[i].name) {
+                        option += "<option id='2category" + category[j].id + "'>" + category[j].name + "</option>";
+                    }
+
+                }
+            }
         }
-    });
-
-
-});
-
-function drawPosting(data) {
-    $(".container_cus").empty();
-    data.forEach(posting => {
-        $(".container_cus").append(
-            '<div class="card">\n' +
-            '            <img src="' + posting.imagePath[0].imagePath + '" class="card-img-top" alt="...">\n' +
-            '            <div class="card-body">\n' +
-            '                <h5 class="card-title">' + posting.title + '</h5>\n' +
-            '                <p class="card-text">' + posting.price + '</p>\n' +
-            '                <a href="adDetails" class="btn btn-primary" ' +
-            'th:text="#{main-page.go_to_ad}">Перейти к объявлению</a>\n' +
-            '            </div>\n' +
-            '        </div>'
-        );
-    });
+        return option;
 }
+
+    $("#btn-search").click(function () {
+        let search = $("#search-form").serialize();
+        $.ajax({
+            url: "/rest/posting/search",
+            method: "GET",
+            data: search,
+            dataType: 'json',
+            success: function (data) {
+                if (data.length === 0) {
+                    alert("По Вашему поиску ничего не найдено");
+                } else drawPosting(data);
+            }
+        });
+
+
+    });
+
+    function drawPosting(data) {
+        $(".container_cus").empty();
+        data.forEach(posting => {
+            $(".container_cus").append(
+                '<div class="card">\n' +
+                '            <img src="' + posting.imagePath[0].imagePath + '" class="card-img-top" alt="...">\n' +
+                '            <div class="card-body">\n' +
+                '                <h5 class="card-title">' + posting.title + '</h5>\n' +
+                '                <p class="card-text">' + posting.price + '</p>\n' +
+                '                <a href="adDetails" class="btn btn-primary" ' +
+                'th:text="#{main-page.go_to_ad}">Перейти к объявлению</a>\n' +
+                '            </div>\n' +
+                '        </div>'
+            );
+        });
+    }

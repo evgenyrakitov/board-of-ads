@@ -53,7 +53,7 @@ $("#location-list").click(function (event) {
 $("#location-close").click(function () {
     let dataId = $("#location-search").attr("data");
     let locationName = $("#location-search").val();
-    //locationName = locationName.replace(/\([^()]*\)/g, '');
+    locationName = locationName.replace(/\([^()]*\)/g, '');
     $("#locationModal").modal('hide');
     /*let search = $("#location-search").val();*/
     let option = "<option selected id='"+dataId+"'>"+locationName+"</option>";

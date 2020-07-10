@@ -101,64 +101,78 @@ public class PostingRestController {
         posting.setShortDescription("Краткое описание");
         posting.setTitle("Автокресло 0-1");
         List<Posting> list = new ArrayList<>();
-        for (int i = 0; i< 77; i++){
+        for (int i = 0; i < 77; i++) {
             list.add(posting);
         }
         return !list.isEmpty()
                 ? new ResponseEntity<>(list, HttpStatus.OK)
                 : new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
+
     @GetMapping("/search")
     public ResponseEntity<List<Posting>> getSearchForm(@RequestParam String category,
-                                                @RequestParam String search,
-                                                @RequestParam String regionCity,
-                                                 @RequestParam(required = false)String ch1,
-                                                 @RequestParam(required = false) String ch2){
-
+                                                       @RequestParam String search,
+                                                       @RequestParam String regionCity,
+                                                       @RequestParam(required = false) String ch1,
+                                                       @RequestParam(required = false) String ch2) {
+        Category categ = null;
         Region region = null;
+        City city = null;
+
+        if(category != null){
+            categ = categoryService.findCategoryByNameRu(category);
+        }
+
+
+        return null;
+    }
+
+}
+ /* Region region = null;
         City city = null;
         List<Posting> postingList = null;
         List<Posting> newPostingList = new ArrayList<>();
         List<Posting> newPostingList_1 = new ArrayList<>();
         Category category1 = null;
-
-        if (regionCity.length() != 0){
-           city = cityService.findCityByName(regionCity.split(" ")[0]);
-            region = regionService.findRegionByName(regionCity.split(" ")[0]);
+        if (regionCity.length() != 0) {
+            for (String reg : regionCity.split(" ")) {
+                city = cityService.findCityByName(reg);
+                if (city != null) break;
+                region = regionService.findRegionByName(reg);
+            }
         }
-        if (category.length() != 0){
+
+        if (category.length() != 0) {
             category1 = categoryService.findCategoryByNameRu(category);
-            if (city != null){
+            if (city != null) {
                 postingList = postingService.findAllByCategoryAndCityId(category1, city.getId().toString());
-            } else if (region != null){
+            } else if (region != null) {
                 postingList = postingService.findAllByCategoryAndRegionId(category1, region.getId().toString());
-            }
-            postingList = postingService.findAllByCategory(category1);
+            } else postingList = postingService.findAllByCategory(category1);
         } else {
-            if (city != null){
-                postingList = postingService.getPostingsByCityId(city.getName());
-            } else if (region != null){
-                postingList = postingService.getPostingsByRegionId(region.getName());
-            }
-            postingList = postingService.getAllPostings();
+            if (city != null) {
+                postingList = postingService.getPostingsByCityId(city.getId().toString());
+            } else if (region != null) {
+                postingList = postingService.getPostingsByRegionId(region.getId().toString());
+            } else postingList = postingService.getAllPostings();
         }
         if (search.length() != 0) {
             if (!postingList.isEmpty()) {
                 if (ch1 != null) {
                     for (Posting post : postingList) {
-                        if (post.getTitle().toLowerCase().contains(search.toLowerCase())) {
+                        if (post.getTitle().toLowerCase().trim().contains(search.toLowerCase().trim())) {
                             newPostingList.add(post);
                         }
                     }
                 } else {
                     for (Posting post : postingList) {
-                        if (post.getFullDescription().toLowerCase().contains(search.toLowerCase())) {
+                        if (post.getFullDescription().toLowerCase().trim().contains(search.toLowerCase().trim())) {
                             newPostingList.add(post);
                         }
                     }
                 }
             } else {
-                return new ResponseEntity<>(HttpStatus.OK);
+                return  ResponseEntity.ok(postingService.getAllPostings());
             }
             if (!newPostingList.isEmpty()) {
                 if (ch2 != null) {
@@ -171,13 +185,8 @@ public class PostingRestController {
                     newPostingList_1.addAll(newPostingList);
                 }
             } else {
-                return new ResponseEntity<>(HttpStatus.OK);
+                return ResponseEntity.ok(postingService.getAllPostings());
             }
         } else {
             newPostingList_1.addAll(postingList);
-        }
-
-        return  new ResponseEntity<>(newPostingList_1, HttpStatus.OK);
-    }
-
-}
+        }*/
