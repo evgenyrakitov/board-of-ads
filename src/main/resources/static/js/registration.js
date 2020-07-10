@@ -1,6 +1,4 @@
-export default class {}
-
-function passwordExist (word) {
+export function passwordExist (word) {
     if (word.length > 0) {
         return true;
     }
@@ -10,7 +8,7 @@ function passwordExist (word) {
     }
 }
 
-function passwordEquals (password, password_confirm) {
+export function passwordEquals (password, password_confirm) {
     if(password === password_confirm) {
         return true;
     }
@@ -20,7 +18,7 @@ function passwordEquals (password, password_confirm) {
     }
 }
 
-function checker(password, regexpRow) {
+export function checker(password, regexpRow) {
     var re = new RegExp(regexpRow);
     var myArray = re.exec(password);
     try {
@@ -31,28 +29,39 @@ function checker(password, regexpRow) {
     }
 }
 
-function summator(arr) {
-    let summ = 0;
-    for (var i = 0; i < arr.length; i++) {
-        let tmp = arr[i];
-        if (tmp === 1) {
-            summ += tmp;
-        }
-    }
+export function summator(password) {
+    //здесь мы проверяем, сложность пароля. последовательно регулярками смотрим, есть ли в нём большая буква, цифра и тд.
+    //при обнаружении оной увеличиваем значение summ на 1. минимальный порог сложности для пароля - 2. (наличие букв и цифр)
+    var summ = 0;
+    summ += checker(password, "[A-Z]");
+    summ += checker(password, "\\d");
+    summ += checker(password, "\\W");
+    summ += checker(password, "\\w");
+
     return summ;
 }
 
-function warningPass(field) {
+export function warningField(field) {
     $(field).css("background-color", "red");
 }
 
-function save(login, password) {
-    let url = "/rest/add";
+export function successField(field) {
+    $(field).css("background-color", "green");
+}
+
+export function infoField(field) {
+    $(field).css("background-color", "yellow");
+}
+
+export function save(login, password, public_name, phone) {
+    let url = "/rest/admin/add";
     let type = "POST";
     let data = {
         user: {
-            login: login,
-            password: password
+            email: login,
+            password: password,
+            publicName: public_name,
+            phone: phone,
         },
     };
 
@@ -63,7 +72,7 @@ function save(login, password) {
         dataType: 'json',
         cache: false,
         data: JSON.stringify(data.user)
-        }).always(alert("я схоронил юзера!"))
+    }).done(alert("я схоронил юзера!"))
 }
 
 function dd () {
@@ -78,8 +87,8 @@ function dd () {
         console.log("оба пароля существуют!");
     }
     else {
-        warningPass("#password");
-        warningPass("#password_confirm");
+        warningField("#password");
+        warningField("#password_confirm");
         $("#password_confirm").css('background-color', 'red');
         alert("увы, не введён пароль...");
         resultArray.push(false);
@@ -92,8 +101,8 @@ function dd () {
     }
     else {
         resultArray.push(false);    //1
-        warningPass("#password");
-        warningPass("#password_confirm");
+        warningField("#password");
+        warningField("#password_confirm");
         alert("пароли не совпадают!");
         // exit(1);
     }
