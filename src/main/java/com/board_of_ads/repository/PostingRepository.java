@@ -23,7 +23,13 @@ public interface PostingRepository extends JpaRepository<Posting, Long> {
 
     List<Posting>findAllByCategory(Category category);
 
-    List<Posting>findAllByCategoryOrCategoryIsNullAndCityIdA()
+    List<Posting> findAllByCategoryAndCityIdAndRegionIdAndTitleLikeOrFullDescriptionLikeAndImagePath
+            (@NonNull Category category,
+             @NonNull String cityId,
+             @NonNull String regionId,
+             @NonNull String title,
+             @NonNull String fullDescription,
+             @NonNull Set<Images> imagePath);
 
 
 

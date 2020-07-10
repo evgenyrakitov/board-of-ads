@@ -1,6 +1,7 @@
 package com.board_of_ads.service.impl;
 
 import com.board_of_ads.models.Category;
+import com.board_of_ads.models.Images;
 import com.board_of_ads.models.User;
 import com.board_of_ads.models.posting.Posting;
 import com.board_of_ads.repository.PostingRepository;
@@ -13,6 +14,7 @@ import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Set;
 
 @Service
 @AllArgsConstructor
@@ -48,20 +50,7 @@ public class PostingServiceImpl implements PostingService {
         return postingRepository.findAllByRegionId(regionId);
     }
 
-    @Override
-    public List<Posting> findAllByCategoryAndCityId(Category category, String cityId) {
-        return postingRepository.findAllByCategoryAndCityId(category, cityId);
-    }
 
-    @Override
-    public List<Posting> findAllByCategoryAndRegionId(Category category, String regionId) {
-        return postingRepository.findAllByCategoryAndRegionId(category, regionId);
-    }
-
-    @Override
-    public List<Posting> findAllByCategory(Category category) {
-        return postingRepository.findAllByCategory(category);
-    }
 
 
     @Override
@@ -69,6 +58,17 @@ public class PostingServiceImpl implements PostingService {
         return postingRepository.findAllByCityId(cityId);
 
     }
-
+    @Override
+    public List<Posting> findAllByCategoryAndCityIdAndRegionIdAndTitleLikeOrFullDescriptionLikeAndImagePath(
+            @NonNull Category category,
+            @NonNull String cityId,
+            @NonNull String regionId,
+            @NonNull String title,
+            @NonNull String fullDescription,
+            @NonNull Set<Images> imagePath) {
+        return postingRepository.findAllByCategoryAndCityIdAndRegionIdAndTitleLikeOrFullDescriptionLikeAndImagePath(
+                category, cityId, regionId, title, fullDescription, imagePath
+        );
+    }
 
 }

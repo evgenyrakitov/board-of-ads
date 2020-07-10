@@ -56,10 +56,10 @@ public class PostingRestController {
         return ResponseEntity.ok(posting);
     }
 
-    @GetMapping("/all")
+  /*  @GetMapping("/all")
     public ResponseEntity<String> getAllPostings() {
         return ResponseEntity.ok(new Gson().toJson(postingService.getAllPostings()));
-    }
+    }*/
 
     @GetMapping("/searchByCity/{cityId}")
     public ResponseEntity<List<Posting>> getPostingsByCityId(@PathVariable("cityId") String cityId) {
@@ -119,12 +119,24 @@ public class PostingRestController {
         Region region = null;
         City city = null;
 
-        if(category != null){
+        if(category.length() != 0){
             categ = categoryService.findCategoryByNameRu(category);
         }
+        if (regionCity.length() != 0) {
+            for (String reg : regionCity.split(" ")) {
+                city = cityService.findCityByName(reg);
+                if (city != null) break;
+                region = regionService.findRegionByName(reg);
+            }
+        }
+        Set<Images> images = new HashSet<>();
 
 
-        return null;
+        List<Posting> postings = postingService.findAllByCategoryAndCityIdAndRegionIdAndTitleLikeOrFullDescriptionLikeAndImagePath(
+                categ, city.getId().toString(), region.getId().toString(), search, search, images);
+
+
+        return ResponseEntity.ok(postings);
     }
 
 }
