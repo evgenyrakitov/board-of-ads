@@ -21,11 +21,12 @@ $("#btn-reg").click(function (event) {
     let public_name = $('#public_name').val();
     let phone = $("#phone").val();
     let sum = 0;
-    console.log("начало функции проверки!");
+    let successValidate;
+    // console.log("начало функции проверки!");
 
     //=============== test 0 -  login is email ========//
-    let loginRe = new RegExp("@");
-    if ((reg.checker(email, loginRe) == 1) && (email.length > 7)) {
+    let loginRe = new RegExp("\\w+@\\w+\\.\\w{2,4}");
+    if ((reg.checker(email, loginRe) === true) && (email.length > 7)) {
         reg.successField("#login");
         sum++;  //1
     } else {
@@ -34,7 +35,7 @@ $("#btn-reg").click(function (event) {
 
     //========= test1 - is password's not empty =========//
     //!! краснить только проблемный пароль! только пустой!
-    if (reg.passwordExist(password) && reg.passwordExist(password_confirm) == true) {
+    if (reg.passwordExist(password) && reg.passwordExist(password_confirm) === true) {
         console.log("это код из modal_registration: оба пароля существуют!");
         reg.successField("#password");
         reg.successField("#password_confirm");
@@ -70,7 +71,7 @@ $("#btn-reg").click(function (event) {
     }
     //========== check phone number ============/
     var correctPhone = new RegExp("\\d{10}|(\\d{3}(\\s|-)){2}(\\d{2}(\\s|-)\\d{2})");
-    if(reg.checker(phone, correctPhone) == 1) {
+    if(reg.checker(phone, correctPhone) === true) {
         console.log("формат телефона - верен");
         reg.successField("#phone");
         sum++;  //5

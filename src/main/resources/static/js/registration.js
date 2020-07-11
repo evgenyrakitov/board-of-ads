@@ -18,25 +18,25 @@ export function passwordEquals (password, password_confirm) {
     }
 }
 
-export function checker(password, regexpRow) {
+export function checker(word, regexpRow) {
     var re = new RegExp(regexpRow);
-    var myArray = re.exec(password);
-    try {
-        myArray.length > 0;
-        return 1;
-    } catch (e) {
-       return 0;
-    }
+    return re.test(word);
 }
 
 export function summator(password) {
     //здесь мы проверяем, сложность пароля. последовательно регулярками смотрим, есть ли в нём большая буква, цифра и тд.
     //при обнаружении оной увеличиваем значение summ на 1. минимальный порог сложности для пароля - 2. (наличие букв и цифр)
     var summ = 0;
-    summ += checker(password, "[A-Z]");
-    summ += checker(password, "\\d");
-    summ += checker(password, "\\W");
-    summ += checker(password, "\\w");
+    var regexpArray = ["[A_Z]", "\\d", "\\W", "\\w"];    //большая латинская, цифра, не_буква, малая_буква.
+
+    regexpArray.forEach(function (item, index, array) {
+        if(checker(password, item) === true) {
+            summ++;
+        }
+    })
+    // summ += checker(password, "\\d");
+    // summ += checker(password, "\\W");
+    // summ += checker(password, "\\w");
 
     return summ;
 }
