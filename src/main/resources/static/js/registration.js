@@ -1,10 +1,5 @@
 export function passwordExist (word) {
-    if (word.length > 0) {
-        return true;
-    }
-    else {
-        return false;
-    }
+    return !("" === word);
 }
 
 export function passwordEquals (password, password_confirm) {
