@@ -8,12 +8,7 @@ export function passwordExist (word) {
 }
 
 export function passwordEquals (password, password_confirm) {
-    if(password === password_confirm) {
-        return true;
-    }
-    else {
-        return false;
-    }
+    return (password === password_confirm);
 }
 
 export function checker(word, regexpRow) {
