@@ -3,7 +3,6 @@ export function passwordExist (word) {
         return true;
     }
     else {
-        console.log("password is empty. Fixed this")
         return false;
     }
 }
@@ -13,7 +12,6 @@ export function passwordEquals (password, password_confirm) {
         return true;
     }
     else {
-        console.log("Passwords not equal!");
         return false;
     }
 }
@@ -34,10 +32,6 @@ export function summator(password) {
             summ++;
         }
     })
-    // summ += checker(password, "\\d");
-    // summ += checker(password, "\\W");
-    // summ += checker(password, "\\w");
-
     return summ;
 }
 
@@ -72,5 +66,5 @@ export function save(login, password, public_name, phone) {
         dataType: 'json',
         cache: false,
         data: JSON.stringify(data.user)
-    }).done(console.log("юзер надёжно сохранён."))
+    });
 }

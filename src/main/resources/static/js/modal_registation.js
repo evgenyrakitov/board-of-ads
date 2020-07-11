@@ -22,7 +22,6 @@ $("#btn-reg").click(function (event) {
     let phone = $("#phone").val();
     let sum = 0;
     let successValidate;
-    // console.log("начало функции проверки!");
 
     //=============== test 0 -  login is email ========//
     let loginRe = new RegExp("\\w+@\\w+\\.\\w{2,4}");
@@ -36,21 +35,18 @@ $("#btn-reg").click(function (event) {
     //========= test1 - is password's not empty =========//
     //!! краснить только проблемный пароль! только пустой!
     if (reg.passwordExist(password) && reg.passwordExist(password_confirm) === true) {
-        console.log("это код из modal_registration: оба пароля существуют!");
         reg.successField("#password");
         reg.successField("#password_confirm");
         sum++;  //2
     }
     else {
         //вдруг один из паролей - пуст....
-        console.log("это код из modal_registration. один из паролей пуст");
         reg.warningField("#password");
         reg.warningField("#password_confirm");
         alert("увы, не введён пароль...");  //!! поменять на нормальный вывод
     }
     //=========== password's equals? =============//
     if (reg.passwordEquals(password, password_confirm) == true) {
-        console.log("пароли совпали. хорошо.");
         reg.successField("#password");
         reg.successField("#password_confirm");
         sum++;  //3
@@ -61,7 +57,6 @@ $("#btn-reg").click(function (event) {
     }
     //=========  password strong? ===============//
     var passwordStrong = reg.summator(password);
-    console.log(passwordStrong);
     if ((passwordStrong < 2) || (password.length < 5)){
         reg.infoField("#password");
         reg.infoField("#password_confirm");
@@ -72,12 +67,10 @@ $("#btn-reg").click(function (event) {
     //========== check phone number ============/
     var correctPhone = new RegExp("\\d{10}|(\\d{3}(\\s|-)){2}(\\d{2}(\\s|-)\\d{2})");
     if(reg.checker(phone, correctPhone) === true) {
-        console.log("формат телефона - верен");
         reg.successField("#phone");
         sum++;  //5
     }
     else {
-        console.log("неверный формат телефона");
         reg.warningField("#phone");
         alert("введите номер телефоне в формате 913-123-45-67");
     }
@@ -94,7 +87,6 @@ $("#btn-reg").click(function (event) {
         $("#modal-reg-2").modal('toggle');
     }
     else {
-        console.log("это последний шанс всё  исправить...");
     }
     //end script
 });
@@ -115,7 +107,6 @@ $("#btn-modal-3").click(function (event) {
                 $("#message-reset-password").html("<h4>Пользователь с таким Email не зарегистрирован</h4>" +
                     "<br><p>Пройдите регистрацию</p>");
             }
-
         }
     });
 
