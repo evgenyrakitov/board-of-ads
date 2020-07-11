@@ -65,8 +65,8 @@ public class DataInitializer {
         Set<Role> userRoles = new HashSet<>();
         userRoles.add(roleService.findRoleByName("USER"));
 
-        User userAdmin = new User("admin@gmail.com", "Test Admin name", "admin", "admin", "89185552623", adminRoles);
-        User userUser = new User("test.email.1@gmail.com", "test 1 public name", "qwerty1", "qwerty1", "89526321452", userRoles);
+        User userAdmin = new User("admin@gmail.com", "Admin firstName", "Admin secondName", "admin", "admin", "89185552623", adminRoles, "adminIcon");
+        User userUser = new User("test.email.1@gmail.com", "User firstName", "User secondName", "qwerty1", "qwerty1", "89526321452", userRoles, "userIcon");
 
         userService.addUser(userAdmin);
         userService.addUser(userUser);
