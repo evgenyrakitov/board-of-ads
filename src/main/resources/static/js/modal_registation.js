@@ -12,7 +12,6 @@ $("#open-modal-3").click(function () {
 
 $("#btn-reg").click(function (event) {
     event.preventDefault();
-    // let user_1 = $("#add-reg-form").serialize();        //переделать!
 
     //begin namor script
     let email = $("#login-reg-form").val();
@@ -21,7 +20,6 @@ $("#btn-reg").click(function (event) {
     let public_name = $('#public_name-reg-form').val();
     let phone = $("#phone-reg-form").val();
     let sum = 0;
-    let successValidate;
 
     //=============== test 0 -  login is email ========//
     let loginRe = new RegExp("\\w+@\\w+\\.\\w{2,4}");
@@ -33,7 +31,6 @@ $("#btn-reg").click(function (event) {
     }
 
     //========= test1 - is password's not empty =========//
-    //!! краснить только проблемный пароль! только пустой!
     if (reg.passwordExist(password) && reg.passwordExist(password_confirm) === true) {
         reg.successField("#password-reg-form");
         reg.successField("#password_confirm-reg-form");
