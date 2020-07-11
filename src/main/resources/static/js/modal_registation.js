@@ -63,7 +63,7 @@ $("#btn-reg").click(function (event) {
     }
     //========== check phone number ============/
     var correctPhone = new RegExp("\\d{10}|(\\d{3}(\\s|-)){2}(\\d{2}(\\s|-)\\d{2})");
-    if(reg.checker(phone, correctPhone) === true) {
+    if (reg.checker(phone, correctPhone) === true) {
         reg.successField("#phone-reg-form");
         sum++;  //5
     }
@@ -72,7 +72,7 @@ $("#btn-reg").click(function (event) {
         alert("введите номер телефоне в формате 913-123-45-67");
     }
     //============== check exist public name  ==========//
-    if(public_name.length > 3) {
+    if (public_name.length > 3) {
         reg.successField('#public_name-reg-form');
         sum++;  //6!
     } else {

@@ -18,7 +18,7 @@ export function summator(password) {
     var regexpArray = ["[A_Z]", "\\d", "\\W", "\\w"];    //большая латинская, цифра, не_буква, малая_буква.
 
     regexpArray.forEach(function (item, index, array) {
-        if(checker(password, item) === true) {
+        if (checker(password, item) === true) {
             summ++;
         }
     })
