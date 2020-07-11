@@ -18,7 +18,8 @@ $("#btn-reg").click(function (event) {
     let email = $("#login").val();
     let password = $("#password").val();
     let password_confirm = $("#password_confirm").val();
-    let public_name = $('#public_name').val();
+    let first_name = $('#first_Name').val();
+    let last_name = $('#last_Name').val();
     let phone = $("#phone").val();
     let sum = 0;
     let successValidate;
@@ -75,15 +76,15 @@ $("#btn-reg").click(function (event) {
         alert("введите номер телефоне в формате 913-123-45-67");
     }
     //============== check exist public name  ==========//
-    if(public_name.length > 3) {
-        reg.successField('#public_name');
+    if(first_name.length > 3) {
+        reg.successField('#first_name');
         sum++;  //6!
     } else {
         alert("попробуйте имя более 3 символов!");
-        reg.warningField('#public_name');
+        reg.warningField('#first_name');
     }
     if (sum == 6) {
-        reg.save(email, password, public_name, phone);
+        reg.save(email, password, first_name, last_name, phone);
         $("#modal-reg-2").modal('toggle');
     }
     else {

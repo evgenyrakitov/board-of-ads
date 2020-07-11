@@ -26,9 +26,12 @@ function addUserInTableBody(el) {
     trLocal.attr("id", "tr" + el.id);
     // getTd(el.id, "id" + el.id).appendTo(trLocal);
     $("<th></th>").text(el.id).attr("id", el.id).appendTo(trLocal);
-    getTd(el.login, "login" + el.id).appendTo(trLocal);
-    getTd(el.publicName, "publicName" + el.id).appendTo(trLocal);
+    getTd(el.email, "login" + el.id).appendTo(trLocal);
+    getTd(el.firstName, "firstName" + el.id).appendTo(trLocal);
+    getTd(el.lastName, "lastName" + el.id).appendTo(trLocal);
     getTd(el.password, "password" + el.id).appendTo(trLocal);
+    getTd(el.phone, "phone" + el.id).appendTo(trLocal);
+    getTd(el.dataRegistration, "dataRegistration" + el.id).appendTo(trLocal);
     getSelect(el).appendTo(trLocal);
     trLocal.appendTo($("#tbodyUsers"));
 }
