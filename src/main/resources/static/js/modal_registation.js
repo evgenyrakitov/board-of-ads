@@ -43,7 +43,7 @@ $("#btn-reg").click(function (event) {
         alert("увы, не введён пароль...");  //!! поменять на нормальный вывод
     }
     //=========== password's equals? =============//
-    if (reg.passwordEquals(password, password_confirm) == true) {
+    if (reg.passwordEquals(password, password_confirm) === true) {
         reg.successField("#password-reg-form");
         reg.successField("#password_confirm-reg-form");
         sum++;  //3
@@ -79,7 +79,7 @@ $("#btn-reg").click(function (event) {
         alert("попробуйте имя более 3 символов!");
         reg.warningField('#public_name-reg-form');
     }
-    if (sum == 6) {
+    if (sum === 6) {
         reg.save(email, password, public_name, phone);
         $("#modal-reg-2").modal('toggle');
     }
