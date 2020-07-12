@@ -20,6 +20,7 @@
         <link id="favicon" rel="shortcut icon" type="image/x-icon" href="../static/favicon.ico"
               th:href="@{favicon.ico}"/>
         <link rel="stylesheet" href="../static/css/modal_reg.css" th:href="@{/css/modal_reg.css}">
+        <link rel="stylesheet" href="../static/css/user-profile/profile.css" th:href="@{/css//user-profile/profile.css}">
     </div>
 </head>
 <body>
@@ -81,8 +82,31 @@
                            th:text="#{header.login_and_register}">Вход и регистрация</a>
                     </li>
                     <li th:if="${user.getClass().getSimpleName() == 'User'}" class="nav-item">
-                        <div th:text="${user.getEmail()}"></div>
-                        <a class="nav-link text-primary" href="/logout" style="white-space: nowrap">Выйти</a>
+                        <div class="dropdown">
+                            <button class="dropbtn" th:text="${user.getPublicName()}"></button>
+                            <div class='dropdown-content'>
+                                <div class="profile-sidebar-head-rating-36hRS">
+                                    <a class="link-link-39EVK link-design-default-2sPEv link-novisited-1w4JY profile-sidebar-head-link-1gPfv" href="#rating" id="navlink-my-rating" target="_self">
+                                        <div class="profile-sidebar-head-rating-line-rwmxI">
+                                <span class="profile-sidebar-head-score-3OTF5">
+                                    <span class="text-text-1PdBw text-size-l-2gTpu text-bold-3R9dt">0,0</span>
+                                </span>
+                                            <span class="profile-sidebar-head-stars-2Pz_F">
+                                Нет отзывов</span>
+                                        </div>
+                                    </a></div>
+                                <a href='/profile'>Мои объявления</a>
+                                <a href='/profile#feedbacks'>Мои отзывы</a>
+                                <a href='/profile#favorites'>Избранное</a>
+                                <a href='/profile#messages'>Сообщения</a>
+                                <a href='/profile#notifications'>Уведомления</a>
+                                <a href='/profile#wallet'>Кошелек</a>
+                                <a href='/profile#paid_services'>Платные услуги</a>
+                                <a href='/profile#settings'>Настройки</a>
+                                <a href='/logout'>Выйти</a>
+                            </div>
+                        </div>
+                        <!--<a class="nav-link text-primary" href="/logout" style="white-space: nowrap">Выйти</a>-->
                     </li>
                     <li class="nav-item d-flex justify-content-lg-center align-items-center">
                         <a class="btn btn-primary" href="/addNewPosting" th:text="#{header.post_a_ad}">Подать объявления</a>
