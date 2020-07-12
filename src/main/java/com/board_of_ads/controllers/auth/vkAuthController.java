@@ -12,7 +12,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -23,7 +22,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.client.RestTemplate;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -36,7 +37,7 @@ public class vkAuthController {
     private static final Logger logger = LoggerFactory.getLogger(vkAuthController.class);
     private final UserService userService;
     private final RoleService roleService;
-    private final AuthenticationProvider authenticationProvider;
+
     @Value("${vk.clientId}")
     private String clientId;
     @Value("${vk.clientSecret}")
@@ -49,13 +50,16 @@ public class vkAuthController {
     private String scope;
     @Value("${vk.userInfoUri}")
     private String userInfoUri;
+    @Value("${vk.photoInfoUri}")
+    private String photoInfoUri;
+    @Value("${vk.photoSizeVK}")
+    private String photoSizeVK;
     @Value("${vk.apiVersion}")
     private String apiVersion;
 
-    public vkAuthController(UserService userService, RoleService roleService, AuthenticationProvider authenticationProvider) {
+    public vkAuthController(UserService userService, RoleService roleService) {
         this.userService = userService;
         this.roleService = roleService;
-        this.authenticationProvider = authenticationProvider;
     }
 
     /**
@@ -108,10 +112,9 @@ public class vkAuthController {
         return "redirect:/";
     }
 
-
     /**
-     * Процедура проверяет есть в базе пользователя с таким емейлом.
-     * Если нет, то обращется к АПИ ВК, получает Имя и Фамилию и создает.
+     * Метод проверяет есть в базе пользователя с таким емейлом.
+     * Если нет, то обращется к АПИ ВК, получает данные о пользователе и создает его.
      *
      * @param token    - Токен для работы с ВК
      * @param vkUserId - Айди пользователя ВК
@@ -126,7 +129,6 @@ public class vkAuthController {
         return user;
     }
 
-
     /**
      * Создает и возвращает пользователя с данными полученными с серверера ВК.
      * А именно: емейл, имя и фамилия. И ролью простого пользователя
@@ -138,6 +140,32 @@ public class vkAuthController {
      */
     @SneakyThrows
     private User createUserByEmailAndVKUserInfo(String token, String vkUserId, String email) {
+
+        Map<String, String> usersInfo = getVKUserInfo(token, vkUserId);
+        String firstName = usersInfo.get("firstName");
+        String lastName = usersInfo.get("lastName");
+        String userPhoto = usersInfo.get("userPhoto");
+
+        Set<Role> userRoles = new HashSet<>();
+        userRoles.add(roleService.findRoleByName("USER"));
+        User user = new User(email, firstName + " " + lastName, "SuperStrongUnDecryptablePassword!!! x_X", "SuperStrongUnDecryptablePassword!!! x_X", "", userRoles);
+        user.setUserIcons(userPhoto);
+
+        user = userService.addUser(user);
+        return user;
+    }
+
+    /**
+     * Получает данные о пользовале от АПИ ВК.
+     *
+     * @param token    - Токен для работы с ВК
+     * @param vkUserId - Айди пользователя ВК
+     * @return - map с данными пользователя
+     */
+    @SneakyThrows
+    private Map<String, String> getVKUserInfo(String token, String vkUserId) {
+        Map<String, String> map = new HashMap<>();
+
         StringBuilder getUserInfoURI = new StringBuilder(userInfoUri).append("?")
                 .append("user_ids=").append(vkUserId).append("&")
                 .append("access_token=").append(token).append("&")
@@ -150,21 +178,41 @@ public class vkAuthController {
             ObjectMapper mapper = new ObjectMapper();
             JsonNode root = mapper.readTree(response.getBody());
             JsonNode resp = root.path("response");
-            String firstName = resp.get(0).get("first_name").textValue();
-            String lastName = resp.get(0).get("last_name").textValue();
 
-            Set<Role> userRoles = new HashSet<>();
-            userRoles.add(roleService.findRoleByName("USER"));
-            User user = new User(email, firstName + " " + lastName, "SuperStrongUnDecryptablePassword!!! x_X", "SuperStrongUnDecryptablePassword!!! x_X", "", userRoles);
-            user = userService.addUser(user);
-            return user;
-        } else {
-            throw new RuntimeException("VK LOGIN: Cant get user's info...");
+            map.put("firstName", resp.get(0).get("first_name").textValue());
+            map.put("lastName", resp.get(0).get("last_name").textValue());
         }
+
+        //  Апи ВК разрешает делать только 3 запроса в секунду для небольших приложений.
+        Thread.sleep(333);
+
+        StringBuilder getUserPhotoURI = new StringBuilder(photoInfoUri).append("?")
+                .append("access_token=").append(token).append("&")
+                .append("v=").append(apiVersion).append("&")
+                .append("owner_id=").append(vkUserId).append("&")
+                .append("album_id=profile");
+
+        response = restTemplate.getForEntity(getUserPhotoURI.toString(), String.class);
+        if (response.getStatusCode().equals(HttpStatus.OK)) {
+            ObjectMapper mapper = new ObjectMapper();
+            JsonNode root = mapper.readTree(response.getBody());
+            JsonNode resp = root.path("response");
+
+            int ItemCount = resp.get("count").intValue();
+            if (ItemCount >= 1) {
+                for (JsonNode node : resp.get("items").get(ItemCount - 1).get("sizes")) {
+                    if (node.get("type").textValue().equals(photoSizeVK)) {
+                        map.put("userPhoto", node.get("url").textValue());
+                    }
+                }
+            }
+        }
+
+        return map;
     }
 
     /**
-     * Метод котороый осуществляет авто-вход для указанного пользователя.
+     * Метод который осуществляет авто-вход для указанного пользователя.
      *
      * @param user - пользователя которого надо залогинить.
      */

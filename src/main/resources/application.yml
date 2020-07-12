@@ -56,6 +56,8 @@ vk:
   accessTokenUri: https://oauth.vk.com/access_token
   scope: email
   userInfoUri: https://api.vk.com/method/users.get
+  photoInfoUri: https://api.vk.com/method/photos.get
+  photoSizeVK: p
   apiVersion: "5.120"
 
 #vk:
