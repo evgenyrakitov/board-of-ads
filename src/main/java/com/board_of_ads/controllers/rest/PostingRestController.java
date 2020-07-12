@@ -3,8 +3,13 @@ package com.board_of_ads.controllers.rest;
 import com.board_of_ads.models.Category;
 import com.board_of_ads.models.Images;
 import com.board_of_ads.models.User;
+import com.board_of_ads.models.kladr.City;
+import com.board_of_ads.models.kladr.Region;
 import com.board_of_ads.models.posting.Posting;
+import com.board_of_ads.service.interfaces.CategoryService;
+import com.board_of_ads.service.interfaces.CityService;
 import com.board_of_ads.service.interfaces.PostingService;
+import com.board_of_ads.service.interfaces.RegionService;
 import com.google.gson.Gson;
 import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
@@ -15,6 +20,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
@@ -30,6 +36,9 @@ public class PostingRestController {
     private static final Logger logger = LoggerFactory.getLogger(RoleRestController.class);
 
     private final PostingService postingService;
+    private final CategoryService categoryService;
+    private final RegionService regionService;
+    private final CityService cityService;
 
     @GetMapping("/getPostingInfo")
     public ResponseEntity<Posting> getPosting() {
@@ -91,7 +100,7 @@ public class PostingRestController {
         posting.setShortDescription("Краткое описание");
         posting.setTitle("Автокресло 0-1");
         List<Posting> list = new ArrayList<>();
-        for (int i = 0; i< 77; i++){
+        for (int i = 0; i < 77; i++) {
             list.add(posting);
         }
         return !list.isEmpty()
@@ -99,4 +108,123 @@ public class PostingRestController {
                 : new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
+    @GetMapping("/search")
+    public ResponseEntity<Set<Posting>> getSearchForm(@RequestParam String category,
+                                                      @RequestParam String search,
+                                                      @RequestParam String regionCity,
+                                                      @RequestParam(required = false) String ch1,
+                                                      @RequestParam(required = false) String ch2) {
+        Category categ = null;
+        Region region = null;
+        City city = null;
+        Set<Posting> postings = null;
+        String search_ = "%"+search+"%";
+
+
+
+        if (category.length() != 0) {
+            categ = categoryService.findCategoryByNameRu(category);
+        }
+
+        if (regionCity.length() != 0) {
+            for (String reg : regionCity.split(" ")) {
+                city = cityService.findCityByName(reg);
+                if (city != null) break;
+                region = regionService.findRegionByName(reg);
+            }
+        }
+        if (categ == null) {
+            if (city == null) {
+                if (region == null) {
+                    if (search.length() == 0) {
+                        postings = new HashSet<>(postingService.getAllPostings());
+                    } else if (ch1 == null && ch2 == null) {
+                        postings = postingService.findAllByFullDescriptionLike(search_);
+                    } else if (ch1 == null && ch2 != null) {
+                        postings = postingService.findAllByFullDescriptionLikeAndImagePathIsNotNull(search_);
+                    } else if (ch1 != null && ch2 == null) {
+                        postings = postingService.findAllByTitleLike(search_);
+                    } else {
+                        postings = postingService.findAllByTitleLikeAndImagePathIsNotNull(search_);
+                    }
+                } else if (search.length() == 0) {
+                    postings = new HashSet<>(postingService.getPostingsByRegionId(region.getId().toString()));
+                } else if (ch1 == null && ch2 == null) {
+                    postings = postingService.findAllByRegionIdAndFullDescriptionLike(
+                            region.getId().toString(), search_);
+                } else if (ch1 == null && ch2 != null) {
+                    postings = postingService.findAllByRegionIdAndFullDescriptionLikeAndImagePathIsNotNull(
+                            region.getId().toString(), search_
+                    );
+                } else if (ch1 != null && ch2 == null) {
+                    postings = postingService.findAllByRegionIdAndTitleLike(region.getId().toString(), search_);
+                } else {
+                    postings = postingService.findAllByRegionIdAndTitleLikeAndImagePathIsNotNull(region.getId().toString(), search_);
+                }
+            } else if (search.length() == 0){
+                postings = new HashSet<>(postingService.getPostingsByCityId(city.getId().toString()));
+            } else if (ch1 == null && ch2 == null){
+                postings = postingService.findAllByCityIdAndFullDescriptionLike(city.getId().toString(), search_);
+            } else if (ch1 == null && ch2 != null){
+                postings = postingService.findAllByCityIdAndFullDescriptionLikeAndImagePathIsNotNull(
+                        city.getId().toString(), search_
+                );
+            } else if (ch1 != null && ch2 == null){
+                postings = postingService.findAllByCityIdAndTitleLike(city.getId().toString(), search_);
+            } else {
+                postings = postingService.findAllByCityIdAndTitleLikeAndImagePathIsNotNull(
+                        city.getId().toString(), search_
+                );
+            }
+        } else if (city == null){
+            if(region == null){
+                if (search.length() == 0){
+                    postings = postingService.findAllByCategory(categ);
+                } else if (ch1 == null && ch2 == null){
+                    postings = postingService.findAllByCategoryAndFullDescriptionLike(categ, search_);
+                } else if (ch1 == null && ch2 != null){
+                    postings = postingService.findAllByCategoryAndFullDescriptionLikeAndImagePathIsNotNull(
+                            categ, search_
+                    );
+                }else if (ch1 != null && ch2 == null){
+                    postings = postingService.findAllByCategoryAndTitleLike(categ, search_);
+                } else {
+                    postings = postingService.findAllByCategoryAndTitleLikeAndImagePathIsNotNull(categ, search_);
+                }
+            } else if (search.length() == 0){
+                postings = postingService.findAllByCategoryAndRegionId(categ, region.getId().toString());
+            } else if (ch1 == null && ch2 == null){
+                postings = postingService.findAllByCategoryAndRegionIdAndFullDescriptionLike(categ, region.getId().toString(), search_);
+            } else if (ch1 == null && ch2 != null){
+                postings = postingService.findAllByCategoryAndRegionIdAndFullDescriptionLikeAndImagePathIsNotNull(
+                        categ, region.getId().toString(), search_
+                );
+            } else if (ch1 != null && ch2 == null){
+                postings = postingService.findAllByCategoryAndRegionIdAndTitleLike(categ, region.getId().toString(), search_);
+            } else {
+                postings = postingService.findAllByCategoryAndRegionIdAndTitleLikeAndImagePathIsNotNull(
+                        categ, region.getId().toString(), search_
+                );
+            }
+        } else {
+            if (search.length() == 0){
+                postings = postingService.findAllByCategoryAndCityId(categ, city.getId().toString());
+            } else if (ch1 == null && ch2 == null){
+                postings = postingService.findAllByCategoryAndCityIdAndFullDescriptionLike(categ, city.getId().toString(), search_);
+            } else if (ch1 == null && ch2 != null){
+                postings = postingService.findAllByCategoryAndCityIdAndFullDescriptionLikeAndImagePathIsNotNull(
+                        categ, city.getId().toString(), search_
+                );
+            } else if (ch1 != null && ch2 == null){
+                postings = postingService.findAllByCategoryAndCityIdAndTitleLike(categ, city.getId().toString(), search_);
+            } else {
+                postings = postingService.findAllByCategoryAndCityIdAndTitleLikeAndImagePathIsNotNull(
+                        categ, city.getId().toString(), search_
+                );
+            }
+        }
+
+            return ResponseEntity.ok(postings);
+    }
 }
+

@@ -9,4 +9,6 @@ public interface RegionService {
     List<Region> getAllRegions();
 
     List<Region> findByName(String name);
+
+    Region findRegionByName (String name);
 }

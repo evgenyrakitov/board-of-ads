@@ -126,32 +126,41 @@
         </nav>
     </div>
     <div class=" header-container search">
-        <form class=" header-element">
+        <form class="header-element" action=""  id="search-form" >
             <div class="form-row justify-content-center">
-                <select class="form-control col-8 col-sm-8  col-md-3 col-lg-2" id="findFromCategory">
-                    <option selected value th:text="#{header.any_category}">Любая категория</option>
+                <select class="form-control col-8 col-sm-8  col-md-3 col-lg-2" id="findFromCategory" autofocus
+                name="category">
+                    <option selected value="" th:text="#{header.any_category}">Любая категория</option>
                 </select>
                 <div class="form-group col-8 col-sm-8  col-md-5 col-lg-8">
                     <input type="text" th:placeholder="#{header.search_by_announcements}" placeholder="Поиск по объвлениям"
-                           class="form-control">
+                            class="form-control" name="search" id="search-input">
                 </div>
-                <select id="location" class="form-control col-8 col-sm-8  col-md-2 col-lg-1">
-                    <option id="location-name" selected data="city-1400">Москва</option>
+
+
+                <select id="location" class="form-control col-8 col-sm-8  col-md-2 col-lg-1" name="regionCity" autofocus >
+                    <option selected value="">По всей России</option>
                 </select>
+
                 <div class="col-8 col-sm-8 col-md-2 col-lg-1">
-                    <button type="button" class="btn btn-light" th:text="#{header.search}">Найти</button>
+                    <button type="submit" class="btn btn-light" th:text="#{header.search}" id="btn-search">Найти</button>
                 </div>
             </div>
             <div class="form-row justify-content-center">
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" name="ch1" checked>
                     <label class="form-check-label" for="inlineCheckbox1"
                            th:text="#{header.only_in_titles}">только в названиях</label>
+
+
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2"  name="ch2"checked >
                     <label class="form-check-label" for="inlineCheckbox2"
                            th:text="#{header.only_with_photos}">только с фото</label>
+
+
                 </div>
             </div>
         </form>
@@ -360,6 +369,7 @@
     <script src="../static/js/header.js" th:src="@{/js/header.js}"></script>
     <script src="/js/modal_registation.js" th:src="@{/js/modal_registation.js}"></script>
     <script src="/js/modal_registation.js" th:src="@{/js/modal_location.js}"></script>
+    <script src="/js/search.js" th:src="@{/js/search.js}"></script>
 </div>
 </body>
 </html>

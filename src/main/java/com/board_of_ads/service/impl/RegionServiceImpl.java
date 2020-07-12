@@ -26,4 +26,9 @@ public class RegionServiceImpl implements RegionService {
     public List<Region> findByName(String name) {
         return regionRepository.findByName(name);
     }
+
+    @Override
+    public Region findRegionByName(String name) {
+        return regionRepository.findRegionByName(name);
+    }
 }

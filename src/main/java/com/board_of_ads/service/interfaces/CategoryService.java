@@ -16,4 +16,10 @@ public interface CategoryService {
     List<Category> getAllCategories();
 
     List<Category> getRootCategories();
+
+    Category findCategoryByNameRu(String nameRu);
+
+    Category findCategoryByNameRuAndParentCategoryIsNotNull(String nameRu);
+
+
 }
