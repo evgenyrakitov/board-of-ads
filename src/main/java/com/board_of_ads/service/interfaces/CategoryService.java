@@ -21,5 +21,7 @@ public interface CategoryService {
 
     Category findCategoryByNameRuAndParentCategoryIsNotNull(String nameRu);
 
+    List<Category>findAllByParentCategory(Category parentCategory);
+
 
 }

@@ -121,9 +121,15 @@ public class PostingRestController {
         City city = null;
         List<Posting> postings = null;
         String search_ = "%" + search + "%";
+        List<Category>categories = null;
 
         if (category.length() != 0) {
             categ = categoryService.findCategoryByNameRu(category);
+
+            if (categ.getParentCategory() != null){
+
+            }
+
         }
 
         if (regionCity.length() != 0) {
@@ -136,104 +142,10 @@ public class PostingRestController {
 
         boolean onlyTitle = ch1 != null;
         boolean onlyWithImages = ch2 != null;
-        postings = postingRepositoryCustom.customSearchPostings(categ, search_, region, city, onlyTitle, onlyWithImages);
 
-//        if (categ == null) {
-//            if (city == null) {
-//                if (region == null) {
-//                    if (search.length() == 0) {
-//                        postings = new HashSet<>(postingService.getAllPostings());
-//                    } else if (ch1 == null && ch2 == null) {
-//                        postings = postingService.findAllByFullDescriptionLikeIgnoreCaseAndTitleLikeIgnoreCase(search_, search_);
-//                    } else if (ch1 == null && ch2 != null) {
-//                        postings = postingService.findAllByFullDescriptionLikeIgnoreCaseAndTitleLikeIgnoreCaseAndImagePathIsNotNull(search_, search_);
-//                    } else if (ch1 != null && ch2 == null) {
-//                        postings = postingService.findAllByTitleLikeIgnoreCase(search_);
-//                    } else {
-//                        postings = postingService.findAllByTitleLikeIgnoreCaseAndImagePathIsNotNull(search_);
-//                    }
-//                } else if (search.length() == 0) {
-//                    postings = new HashSet<>(postingService.getPostingsByRegionId(region.getId().toString()));
-//                } else if (ch1 == null && ch2 == null) {
-//                    postings = postingService.findAllByRegionIdAndFullDescriptionLikeIgnoreCaseAndTitleLikeIgnoreCase(
-//                            region.getId().toString(), search_, search_);
-//                } else if (ch1 == null && ch2 != null) {
-//                    postings = postingService.findAllByRegionIdAndFullDescriptionLikeIgnoreCaseAndTitleLikeIgnoreCaseAndImagePathIsNotNull(
-//                            region.getId().toString(), search_, search_
-//                    );
-//                } else if (ch1 != null && ch2 == null) {
-//                    postings = postingService.findAllByRegionIdAndTitleLikeIgnoreCase(region.getId().toString(), search_);
-//                } else {
-//                    postings = postingService.findAllByRegionIdAndTitleLikeIgnoreCaseAndImagePathIsNotNull(region.getId().toString(), search_);
-//                }
-//            } else if (search.length() == 0){
-//                postings = new HashSet<>(postingService.getPostingsByCityId(city.getId().toString()));
-//            } else if (ch1 == null && ch2 == null){
-//                postings = postingService.findAllByCityIdAndFullDescriptionLikeIgnoreCaseAndTitleLikeIgnoreCase(
-//                        city.getId().toString(), search_, search_);
-//            } else if (ch1 == null && ch2 != null){
-//                postings = postingService.findAllByCityIdAndFullDescriptionLikeIgnoreCaseAndTitleLikeIgnoreCaseAndImagePathIsNotNull(
-//                        city.getId().toString(), search_, search_
-//                );
-//            } else if (ch1 != null && ch2 == null){
-//                postings = postingService.findAllByCityIdAndTitleLikeIgnoreCase(city.getId().toString(), search_);
-//            } else {
-//                postings = postingService.findAllByCityIdAndTitleLikeIgnoreCaseAndImagePathIsNotNull(
-//                        city.getId().toString(), search_
-//                );
-//            }
-//        } else if (city == null){
-//            if(region == null){
-//                if (search.length() == 0){
-//                    postings = postingService.findAllByCategory(categ);
-//                } else if (ch1 == null && ch2 == null){
-//                    postings = postingService.findAllByCategoryAndFullDescriptionLikeIgnoreCaseAndTitleLikeIgnoreCase(
-//                            categ, search_, search_);
-//                } else if (ch1 == null && ch2 != null){
-//                    postings = postingService.findAllByCategoryAndFullDescriptionLikeIgnoreCaseAndTitleLikeIgnoreCaseAndImagePathIsNotNull(
-//
-//                            categ, search_, search_
-//                    );
-//                }else if (ch1 != null && ch2 == null){
-//                    postings = postingService.findAllByCategoryAndTitleLikeIgnoreCase(categ, search_);
-//                } else {
-//                    postings = postingService.findAllByCategoryAndTitleLikeIgnoreCaseAndImagePathIsNotNull(categ, search_);
-//                }
-//            } else if (search.length() == 0){
-//                postings = postingService.findAllByCategoryAndRegionId(categ, region.getId().toString());
-//            } else if (ch1 == null && ch2 == null){
-//                postings = postingService.findAllByCategoryAndRegionIdAndFullDescriptionLikeIgnoreCaseAndTitleLikeIgnoreCase(
-//                        categ, region.getId().toString(), search_, search_);
-//            } else if (ch1 == null && ch2 != null){
-//                postings = postingService.findAllByCategoryAndRegionIdAndFullDescriptionLikeIgnoreCaseAndTitleLikeIgnoreCaseAndImagePathIsNotNull(
-//                         categ, region.getId().toString(), search_, search_
-//                );
-//            } else if (ch1 != null && ch2 == null){
-//                postings = postingService.findAllByCategoryAndRegionIdAndTitleLikeIgnoreCase(categ, region.getId().toString(), search_);
-//            } else {
-//                postings = postingService.findAllByCategoryAndRegionIdAndTitleLikeIgnoreCaseAndImagePathIsNotNull(
-//                        categ, region.getId().toString(), search_
-//                );
-//            }
-//        } else {
-//            if (search.length() == 0){
-//                postings = postingService.findAllByCategoryAndCityId(categ, city.getId().toString());
-//            } else if (ch1 == null && ch2 == null){
-//                postings = postingService.findAllByCategoryAndCityIdAndFullDescriptionLikeIgnoreCaseAndTitleLikeIgnoreCase(
-//                        categ, city.getId().toString(), search_, search_);
-//            } else if (ch1 == null && ch2 != null){
-//                postings = postingService.findAllByCategoryAndCityIdAndFullDescriptionLikeIgnoreCaseAndTitleLikeIgnoreCaseAndImagePathIsNotNull(
-//                        categ, city.getId().toString(), search_, search_
-//                );
-//            } else if (ch1 != null && ch2 == null){
-//                postings = postingService.findAllByCategoryAndCityIdAndTitleLikeIgnoreCase(
-//                        categ, city.getId().toString(), search_);
-//            } else {
-//                postings = postingService.findAllByCategoryAndCityIdAndTitleLikeIgnoreCaseAndImagePathIsNotNull(
-//                        categ, city.getId().toString(), search_
-//                );
-//            }
-//        }
+        postings = postingService.customSearchPostings(categ, search_, region, city, onlyTitle, onlyWithImages);
+
+
 
         return ResponseEntity.ok(postings);
     }

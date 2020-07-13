@@ -42,14 +42,26 @@ function getCategories(parentCategory) {
         return option;
 }
 
+$("#search-input").keyup(function(event) {
+    if (event.keyCode === 13) {
+        $("#btn-search").click();
+    }
+});
+
 $("#btn-search").click(function () {
     let search = $("#search-form").serialize();
-    let div = "";
+        getPostings(search);
+    });
 
-    //$("#body-post").empty();
+
+
+
+function getPostings(search) {
     $.get("/rest/posting/search", search, function (data) {
         let postings = [];
+        let div = "";
         postings = data;
+        if (postings.length !== 0){
         for (let i = 0; i < postings.length; i++) {
             div += "<div  id='post" + postings[i].id + "' class='card'><img src='" + postings[i].imagePath[0].imagePath + "' class='card-img-top' alt='...'>" +
                 "<div class='card-body'>" +
@@ -57,10 +69,13 @@ $("#btn-search").click(function () {
                 "<p class='card-text'>" + postings[i].price + "</p>" +
                 "<a href='adDetails' class='btn btn-primary'th:text='#{main-page.go_to_ad}'>Перейти к объявлению</a>" +
                 "</div></div>";
-            }
+        }
         $("#body-post").html(div);
-        });
+        }else {
+            $("#modal-search").modal("show");
+        }
     });
+}
 
 
 
