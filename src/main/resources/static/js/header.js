@@ -26,6 +26,11 @@ $(document).ready(function () {
         $("#modal-pass-change").modal("show");
     }
 
+    // Check for error messages when restoring password to conditionally render error message modal
+    if ($("#passwordResetErrorMessage")[0].innerText.length !== 0) {
+        $("#modal-pass-change-error").modal("show");
+    }
+
     $.ajax({
         url: '/rest/categories',
         type: 'get',

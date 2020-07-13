@@ -193,7 +193,8 @@
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button class="btn btn-primary" data-dismiss="modal" id="location-close" th:text="#{header.location.modalFooter}"
+                    <button class="btn btn-primary" data-dismiss="modal" id="location-close"
+                            th:text="#{header.location.modalFooter}"
                             type="button">Показать объявления
                     </button>
                 </div>
@@ -213,42 +214,50 @@
                         <div class="rightleft"></div>
                     </div>
 
-                    <form action="/login" class="" id="formLogin" method="post" style="align-content: center">
-                        <div class="form-title font-weight-bolder" th:text="#{header.modal.login.login}">Вход
+                    <form action="/login" class="" id="formLogin" method="post"
+                          style="align-content: center">
+                        <div class="form-title font-weight-bolder"
+                             th:text="#{header.modal.login.login}">Вход
                         </div>
                         <div class="form-item">
                             <div class="form-item-login">
                                 <label class="input-login">
                                     <input class="form-control" id="frmLoginInputEmail" name="email"
                                            placeholder="Электронная почта"
-                                           th:placeholder="#{header.modal.placeholder.email}" type="email">
+                                           th:placeholder="#{header.modal.placeholder.email}"
+                                           type="email">
                                 </label>
                             </div>
                             <div class="form-item-password">
                                 <label class="input-password">
-                                    <input autocomplete="off" class="form-control" id="frmLoginInputPassword"
+                                    <input autocomplete="off" class="form-control"
+                                           id="frmLoginInputPassword"
                                            name="password"
-                                           placeholder="Пароль" th:placeholder="#{header.modal.placeholder.password}"
+                                           placeholder="Пароль"
+                                           th:placeholder="#{header.modal.placeholder.password}"
                                            type="password">
                                 </label>
                             </div>
-
                             <div class="form-password-items-container">
                                 <div class="form-item-radio-remember">
-                                    <label class="checkbox" style="vertical-align: middle; font-size: 10pt">
+                                    <label class="checkbox"
+                                           style="vertical-align: middle; font-size: 10pt">
                                         <input checked="" class="" name="remember" type="checkbox">
                                         <span th:text="#{header.modal.login.rememberPassword}">Запомнить пароль</span>
                                     </label>
                                 </div>
-                                <a data-dismiss="modal" href="#" id="open-modal-3" style="font-size: 10pt"
-                                   th:text="#{reset_password.message.reset_password}">Забыли пароль?</a>
+                                <a data-dismiss="modal" href="#" id="open-modal-3"
+                                   style="font-size: 10pt"
+                                   th:text="#{reset_password.message.reset_password}">Забыли
+                                    пароль?</a>
                             </div>
                             <div class="form-password-items-container">
                 <span id="spanIncorrectLoginPass" style="color: red;"
                       th:text="#{login.error_message}">Не верная комбинация логина и пароля</span>
                             </div>
                             <div class="form-item-button">
-                                <button class="btn btn-primary" id="btnLogin" name="submit" type="button">
+                                <button class="btn btn-primary" id="btnLogin" name="submit"
+                                        type="button">
                                     <span th:text="#{header.modal.login.signIn}">Войти</span>
                                 </button>
                             </div>
@@ -375,7 +384,8 @@
                             </label>
                         </div>
                         <div class="form-reg-button">
-                            <button class="btn btn-primary" data-dismiss="modal" id="btn-modal-3" name="submit"
+                            <button class="btn btn-primary" data-dismiss="modal" id="btn-modal-3"
+                                    name="submit"
                                     type="submit">
                                 <span th:text="#{header.modal.submit}">Отправить</span>
                             </button>
@@ -413,19 +423,22 @@
                             <label class="input-password">
                                 <input autocomplete="off" class="form-control"
                                        name="password"
-                                       placeholder="Новый Пароль" required th:placeholder="#{header.modal.placeholder.newPassword}" type="password">
+                                       placeholder="Новый Пароль" required
+                                       th:placeholder="#{header.modal.placeholder.newPassword}" type="password">
                             </label>
                         </div>
                         <div class="form-item-password">
                             <label class="input-password">
                                 <input autocomplete="off" class="form-control"
                                        name="passwordConfirm"
-                                       placeholder="Подтвердите Новый Пароль" required th:placeholder="#{header.modal.placeholder.confirmNewPassword}"
+                                       placeholder="Подтвердите Новый Пароль" required
+                                       th:placeholder="#{header.modal.placeholder.confirmNewPassword}"
                                        type="password">
                             </label>
                         </div>
                         <div class="form-reg-button">
-                            <button class="btn btn-primary" data-dismiss="modal" id="btn-modal-pass-change" name="submit"
+                            <button class="btn btn-primary" data-dismiss="modal" id="btn-modal-pass-change"
+                                    name="submit"
                                     type="submit">
                                 <span th:text="#{header.modal.savePassword}">Сохранить Пароль</span>
                             </button>
@@ -436,14 +449,33 @@
         </div>
     </div>
 
-</div>
-<div th:fragment="script">
-    <script src="webjars/jquery/3.5.1/jquery.min.js"></script>
-    <script src="webjars/popper.js/1.16.0/popper.min.js"></script>
-    <script src="webjars/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-    <script src="../static/js/header.js" th:src="@{/js/header.js}"></script>
-    <script src="/js/modal_registation.js" th:src="@{/js/modal_registation.js}"></script>
-    <script src="/js/modal_registation.js" th:src="@{/js/modal_location.js}"></script>
-</div>
+    <!-- Change Password Error Modal -->
+    <div class="modal" id="modal-pass-change-error" role="dialog">
+        <div class="modal-dialog modal-dialog-centered">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-body text-center">
+                    <div class="close" data-dismiss="modal" type="button">
+                        <div class="leftright"></div>
+                        <div class="rightleft"></div>
+                    </div>
+                    <div>
+                        <h3 class="font-weight-bolder form-title" id="passwordResetErrorMessage"
+                            th:text="${passwordResetErrorMessage}">Ошибка</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div th:fragment="script">
+        <script src="webjars/jquery/3.5.1/jquery.min.js"></script>
+        <script src="webjars/popper.js/1.16.0/popper.min.js"></script>
+        <script src="webjars/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+        <script src="../static/js/header.js" th:src="@{/js/header.js}"></script>
+        <script src="/js/modal_registation.js" th:src="@{/js/modal_registation.js}"></script>
+        <script src="/js/modal_registation.js" th:src="@{/js/modal_location.js}"></script>
+    </div>
 </body>
 </html>

@@ -12,8 +12,9 @@ public class MainPageController {
     private static final Logger logger = LoggerFactory.getLogger(MainPageController.class);
 
     @GetMapping("/")
-    public String getMainPage(ModelMap model, @ModelAttribute("passwordToken") String token) {
+    public String getMainPage(ModelMap model, @ModelAttribute("passwordToken") String token, @ModelAttribute("passwordResetErrorMessage") String errorMessage) {
         model.addAttribute("passwordToken", token);
+        model.addAttribute("passwordResetErrorMessage", errorMessage);
         return "main-page";
     }
 }

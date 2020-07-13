@@ -36,12 +36,12 @@ public class UserController {
     public String showChangePasswordPage(
             Locale locale, RedirectAttributes attributes, @RequestParam("token") String token) {
         String result = userService.validatePasswordResetToken(token);
-        if (result != null) {
+        if (result == null) {
+            attributes.addFlashAttribute("passwordToken", token);
+        } else {
             attributes.addFlashAttribute(
                     "passwordResetErrorMessage", messages.getMessage("auth.message." + result, null, locale));
-            return "redirect:/redirect:/?locale=" + locale.getLanguage();
         }
-        attributes.addFlashAttribute("passwordToken", token);
         return "redirect:/?locale=" + locale.getLanguage();
     }
 
