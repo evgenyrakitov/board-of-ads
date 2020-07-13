@@ -42,23 +42,23 @@ function getCategories(parentCategory) {
         return option;
 }
 
-   $("#btn-search").click(function () {
-        let search = $("#search-form").serialize();
-        let div = "";
+$("#btn-search").click(function () {
+    let search = $("#search-form").serialize();
+    let div = "";
 
-        //$("#body-post").empty();
-        $.get("/rest/posting/search", search, function(data){
-            let postings = [];
-            postings = data;
-            for (let i = 0; i < postings.length; i++) {
-                div =  "<div  id='post"+postings[i].id+"' class='card'><img src='" + postings[i].imagePath[0].imagePath + "' class='card-img-top' alt='...'>" +
-                    "<div class='card-body'>" +
-                    "<h5 class='card-title'>" + postings[i].title + "</h5>" +
-                    "<p class='card-text'>" + postings[i].price + "</p>" +
-                    "<a href='adDetails' class='btn btn-primary'th:text='#{main-page.go_to_ad}'>Перейти к объявлению</a>" +
-                    "</div></div>";
+    //$("#body-post").empty();
+    $.get("/rest/posting/search", search, function (data) {
+        let postings = [];
+        postings = data;
+        for (let i = 0; i < postings.length; i++) {
+            div += "<div  id='post" + postings[i].id + "' class='card'><img src='" + postings[i].imagePath[0].imagePath + "' class='card-img-top' alt='...'>" +
+                "<div class='card-body'>" +
+                "<h5 class='card-title'>" + postings[i].title + "</h5>" +
+                "<p class='card-text'>" + postings[i].price + "</p>" +
+                "<a href='adDetails' class='btn btn-primary'th:text='#{main-page.go_to_ad}'>Перейти к объявлению</a>" +
+                "</div></div>";
             }
-            $("#body-post").append(div);
+        $("#body-post").html(div);
         });
     });
 

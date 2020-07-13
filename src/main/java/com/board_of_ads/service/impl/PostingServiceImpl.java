@@ -1,7 +1,6 @@
 package com.board_of_ads.service.impl;
 
 import com.board_of_ads.models.Category;
-import com.board_of_ads.models.Images;
 import com.board_of_ads.models.User;
 import com.board_of_ads.models.posting.Posting;
 import com.board_of_ads.models.posting.extra.PostingStatus;
@@ -63,7 +62,7 @@ public class PostingServiceImpl implements PostingService {
 
     @Override
     public Set<Posting> findAllByTitleLike(@NonNull String title) {
-        return postingRepository.findAllByTitleLikeIgnoreCaseAndImagePathIsNull(title);
+        return postingRepository.findAllByTitleLikeIgnoreCase(title);
     }
 
     @Override

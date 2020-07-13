@@ -6,7 +6,6 @@ import com.board_of_ads.models.posting.Posting;
 import com.board_of_ads.models.posting.extra.PostingStatus;
 import lombok.NonNull;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.lang.Nullable;
 
 import java.util.List;
 import java.util.Set;
@@ -26,7 +25,7 @@ public interface PostingRepository extends JpaRepository<Posting, Long>{
 
     Set<Posting> findAllByFullDescriptionLikeIgnoreCase(@NonNull String fullDescription);
 
-    Set<Posting>findAllByTitleLikeIgnoreCaseAndImagePathIsNull(@NonNull String title);
+    Set<Posting> findAllByTitleLikeIgnoreCase(@NonNull String title);
 
     Set<Posting>findAllByFullDescriptionLikeIgnoreCaseAndImagePathIsNotNull(@NonNull String fullDescription);
 
