@@ -18,6 +18,12 @@ $(document).ready(function () {
                 $(".dropdown-toggle").html('<img src="images/header/en.svg" width="30">');
             }
     }
+
+    // Check for password reset token to conditionally render change password modal
+    if ($("#passwordResetToken").val().length !== 0) {
+        $("#modal-pass-change").modal("show");
+    }
+
     $.ajax({
         url: '/rest/categories',
         type: 'get',
@@ -119,6 +125,18 @@ $("#btnLogin").click(function () {
             $('#spanIncorrectLoginPass').slideDown();
             $('#spanIncorrectLoginPass').delay(3000).slideUp();
         })
+});
+
+// Saving password after reset
+$("#btn-modal-pass-change").click(function () {
+    $.ajax({
+        url: "/reset/savePassword",
+        type: 'POST',
+        data: $("#form-modal-pass-change").serialize()
+    })
+    .done(function() {
+        window.location.href = '/';
+    })
 });
 
 let userId = $('#userId').text();  //нужно взять id user-a с header и сделать запрос

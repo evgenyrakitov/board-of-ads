@@ -352,6 +352,42 @@
         </div>
     </div>
 
+    <!-- Change Password Modal -->
+    <div class="modal" id="modal-pass-change" role="dialog">
+        <div class="modal-dialog modal-dialog-centered">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-body text-center">
+                    <div type="button" class="close" data-dismiss="modal">
+                        <div class="leftright"></div>
+                        <div class="rightleft"></div>
+                    </div>
+
+                    <form action="/reset/savePassword" id="form-modal-pass-change" method="POST">
+                        <div class="form-title font-weight-bolder" th:text="#{header.modal.changePassword}">Смена Пароля</div>
+                        <input name="token" id="passwordResetToken" th:value="${passwordToken}" type="hidden">
+                        <div class="form-item-password">
+                            <label class="input-password">
+                                <input name="password" class="form-control" th:placeholder="#{header.modal.placeholder.newPassword}" placeholder="Новый Пароль" type="password" autocomplete="off" required>
+                            </label>
+                        </div>
+                        <div class="form-item-password">
+                            <label class="input-password">
+                                <input name="passwordConfirm" class="form-control" th:placeholder="#{header.modal.placeholder.confirmNewPassword}" placeholder="Подтвердите Новый Пароль" type="password" autocomplete="off" required>
+                            </label>
+                        </div>
+                        <div class="form-reg-button">
+                            <button type="submit" name="submit"  class="btn btn-primary" data-dismiss="modal" id="btn-modal-pass-change">
+                                <span th:text="#{header.modal.savePassword}">Сохранить Пароль</span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>
 <div th:fragment="script">
     <script src="webjars/jquery/3.5.1/jquery.min.js"></script>

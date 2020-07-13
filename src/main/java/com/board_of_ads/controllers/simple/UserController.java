@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.Locale;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 @AllArgsConstructor
@@ -34,16 +35,16 @@ public class UserController {
     }
 
     @GetMapping("/reset/changePassword")
-    public String showChangePasswordPage(Locale locale, Model model,
+    public String showChangePasswordPage(Locale locale, RedirectAttributes attributes, Model model,
             @RequestParam("token") String token) {
         String result = userService.validatePasswordResetToken(token);
         if (result != null) {
-            model.addAttribute("message",
+            attributes.addFlashAttribute("passwordResetErrorMessage",
                     messages.getMessage("auth.message." + result, null, locale));
-            return "redirect:/login?lang=" + locale.getLanguage();
+            return "redirect:/redirect:/?locale=" + locale.getLanguage();
         }
-        model.addAttribute("token", token);
-        return "updatePassword";
+        attributes.addFlashAttribute("passwordToken", token);
+        return "redirect:/?locale=" + locale.getLanguage();
     }
 
     @RequestMapping(value = "/reset/savePassword", method = RequestMethod.POST)
