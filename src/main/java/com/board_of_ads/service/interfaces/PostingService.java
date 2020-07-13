@@ -1,14 +1,12 @@
 package com.board_of_ads.service.interfaces;
 
 import com.board_of_ads.models.Category;
-import com.board_of_ads.models.Images;
 import com.board_of_ads.models.User;
+import com.board_of_ads.models.kladr.City;
+import com.board_of_ads.models.kladr.Region;
 import com.board_of_ads.models.posting.Posting;
 import com.board_of_ads.models.posting.extra.PostingStatus;
 import lombok.NonNull;
-import org.springframework.data.repository.query.Param;
-import org.springframework.lang.Nullable;
-import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Set;
@@ -29,14 +27,15 @@ public interface PostingService {
 
     List<Posting> getUserPostingsByStatus(User principal, PostingStatus postingStatus);
 
+    List<Posting> customSearchPostings(Category category, String searchString, Region region, City city, boolean onlyTitle, boolean onlyWithImages);
+
     Set<Posting> findAllByFullDescriptionLikeIgnoreCaseAndTitleLikeIgnoreCase(@NonNull String fullDescription, @NonNull String title);
 
     Set<Posting> findAllByTitleLikeIgnoreCase(@NonNull String title);
 
-    Set<Posting>findAllByFullDescriptionLikeIgnoreCaseAndTitleLikeIgnoreCaseAndImagePathIsNotNull(@NonNull String fullDescription, @NonNull String title);
+    Set<Posting> findAllByFullDescriptionLikeIgnoreCaseAndTitleLikeIgnoreCaseAndImagePathIsNotNull(@NonNull String fullDescription, @NonNull String title);
 
-    Set<Posting>findAllByTitleLikeIgnoreCaseAndImagePathIsNotNull(@NonNull String title);
-
+    Set<Posting> findAllByTitleLikeIgnoreCaseAndImagePathIsNotNull(@NonNull String title);
 
     Set<Posting> findAllByCityIdAndFullDescriptionLikeIgnoreCaseAndTitleLikeIgnoreCase(String cityId, @NonNull String fullDescription, @NonNull String title);
 

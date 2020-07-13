@@ -2,9 +2,12 @@ package com.board_of_ads.service.impl;
 
 import com.board_of_ads.models.Category;
 import com.board_of_ads.models.User;
+import com.board_of_ads.models.kladr.City;
+import com.board_of_ads.models.kladr.Region;
 import com.board_of_ads.models.posting.Posting;
 import com.board_of_ads.models.posting.extra.PostingStatus;
 import com.board_of_ads.repository.PostingRepository;
+import com.board_of_ads.repository.custom.PostingRepositoryCustomImpl;
 import com.board_of_ads.service.interfaces.PostingService;
 import lombok.AllArgsConstructor;
 import lombok.NonNull;
@@ -23,6 +26,8 @@ public class PostingServiceImpl implements PostingService {
     private static final Logger logger = LoggerFactory.getLogger(CityServiceImpl.class);
 
     private final PostingRepository postingRepository;
+    private final PostingRepositoryCustomImpl postingRepositoryCustomImpl;
+
 
     @Override
     public Posting addPosting(Posting posting) {
@@ -48,6 +53,11 @@ public class PostingServiceImpl implements PostingService {
     @Override
     public List<Posting> getPostingsByCityId(String cityId) {
         return postingRepository.findAllByCityId(cityId);
+    }
+
+    @Override
+    public List<Posting> customSearchPostings(Category category, String searchString, Region region, City city, boolean onlyTitle, boolean onlyWithImages) {
+        return postingRepositoryCustomImpl.customSearchPostings(category, searchString, region, city, onlyTitle, onlyWithImages);
     }
 
     @Override
