@@ -139,40 +139,41 @@ public class PostingRestController {
                     if (search.length() == 0) {
                         postings = new HashSet<>(postingService.getAllPostings());
                     } else if (ch1 == null && ch2 == null) {
-                        postings = postingService.findAllByFullDescriptionLike(search_);
+                        postings = postingService.findAllByFullDescriptionLikeIgnoreCaseAndTitleLikeIgnoreCase(search_, search_);
                     } else if (ch1 == null && ch2 != null) {
-                        postings = postingService.findAllByFullDescriptionLikeAndImagePathIsNotNull(search_);
+                        postings = postingService.findAllByFullDescriptionLikeIgnoreCaseAndTitleLikeIgnoreCaseAndImagePathIsNotNull(search_, search_);
                     } else if (ch1 != null && ch2 == null) {
-                        postings = postingService.findAllByTitleLike(search_);
+                        postings = postingService.findAllByTitleLikeIgnoreCase(search_);
                     } else {
-                        postings = postingService.findAllByTitleLikeAndImagePathIsNotNull(search_);
+                        postings = postingService.findAllByTitleLikeIgnoreCaseAndImagePathIsNotNull(search_);
                     }
                 } else if (search.length() == 0) {
                     postings = new HashSet<>(postingService.getPostingsByRegionId(region.getId().toString()));
                 } else if (ch1 == null && ch2 == null) {
-                    postings = postingService.findAllByRegionIdAndFullDescriptionLike(
-                            region.getId().toString(), search_);
+                    postings = postingService.findAllByRegionIdAndFullDescriptionLikeIgnoreCaseAndTitleLikeIgnoreCase(
+                            region.getId().toString(), search_, search_);
                 } else if (ch1 == null && ch2 != null) {
-                    postings = postingService.findAllByRegionIdAndFullDescriptionLikeAndImagePathIsNotNull(
-                            region.getId().toString(), search_
+                    postings = postingService.findAllByRegionIdAndFullDescriptionLikeIgnoreCaseAndTitleLikeIgnoreCaseAndImagePathIsNotNull(
+                            region.getId().toString(), search_, search_
                     );
                 } else if (ch1 != null && ch2 == null) {
-                    postings = postingService.findAllByRegionIdAndTitleLike(region.getId().toString(), search_);
+                    postings = postingService.findAllByRegionIdAndTitleLikeIgnoreCase(region.getId().toString(), search_);
                 } else {
-                    postings = postingService.findAllByRegionIdAndTitleLikeAndImagePathIsNotNull(region.getId().toString(), search_);
+                    postings = postingService.findAllByRegionIdAndTitleLikeIgnoreCaseAndImagePathIsNotNull(region.getId().toString(), search_);
                 }
             } else if (search.length() == 0){
                 postings = new HashSet<>(postingService.getPostingsByCityId(city.getId().toString()));
             } else if (ch1 == null && ch2 == null){
-                postings = postingService.findAllByCityIdAndFullDescriptionLike(city.getId().toString(), search_);
+                postings = postingService.findAllByCityIdAndFullDescriptionLikeIgnoreCaseAndTitleLikeIgnoreCase(
+                        city.getId().toString(), search_, search_);
             } else if (ch1 == null && ch2 != null){
-                postings = postingService.findAllByCityIdAndFullDescriptionLikeAndImagePathIsNotNull(
-                        city.getId().toString(), search_
+                postings = postingService.findAllByCityIdAndFullDescriptionLikeIgnoreCaseAndTitleLikeIgnoreCaseAndImagePathIsNotNull(
+                        city.getId().toString(), search_, search_
                 );
             } else if (ch1 != null && ch2 == null){
-                postings = postingService.findAllByCityIdAndTitleLike(city.getId().toString(), search_);
+                postings = postingService.findAllByCityIdAndTitleLikeIgnoreCase(city.getId().toString(), search_);
             } else {
-                postings = postingService.findAllByCityIdAndTitleLikeAndImagePathIsNotNull(
+                postings = postingService.findAllByCityIdAndTitleLikeIgnoreCaseAndImagePathIsNotNull(
                         city.getId().toString(), search_
                 );
             }
@@ -181,28 +182,31 @@ public class PostingRestController {
                 if (search.length() == 0){
                     postings = postingService.findAllByCategory(categ);
                 } else if (ch1 == null && ch2 == null){
-                    postings = postingService.findAllByCategoryAndFullDescriptionLike(categ, search_);
+                    postings = postingService.findAllByCategoryAndFullDescriptionLikeIgnoreCaseAndTitleLikeIgnoreCase(
+                            categ, search_, search_);
                 } else if (ch1 == null && ch2 != null){
-                    postings = postingService.findAllByCategoryAndFullDescriptionLikeAndImagePathIsNotNull(
-                            categ, search_
+                    postings = postingService.findAllByCategoryAndFullDescriptionLikeIgnoreCaseAndTitleLikeIgnoreCaseAndImagePathIsNotNull(
+
+                            categ, search_, search_
                     );
                 }else if (ch1 != null && ch2 == null){
-                    postings = postingService.findAllByCategoryAndTitleLike(categ, search_);
+                    postings = postingService.findAllByCategoryAndTitleLikeIgnoreCase(categ, search_);
                 } else {
-                    postings = postingService.findAllByCategoryAndTitleLikeAndImagePathIsNotNull(categ, search_);
+                    postings = postingService.findAllByCategoryAndTitleLikeIgnoreCaseAndImagePathIsNotNull(categ, search_);
                 }
             } else if (search.length() == 0){
                 postings = postingService.findAllByCategoryAndRegionId(categ, region.getId().toString());
             } else if (ch1 == null && ch2 == null){
-                postings = postingService.findAllByCategoryAndRegionIdAndFullDescriptionLike(categ, region.getId().toString(), search_);
+                postings = postingService.findAllByCategoryAndRegionIdAndFullDescriptionLikeIgnoreCaseAndTitleLikeIgnoreCase(
+                        categ, region.getId().toString(), search_, search_);
             } else if (ch1 == null && ch2 != null){
-                postings = postingService.findAllByCategoryAndRegionIdAndFullDescriptionLikeAndImagePathIsNotNull(
-                        categ, region.getId().toString(), search_
+                postings = postingService.findAllByCategoryAndRegionIdAndFullDescriptionLikeIgnoreCaseAndTitleLikeIgnoreCaseAndImagePathIsNotNull(
+                         categ, region.getId().toString(), search_, search_
                 );
             } else if (ch1 != null && ch2 == null){
-                postings = postingService.findAllByCategoryAndRegionIdAndTitleLike(categ, region.getId().toString(), search_);
+                postings = postingService.findAllByCategoryAndRegionIdAndTitleLikeIgnoreCase(categ, region.getId().toString(), search_);
             } else {
-                postings = postingService.findAllByCategoryAndRegionIdAndTitleLikeAndImagePathIsNotNull(
+                postings = postingService.findAllByCategoryAndRegionIdAndTitleLikeIgnoreCaseAndImagePathIsNotNull(
                         categ, region.getId().toString(), search_
                 );
             }
@@ -210,15 +214,17 @@ public class PostingRestController {
             if (search.length() == 0){
                 postings = postingService.findAllByCategoryAndCityId(categ, city.getId().toString());
             } else if (ch1 == null && ch2 == null){
-                postings = postingService.findAllByCategoryAndCityIdAndFullDescriptionLike(categ, city.getId().toString(), search_);
+                postings = postingService.findAllByCategoryAndCityIdAndFullDescriptionLikeIgnoreCaseAndTitleLikeIgnoreCase(
+                        categ, city.getId().toString(), search_, search_);
             } else if (ch1 == null && ch2 != null){
-                postings = postingService.findAllByCategoryAndCityIdAndFullDescriptionLikeAndImagePathIsNotNull(
-                        categ, city.getId().toString(), search_
+                postings = postingService.findAllByCategoryAndCityIdAndFullDescriptionLikeIgnoreCaseAndTitleLikeIgnoreCaseAndImagePathIsNotNull(
+                        categ, city.getId().toString(), search_, search_
                 );
             } else if (ch1 != null && ch2 == null){
-                postings = postingService.findAllByCategoryAndCityIdAndTitleLike(categ, city.getId().toString(), search_);
+                postings = postingService.findAllByCategoryAndCityIdAndTitleLikeIgnoreCase(
+                        categ, city.getId().toString(), search_);
             } else {
-                postings = postingService.findAllByCategoryAndCityIdAndTitleLikeAndImagePathIsNotNull(
+                postings = postingService.findAllByCategoryAndCityIdAndTitleLikeIgnoreCaseAndImagePathIsNotNull(
                         categ, city.getId().toString(), search_
                 );
             }

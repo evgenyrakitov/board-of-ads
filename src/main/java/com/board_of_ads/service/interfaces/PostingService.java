@@ -29,67 +29,71 @@ public interface PostingService {
 
     List<Posting> getUserPostingsByStatus(User principal, PostingStatus postingStatus);
 
-    Set<Posting>findAllByFullDescriptionLike(@NonNull String fullDescription);
+    Set<Posting> findAllByFullDescriptionLikeIgnoreCaseAndTitleLikeIgnoreCase(@NonNull String fullDescription, @NonNull String title);
 
-    Set<Posting>findAllByTitleLike(@NonNull String title);
+    Set<Posting> findAllByTitleLikeIgnoreCase(@NonNull String title);
 
-    Set<Posting>findAllByFullDescriptionLikeAndImagePathIsNotNull(@NonNull String fullDescription);
+    Set<Posting>findAllByFullDescriptionLikeIgnoreCaseAndTitleLikeIgnoreCaseAndImagePathIsNotNull(@NonNull String fullDescription, @NonNull String title);
 
-    Set<Posting>findAllByTitleLikeAndImagePathIsNotNull(@NonNull String title);
+    Set<Posting>findAllByTitleLikeIgnoreCaseAndImagePathIsNotNull(@NonNull String title);
 
-    Set<Posting> findAllByCityIdAndFullDescriptionLike(String cityId, @NonNull String fullDescription);
 
-    Set<Posting>findAllByCityIdAndFullDescriptionLikeAndImagePathIsNotNull(String cityId, @NonNull String fullDescription);
+    Set<Posting> findAllByCityIdAndFullDescriptionLikeIgnoreCaseAndTitleLikeIgnoreCase(String cityId, @NonNull String fullDescription, @NonNull String title);
 
-    Set<Posting>findAllByCityIdAndTitleLike(String cityId, @NonNull String title);
+    Set<Posting>findAllByCityIdAndFullDescriptionLikeIgnoreCaseAndTitleLikeIgnoreCaseAndImagePathIsNotNull(String cityId, @NonNull String fullDescription, @NonNull String title);
 
-    Set<Posting>findAllByCityIdAndTitleLikeAndImagePathIsNotNull(String cityId, @NonNull String title);
+    Set<Posting>findAllByCityIdAndTitleLikeIgnoreCase(String cityId, @NonNull String title);
 
-    Set<Posting>findAllByRegionIdAndFullDescriptionLike(String regionId, @NonNull String fullDescription);
+    Set<Posting>findAllByCityIdAndTitleLikeIgnoreCaseAndImagePathIsNotNull(String cityId, @NonNull String title);
 
-    Set<Posting>findAllByRegionIdAndFullDescriptionLikeAndImagePathIsNotNull(String regionId, @NonNull String fullDescription);
 
-    Set<Posting>findAllByRegionIdAndTitleLike(String regionId, @NonNull String title);
+    Set<Posting>findAllByRegionIdAndFullDescriptionLikeIgnoreCaseAndTitleLikeIgnoreCase(String regionId, @NonNull String fullDescription, @NonNull String title);
 
-    Set<Posting>findAllByRegionIdAndTitleLikeAndImagePathIsNotNull(String regionId, @NonNull String title);
+    Set<Posting>findAllByRegionIdAndFullDescriptionLikeIgnoreCaseAndTitleLikeIgnoreCaseAndImagePathIsNotNull(String regionId, @NonNull String fullDescription, @NonNull String title);
+
+    Set<Posting>findAllByRegionIdAndTitleLikeIgnoreCase(String regionId, @NonNull String title);
+
+    Set<Posting>findAllByRegionIdAndTitleLikeIgnoreCaseAndImagePathIsNotNull(String regionId, @NonNull String title);
+
 
     Set<Posting>findAllByCategory(@NonNull Category category);
 
-    Set<Posting>findAllByCategoryAndFullDescriptionLike(@NonNull Category category, @NonNull String fullDescription);
+    Set<Posting>findAllByCategoryAndFullDescriptionLikeIgnoreCaseAndTitleLikeIgnoreCase(@NonNull Category category, @NonNull String fullDescription, @NonNull String title);
 
-    Set<Posting>findAllByCategoryAndFullDescriptionLikeAndImagePathIsNotNull(
-            @NonNull Category category, @NonNull String fullDescription);
+    Set<Posting>findAllByCategoryAndFullDescriptionLikeIgnoreCaseAndTitleLikeIgnoreCaseAndImagePathIsNotNull(
+            @NonNull Category category, @NonNull String fullDescription, @NonNull String title);
 
-    Set<Posting>findAllByCategoryAndTitleLike(@NonNull Category category, @NonNull String title);
+    Set<Posting>findAllByCategoryAndTitleLikeIgnoreCase(@NonNull Category category, @NonNull String title);
 
-    Set<Posting>findAllByCategoryAndTitleLikeAndImagePathIsNotNull(
+    Set<Posting>findAllByCategoryAndTitleLikeIgnoreCaseAndImagePathIsNotNull(
             @NonNull Category category, @NonNull String title);
 
     Set<Posting>findAllByCategoryAndRegionId(@NonNull Category category, String regionId);
 
-    Set<Posting>findAllByCategoryAndRegionIdAndFullDescriptionLike(
-            @NonNull Category category, String regionId, @NonNull String fullDescription);
+    Set<Posting>findAllByCategoryAndRegionIdAndFullDescriptionLikeIgnoreCaseAndTitleLikeIgnoreCase(
+            @NonNull Category category, String regionId, @NonNull String fullDescription, @NonNull String title);
 
 
-    Set<Posting>findAllByCategoryAndRegionIdAndFullDescriptionLikeAndImagePathIsNotNull(
-            @NonNull Category category, String regionId, @NonNull String fullDescription);
+    Set<Posting>findAllByCategoryAndRegionIdAndFullDescriptionLikeIgnoreCaseAndTitleLikeIgnoreCaseAndImagePathIsNotNull(
+            @NonNull Category category, String regionId, @NonNull String fullDescription, @NonNull String title);
 
-    Set<Posting>findAllByCategoryAndRegionIdAndTitleLike(
+    Set<Posting>findAllByCategoryAndRegionIdAndTitleLikeIgnoreCase(
             @NonNull Category category, String regionId, @NonNull String title);
 
 
-    Set<Posting>findAllByCategoryAndRegionIdAndTitleLikeAndImagePathIsNotNull(
+    Set<Posting>findAllByCategoryAndRegionIdAndTitleLikeIgnoreCaseAndImagePathIsNotNull(
             @NonNull Category category, String regionId, @NonNull String title);
 
     Set<Posting>findAllByCategoryAndCityId(@NonNull Category category, String cityId);
 
-    Set<Posting>findAllByCategoryAndCityIdAndFullDescriptionLike(@NonNull Category category, String cityId, @NonNull String fullDescription);
+    Set<Posting>findAllByCategoryAndCityIdAndFullDescriptionLikeIgnoreCaseAndTitleLikeIgnoreCase(@NonNull Category category, String cityId, @NonNull String fullDescription, @NonNull String title);
 
-    Set<Posting>findAllByCategoryAndCityIdAndFullDescriptionLikeAndImagePathIsNotNull(@NonNull Category category, String cityId, @NonNull String fullDescription);
+    Set<Posting>findAllByCategoryAndCityIdAndFullDescriptionLikeIgnoreCaseAndTitleLikeIgnoreCaseAndImagePathIsNotNull(@NonNull Category category, String cityId, @NonNull String fullDescription, @NonNull String title);
 
-    Set<Posting>findAllByCategoryAndCityIdAndTitleLike(@NonNull Category category, String cityId, @NonNull String title);
+    Set<Posting>findAllByCategoryAndCityIdAndTitleLikeIgnoreCase(@NonNull Category category, String cityId, @NonNull String title);
 
-    Set<Posting>findAllByCategoryAndCityIdAndTitleLikeAndImagePathIsNotNull(@NonNull Category category, String cityId, @NonNull String title);
+    Set<Posting>findAllByCategoryAndCityIdAndTitleLikeIgnoreCaseAndImagePathIsNotNull(@NonNull Category category, String cityId, @NonNull String title);
+
 
 
 

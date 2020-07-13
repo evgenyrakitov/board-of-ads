@@ -46,6 +46,11 @@ public class PostingServiceImpl implements PostingService {
     }
 
     @Override
+    public List<Posting> getPostingsByCityId(String cityId) {
+        return postingRepository.findAllByCityId(cityId);
+    }
+
+    @Override
     public List<Posting> getPostingsByRegionId(String regionId) {
         return postingRepository.findAllByRegionId(regionId);
     }
@@ -56,69 +61,63 @@ public class PostingServiceImpl implements PostingService {
     }
 
     @Override
-    public Set<Posting> findAllByFullDescriptionLike(@NonNull String fullDescription) {
-        return postingRepository.findAllByFullDescriptionLikeIgnoreCase(fullDescription);
+    public Set<Posting> findAllByFullDescriptionLikeIgnoreCaseAndTitleLikeIgnoreCase(@NonNull String fullDescription, @NonNull String title) {
+        return postingRepository.findAllByFullDescriptionLikeIgnoreCaseAndTitleLikeIgnoreCase(fullDescription, title);
     }
 
     @Override
-    public Set<Posting> findAllByTitleLike(@NonNull String title) {
+    public Set<Posting> findAllByTitleLikeIgnoreCase(@NonNull String title) {
         return postingRepository.findAllByTitleLikeIgnoreCase(title);
     }
 
     @Override
-    public Set<Posting> findAllByFullDescriptionLikeAndImagePathIsNotNull(@NonNull String fullDescription) {
-        return postingRepository.findAllByFullDescriptionLikeIgnoreCaseAndImagePathIsNotNull(fullDescription);
+    public Set<Posting> findAllByFullDescriptionLikeIgnoreCaseAndTitleLikeIgnoreCaseAndImagePathIsNotNull(@NonNull String fullDescription, @NonNull String title) {
+        return postingRepository.findAllByFullDescriptionLikeIgnoreCaseAndTitleLikeIgnoreCaseAndImagePathIsNotNull(fullDescription, title);
     }
 
     @Override
-    public Set<Posting> findAllByTitleLikeAndImagePathIsNotNull(@NonNull String title) {
+    public Set<Posting> findAllByTitleLikeIgnoreCaseAndImagePathIsNotNull(@NonNull String title) {
         return postingRepository.findAllByTitleLikeIgnoreCaseAndImagePathIsNotNull(title);
     }
 
     @Override
-    public Set<Posting> findAllByCityIdAndFullDescriptionLike(String cityId, @NonNull String fullDescription) {
-        return postingRepository.findAllByCityIdAndFullDescriptionLikeIgnoreCase(cityId, fullDescription);
+    public Set<Posting> findAllByCityIdAndFullDescriptionLikeIgnoreCaseAndTitleLikeIgnoreCase(String cityId, @NonNull String fullDescription, @NonNull String title) {
+        return postingRepository.findAllByCityIdAndFullDescriptionLikeIgnoreCaseAndTitleLikeIgnoreCase(cityId, fullDescription, title);
     }
 
     @Override
-    public Set<Posting> findAllByCityIdAndFullDescriptionLikeAndImagePathIsNotNull(String cityId, @NonNull String fullDescription) {
-        return postingRepository.findAllByCityIdAndFullDescriptionLikeIgnoreCaseAndImagePathIsNotNull(
-                cityId, fullDescription
-        );
+    public Set<Posting> findAllByCityIdAndFullDescriptionLikeIgnoreCaseAndTitleLikeIgnoreCaseAndImagePathIsNotNull(String cityId, @NonNull String fullDescription, @NonNull String title) {
+        return postingRepository.findAllByCityIdAndFullDescriptionLikeIgnoreCaseAndTitleLikeIgnoreCaseAndImagePathIsNotNull(cityId, fullDescription, title);
     }
 
     @Override
-    public Set<Posting> findAllByCityIdAndTitleLike(String cityId, @NonNull String title) {
+    public Set<Posting> findAllByCityIdAndTitleLikeIgnoreCase(String cityId, @NonNull String title) {
         return postingRepository.findAllByCityIdAndTitleLikeIgnoreCase(cityId, title);
     }
 
     @Override
-    public Set<Posting> findAllByCityIdAndTitleLikeAndImagePathIsNotNull(String cityId, @NonNull String title) {
+    public Set<Posting> findAllByCityIdAndTitleLikeIgnoreCaseAndImagePathIsNotNull(String cityId, @NonNull String title) {
         return postingRepository.findAllByCityIdAndTitleLikeIgnoreCaseAndImagePathIsNotNull(cityId, title);
     }
 
     @Override
-    public Set<Posting> findAllByRegionIdAndFullDescriptionLike(String regionId, @NonNull String fullDescription) {
-        return postingRepository.findAllByRegionIdAndFullDescriptionLikeIgnoreCase(regionId, fullDescription);
+    public Set<Posting> findAllByRegionIdAndFullDescriptionLikeIgnoreCaseAndTitleLikeIgnoreCase(String regionId, @NonNull String fullDescription, @NonNull String title) {
+        return postingRepository.findAllByRegionIdAndFullDescriptionLikeIgnoreCaseAndTitleLikeIgnoreCase(regionId, fullDescription, title);
     }
 
     @Override
-    public Set<Posting> findAllByRegionIdAndFullDescriptionLikeAndImagePathIsNotNull(String regionId, @NonNull String fullDescription) {
-        return postingRepository.findAllByRegionIdAndFullDescriptionLikeIgnoreCaseAndImagePathIsNotNull(
-                regionId, fullDescription
-        );
+    public Set<Posting> findAllByRegionIdAndFullDescriptionLikeIgnoreCaseAndTitleLikeIgnoreCaseAndImagePathIsNotNull(String regionId, @NonNull String fullDescription, @NonNull String title) {
+        return postingRepository.findAllByRegionIdAndFullDescriptionLikeIgnoreCaseAndTitleLikeIgnoreCaseAndImagePathIsNotNull(regionId, fullDescription, title);
     }
 
     @Override
-    public Set<Posting> findAllByRegionIdAndTitleLike(String regionId, @NonNull String title) {
+    public Set<Posting> findAllByRegionIdAndTitleLikeIgnoreCase(String regionId, @NonNull String title) {
         return postingRepository.findAllByRegionIdAndTitleLikeIgnoreCase(regionId, title);
     }
 
     @Override
-    public Set<Posting> findAllByRegionIdAndTitleLikeAndImagePathIsNotNull(String regionId, @NonNull String title) {
-        return postingRepository.findAllByRegionIdAndTitleLikeIgnoreCaseAndImagePathIsNotNull(
-                regionId, title
-        );
+    public Set<Posting> findAllByRegionIdAndTitleLikeIgnoreCaseAndImagePathIsNotNull(String regionId, @NonNull String title) {
+        return postingRepository.findAllByRegionIdAndTitleLikeIgnoreCaseAndImagePathIsNotNull(regionId, title);
     }
 
     @Override
@@ -127,22 +126,22 @@ public class PostingServiceImpl implements PostingService {
     }
 
     @Override
-    public Set<Posting> findAllByCategoryAndFullDescriptionLike(@NonNull Category category, @NonNull String fullDescription) {
-        return postingRepository.findAllByCategoryAndFullDescriptionLikeIgnoreCase(category, fullDescription);
+    public Set<Posting> findAllByCategoryAndFullDescriptionLikeIgnoreCaseAndTitleLikeIgnoreCase(@NonNull Category category, @NonNull String fullDescription, @NonNull String title) {
+        return postingRepository.findAllByCategoryAndFullDescriptionLikeIgnoreCaseAndTitleLikeIgnoreCase(category, fullDescription, title);
     }
 
     @Override
-    public Set<Posting> findAllByCategoryAndFullDescriptionLikeAndImagePathIsNotNull(@NonNull Category category, @NonNull String fullDescription) {
-        return postingRepository.findAllByCategoryAndFullDescriptionLikeIgnoreCaseAndImagePathIsNotNull(category, fullDescription);
+    public Set<Posting> findAllByCategoryAndFullDescriptionLikeIgnoreCaseAndTitleLikeIgnoreCaseAndImagePathIsNotNull(@NonNull Category category, @NonNull String fullDescription, @NonNull String title) {
+        return postingRepository.findAllByCategoryAndFullDescriptionLikeIgnoreCaseAndTitleLikeIgnoreCaseAndImagePathIsNotNull(category, fullDescription, title);
     }
 
     @Override
-    public Set<Posting> findAllByCategoryAndTitleLike(@NonNull Category category, @NonNull String title) {
+    public Set<Posting> findAllByCategoryAndTitleLikeIgnoreCase(@NonNull Category category, @NonNull String title) {
         return postingRepository.findAllByCategoryAndTitleLikeIgnoreCase(category, title);
     }
 
     @Override
-    public Set<Posting> findAllByCategoryAndTitleLikeAndImagePathIsNotNull(@NonNull Category category, @NonNull String title) {
+    public Set<Posting> findAllByCategoryAndTitleLikeIgnoreCaseAndImagePathIsNotNull(@NonNull Category category, @NonNull String title) {
         return postingRepository.findAllByCategoryAndTitleLikeIgnoreCaseAndImagePathIsNotNull(category, title);
     }
 
@@ -152,22 +151,22 @@ public class PostingServiceImpl implements PostingService {
     }
 
     @Override
-    public Set<Posting> findAllByCategoryAndRegionIdAndFullDescriptionLike(@NonNull Category category, String regionId, @NonNull String fullDescription) {
-        return postingRepository.findAllByCategoryAndRegionIdAndFullDescriptionLikeIgnoreCase(category, regionId, fullDescription);
+    public Set<Posting> findAllByCategoryAndRegionIdAndFullDescriptionLikeIgnoreCaseAndTitleLikeIgnoreCase(@NonNull Category category, String regionId, @NonNull String fullDescription, @NonNull String title) {
+        return postingRepository.findAllByCategoryAndRegionIdAndFullDescriptionLikeIgnoreCaseAndTitleLikeIgnoreCase(category, regionId, fullDescription, title);
     }
 
     @Override
-    public Set<Posting> findAllByCategoryAndRegionIdAndFullDescriptionLikeAndImagePathIsNotNull(@NonNull Category category, String regionId, @NonNull String fullDescription) {
-        return postingRepository.findAllByCategoryAndRegionIdAndFullDescriptionLikeIgnoreCaseAndImagePathIsNotNull(category, regionId, fullDescription);
+    public Set<Posting> findAllByCategoryAndRegionIdAndFullDescriptionLikeIgnoreCaseAndTitleLikeIgnoreCaseAndImagePathIsNotNull(@NonNull Category category, String regionId, @NonNull String fullDescription, @NonNull String title) {
+        return postingRepository.findAllByCategoryAndRegionIdAndFullDescriptionLikeIgnoreCaseAndTitleLikeIgnoreCaseAndImagePathIsNotNull(category, regionId, fullDescription, title);
     }
 
     @Override
-    public Set<Posting> findAllByCategoryAndRegionIdAndTitleLike(@NonNull Category category, String regionId, @NonNull String title) {
+    public Set<Posting> findAllByCategoryAndRegionIdAndTitleLikeIgnoreCase(@NonNull Category category, String regionId, @NonNull String title) {
         return postingRepository.findAllByCategoryAndRegionIdAndTitleLikeIgnoreCase(category, regionId, title);
     }
 
     @Override
-    public Set<Posting> findAllByCategoryAndRegionIdAndTitleLikeAndImagePathIsNotNull(@NonNull Category category, String regionId, @NonNull String title) {
+    public Set<Posting> findAllByCategoryAndRegionIdAndTitleLikeIgnoreCaseAndImagePathIsNotNull(@NonNull Category category, String regionId, @NonNull String title) {
         return postingRepository.findAllByCategoryAndRegionIdAndTitleLikeIgnoreCaseAndImagePathIsNotNull(category, regionId, title);
     }
 
@@ -177,33 +176,24 @@ public class PostingServiceImpl implements PostingService {
     }
 
     @Override
-    public Set<Posting> findAllByCategoryAndCityIdAndFullDescriptionLike(@NonNull Category category, String cityId, @NonNull String fullDescription) {
-        return postingRepository.findAllByCategoryAndCityIdAndFullDescriptionLikeIgnoreCase(
-                category, cityId, fullDescription);
+    public Set<Posting> findAllByCategoryAndCityIdAndFullDescriptionLikeIgnoreCaseAndTitleLikeIgnoreCase(@NonNull Category category, String cityId, @NonNull String fullDescription, @NonNull String title) {
+        return postingRepository.findAllByCategoryAndCityIdAndFullDescriptionLikeIgnoreCaseAndTitleLikeIgnoreCase(category, cityId, fullDescription, title);
     }
 
     @Override
-    public Set<Posting> findAllByCategoryAndCityIdAndFullDescriptionLikeAndImagePathIsNotNull(@NonNull Category category, String cityId, @NonNull String fullDescription) {
-        return postingRepository.findAllByCategoryAndCityIdAndFullDescriptionLikeIgnoreCaseAndImagePathIsNotNull(
-               category, cityId, fullDescription);
+    public Set<Posting> findAllByCategoryAndCityIdAndFullDescriptionLikeIgnoreCaseAndTitleLikeIgnoreCaseAndImagePathIsNotNull(@NonNull Category category, String cityId, @NonNull String fullDescription, @NonNull String title) {
+        return postingRepository.findAllByCategoryAndCityIdAndFullDescriptionLikeIgnoreCaseAndTitleLikeIgnoreCaseAndImagePathIsNotNull(category, cityId, fullDescription, title);
     }
 
     @Override
-    public Set<Posting> findAllByCategoryAndCityIdAndTitleLike(@NonNull Category category, String cityId, @NonNull String title) {
+    public Set<Posting> findAllByCategoryAndCityIdAndTitleLikeIgnoreCase(@NonNull Category category, String cityId, @NonNull String title) {
         return postingRepository.findAllByCategoryAndCityIdAndTitleLikeIgnoreCase(category, cityId, title);
     }
 
     @Override
-    public Set<Posting> findAllByCategoryAndCityIdAndTitleLikeAndImagePathIsNotNull(@NonNull Category category, String cityId, @NonNull String title) {
-        return postingRepository.findAllByCategoryAndCityIdAndTitleLikeIgnoreCaseAndImagePathIsNotNull(
-                category, cityId, title);
+    public Set<Posting> findAllByCategoryAndCityIdAndTitleLikeIgnoreCaseAndImagePathIsNotNull(@NonNull Category category, String cityId, @NonNull String title) {
+        return postingRepository.findAllByCategoryAndCityIdAndTitleLikeIgnoreCaseAndImagePathIsNotNull(category, cityId, title);
     }
-
-    @Override
-    public List<Posting> getPostingsByCityId(String cityId) {
-        return postingRepository.findAllByCityId(cityId);
-    }
-
 
 
 }

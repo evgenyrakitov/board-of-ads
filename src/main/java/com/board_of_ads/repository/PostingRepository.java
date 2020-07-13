@@ -23,27 +23,27 @@ public interface PostingRepository extends JpaRepository<Posting, Long>{
 
 
 
-    Set<Posting> findAllByFullDescriptionLikeIgnoreCase(@NonNull String fullDescription);
+    Set<Posting> findAllByFullDescriptionLikeIgnoreCaseAndTitleLikeIgnoreCase(@NonNull String fullDescription, @NonNull String title);
 
     Set<Posting> findAllByTitleLikeIgnoreCase(@NonNull String title);
 
-    Set<Posting>findAllByFullDescriptionLikeIgnoreCaseAndImagePathIsNotNull(@NonNull String fullDescription);
+    Set<Posting>findAllByFullDescriptionLikeIgnoreCaseAndTitleLikeIgnoreCaseAndImagePathIsNotNull(@NonNull String fullDescription, @NonNull String title);
 
     Set<Posting>findAllByTitleLikeIgnoreCaseAndImagePathIsNotNull(@NonNull String title);
 
 
-    Set<Posting> findAllByCityIdAndFullDescriptionLikeIgnoreCase(String cityId, @NonNull String fullDescription);
+    Set<Posting> findAllByCityIdAndFullDescriptionLikeIgnoreCaseAndTitleLikeIgnoreCase(String cityId, @NonNull String fullDescription, @NonNull String title);
 
-    Set<Posting>findAllByCityIdAndFullDescriptionLikeIgnoreCaseAndImagePathIsNotNull(String cityId, @NonNull String fullDescription);
+    Set<Posting>findAllByCityIdAndFullDescriptionLikeIgnoreCaseAndTitleLikeIgnoreCaseAndImagePathIsNotNull(String cityId, @NonNull String fullDescription, @NonNull String title);
 
     Set<Posting>findAllByCityIdAndTitleLikeIgnoreCase(String cityId, @NonNull String title);
 
     Set<Posting>findAllByCityIdAndTitleLikeIgnoreCaseAndImagePathIsNotNull(String cityId, @NonNull String title);
 
 
-    Set<Posting>findAllByRegionIdAndFullDescriptionLikeIgnoreCase(String regionId, @NonNull String fullDescription);
+    Set<Posting>findAllByRegionIdAndFullDescriptionLikeIgnoreCaseAndTitleLikeIgnoreCase(String regionId, @NonNull String fullDescription, @NonNull String title);
 
-    Set<Posting>findAllByRegionIdAndFullDescriptionLikeIgnoreCaseAndImagePathIsNotNull(String regionId, @NonNull String fullDescription);
+    Set<Posting>findAllByRegionIdAndFullDescriptionLikeIgnoreCaseAndTitleLikeIgnoreCaseAndImagePathIsNotNull(String regionId, @NonNull String fullDescription, @NonNull String title);
 
     Set<Posting>findAllByRegionIdAndTitleLikeIgnoreCase(String regionId, @NonNull String title);
 
@@ -52,10 +52,10 @@ public interface PostingRepository extends JpaRepository<Posting, Long>{
 
     Set<Posting>findAllByCategory(@NonNull Category category);
 
-    Set<Posting>findAllByCategoryAndFullDescriptionLikeIgnoreCase(@NonNull Category category, @NonNull String fullDescription);
+    Set<Posting>findAllByCategoryAndFullDescriptionLikeIgnoreCaseAndTitleLikeIgnoreCase(@NonNull Category category, @NonNull String fullDescription, @NonNull String title);
 
-    Set<Posting>findAllByCategoryAndFullDescriptionLikeIgnoreCaseAndImagePathIsNotNull(
-            @NonNull Category category, @NonNull String fullDescription);
+    Set<Posting>findAllByCategoryAndFullDescriptionLikeIgnoreCaseAndTitleLikeIgnoreCaseAndImagePathIsNotNull(
+            @NonNull Category category, @NonNull String fullDescription, @NonNull String title);
 
     Set<Posting>findAllByCategoryAndTitleLikeIgnoreCase(@NonNull Category category, @NonNull String title);
 
@@ -64,12 +64,12 @@ public interface PostingRepository extends JpaRepository<Posting, Long>{
 
     Set<Posting>findAllByCategoryAndRegionId(@NonNull Category category, String regionId);
 
-    Set<Posting>findAllByCategoryAndRegionIdAndFullDescriptionLikeIgnoreCase(
-            @NonNull Category category, String regionId, @NonNull String fullDescription);
+    Set<Posting>findAllByCategoryAndRegionIdAndFullDescriptionLikeIgnoreCaseAndTitleLikeIgnoreCase(
+            @NonNull Category category, String regionId, @NonNull String fullDescription, @NonNull String title);
 
 
-    Set<Posting>findAllByCategoryAndRegionIdAndFullDescriptionLikeIgnoreCaseAndImagePathIsNotNull(
-            @NonNull Category category, String regionId, @NonNull String fullDescription);
+    Set<Posting>findAllByCategoryAndRegionIdAndFullDescriptionLikeIgnoreCaseAndTitleLikeIgnoreCaseAndImagePathIsNotNull(
+            @NonNull Category category, String regionId, @NonNull String fullDescription, @NonNull String title);
 
     Set<Posting>findAllByCategoryAndRegionIdAndTitleLikeIgnoreCase(
             @NonNull Category category, String regionId, @NonNull String title);
@@ -80,9 +80,9 @@ public interface PostingRepository extends JpaRepository<Posting, Long>{
 
     Set<Posting>findAllByCategoryAndCityId(@NonNull Category category, String cityId);
 
-    Set<Posting>findAllByCategoryAndCityIdAndFullDescriptionLikeIgnoreCase(@NonNull Category category, String cityId, @NonNull String fullDescription);
+    Set<Posting>findAllByCategoryAndCityIdAndFullDescriptionLikeIgnoreCaseAndTitleLikeIgnoreCase(@NonNull Category category, String cityId, @NonNull String fullDescription, @NonNull String title);
 
-    Set<Posting>findAllByCategoryAndCityIdAndFullDescriptionLikeIgnoreCaseAndImagePathIsNotNull(@NonNull Category category, String cityId, @NonNull String fullDescription);
+    Set<Posting>findAllByCategoryAndCityIdAndFullDescriptionLikeIgnoreCaseAndTitleLikeIgnoreCaseAndImagePathIsNotNull(@NonNull Category category, String cityId, @NonNull String fullDescription, @NonNull String title);
 
     Set<Posting>findAllByCategoryAndCityIdAndTitleLikeIgnoreCase(@NonNull Category category, String cityId, @NonNull String title);
 
