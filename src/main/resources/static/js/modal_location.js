@@ -85,7 +85,7 @@ function drawPosting(data) {
     data.forEach(posting => {
         $(".container_cus").append(
             '<div class="card">\n' +
-            '            <img src="' + posting.imagePath[0].imagePath + '" class="card-img-top" alt="...">\n' +
+            '            <img src="' + posting.images[0].imagePath + '" class="card-img-top" alt="...">\n' +
             '            <div class="card-body">\n' +
             '                <h5 class="card-title">' + posting.title + '</h5>\n' +
             '                <p class="card-text">' + posting.price + '</p>\n' +

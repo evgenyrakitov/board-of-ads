@@ -123,7 +123,8 @@ let user_profile = {
     show_favorites: function (element) {
         this.deselectAllNavLinks();
         element.classList.add("profile-sidebar-navigation-link-active-3sgHn");
-        document.getElementById("user_page_content").innerHTML = "<h1 class=\"heading\">" + messages['profile.favorites.title'] + "</h1>";
+        //document.getElementById("user_page_content").innerHTML = "<h1 class=\"heading\">" + messages['profile.favorites.title'] + "</h1>";
+        this.draw_favorite_block();
     },
     show_messages: function (element) {
         this.deselectAllNavLinks();
@@ -256,6 +257,107 @@ let user_profile = {
                 document.getElementById("postings-status-" + firstAndActiveStatus).dispatchEvent(eventClick);
             }
         });
+    },
+
+    draw_favorite_block: function () {
+        $.get("/rest/user_profile/favoritePostings", function (postingsDTOs) {
+
+            let postingBlock = document.getElementById("user_page_content");
+            let html = [];
+            let i = 0;
+            html.push('<div class="b-profile-content b-profile-content_narrow">');
+            html.push('<div class="favorites">');
+            html.push('<h1 class="heading">Избранное</h1>');
+            html.push('<ul class="nav-tabs">');
+            html.push('<li class="nav-tab nav-tab_active" title="Объявления">');
+            html.push('<span class="nav-tab-title">Объявления</span>');
+            html.push('</li>');
+            html.push('<li class="nav-tab" title="Поиски">');
+            html.push('<a class="nav-tab-link" href="#">Поиски</a>');
+            html.push('</li>');
+            html.push('<li class="nav-tab" title="Продавцы">');
+            html.push('<a class="nav-tab-link" href="#">Продавцы</a>');
+            html.push('</li>');
+            html.push('</ul>');
+            html.push('<input type="checkbox" id="checkall" onclick="selectAll()" title="Выбрать все">');
+            html.push('<button class="btn btn-light ml-2" onclick="deleteFavoritePostings()">Удалить</button>');
+            html.push('<div class="favorite-list">')
+            postingsDTOs.forEach(function (dto) {
+                i++;
+                let imageUrl = '/images/image-placeholder.png';
+                if (dto.images.length > 0) {
+                    imageUrl = dto.images[0].imagePath;
+                }
+
+                if (i == 1) {
+                    html.push(`<div id="favorite-item-${dto.id}" class="item-snippet-root-1ZIn9" data-marker="item-snippet/1148965022">`);
+                } else {
+                    html.push(`<div id="favorite-item-${dto.id}" class="item-snippet-root-1ZIn9" data-marker="item-snippet/1148965022" style="border-top: 1px solid #f5f5f5;">`);
+                }
+                html.push(`<div class="item-snippet-snippet-1XIaf">`);
+                html.push('<div class="item-body-root-371IO item-snippet-column-1FtP4">');
+                html.push(`<input type="checkbox" class="favorite-checkbox" id="${dto.id}"/>`);
+                html.push('</div>');
+                html.push('<a class="item-preview-root-PsYRy item-snippet-column-1FtP4 item-snippet-column_preview-1O6d5" href="' + dto.url + '">');
+                html.push(`<div class="item-preview-image-16c92" style="background-image: url(` + imageUrl + `); background-size: cover;"></div>`);
+                html.push('<div class="item-preview-icons-2ty4_"><i class="item-preview-icon-2pte7 item-preview-icon_photo-2wudU">1</i></div>');
+                html.push('</a>');
+                html.push('<div class="item-body-root-371IO item-snippet-column-1FtP4 item-snippet-column_body-2uA-_">');
+                html.push('<div class="title-title-1BFXf">');
+                html.push('<div class="text-text-1PdBw text-size-ms-23YBR text-bold-3R9dt"><a href="' + dto.url + '" target="_self" class="link-link-39EVK link-design-default-2sPEv link-novisited-1w4JY">' + dto.title + '</a></div>');
+                html.push('</div>');
+                html.push('<div class="price-root-1DXKW">');
+                html.push('<span class="text-text-1PdBw text-size-m-4mxHN text-bold-3R9dt">' + formatMoney(dto.price) + '<span class="text-text-1PdBw">&nbsp;<span class="number-format-currency-3hVeG">₽</span></span> </span>');
+                html.push('<div class="price-icons-1BIe6"></div>');
+                html.push('</div>');
+                html.push('<div class="item-body-actions-3pWTl"></div>');
+                html.push('</div>');
+                html.push('</div>');
+                html.push('</div>');
+            })
+            html.push('</div>');
+            html.push('</div>');
+            html.push('</div>');
+            postingBlock.innerHTML = html.join('');
+        });
     }
 }
+
+function selectAll() {
+    if ($("#checkall").prop("checked")) {
+        $(".favorite-checkbox").prop({"disabled": true, "checked": true});
+
+    } else {
+        $(".favorite-checkbox").prop({"disabled": false, "checked": false});
+    }
+}
+
+function deleteFavoritePostings() {
+    if ($("#checkall").prop("checked")) {
+        $.ajax({
+            url: "/rest/user/favoritePostings/delete/all",
+            type: "post",
+            async: false,
+            success: function () {
+                $(".favorite-list").empty();
+                $("#checkall").prop({"checked": false});
+            }
+        });
+    } else {
+        $(".favorite-checkbox:checked").each(function (index) {
+                let id = $(this).attr("id");
+                $.ajax({
+                    url: "/rest/user/favoritePostings/delete",
+                    type: "post",
+                    data: {"id": id},
+                    success: function () {
+                        $(`#favorite-item-${id}`).empty();
+                    }
+                });
+            }
+        )
+
+    }
+}
+
 

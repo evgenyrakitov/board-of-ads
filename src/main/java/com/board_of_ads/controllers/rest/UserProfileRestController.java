@@ -7,6 +7,7 @@ import com.board_of_ads.models.posting.extra.PostingStatus;
 import com.board_of_ads.models.posting.extra.PostingStatusStatistics;
 import com.board_of_ads.service.interfaces.PostingService;
 import com.board_of_ads.service.interfaces.PostingStatusService;
+import com.board_of_ads.service.interfaces.UserService;
 import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,11 +16,13 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+import java.util.Set;
 
 @RestController
 @RequestMapping("/rest/user_profile")
@@ -30,6 +33,7 @@ public class UserProfileRestController {
 
     private final PostingService postingService;
     private final PostingStatusService postingStatusService;
+    private final UserService userService;
 
     @GetMapping("/postings")
     public ResponseEntity<List<ProfilePostingDTO>> getAllPostingsForCurrentUser() {
@@ -37,6 +41,13 @@ public class UserProfileRestController {
         List<Posting> postingList = postingService.getUserPostings(user);
         List<ProfilePostingDTO> dtoList = buildDTOList(postingList);
         return ResponseEntity.ok(dtoList);
+    }
+
+    @GetMapping("/favoritePostings")
+    public List<ProfilePostingDTO> getFavoritePostings() {
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        Set<Posting> favoritePostings = userService.getFavoritePostings(user.getId());
+        return buildDTOList(favoritePostings);
     }
 
     @GetMapping("/postings/{status}")
@@ -47,11 +58,12 @@ public class UserProfileRestController {
         return ResponseEntity.ok(dtoList);
     }
 
-    private List<ProfilePostingDTO> buildDTOList(List<Posting> postingList) {
+    private List<ProfilePostingDTO> buildDTOList(Iterable<Posting> postingList) {
         List<ProfilePostingDTO> dtoList = new ArrayList<>();
         ProfilePostingDTO dto;
         for (Posting posting : postingList) {
             dto = new ProfilePostingDTO();
+            dto.setId((posting.getId()));
             dto.setTitle(posting.getTitle());
             dto.setPrice(posting.getPrice());
             dto.setFavoritesCount(0);

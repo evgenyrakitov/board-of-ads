@@ -2,6 +2,8 @@ package com.board_of_ads.models;
 
 import com.board_of_ads.models.posting.Posting;
 import lombok.*;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -50,6 +52,11 @@ public class User implements UserDetails {
     private Set<Role> roles;
 
     @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(name = "users_favorite_postings",
+        joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
+        inverseJoinColumns = @JoinColumn(name = "posting_id", referencedColumnName = "id")
+    )
+    @EqualsAndHashCode.Exclude @ToString.Exclude
     private Set<Posting> favoritePostings;
 
     @OneToMany(cascade = {CascadeType.REFRESH})
