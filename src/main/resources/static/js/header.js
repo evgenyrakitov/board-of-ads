@@ -112,6 +112,11 @@ $('#modal-reg-1').on('shown.bs.modal', function () {
     $('#spanIncorrectLoginPass').slideUp(0);
 })
 
+$('#modal-reg-3').on('shown.bs.modal', function () {
+    $('#reset-email-sent-letter-message').hide();
+    $('#user-not-found-message').hide();
+})
+
 document.getElementById("frmLoginInputEmail").addEventListener("keyup",
     function (event) {
         if (event.key === "Enter") {

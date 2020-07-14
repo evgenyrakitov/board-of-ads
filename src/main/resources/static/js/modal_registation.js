@@ -90,21 +90,20 @@ $("#btn-reg").click(function (event) {
 
 $("#btn-modal-3").click(function (event) {
     event.preventDefault();
+    $('#reset-email-sent-letter-message').hide();
+    $('#user-not-found-message').hide();
     let user_2 = $("#form-modal-3").serialize();
     $.ajax({
         url: "/rest/resetPassword",
         data: user_2,
         method: "POST",
         success: function (bool) {
-            if (bool){
-                $("#modal-reg-password").modal("show");
-                $("#reg-password").html("<p>Вскоре вы получите электронное письмо для сброса пароля</p>");
+            if (bool) {
+                $('#reset-email-sent-letter-message').show();
+                $("#btn-modal-3").hide();
             } else {
-                $("#modal-reg-2").modal("show");
-                $("#message-reset-password").html("<h4>Пользователь с таким Email не зарегистрирован</h4>" +
-                    "<br><p>Пройдите регистрацию</p>");
+                $('#user-not-found-message').slideDown();
             }
         }
     });
-
 });

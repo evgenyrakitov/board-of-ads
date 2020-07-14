@@ -311,46 +311,56 @@
                     </div>
 
                     <form action="/rest/admin/add" id="add-reg-form">
-                        <div class="form-title font-weight-bolder" id="message-reset-password"
+                        <div class="form-title font-weight-bolder"
                              th:text="#{header.modal.registration}">Регистрация
                         </div>
                         <div class="form-item-login">
                             <label class="input-login">
-                                <input name="email" class="form-control" th:placeholder="#{header.modal.placeholder.email}"
-                                       placeholder="Введите электронную почту" type="email" id="login-reg-form"
-                                       required>
+                                <input class="form-control" id="login-reg-form"
+                                       name="email"
+                                       placeholder="Введите электронную почту" required
+                                       th:placeholder="#{header.modal.placeholder.email}"
+                                       type="email">
                             </label>
                         </div>
 
                         <div class="form-item-password">
                             <label class="input-password">
-                                <input name="password" class="form-control" th:placeholder="#{header.modal.placeholder.password}"
-                                       type="password" autocomplete="off" id="password-reg-form">
+                                <input autocomplete="off" class="form-control"
+                                       id="password-reg-form"
+                                       name="password" th:placeholder="#{header.modal.placeholder.password}" type="password">
                             </label>
                         </div>
 
                         <div class="form-item-password">
                             <label class="input-password">
-                                <input name="password_confirm" class="form-control" placeholder="Повторите пароль" type="password"
-                                       th:placeholder="#{header.modal.placeholder.passwordConfirm}" autocomplete="off" id="password_confirm-reg-form">
+                                <input autocomplete="off" class="form-control"
+                                       id="password_confirm-reg-form" name="password_confirm"
+                                       placeholder="Повторите пароль"
+                                       th:placeholder="#{header.modal.placeholder.passwordConfirm}" type="password">
                             </label>
                         </div>
 
                         <div class="form-item-publicName">
                             <label class="input-publicName">
-                                <input name="publicName" class="form-control" th:placeholder="#{header.modal.placeholder.yourName}"
-                                       placeholder="Ваше Имя" type="text" id="public_name-reg-form" required>
+                                <input class="form-control" id="public_name-reg-form"
+                                       name="publicName"
+                                       placeholder="Ваше Имя" required th:placeholder="#{header.modal.placeholder.yourName}"
+                                       type="text">
                             </label>
                         </div>
 
                         <div class="form-item-phone">
                             <label class="input-phone">
-                                <input name="phone" class="form-control" th:placeholder="#{header.modal.placeholder.phoneNumber}"
-                                       placeholder="Номер телефона" type="tel" id="phone-reg-form" required>
+                                <input class="form-control" id="phone-reg-form"
+                                       name="phone"
+                                       placeholder="Номер телефона" required th:placeholder="#{header.modal.placeholder.phoneNumber}"
+                                       type="tel">
                             </label>
                         </div>
                         <div class="form-reg-button">
-                            <button type="submit" name="submit"  class="btn btn-primary" id="btn-reg">
+                            <button class="btn btn-primary" id="btn-reg" name="submit"
+                                    type="submit">
                                 <span th:text="#{header.modal.register}">Зарегистрироваться</span>
                             </button>
                         </div>
@@ -363,7 +373,6 @@
                     th:text="#{header.modal.login.signIn}">Войти</a></span>
                 </div>
             </div>
-
         </div>
     </div>
 
@@ -380,26 +389,38 @@
                     </div>
 
                     <form action="/user/resetPassword" id="form-modal-3">
-                        <div class="form-title font-weight-bolder" th:text="#{header.modal.accountRecovery}">
+                        <div class="form-title font-weight-bolder"
+                             th:text="#{header.modal.accountRecovery}">
                             Восстановление пароля
                         </div>
                         <div class="form-item-login">
                             <label class="input-login">
                                 <input class="form-control" name="email"
                                        placeholder="Электронная почта"
-                                       required th:placeholder="#{header.modal.placeholder.email}" type="email">
+                                       required th:placeholder="#{header.modal.placeholder.email}"
+                                       type="email">
                             </label>
                         </div>
                         <div class="form-reg-button">
-                            <button class="btn btn-primary" data-dismiss="modal" id="btn-modal-3"
+                            <button class="btn btn-primary" id="btn-modal-3"
                                     name="submit"
                                     type="submit">
                                 <span th:text="#{header.modal.submit}">Отправить</span>
                             </button>
                         </div>
                     </form>
+                    <div class="form-password-items-container text-center">
+                <span id="reset-email-sent-letter-message"
+                      th:text="#{header.modal.passwordResetCheckYourEmail}"
+                >Проверьте свою электронную почту</span>
+                    </div>
                 </div>
                 <div class="modal-footer">
+                    <div class="form-password-items-container text-center">
+                <span id="user-not-found-message" style="color: red;"
+                      th:text="#{header.modal.userNotFound}"
+                >Пользователь не найден</span>
+                    </div>
                     <span class="text-center"
                           th:text="#{header.modal.rememberedPassword}">Вспомнили пароль?</span><span><a
                     class="open-modal-1" data-dismiss="modal" href="#"
