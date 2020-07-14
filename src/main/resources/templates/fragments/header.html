@@ -95,15 +95,15 @@
                                 Нет отзывов</span>
                                         </div>
                                     </a></div>
-                                <a href='/profile'>Мои объявления</a>
-                                <a href='/profile#feedbacks'>Мои отзывы</a>
-                                <a href='/profile#favorites'>Избранное</a>
-                                <a href='/profile#messages'>Сообщения</a>
-                                <a href='/profile#notifications'>Уведомления</a>
-                                <a href='/profile#wallet'>Кошелек</a>
-                                <a href='/profile#paid_services'>Платные услуги</a>
-                                <a href='/profile#settings'>Настройки</a>
-                                <a href='/logout'>Выйти</a>
+                                <a href="/profile#postings" th:text="#{menu.autorized.my_announcements}"/>
+                                <a href="/profile#feedbacks" th:text="#{menu.autorized.my_feedback}"/>
+                                <a href="/profile#favorites" th:text="#{menu.autorized.favorites}"/>
+                                <a href="/profile#messages" th:text="#{menu.autorized.messages}"/>
+                                <a href="/profile#notifications" th:text="#{menu.autorized.notifications}"/>
+                                <a href="/profile#wallet" th:text="#{menu.autorized.wallet}"/>
+                                <a href="/profile#paid_services" th:text="#{menu.autorized.paid_services}"/>
+                                <a href="/profile#settings" th:text="#{menu.autorized.settings}"/>
+                                <a href="/logout" th:text="#{menu.autorized.log_off}"/>
                             </div>
                         </div>
                         <!--<a class="nav-link text-primary" href="/logout" style="white-space: nowrap">Выйти</a>-->
