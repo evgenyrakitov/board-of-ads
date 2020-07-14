@@ -123,7 +123,7 @@ $("#btnLogin").click(function () {
 
 let userId = $('#userId').text();  //нужно взять id user-a с header и сделать запрос
 $(document).ready(function getUnreadMessage() {
-    if (userId !== undefined) {
+    if (userId != "") {
         $.ajax({
             type: 'GET',
             url: '/rest/messages/unreadCount/'+userId,
