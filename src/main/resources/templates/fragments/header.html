@@ -128,17 +128,17 @@
     <div class=" header-container search">
         <form class="header-element" action=""  id="search-form" >
             <div class="form-row justify-content-center">
-                <select class="form-control col-8 col-sm-8  col-md-3 col-lg-2" id="findFromCategory" autofocus
-                name="category">
+                <select class="form-control col-6 col-sm-6  col-md-3 col-lg-3" id="findFromCategory" name="category">
                     <option selected value="" th:text="#{header.any_category}">Любая категория</option>
                 </select>
-                <div class="form-group col-8 col-sm-8  col-md-5 col-lg-8">
+
+                <div class="form-group col-4 col-sm-4 col-md-4 col-lg-4">
                     <input type="text" th:placeholder="#{header.search_by_announcements}" placeholder="Поиск по объвлениям"
                             class="form-control" name="search" id="search-input">
                 </div>
 
 
-                <select id="location" class="form-control col-8 col-sm-8  col-md-2 col-lg-1" name="regionCity" autofocus >
+                <select id="location" class="form-control col-4 col-sm-4  col-md-4 col-lg-4" name="regionCity">
                     <option selected value="">По всей России</option>
                 </select>
 
@@ -150,18 +150,17 @@
             <div class="form-row justify-content-center">
                 <div class="form-check form-check-inline">
 
-                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" name="ch1" checked>
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" name="ch1">
                     <label class="form-check-label" for="inlineCheckbox1"
                            th:text="#{header.only_in_titles}">только в названиях</label>
 
 
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2"  name="ch2"checked >
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2"  name="ch2">
                     <label class="form-check-label" for="inlineCheckbox2"
-                           th:text="#{header.only_with_photos}">только с фото</label>
-
-
+                           th:text="#{header.only_with_photos}">только с фото
+                    </label>
                 </div>
             </div>
         </form>

@@ -1,26 +1,24 @@
 let category = [];
 $("#findFromCategory").click(function () {
-    //event.preventDefault();
-    $.get("/rest/categories/dto", null, function (data) {
-        let parentCategory = "";
 
-        category = data;
-        let option = "";
-        let id = "";
-        let name = "";
-        for (let i = 0; i < category.length; i++) {
-            id = category[i].id;
-            name = category[i].name;
-            parentCategory = category[i].parentCategory;
-            if (parentCategory == null ) {
-                option += "<option style='background: #d6d6d6' id='category" + id +"'>" + name + "</option>";
-                option +=    getCategories(name);
-            }
+});
 
+$.get("/rest/categories/dto", null, function (data) {
+    let parentCategory = "";
+    category = data;
+    let option = "";
+    let id = "";
+    let name = "";
+    for (let i = 0; i < category.length; i++) {
+        id = category[i].id;
+        name = category[i].name;
+        parentCategory = category[i].parentCategory;
+        if (parentCategory == null ) {
+            option += "<option style='background: #d6d6d6' id='category" + id +"'>" + name + "</option>";
+            option +=    getCategories(name);
         }
-
-        $("#findFromCategory").append(option);
-    });
+    }
+    $("#findFromCategory").append(option);
 });
 
 

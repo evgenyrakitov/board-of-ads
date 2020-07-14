@@ -121,13 +121,15 @@ public class PostingRestController {
         Category categ = null;
         Region region = null;
         City city = null;
-        List<Posting> postings = null;
-        String search_ = "%" + search + "%";
-        List<Category> categories = null;
+        List<Posting> postings = new ArrayList<>();
+
+        String search_ = "%" + search.replaceAll("\\pP", "") + "%";
+
 
         if (category.length() != 0) {
             if (locale.getLanguage().equals("ru")) {
                 categ = categoryService.findCategoryByNameRu(category);
+
             }
             if (locale.getLanguage().equals("en")) {
                 categ = categoryService.findCategoryByNameEn(category);
@@ -145,7 +147,18 @@ public class PostingRestController {
         boolean onlyTitle = ch1 != null;
         boolean onlyWithImages = ch2 != null;
 
-        postings = postingService.customSearchPostings(categ, search_, region, city, onlyTitle, onlyWithImages);
+
+        if (categ != null) {
+            for (Category c1 : categoryService.findAllByParentCategory(categ)) {
+                postings.addAll(postingService.customSearchPostings(c1, search_, region, city, onlyTitle, onlyWithImages));
+                for (Category c2 : categoryService.findAllByParentCategory(c1)) {
+                    postings.addAll(postingService.customSearchPostings(c2, search_, region, city, onlyTitle, onlyWithImages));
+                }
+            }
+        } else {
+            postings.addAll(postingService.customSearchPostings(categ, search_, region, city, onlyTitle, onlyWithImages));
+        }
+
 
         return ResponseEntity.ok(postings);
     }

@@ -19,4 +19,12 @@ public interface PostingRepository extends JpaRepository<Posting, Long> {
     List<Posting> findAllByCityId(String cityId);
 
     List<Posting> findAllByRegionId(String regionId);
+
+
+
+
+
+
+
+
 }

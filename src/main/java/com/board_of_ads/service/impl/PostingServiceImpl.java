@@ -60,6 +60,8 @@ public class PostingServiceImpl implements PostingService {
         return postingRepositoryCustomImpl.customSearchPostings(category, searchString, region, city, onlyTitle, onlyWithImages);
     }
 
+
+
     @Override
     public List<Posting> getPostingsByRegionId(String regionId) {
         return postingRepository.findAllByRegionId(regionId);
