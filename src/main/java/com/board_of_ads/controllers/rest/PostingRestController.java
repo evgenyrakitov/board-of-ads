@@ -132,11 +132,6 @@ public class PostingRestController {
             if (locale.toLanguageTag().equals("en")) {
                 categ = categoryService.findCategoryByNameEn(category);
             }
-
-            if (categ.getParentCategory() != null) {
-                /// ????? что тут должно быть? Для чего это конструкция?
-            }
-
         }
 
         if (regionCity.length() != 0) {
@@ -151,8 +146,6 @@ public class PostingRestController {
         boolean onlyWithImages = ch2 != null;
 
         postings = postingService.customSearchPostings(categ, search_, region, city, onlyTitle, onlyWithImages);
-
-
 
         return ResponseEntity.ok(postings);
     }

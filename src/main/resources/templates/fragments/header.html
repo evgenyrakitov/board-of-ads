@@ -246,13 +246,13 @@
                     <span style="padding: 10px 0" th:text="#{header.modal.login.orSignInWith}">или продолжить через</span>
                     <div class="social">
                             <span class="social-vk">
-                                <img src="/images/vk.svg">
+                                <a href="/login/vk/auth"><img src="/images/vk.svg"></a>
                             </span>
                         <span class="social-ok">
                                 <img src="/images/ok.svg">
                             </span>
                         <span class="social-fb">
-                                  <a href="/login/google">  <img src="/images/google.svg"></a>
+                                  <a href="/login/google"><img src="/images/google.svg"></a>
                             </span>
                     </div>
                 </div>
@@ -290,26 +290,47 @@
                         <div class="form-title font-weight-bolder" id="message-reset-password" th:text="#{header.modal.registration}">Регистрация</div>
                         <div class="form-item-login">
                             <label class="input-login">
-                                <input name="email" class="form-control" th:placeholder="#{header.modal.placeholder.email}" placeholder="Электронная почта" type="email" required>
+                                <input class="form-control" id="login-reg-form" name="email"
+                                       placeholder="Введите электронную почту" required
+                                       th:placeholder="#{header.modal.placeholder.email}"
+                                       type="email">
                             </label>
                         </div>
+
                         <div class="form-item-password">
                             <label class="input-password">
-                                <input name="password" class="form-control" th:placeholder="#{header.modal.placeholder.password}" placeholder="Пароль" type="password" autocomplete="off">
+                                <input autocomplete="off" class="form-control" id="password-reg-form"
+                                       name="password" th:placeholder="#{header.modal.placeholder.password}"
+                                       type="password">
                             </label>
                         </div>
+
+                        <div class="form-item-password">
+                            <label class="input-password">
+                                <input autocomplete="off" class="form-control" id="password_confirm-reg-form"
+                                       name="password_confirm"
+                                       placeholder="Повторите пароль"
+                                       th:placeholder="#{header.modal.placeholder.passwordConfirm}" type="password">
+                            </label>
+                        </div>
+
                         <div class="form-item-publicName">
                             <label class="input-publicName">
-                                <input name="publicName" class="form-control" th:placeholder="#{header.modal.placeholder.yourName}" placeholder="Ваше Имя" type="text" required>
+                                <input class="form-control" id="public_name-reg-form" name="publicName"
+                                       placeholder="Ваше Имя" required
+                                       th:placeholder="#{header.modal.placeholder.yourName}" type="text">
                             </label>
                         </div>
+
                         <div class="form-item-phone">
                             <label class="input-phone">
-                                <input name="phone" class="form-control" th:placeholder="#{header.modal.placeholder.phoneNumber}" placeholder="Номер телефона" type="tel" required>
+                                <input class="form-control" id="phone-reg-form" name="phone"
+                                       placeholder="Номер телефона" required
+                                       th:placeholder="#{header.modal.placeholder.phoneNumber}" type="tel">
                             </label>
                         </div>
                         <div class="form-reg-button">
-                            <button type="submit" name="submit"  class="btn btn-primary" id="btn-reg" data-dismiss="modal">
+                            <button class="btn btn-primary" id="btn-reg" name="submit" type="submit">
                                 <span th:text="#{header.modal.register}">Зарегистрироваться</span>
                             </button>
                         </div>
@@ -374,11 +395,12 @@
 </div>
 <div th:fragment="script">
     <script src="webjars/jquery/3.5.1/jquery.min.js"></script>
-    <script src="webjars/popper.js/1.16.0/popper.min.js"></script>
+    <script src="webjars/popper.js/1.16.0/popper.min.js" type="module"></script>
     <script src="webjars/bootstrap/4.5.0/js/bootstrap.min.js"></script>
     <script src="../static/js/header.js" th:src="@{/js/header.js}"></script>
-    <script src="/js/modal_registation.js" th:src="@{/js/modal_registation.js}"></script>
+    <script src="/js/modal_registation.js" th:src="@{/js/modal_registation.js}" type="module"></script>
     <script src="/js/modal_registation.js" th:src="@{/js/modal_location.js}"></script>
+    <script src="/js/modal_registation.js" th:src="@{/js/registration.js}" type="module"></script>
     <script src="/js/search.js" th:src="@{/js/search.js}"></script>
 </div>
 </body>
