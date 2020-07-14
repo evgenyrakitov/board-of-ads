@@ -1,7 +1,7 @@
 package com.board_of_ads.configs.security;
 
-import com.board_of_ads.configs.security.handler.LoginSuccessHandler;
 import com.board_of_ads.configs.security.handler.CustomAuthenticationFailureHandler;
+import com.board_of_ads.configs.security.handler.LoginSuccessHandler;
 import com.board_of_ads.service.interfaces.SocialNetworkService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -146,10 +146,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     private Filter ssoFilter () {
         CompositeFilter filter = new CompositeFilter();
         List<Filter> filters = new ArrayList<>();
-
         filters.add(ssoFilter(google(), "/login/google"));
-        filters.add(ssoFilter(vk(), "/login/vk"));
-
         filter.setFilters(filters);
         return filter;
     }
@@ -170,13 +167,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Bean
     @ConfigurationProperties("google")
-    public ClientResources google () {
-        return new ClientResources();
-    }
-
-    @Bean
-    @ConfigurationProperties("vk")
-    public ClientResources vk () {
+    public ClientResources google() {
         return new ClientResources();
     }
 
@@ -188,10 +179,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     class ClientResources {
 
         @NestedConfigurationProperty
-        private AuthorizationCodeResourceDetails client = new AuthorizationCodeResourceDetails();
+        private final AuthorizationCodeResourceDetails client = new AuthorizationCodeResourceDetails();
 
         @NestedConfigurationProperty
-        private ResourceServerProperties resource = new ResourceServerProperties();
+        private final ResourceServerProperties resource = new ResourceServerProperties();
 
         public AuthorizationCodeResourceDetails getClient() {
             return client;

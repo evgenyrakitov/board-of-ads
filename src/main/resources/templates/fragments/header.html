@@ -238,6 +238,7 @@
                                            type="password">
                                 </label>
                             </div>
+
                             <div class="form-password-items-container">
                                 <div class="form-item-radio-remember">
                                     <label class="checkbox"
@@ -267,13 +268,13 @@
                     <span style="padding: 10px 0" th:text="#{header.modal.login.orSignInWith}">или продолжить через</span>
                     <div class="social">
                             <span class="social-vk">
-                                <img src="/images/vk.svg">
+                                <a href="/login/vk/auth"><img src="/images/vk.svg"></a>
                             </span>
                         <span class="social-ok">
                                 <img src="/images/ok.svg">
                             </span>
                         <span class="social-fb">
-                                  <a href="/login/google">  <img src="/images/google.svg"></a>
+                                  <a href="/login/google"><img src="/images/google.svg"></a>
                             </span>
                     </div>
                 </div>
@@ -315,35 +316,41 @@
                         </div>
                         <div class="form-item-login">
                             <label class="input-login">
-                                <input class="form-control" name="email"
-                                       placeholder="Электронная почта"
-                                       required th:placeholder="#{header.modal.placeholder.email}" type="email">
+                                <input name="email" class="form-control" th:placeholder="#{header.modal.placeholder.email}"
+                                       placeholder="Введите электронную почту" type="email" id="login-reg-form"
+                                       required>
                             </label>
                         </div>
+
                         <div class="form-item-password">
                             <label class="input-password">
-                                <input autocomplete="off" class="form-control"
-                                       name="password" placeholder="Пароль"
-                                       th:placeholder="#{header.modal.placeholder.password}" type="password">
+                                <input name="password" class="form-control" th:placeholder="#{header.modal.placeholder.password}"
+                                       type="password" autocomplete="off" id="password-reg-form">
                             </label>
                         </div>
+
+                        <div class="form-item-password">
+                            <label class="input-password">
+                                <input name="password_confirm" class="form-control" placeholder="Повторите пароль" type="password"
+                                       th:placeholder="#{header.modal.placeholder.passwordConfirm}" autocomplete="off" id="password_confirm-reg-form">
+                            </label>
+                        </div>
+
                         <div class="form-item-publicName">
                             <label class="input-publicName">
-                                <input class="form-control" name="publicName"
-                                       placeholder="Ваше Имя" required
-                                       th:placeholder="#{header.modal.placeholder.yourName}" type="text">
+                                <input name="publicName" class="form-control" th:placeholder="#{header.modal.placeholder.yourName}"
+                                       placeholder="Ваше Имя" type="text" id="public_name-reg-form" required>
                             </label>
                         </div>
+
                         <div class="form-item-phone">
                             <label class="input-phone">
-                                <input class="form-control" name="phone"
-                                       placeholder="Номер телефона"
-                                       required th:placeholder="#{header.modal.placeholder.phoneNumber}" type="tel">
+                                <input name="phone" class="form-control" th:placeholder="#{header.modal.placeholder.phoneNumber}"
+                                       placeholder="Номер телефона" type="tel" id="phone-reg-form" required>
                             </label>
                         </div>
                         <div class="form-reg-button">
-                            <button class="btn btn-primary" data-dismiss="modal" id="btn-reg" name="submit"
-                                    type="submit">
+                            <button type="submit" name="submit"  class="btn btn-primary" id="btn-reg">
                                 <span th:text="#{header.modal.register}">Зарегистрироваться</span>
                             </button>
                         </div>
@@ -469,14 +476,14 @@
         </div>
     </div>
 </div>
-
-    <div th:fragment="script">
-        <script src="webjars/jquery/3.5.1/jquery.min.js"></script>
-        <script src="webjars/popper.js/1.16.0/popper.min.js"></script>
-        <script src="webjars/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-        <script src="../static/js/header.js" th:src="@{/js/header.js}"></script>
-        <script src="/js/modal_registation.js" th:src="@{/js/modal_registation.js}"></script>
-        <script src="/js/modal_registation.js" th:src="@{/js/modal_location.js}"></script>
-    </div>
+<div th:fragment="script">
+    <script src="webjars/jquery/3.5.1/jquery.min.js"></script>
+    <script src="webjars/popper.js/1.16.0/popper.min.js" type="module"></script>
+    <script src="webjars/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <script src="../static/js/header.js" th:src="@{/js/header.js}"></script>
+    <script src="/js/modal_registation.js" th:src="@{/js/modal_registation.js}" type="module"></script>
+    <script src="/js/modal_registation.js" th:src="@{/js/modal_location.js}"></script>
+    <script src="/js/modal_registation.js" th:src="@{/js/registration.js}" type="module"></script>
+</div>
 </body>
 </html>

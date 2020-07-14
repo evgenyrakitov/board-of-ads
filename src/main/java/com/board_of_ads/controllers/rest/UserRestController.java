@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -49,8 +50,8 @@ public class UserRestController {
     @CrossOrigin()  //далее - поправить, сделано чтобы работала страничка
     @ApiOperation(value = "create new User", code = 201, response = User.class)
     @ApiResponses(value = {@ApiResponse(code = 201, message = "Successfully create user")})
-    @PostMapping(value = "/admin/add"/*, consumes = {"application/json"}*/) //согласно рекомендациям госкомстандарта - создание это post, not put. fixed
-    public ResponseEntity<User> create(User user) {
+    @PostMapping(value = "/admin/add", consumes = {"application/json"}) //согласно рекомендациям госкомстандарта - создание это post, not put. fixed
+    public ResponseEntity<User> create(@RequestBody User user) {
         Set<Role> roleSet = new HashSet<>();
         Role role = roleService.findRoleByName("USER");
         roleSet.add(role);
@@ -62,7 +63,7 @@ public class UserRestController {
     }
 
 
-    @PutMapping("/admin/edit")   // post -> put
+    @PutMapping("/admin/edit")
     public User update(User user) {
         return userService.updateUser(user);
     }
