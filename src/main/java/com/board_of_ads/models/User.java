@@ -51,9 +51,11 @@ public class User implements UserDetails {
     @NonNull
     private String phone;
 
+    //@NonNull
     @ManyToOne
     private Region region;
 
+    //@NonNull
     @ManyToOne
     private City city;
 

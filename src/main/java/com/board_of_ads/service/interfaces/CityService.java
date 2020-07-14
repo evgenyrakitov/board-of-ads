@@ -7,6 +7,8 @@ import java.util.List;
 
 public interface CityService {
 
+    City findById(Long id);
+
     List<City> findAll();
 
     List<City> findAllByName(String name);

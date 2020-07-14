@@ -32,6 +32,8 @@ function addUserInTableBody(el) {
     getTd(el.password, "password" + el.id).appendTo(trLocal);
     getTd(el.phone, "phone" + el.id).appendTo(trLocal);
     getTd(el.dataRegistration, "dataRegistration" + el.id).appendTo(trLocal);
+    getTd(el.region.name, "region"+el.id).appendTo(trLocal);
+    getTd(el.city.name, "city"+el.id).appendTo(trLocal);
     getSelect(el).appendTo(trLocal);
     trLocal.appendTo($("#tbodyUsers"));
 }

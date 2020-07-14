@@ -16,7 +16,10 @@
     margin: 0 -10px;
     padding: 10px 0;
 }
-
+.form-item-select {
+    margin-left: 60px;
+    width: 340px;
+}
 .form-password-items-container {
     display: inline-block;
     width: 70%;

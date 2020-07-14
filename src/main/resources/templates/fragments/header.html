@@ -313,6 +313,17 @@
                             </label>
                         </div>
 
+                        <div class="form-item-select" id="regionId">
+                            <select class="custom-select" id="region">
+                                <option selected disabled hidden>Регион</option>
+                                <option th:each="region : ${regions}" th:value="${region.id}" th:label="${region.name}">One</option>
+                            </select>
+                        </div>
+
+                        <div class="form-item-select" id="citiesId">
+
+                        </div>
+
                         <div class="form-item-phone">
                             <label class="input-phone">
                                 <input name="phone" class="form-control" th:placeholder="#{header.modal.placeholder.phoneNumber}"
