@@ -38,7 +38,7 @@ public class PostingRepositoryCustomImpl {
         }
 
         if (onlyWithImages) {
-            query.append(" and p.imagePath.size > 0 ");
+            query.append(" and size(p.imagePath) > 0 ");
         }
 
         //System.out.println(query.toString());

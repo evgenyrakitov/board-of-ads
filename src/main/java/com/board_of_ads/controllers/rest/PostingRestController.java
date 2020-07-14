@@ -126,10 +126,10 @@ public class PostingRestController {
         List<Category> categories = null;
 
         if (category.length() != 0) {
-            if (locale.toLanguageTag().equals("ru")) {
+            if (locale.getLanguage().equals("ru")) {
                 categ = categoryService.findCategoryByNameRu(category);
             }
-            if (locale.toLanguageTag().equals("en")) {
+            if (locale.getLanguage().equals("en")) {
                 categ = categoryService.findCategoryByNameEn(category);
             }
         }
