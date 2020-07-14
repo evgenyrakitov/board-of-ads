@@ -19,9 +19,11 @@ public interface CategoryService {
 
     Category findCategoryByNameRu(String nameRu);
 
+    Category findCategoryByNameEn(String nameEn);
+
     Category findCategoryByNameRuAndParentCategoryIsNotNull(String nameRu);
 
-    List<Category>findAllByParentCategory(Category parentCategory);
+    List<Category> findAllByParentCategory(Category parentCategory);
 
 
 }

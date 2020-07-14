@@ -17,7 +17,7 @@ $(document).ready(function () {
             for (let i = start; i < end; i++) {
                 $(".container_cus").prepend(
                     '<div class="card">\n' +
-                    '            <img src="' + posting[i].imagePath[0].imagePath + '" class="card-img-top" alt="...">\n' +
+                    '            <img src="' + posting[i].imagePath[0]?.imagePath + '" class="card-img-top" alt="...">\n' +
                     '            <div class="card-body">\n' +
                     '                <h5 class="card-title">' + posting[i].title + '</h5>\n' +
                     '                <p class="card-text">' + posting[i].price + '</p>\n' +

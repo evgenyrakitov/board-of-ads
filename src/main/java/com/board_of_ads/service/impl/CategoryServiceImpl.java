@@ -48,6 +48,11 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
+    public Category findCategoryByNameEn(String nameEn) {
+        return categoryRepository.findCategoryByNameEn(nameEn);
+    }
+
+    @Override
     public Category findCategoryByNameRuAndParentCategoryIsNotNull(String nameRu) {
         return categoryRepository.findCategoryByNameRuAndParentCategoryIsNotNull(nameRu);
     }

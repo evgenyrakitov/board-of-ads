@@ -27,6 +27,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Locale;
 import java.util.Set;
 
 @RestController
@@ -111,7 +112,8 @@ public class PostingRestController {
     }
 
     @GetMapping("/search")
-    public ResponseEntity<List<Posting>> getSearchForm(@RequestParam String category,
+    public ResponseEntity<List<Posting>> getSearchForm(Locale locale,
+                                                       @RequestParam String category,
                                                        @RequestParam String search,
                                                        @RequestParam String regionCity,
                                                        @RequestParam(required = false) String ch1,
@@ -121,13 +123,18 @@ public class PostingRestController {
         City city = null;
         List<Posting> postings = null;
         String search_ = "%" + search + "%";
-        List<Category>categories = null;
+        List<Category> categories = null;
 
         if (category.length() != 0) {
-            categ = categoryService.findCategoryByNameRu(category);
+            if (locale.toLanguageTag().equals("ru")) {
+                categ = categoryService.findCategoryByNameRu(category);
+            }
+            if (locale.toLanguageTag().equals("en")) {
+                categ = categoryService.findCategoryByNameEn(category);
+            }
 
-            if (categ.getParentCategory() != null){
-
+            if (categ.getParentCategory() != null) {
+                /// ????? что тут должно быть? Для чего это конструкция?
             }
 
         }

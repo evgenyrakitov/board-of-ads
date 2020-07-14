@@ -54,7 +54,14 @@ $("#btn-search").click(function () {
     });
 
 
+$('#search-form').keypress(function (e) {
+    var code = e.keyCode || e.which;
 
+    if (code === 13) {
+        e.preventDefault();
+        $("#btn-search").click();
+    }
+});
 
 function getPostings(search) {
     $.get("/rest/posting/search", search, function (data) {
@@ -63,16 +70,20 @@ function getPostings(search) {
         postings = data;
         if (postings.length !== 0){
         for (let i = 0; i < postings.length; i++) {
-            div += "<div  id='post" + postings[i].id + "' class='card'><img src='" + postings[i].imagePath[0].imagePath + "' class='card-img-top' alt='...'>" +
+            div += "<div  id='post" + postings[i].id + "' class='card'><img src='" + postings[i].imagePath[0]?.imagePath + "' class='card-img-top' alt='...'>" +
                 "<div class='card-body'>" +
                 "<h5 class='card-title'>" + postings[i].title + "</h5>" +
                 "<p class='card-text'>" + postings[i].price + "</p>" +
-                "<a href='adDetails' class='btn btn-primary'th:text='#{main-page.go_to_ad}'>Перейти к объявлению</a>" +
+                "<a href='adDetails' class='btn btn-primary' th:text='#{main-page.go_to_ad}'>Перейти к объявлению</a>" +
                 "</div></div>";
         }
         $("#body-post").html(div);
         }else {
+            $("#body-post").html("");
             $("#modal-search").modal("show");
+            setTimeout(function () {
+                $('#modal-search').modal('hide')
+            }, 2000);  // hide dialog after 2 seconds
         }
     });
 }
