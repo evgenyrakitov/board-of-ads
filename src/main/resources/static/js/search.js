@@ -14,7 +14,7 @@ $.get("/rest/categories/dto", null, function (data) {
         name = category[i].name;
         parentCategory = category[i].parentCategory;
         if (parentCategory == null ) {
-            option += "<option style='background: #d6d6d6' id='category" + id +"'>" + name + "</option>";
+            option += "<option style='background: #d6d6d6' value='"+id+"' id='category" + id +"'>" + name + "</option>";
             option +=    getCategories(name);
         }
     }
@@ -27,11 +27,11 @@ function getCategories(parentCategory) {
         let parentCategory_1 = "";
         for (let i = 0; i < category.length; i++) {
             if (category[i].parentCategory === parentCategory){
-                option += "<option style='font-weight: bold' id='1category" + category[i].id + "'>" + category[i].name + "</option>";
+                option += "<option style='font-weight: bold' value='"+category[i].id+"' id='1category" + category[i].id + "'>" + category[i].name + "</option>";
                 for (let j = 0; j < category.length; j++) {
                     parentCategory_1 = category[j].parentCategory;
                     if (parentCategory_1 === category[i].name) {
-                        option += "<option id='2category" + category[j].id + "'>" + category[j].name + "</option>";
+                        option += "<option value='"+category[j].id+"' id='2category" + category[j].id + "'>" + category[j].name + "</option>";
                     }
 
                 }

@@ -30,6 +30,8 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Set;
 
+import static java.lang.Long.parseLong;
+
 @RestController
 @RequestMapping("/rest/posting")
 @AllArgsConstructor
@@ -112,7 +114,7 @@ public class PostingRestController {
     }
 
     @GetMapping("/search")
-    public ResponseEntity<List<Posting>> getSearchForm(Locale locale,
+    public ResponseEntity<List<Posting>> getSearchForm(
                                                        @RequestParam String category,
                                                        @RequestParam String search,
                                                        @RequestParam String regionCity,
@@ -122,18 +124,11 @@ public class PostingRestController {
         Region region = null;
         City city = null;
         List<Posting> postings = new ArrayList<>();
-
         String search_ = "%" + search.replaceAll("\\pP", "") + "%";
 
 
         if (category.length() != 0) {
-            if (locale.getLanguage().equals("ru")) {
-                categ = categoryService.findCategoryByNameRu(category);
-
-            }
-            if (locale.getLanguage().equals("en")) {
-                categ = categoryService.findCategoryByNameEn(category);
-            }
+                categ = categoryService.findCategoryById(parseLong(category));
         }
 
         if (regionCity.length() != 0) {
@@ -149,6 +144,7 @@ public class PostingRestController {
 
 
         if (categ != null) {
+            postings.addAll(postingService.customSearchPostings(categ, search_, region, city, onlyTitle, onlyWithImages));
             for (Category c1 : categoryService.findAllByParentCategory(categ)) {
                 postings.addAll(postingService.customSearchPostings(c1, search_, region, city, onlyTitle, onlyWithImages));
                 for (Category c2 : categoryService.findAllByParentCategory(c1)) {
