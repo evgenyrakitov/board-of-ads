@@ -475,14 +475,17 @@
                         <div class="form-item-password">
                             <label class="input-password">
                                 <input autocomplete="off" class="form-control"
+                                       id="pass-reset-form-password"
                                        name="password"
                                        placeholder="Новый Пароль" required
-                                       th:placeholder="#{header.modal.placeholder.newPassword}" type="password">
+                                       th:placeholder="#{header.modal.placeholder.newPassword}"
+                                       type="password">
                             </label>
                         </div>
                         <div class="form-item-password">
                             <label class="input-password">
                                 <input autocomplete="off" class="form-control"
+                                       id="pass-reset-form-passwordConfirm"
                                        name="passwordConfirm"
                                        placeholder="Подтвердите Новый Пароль" required
                                        th:placeholder="#{header.modal.placeholder.confirmNewPassword}"
@@ -490,11 +493,19 @@
                             </label>
                         </div>
                         <div class="form-reg-button">
-                            <button class="btn btn-primary" data-dismiss="modal" id="btn-modal-pass-change"
-                                    name="submit"
-                                    type="submit">
+                            <button class="btn btn-primary" id="btn-modal-pass-change">
                                 <span th:text="#{header.modal.savePassword}">Сохранить Пароль</span>
                             </button>
+                        </div>
+                        <div class="form-password-items-container text-center">
+                <span id="pass-reset-not-equal-passwords-message" style="color: red;"
+                      th:text="#{header.modal.reset.unequalPasswords}"
+                >Введённые пароли не совпадают</span>
+                        </div>
+                        <div class="form-password-items-container text-center">
+                <span id="pass-reset-weak-password-message" style="color: red;"
+                      th:text="#{header.modal.reset.weakPassword}"
+                >Длина пароля должна быть более 4 символо и пароль должен содержать большую латинскую букву, цифру или символ</span>
                         </div>
                     </form>
                 </div>
@@ -526,7 +537,7 @@
     <script src="webjars/jquery/3.5.1/jquery.min.js"></script>
     <script src="webjars/popper.js/1.16.0/popper.min.js" type="module"></script>
     <script src="webjars/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-    <script src="../static/js/header.js" th:src="@{/js/header.js}"></script>
+    <script src="../static/js/header.js" th:src="@{/js/header.js}" type="module"></script>
     <script src="/js/modal_registation.js" th:src="@{/js/modal_registation.js}" type="module"></script>
     <script src="/js/modal_registation.js" th:src="@{/js/modal_location.js}"></script>
     <script src="/js/modal_registation.js" th:src="@{/js/registration.js}" type="module"></script>

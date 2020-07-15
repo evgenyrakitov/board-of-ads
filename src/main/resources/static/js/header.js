@@ -1,3 +1,5 @@
+import * as reg from './registration.js'; // Needed for field validation in password reset form
+
 $(window).scroll(function () {
     if ($(this).scrollTop() > 1) {
         $("header").addClass("active");
@@ -117,6 +119,11 @@ $('#modal-reg-3').on('shown.bs.modal', function () {
     $('#user-not-found-message').hide();
 })
 
+$('#modal-pass-change').on('shown.bs.modal', function () {
+    $('#pass-reset-not-equal-passwords-message').hide();
+    $('#pass-reset-weak-password-message').hide();
+})
+
 document.getElementById("frmLoginInputEmail").addEventListener("keyup",
     function (event) {
         if (event.key === "Enter") {
@@ -149,15 +156,37 @@ $("#btnLogin").click(function () {
 });
 
 // Saving password after reset
-$("#btn-modal-pass-change").click(function () {
-    $.ajax({
-        url: "/reset/savePassword",
-        type: 'POST',
-        data: $("#form-modal-pass-change").serialize()
-    })
-    .done(function () {
-        window.location.href = '/';
-    })
+$("#btn-modal-pass-change").click(function (event) {
+    event.preventDefault();
+
+    $('#pass-reset-not-equal-passwords-message').hide();
+    $('#pass-reset-weak-password-message').hide();
+
+    const password = $('#pass-reset-form-password').val();
+    const passwordConfirm = $('#pass-reset-form-passwordConfirm').val();
+    let allowSaveFlag = true;
+
+    // Password validation in analogue to registration form
+    if (reg.passwordEquals(password, passwordConfirm) !== true) {
+        $('#pass-reset-not-equal-passwords-message').slideDown();
+        allowSaveFlag = false;
+    }
+
+    if ((reg.summator(password) < 2) || password.length < 5) {
+        $('#pass-reset-weak-password-message').slideDown();
+        allowSaveFlag = false;
+    }
+
+    if (allowSaveFlag === true) {
+        $.ajax({
+            url: "/reset/savePassword",
+            type: 'POST',
+            data: $("#form-modal-pass-change").serialize()
+        })
+        .done(function () {
+            window.location.href = '/';
+        })
+    }
 });
 
 let userId = $('#userId').text();  //нужно взять id user-a с header и сделать запрос
