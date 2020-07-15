@@ -1,8 +1,7 @@
 package com.board_of_ads.controllers.auth;
 
-import com.board_of_ads.models.Role;
-import com.board_of_ads.models.User;
 import com.board_of_ads.service.interfaces.RoleService;
+import com.board_of_ads.service.interfaces.SocialNetworkService;
 import com.board_of_ads.service.interfaces.UserService;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -12,9 +11,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,9 +19,7 @@ import org.springframework.web.client.RestTemplate;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Map;
-import java.util.Set;
 
 /**
  * Контроллер для авторизации в вконтакте.
@@ -33,10 +27,11 @@ import java.util.Set;
  */
 @Controller
 @RequestMapping("/login/vk")
-public class vkAuthController {
-    private static final Logger logger = LoggerFactory.getLogger(vkAuthController.class);
+public class VkAuthController {
+    private static final Logger logger = LoggerFactory.getLogger(VkAuthController.class);
     private final UserService userService;
     private final RoleService roleService;
+    private final SocialNetworkService socialNetworkService;
 
     @Value("${vk.clientId}")
     private String clientId;
@@ -57,9 +52,10 @@ public class vkAuthController {
     @Value("${vk.apiVersion}")
     private String apiVersion;
 
-    public vkAuthController(UserService userService, RoleService roleService) {
+    public VkAuthController(UserService userService, RoleService roleService, SocialNetworkService socialNetworkService) {
         this.userService = userService;
         this.roleService = roleService;
+        this.socialNetworkService = socialNetworkService;
     }
 
     /**
@@ -106,64 +102,22 @@ public class vkAuthController {
             String vkUserId = String.valueOf(root.path("user_id").intValue());
             String email = root.path("email").textValue();
 
-            doAutoLogin(findOrCreateUser(token, vkUserId, email));
+            socialNetworkService.doAutoLogin(socialNetworkService.findOrCreateUserVK(token, vkUserId, email));
         }
 
         return "redirect:/";
     }
 
     /**
-     * Метод проверяет есть в базе пользователя с таким емейлом.
-     * Если нет, то обращется к АПИ ВК, получает данные о пользователе и создает его.
-     *
-     * @param token    - Токен для работы с ВК
-     * @param vkUserId - Айди пользователя ВК
-     * @param email    - Емейл пользователя ВК
-     * @return - созданный или найденный по емейлу пользователь
-     */
-    private User findOrCreateUser(String token, String vkUserId, String email) {
-        User user = userService.findUserByEmail(email);
-        if (user == null) {
-            user = createUserByEmailAndVKUserInfo(token, vkUserId, email);
-        }
-        return user;
-    }
-
-    /**
-     * Создает и возвращает пользователя с данными полученными с серверера ВК.
-     * А именно: емейл, имя и фамилия. И ролью простого пользователя
-     *
-     * @param token    - Токен для работы с ВК
-     * @param vkUserId - Айди пользователя ВК
-     * @param email    - Емейл пользователя ВК
-     * @return - созданных пользователь.
-     */
-    @SneakyThrows
-    private User createUserByEmailAndVKUserInfo(String token, String vkUserId, String email) {
-
-        Map<String, String> usersInfo = getVKUserInfo(token, vkUserId);
-        String firstName = usersInfo.get("firstName");
-        String lastName = usersInfo.get("lastName");
-        String userPhoto = usersInfo.get("userPhoto");
-
-        Set<Role> userRoles = new HashSet<>();
-        userRoles.add(roleService.findRoleByName("USER"));
-        User user = new User(email, firstName + " " + lastName, "SuperStrongUnDecryptablePassword!!! x_X", "SuperStrongUnDecryptablePassword!!! x_X", "", userRoles);
-        user.setUserIcons(userPhoto);
-
-        user = userService.addUser(user);
-        return user;
-    }
-
-    /**
-     * Получает данные о пользовале от АПИ ВК.
+     * Получает данные о пользователе от АПИ ВК.
+     * Первым запросом достаёт данные, вторым аватар.
      *
      * @param token    - Токен для работы с ВК
      * @param vkUserId - Айди пользователя ВК
      * @return - map с данными пользователя
      */
     @SneakyThrows
-    private Map<String, String> getVKUserInfo(String token, String vkUserId) {
+    public Map<String, String> getVKUserInfo(String token, String vkUserId) {
         Map<String, String> map = new HashMap<>();
 
         StringBuilder getUserInfoURI = new StringBuilder(userInfoUri).append("?")
@@ -209,15 +163,5 @@ public class vkAuthController {
         }
 
         return map;
-    }
-
-    /**
-     * Метод который осуществляет авто-вход для указанного пользователя.
-     *
-     * @param user - пользователя которого надо залогинить.
-     */
-    private void doAutoLogin(User user) {
-        Authentication authentication = new UsernamePasswordAuthenticationToken(user, null, user.getAuthorities());
-        SecurityContextHolder.getContext().setAuthentication(authentication);
     }
 }
