@@ -21,7 +21,7 @@ $(document).ready(function () {
 
                     `    <div class="card">\n` +
                     `    <div id="${posting[i].id}" class="card-header">` +
-                    '       <img src="' + posting[i].images[0].imagePath + '" class="card-img-top" alt="...">' +
+                    '       <img src="' + posting[i].images[0]?.imagePath + '" class="card-img-top" alt="...">' +
                     '   </div>' +
                     '       <div class="card-body">\n' +
 

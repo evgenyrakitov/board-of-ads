@@ -73,5 +73,4 @@ public class PostingServiceImpl implements PostingService {
     }
 
 
-
 }

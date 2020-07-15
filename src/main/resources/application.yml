@@ -50,13 +50,24 @@ google:
     preferTokenInfo: true
 
 vk:
-  client:
-    clientId: 7517722
-    clientSecret: gsG85MUAQiOdmSVdBogN
-    accessTokenUri: https://api.vk.com/oauth/token
-    userAuthorizationUri: https://oauth.vk.com/authorize?v=5.8
-    scope: id,first_name,last_name,photo_50, offline
-    clientAuthenticationScheme: form
-  resource:
-    userInfoUri: https://api.vk.com/method/users.get
-    preferTokenInfo: true
+  clientId: 7517722
+  clientSecret: gsG85MUAQiOdmSVdBogN
+  userAuthorizationUri: https://oauth.vk.com/authorize
+  accessTokenUri: https://oauth.vk.com/access_token
+  scope: email
+  userInfoUri: https://api.vk.com/method/users.get
+  photoInfoUri: https://api.vk.com/method/photos.get
+  photoSizeVK: p
+  apiVersion: "5.120"
+
+#vk:
+#  client:
+#    clientId: 7517722
+#    clientSecret: gsG85MUAQiOdmSVdBogN
+#    accessTokenUri: https://api.vk.com/oauth/token
+#    userAuthorizationUri: https://oauth.vk.com/authorize?v=5.8
+#    scope: id,first_name,last_name,photo_50, offline
+#    clientAuthenticationScheme: form
+#  resource:
+#    userInfoUri: https://api.vk.com/method/users.get
+#    preferTokenInfo: true

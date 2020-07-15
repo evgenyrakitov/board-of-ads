@@ -3,10 +3,9 @@ package com.board_of_ads.controllers.rest;
 import com.board_of_ads.models.Category;
 import com.board_of_ads.models.Images;
 import com.board_of_ads.models.User;
-
+import com.board_of_ads.models.dto.ProfilePostingDTO;
 import com.board_of_ads.models.kladr.City;
 import com.board_of_ads.models.kladr.Region;
-import com.board_of_ads.models.dto.ProfilePostingDTO;
 import com.board_of_ads.models.posting.Posting;
 import com.board_of_ads.repository.custom.PostingRepositoryCustomImpl;
 import com.board_of_ads.service.interfaces.CategoryService;
@@ -29,7 +28,6 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Locale;
 import java.util.Set;
 
 import static java.lang.Long.parseLong;
@@ -45,7 +43,7 @@ public class PostingRestController {
     private final CategoryService categoryService;
     private final RegionService regionService;
     private final CityService cityService;
-    private final PostingRepositoryCustomImpl postingRepositoryCustom;
+
 
     @GetMapping("/getPostingInfo")
     public ResponseEntity<Posting> getPosting() {

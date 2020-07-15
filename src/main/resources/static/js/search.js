@@ -68,7 +68,8 @@ function getPostings(search) {
         postings = data;
         if (postings.length !== 0){
         for (let i = 0; i < postings.length; i++) {
-            div += "<div  id='post" + postings[i].id + "' class='card'><img src='" + postings[i].imagePath[0]?.imagePath + "' class='card-img-top' alt='...'>" +
+            div += "<div  id='post" + postings[i].id + "' class='card'><div  class='card-header'>" +
+                "<img src='" + postings[i].imagePath[0]?.imagePath + "' class='card-img-top' alt='...'></div>" +
                 "<div class='card-body'>" +
                 "<h5 class='card-title'>" + postings[i].title + "</h5>" +
                 "<p class='card-text'>" + postings[i].price + "</p>" +
