@@ -383,14 +383,14 @@
                             </label>
                         </div>
 
-                        <div class="form-item-select" id="regionId">
+                        <div class="form-item-region-city" id="regionId">
                             <select class="custom-select" id="region">
                                 <option selected disabled hidden>Регион</option>
                                 <option th:each="region : ${regions}" th:value="${region.id}" th:label="${region.name}">One</option>
                             </select>
                         </div>
 
-                        <div class="form-item-select" id="citiesId">
+                        <div class="form-item-region-city" id="citiesId">
 
                         </div>
 
