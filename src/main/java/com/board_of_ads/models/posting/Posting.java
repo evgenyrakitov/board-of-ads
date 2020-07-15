@@ -5,11 +5,14 @@ import com.board_of_ads.models.Images;
 import com.board_of_ads.models.Message;
 import com.board_of_ads.models.User;
 import com.board_of_ads.models.posting.extra.PostingStatus;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
+import lombok.ToString;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 import org.slf4j.Logger;
@@ -23,6 +26,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -61,6 +65,9 @@ public class Posting {
     @ManyToOne(fetch = FetchType.LAZY)
     @Fetch(FetchMode.JOIN)
     private User user;
+
+    @ManyToMany(fetch = FetchType.LAZY, mappedBy = "favoritePostings")
+    private Set<User> users;
 
     @NonNull
     @Column(name = "full_description")

@@ -6,18 +6,31 @@ $(window).scroll(function () {
     }
 });
 
-
 $(document).ready(function () {
-    if (localStorage.getItem('locale') == null ){
+    if (localStorage.getItem('locale') == null) {
         localStorage.setItem("locale", "ru");
-        $(".dropdown-toggle").html('<img src="images/header/ru.svg" width="30">');
-    }else {
-            if (localStorage.getItem("locale") == "ru"){
-                $(".dropdown-toggle").html('<img src="images/header/ru.svg" width="30">');
-            }else {
-                $(".dropdown-toggle").html('<img src="images/header/en.svg" width="30">');
-            }
+        $(".dropdown-toggle").html(
+            '<img src="images/header/ru.svg" width="30">');
+    } else {
+        if (localStorage.getItem("locale") == "ru") {
+            $(".dropdown-toggle").html(
+                '<img src="images/header/ru.svg" width="30">');
+        } else {
+            $(".dropdown-toggle").html(
+                '<img src="images/header/en.svg" width="30">');
+        }
     }
+
+    // Check for password reset token to conditionally render change password modal
+    if ($("#passwordResetToken").val().length !== 0) {
+        $("#modal-pass-change").modal("show");
+    }
+
+    // Check for error messages when restoring password to conditionally render error message modal
+    if ($("#passwordResetErrorMessage")[0].innerText.length !== 0) {
+        $("#modal-pass-change-error").modal("show");
+    }
+
     $.ajax({
         url: '/rest/categories',
         type: 'get',
@@ -27,33 +40,38 @@ $(document).ready(function () {
             for (var i in data.subCategories) {
                 if (i == 0) {
                     $("#header_category_list").append(
-                        "<li class='nav-item nav_category'><span class='all_category'  onclick='openAllCategories()'>еще...</span>\n" +
-                        "     <ul class='navbar-nav' id='moreCategories'></ul>" +
+                        "<li class='nav-item nav_category'><span class='all_category'  onclick='openAllCategories()'>еще...</span>\n"
+                        +
+                        "     <ul class='navbar-nav' id='moreCategories'></ul>"
+                        +
                         "</li>"
                     );
                 }
-                if (i < 5){
+                if (i < 5) {
                     $("#header_category_list").prepend(
                         "<li class='nav-item '>\n" +
-                        "     <a class='nav-link text-primary' href='#'>" + data.subCategories[i].name + "</a>\n" +
+                        "     <a class='nav-link text-primary' href='#'>"
+                        + data.subCategories[i].name + "</a>\n" +
                         "</li>"
                     );
                 }
                 $("#moreCategories").append(
                     '<div>\n' +
                     '       <div class="top-rubricator-blockTitle">\n' +
-                    '           <a href="">'+ data.subCategories[i].name +'</a>\n' +
+                    '           <a href="">' + data.subCategories[i].name
+                    + '</a>\n' +
                     '       </div>\n' +
                     '       <ul class="sub_categories navbar-nav"></ul>\n' +
                     '   </div>'
                 );
                 $("#findFromCategory").append(
-                    '<option class="bgOption">' + data.subCategories[i].name + '</option>'
+                    '<option class="bgOption">' + data.subCategories[i].name
+                    + '</option>'
                 );
                 for (var r in data.subCategories[i].subCategories) {
                     var fsd = data.subCategories[i].subCategories[r].name;
-                    $(".sub_categories:eq("+ i +")").append(
-                        '<li class="nav-item"><a href="">'+ fsd +'</a></li>'
+                    $(".sub_categories:eq(" + i + ")").append(
+                        '<li class="nav-item"><a href="">' + fsd + '</a></li>'
                     );
                     $("#findFromCategory").append(
                         '<option>' + fsd + '</option>'
@@ -64,10 +82,12 @@ $(document).ready(function () {
     });
 
 });
+
 function openAllCategories() {
     $("#moreCategories").toggleClass("on-off");
     $(".bg_black_header").toggleClass("on-off");
 }
+
 $(".bg_black_header").click(function () {
     $("#moreCategories").removeClass("on-off");
     $(".bg_black_header").removeClass("on-off");
@@ -92,19 +112,26 @@ $('#modal-reg-1').on('shown.bs.modal', function () {
     $('#spanIncorrectLoginPass').slideUp(0);
 })
 
-document.getElementById("frmLoginInputEmail").addEventListener("keyup", function(event) {
-    if (event.key === "Enter") {
-        event.preventDefault();
-        document.getElementById("btnLogin").click();
-    }
-});
+$('#modal-reg-3').on('shown.bs.modal', function () {
+    $('#reset-email-sent-letter-message').hide();
+    $('#user-not-found-message').hide();
+})
 
-document.getElementById("frmLoginInputPassword").addEventListener("keyup", function(event) {
-    if (event.key === "Enter") {
-        event.preventDefault();
-        document.getElementById("btnLogin").click();
-    }
-});
+document.getElementById("frmLoginInputEmail").addEventListener("keyup",
+    function (event) {
+        if (event.key === "Enter") {
+            event.preventDefault();
+            document.getElementById("btnLogin").click();
+        }
+    });
+
+document.getElementById("frmLoginInputPassword").addEventListener("keyup",
+    function (event) {
+        if (event.key === "Enter") {
+            event.preventDefault();
+            document.getElementById("btnLogin").click();
+        }
+    });
 
 $("#btnLogin").click(function () {
     $.ajax({
@@ -112,13 +139,25 @@ $("#btnLogin").click(function () {
         type: 'POST',
         data: $("#formLogin").serialize()
     })
-        .done(function() {
-            window.location.href = '/';
-        })
-        .fail(function() {
-            $('#spanIncorrectLoginPass').slideDown();
-            $('#spanIncorrectLoginPass').delay(3000).slideUp();
-        })
+    .done(function () {
+        window.location.href = '/';
+    })
+    .fail(function () {
+        $('#spanIncorrectLoginPass').slideDown();
+        $('#spanIncorrectLoginPass').delay(3000).slideUp();
+    })
+});
+
+// Saving password after reset
+$("#btn-modal-pass-change").click(function () {
+    $.ajax({
+        url: "/reset/savePassword",
+        type: 'POST',
+        data: $("#form-modal-pass-change").serialize()
+    })
+    .done(function () {
+        window.location.href = '/';
+    })
 });
 
 let userId = $('#userId').text();  //нужно взять id user-a с header и сделать запрос
@@ -126,7 +165,7 @@ $(document).ready(function getUnreadMessage() {
     if (userId !== undefined) {
         $.ajax({
             type: 'GET',
-            url: '/rest/messages/unreadCount/'+userId,
+            url: '/rest/messages/unreadCount/' + userId,
             data: $(this).serialize(),
             dataType: 'json',
             success: function (data) {

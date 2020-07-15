@@ -6,5 +6,9 @@ import java.util.Map;
 
 public interface SocialNetworkService {
 
-    User loadUserInSocialNetwork(Map<String, Object> map);
+    User findOrCreateUserGoogle(Map<String, Object> map);
+
+    User findOrCreateUserVK(String token, String vkUserId, String email);
+
+    void doAutoLogin(User user);
 }

@@ -44,16 +44,35 @@ function warningPass(field) {
     $(field).css("background-color", "red");
 }
 
-function save(login, password) {
-    let url = "/rest/add";
+
+export function successField(field) {
+    $(field).css("background-color", "green");
+}
+
+export function infoField(field) {
+    $(field).css("background-color", "yellow");
+}
+
+export function save(login, password, first_name, last_name, region, city, phone) {
+    let url = "/rest/admin/add";
     let type = "POST";
     let data = {
         user: {
-            login: login,
-            password: password
+            email: login,
+            password: password,
+            firstName: first_name,
+            lastName: last_name,
+            phone: phone,
+            region: {
+                id: region
+            },
+            city: {
+                id: city
+            },
+
         },
     };
-
+    console.log(data);
     $.ajax({
         url: url,
         type: type,

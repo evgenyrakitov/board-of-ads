@@ -16,6 +16,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Calendar;
 import java.util.List;
+import java.util.Set;
 
 @Service
 @Transactional
@@ -60,12 +61,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User addFavoritePosting(Long id_posting, Long id_user) {
+    public void addFavoritePosting(Long id_posting, Long id_user) {
         User user = userRepository.getOne(id_user);
         Posting posting = postingRepository.getOne(id_posting);
         user.getFavoritePostings().add(posting);
         userRepository.save(user);
-        return user;
     }
 
     @Override
@@ -75,10 +75,25 @@ public class UserServiceImpl implements UserService {
         user.getFavoritePostings().remove(posting);
         userRepository.save(user);
     }
+
+    @Override
+    public void deleteAllFavoritePosting(Long id_user) {
+        User user = userRepository.getOne(id_user);
+        user.getFavoritePostings().removeAll(user.getFavoritePostings());
+        userRepository.save(user);
+    }
+
+   @Override
+    public Set<Posting> getFavoritePostings(Long userId) {
+        User user = userRepository.getOne(userId);
+        return user.getFavoritePostings();
+    }
+
     @Override
     public void addPasswordToken(PasswordResetToken passwordResetToken) {
         passwordResetTokenRepository.save(passwordResetToken);
     }
+
     @Override
     public String validatePasswordResetToken(String token) {
         PasswordResetToken passToken = passwordResetTokenRepository.findByToken(token);
@@ -86,6 +101,7 @@ public class UserServiceImpl implements UserService {
                 : isTokenExpired(passToken) ? "expired"
                 : null;
     }
+
     private boolean isTokenFound(PasswordResetToken passToken) {
         return passToken != null;
     }
