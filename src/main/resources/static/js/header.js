@@ -121,6 +121,20 @@ $("#btnLogin").click(function () {
         })
 });
 
+$(".navbar-nav .nav-item").on("click", function(){
+   /*let location = window.location.href;
+   let curUrl = '/' + location.split('/').pop();
+   $(".navbar-nav .nav-item").has("a[href="+curUrl+"]").addClass("active");*/
+   $(".navbar-nav").find(".active").removeClass("active");
+   $(this).addClass("active");
+});
+
+/*$(function () {
+    var location = window.location.href;
+    var curUrl = '/' + location.split('/').pop();
+    $(".navbar-nav .nav-item").has("a[href="+curUrl+"]").addClass("active");
+});*/
+
 let userId = $('#userId').text();  //нужно взять id user-a с header и сделать запрос
 $(document).ready(function getUnreadMessage() {
     if (userId !== undefined) {
