@@ -33,6 +33,7 @@ $(document).ready(function () {
             showFavoriteIcon();
         }
     });
+
 });
 
 var inProgress = false;
@@ -48,7 +49,7 @@ $(window).scroll(function () {
                 curScroll = $(window).scrollTop();
             $dump.append(
                 '    <div class="card">\n' +
-                `    <div id="${posting[i].id}" class="card-header">` +
+                '    <div class="card-header">' +
                 '       <img src="' + posting[i].images[0].imagePath + '" class="card-img-top" alt="...">' +
                 '   </div>' +
                 '       <div class="card-body">\n' +
@@ -80,6 +81,9 @@ function favoriteAction(post_id) {
                 favoriteIcon.css("fill", "white");
                 favoriteIcon.css("color", "#007bff");
             },
+            error: function () {
+                alert("bad");
+            }
         })
     } else {
         $.ajax({
@@ -91,6 +95,9 @@ function favoriteAction(post_id) {
                 favoriteIcon.css("fill", "#007bff");
                 favoriteIcon.css("color", "white");
             },
+            error: function () {
+                alert("bad");
+            }
         })
     }
 }
@@ -113,5 +120,6 @@ function showFavoriteIcon() {
                 })
             })
         }
+
     })
 }

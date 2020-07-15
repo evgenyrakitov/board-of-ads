@@ -59,7 +59,7 @@ public class UserProfileRestController {
         return ResponseEntity.ok(dtoList);
     }
 
-    private List<ProfilePostingDTO> buildDTOList(Iterable<Posting> postingList) {
+    protected static List<ProfilePostingDTO> buildDTOList(Iterable<Posting> postingList) {
         List<ProfilePostingDTO> dtoList = new ArrayList<>();
         ProfilePostingDTO dto;
         for (Posting posting : postingList) {
