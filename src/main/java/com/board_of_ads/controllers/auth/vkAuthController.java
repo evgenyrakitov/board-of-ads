@@ -148,7 +148,7 @@ public class vkAuthController {
 
         Set<Role> userRoles = new HashSet<>();
         userRoles.add(roleService.findRoleByName("USER"));
-        User user = new User(email, firstName + " " + lastName, "SuperStrongUnDecryptablePassword!!! x_X", "SuperStrongUnDecryptablePassword!!! x_X", "", userRoles);
+        User user = new User(email, firstName, lastName, "SuperStrongUnDecryptablePassword!!! x_X", "SuperStrongUnDecryptablePassword!!! x_X", "", userRoles, "");
         user.setUserIcons(userPhoto);
 
         user = userService.addUser(user);

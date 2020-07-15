@@ -17,7 +17,10 @@ $("#btn-reg").click(function (event) {
     let email = $("#login-reg-form").val();
     let password = $("#password-reg-form").val();
     let password_confirm = $("#password_confirm-reg-form").val();
-    let public_name = $('#public_name-reg-form').val();
+    let first_name = $('#first_name-reg-form').val();
+    let last_name = $('#last_name-reg-form').val();
+    let region = $('#regionId').children().val();
+    let city = $('#citiesId').children().val();
     let phone = $("#phone-reg-form").val();
     let sum = 0;
 
@@ -72,15 +75,17 @@ $("#btn-reg").click(function (event) {
         alert("введите номер телефоне в формате 913-123-45-67");
     }
     //============== check exist public name  ==========//
-    if (public_name.length > 3) {
-        reg.successField('#public_name-reg-form');
+    if (first_name.length > 3 && last_name.length > 3) {
+        reg.successField('#first_name-reg-form');
+        reg.successField('#last_name-reg-form');
         sum++;  //6!
     } else {
-        alert("попробуйте имя более 3 символов!");
-        reg.warningField('#public_name-reg-form');
+        alert("попробуйте имя и фамилию более 3 символов!");
+        reg.warningField('#first_name-reg-form');
+        reg.warningField('#last_name-reg-form');
     }
     if (sum === 6) {
-        reg.save(email, password, public_name, phone);
+        reg.save(email, password, first_name, last_name, region, city, phone);
         $("#modal-reg-2").modal('toggle');
     }
     else {

@@ -94,7 +94,7 @@
                     <li class="nav-item" style="margin-right: 10px;"
                         th:if="${user.getClass().getSimpleName() == 'User'}">
                         <div class="dropdown">
-                            <button class="dropbtn" th:text="${user.getPublicName()}"></button>
+                            <button class="dropbtn" th:text="${user.getFirstName()}"></button>
                             <div class='dropdown-content'>
                                 <div class="profile-sidebar-head-rating-36hRS">
                                     <a class="link-link-39EVK link-design-default-2sPEv link-novisited-1w4JY profile-sidebar-head-link-1gPfv"
@@ -368,8 +368,8 @@
 
                         <div class="form-item-publicName">
                             <label class="input-publicName">
-                                <input class="form-control" id="public_name-reg-form"
-                                       name="publicName"
+                                <input class="form-control" id="first_name-reg-form"
+                                       name="firstName"
                                        placeholder="Ваше Имя" required th:placeholder="#{header.modal.placeholder.yourFirstName}"
                                        type="text">
                             </label>
@@ -377,8 +377,9 @@
 
                         <div class="form-item-publicName">
                             <label class="input-publicName">
-                                <input name="publicName" class="form-control" th:placeholder="#{header.modal.placeholder.yourLastName}"
-                                       placeholder="Ваше Имя" type="text" id="last_Name" required>
+                                <input name="lastName" class="form-control"
+                                       th:placeholder="#{header.modal.placeholder.yourLastName}"
+                                       placeholder="Ваше Имя" type="text" id="last_name-reg-form" required>
                             </label>
                         </div>
 
