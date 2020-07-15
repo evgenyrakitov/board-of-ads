@@ -29,6 +29,37 @@
     flex-direction: column;
     justify-content: space-between;
 }
-.card img{
+.card-header img{
+    position: absolute;
     max-height: 190px;
+    left: 0;
+    top: 0;
+}
+
+.card-header {
+    position: relative;
+    height: 190px;
+}
+
+.card-header svg {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    z-index: 1;
+}
+
+.card-header svg:hover {
+    width: 24px;
+    height: 24px;
+    stroke-width: 3;
+}
+
+.favorite-icon-off {
+    fill: white;
+    color: #007bff;
+}
+
+.favorite-icon-on {
+    fill: #007bff;
+    color: white;
 }

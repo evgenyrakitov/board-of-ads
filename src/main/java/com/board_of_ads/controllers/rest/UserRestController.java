@@ -78,10 +78,10 @@ public class UserRestController {
         return ResponseEntity.ok(userService.getAllUsers());
     }
 
-    @PostMapping("/favoritePostings/add")
-    public ResponseEntity<User> addFavoritePosting(Long id) {
+    @PostMapping("/user/favoritePostings/add")
+    public void addFavoritePosting(Long id) {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        return ResponseEntity.ok(userService.addFavoritePosting(id, user.getId()));
+        userService.addFavoritePosting(id, user.getId());
     }
 
     @PostMapping("/user/favoritePostings/delete")

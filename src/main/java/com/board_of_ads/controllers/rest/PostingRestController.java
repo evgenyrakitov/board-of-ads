@@ -110,6 +110,7 @@ public class PostingRestController {
         ProfilePostingDTO dto;
         for (Posting posting : postingList) {
             dto = new ProfilePostingDTO();
+            dto.setId(posting.getId());
             dto.setTitle(posting.getTitle());
             dto.setPrice(posting.getPrice());
             dto.setFavoritesCount(0);
