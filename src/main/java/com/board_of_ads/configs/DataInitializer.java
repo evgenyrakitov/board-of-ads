@@ -69,10 +69,12 @@ public class DataInitializer {
         Set<Role> userRoles = new HashSet<>();
         userRoles.add(roleService.findRoleByName("USER"));
 
-        User userAdmin = new User("admin@gmail.com", "Admin firstName", "Admin secondName",
-               "admin", "admin", "89185552623", adminRoles, "adminIcon");
-        User userUser = new User("test.email.1@gmail.com", "User firstName", "User secondName",
-               "qwerty1", "qwerty1", "89526321452", userRoles, "userIcon");
+        User userAdmin = new User("admin@gmail.com", "Александр", "Любимов",
+               "admin", "admin", "89185552623", adminRoles,
+                "/images/icons/admin_icon.png");
+        User userUser = new User("user@gmail.com", "Петр", "Иванов",
+               "qwerty1", "qwerty1", "89526321452", userRoles,
+                "/images/icons/user_icon.png");
 
         userService.addUser(userAdmin);
         userService.addUser(userUser);
@@ -117,7 +119,7 @@ public class DataInitializer {
             return;
         }
 
-        User userUser = userService.findUserByEmail("test.email.1@gmail.com");
+        User userUser = userService.findUserByEmail("user@gmail.com");
         User adminUser = userService.findUserByEmail("admin@gmail.com");
 
 
