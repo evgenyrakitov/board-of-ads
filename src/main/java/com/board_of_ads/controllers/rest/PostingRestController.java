@@ -7,7 +7,6 @@ import com.board_of_ads.models.dto.ProfilePostingDTO;
 import com.board_of_ads.models.posting.Posting;
 import com.board_of_ads.service.interfaces.PostingService;
 import com.google.gson.Gson;
-import javafx.geometry.Pos;
 import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

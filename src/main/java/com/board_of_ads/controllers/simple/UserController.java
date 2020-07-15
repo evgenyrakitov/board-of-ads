@@ -2,18 +2,17 @@ package com.board_of_ads.controllers.simple;
 
 import com.board_of_ads.models.User;
 import com.board_of_ads.service.interfaces.UserService;
+import java.util.Locale;
 import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-
-import java.util.Locale;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 @AllArgsConstructor
@@ -34,20 +33,21 @@ public class UserController {
     }
 
     @GetMapping("/reset/changePassword")
-    public String showChangePasswordPage(Locale locale, Model model,
-            @RequestParam("token") String token) {
+    public String showChangePasswordPage(
+            Locale locale, RedirectAttributes attributes, @RequestParam("token") String token) {
         String result = userService.validatePasswordResetToken(token);
-        if (result != null) {
-            model.addAttribute("message",
-                    messages.getMessage("auth.message." + result, null, locale));
-            return "redirect:/login?lang=" + locale.getLanguage();
+        if (result == null) {
+            attributes.addFlashAttribute("passwordToken", token);
+        } else {
+            attributes.addFlashAttribute(
+                    "passwordResetErrorMessage", messages.getMessage("auth.message." + result, null, locale));
         }
-        model.addAttribute("token", token);
-        return "updatePassword";
+        return "redirect:/?locale=" + locale.getLanguage();
     }
 
     @RequestMapping(value = "/reset/savePassword", method = RequestMethod.POST)
-    public String savePassword(@RequestParam("password") String password,
+    public String savePassword(
+            @RequestParam("password") String password,
             @RequestParam("passwordConfirm") String passwordConfirm,
             @RequestParam("token") String token) {
         User user = userService.findByToken(token).getUser();

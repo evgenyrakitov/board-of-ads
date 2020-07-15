@@ -4,10 +4,51 @@ $(document).ready(function () {
     on_profile_page_load();
 });
 
+$(window).on('hashchange', function (e) {
+    check_window_location();
+});
+
 let formatMoney = function (x) {
     let parts = x.toString().split(".");
     parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, " ");
     return parts.join(".");
+}
+
+let check_window_location = function () {
+
+    let event = new Event("click");
+    switch (window.location.hash) {
+        case "#postings":
+            document.getElementById("navlink-my-postings").dispatchEvent(event);
+            break;
+        case "#feedbacks":
+            document.getElementById("navlink-my-feedbacks").dispatchEvent(event);
+            break;
+        case "#favorites":
+            document.getElementById("navlink-my-favorites").dispatchEvent(event);
+            break;
+        case "#messages":
+            document.getElementById("navlink-my-messages").dispatchEvent(event);
+            break;
+        case "#notifications":
+            document.getElementById("navlink-my-notifications").dispatchEvent(event);
+            break;
+        case "#settings":
+            document.getElementById("navlink-my-settings").dispatchEvent(event);
+            break;
+        case "#rating":
+            document.getElementById("navlink-my-rating").dispatchEvent(event);
+            break;
+        case "#wallet":
+            document.getElementById("navlink-my-wallet").dispatchEvent(event);
+            break;
+        case "#paid_services":
+            document.getElementById("navlink-my-paid-services").dispatchEvent(event);
+            break;
+        default:
+            document.getElementById("navlink-my-postings").dispatchEvent(event);
+            break;
+    }
 }
 
 let on_profile_page_load = function () {
@@ -66,39 +107,7 @@ let on_profile_page_load = function () {
         return true;
     });
 
-    let event = new Event("click");
-    switch (window.location.hash) {
-        case "#postings":
-            document.getElementById("navlink-my-postings").dispatchEvent(event);
-            break;
-        case "#feedbacks":
-            document.getElementById("navlink-my-feedbacks").dispatchEvent(event);
-            break;
-        case "#favorites":
-            document.getElementById("navlink-my-favorites").dispatchEvent(event);
-            break;
-        case "#messages":
-            document.getElementById("navlink-my-messages").dispatchEvent(event);
-            break;
-        case "#notifications":
-            document.getElementById("navlink-my-notifications").dispatchEvent(event);
-            break;
-        case "#settings":
-            document.getElementById("navlink-my-settings").dispatchEvent(event);
-            break;
-        case "#rating":
-            document.getElementById("navlink-my-rating").dispatchEvent(event);
-            break;
-        case "#wallet":
-            document.getElementById("navlink-my-wallet").dispatchEvent(event);
-            break;
-        case "#paid_services":
-            document.getElementById("navlink-my-paid-services").dispatchEvent(event);
-            break;
-        default:
-            document.getElementById("navlink-my-postings").dispatchEvent(event);
-            break;
-    }
+    check_window_location();
 }
 
 let user_profile = {
