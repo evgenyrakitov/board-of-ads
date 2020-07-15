@@ -19,9 +19,4 @@ public class PostingController {
     public String getNewPostingPage() {
         return "addNewPosting";
     }
-
-    @GetMapping("/newPosting/{name}")
-    public String getMainPage(@PathVariable String name) {
-        return "posting/clearPosting";
-    }
 }
