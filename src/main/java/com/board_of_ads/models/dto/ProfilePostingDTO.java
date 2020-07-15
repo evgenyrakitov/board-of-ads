@@ -7,6 +7,7 @@ import java.util.Set;
 
 @Data
 public class ProfilePostingDTO {
+    private Long id;
     private String title = "";
     private String url = "";
     private long price = 0;

@@ -3,9 +3,11 @@ package com.board_of_ads.controllers.rest;
 import com.board_of_ads.models.Category;
 import com.board_of_ads.models.Images;
 import com.board_of_ads.models.User;
+import com.board_of_ads.models.dto.ProfilePostingDTO;
 import com.board_of_ads.models.posting.Posting;
 import com.board_of_ads.service.interfaces.PostingService;
 import com.google.gson.Gson;
+import javafx.geometry.Pos;
 import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -47,18 +49,22 @@ public class PostingRestController {
     }
 
     @GetMapping("/all")
-    public ResponseEntity<String> getAllPostings() {
-        return ResponseEntity.ok(new Gson().toJson(postingService.getAllPostings()));
+    public ResponseEntity<List<ProfilePostingDTO>> getAllPostings() {
+        List<Posting> postings = postingService.getAllPostings();
+        List<ProfilePostingDTO> dtoList = buildDTOList(postings);
+        return ResponseEntity.ok(dtoList);
     }
 
     @GetMapping("/searchByCity/{cityId}")
-    public ResponseEntity<List<Posting>> getPostingsByCityId(@PathVariable("cityId") String cityId) {
-        return ResponseEntity.ok(postingService.getPostingsByCityId(cityId));
+    public ResponseEntity<List<ProfilePostingDTO>> getPostingsByCityId(@PathVariable("cityId") String cityId) {
+        List<Posting> postings = postingService.getPostingsByCityId(cityId);
+        return ResponseEntity.ok(buildDTOList(postings));
     }
 
     @GetMapping("/searchByRegion/{regionId}")
-    public ResponseEntity<List<Posting>> getPostingsByRegionId(@PathVariable("regionId") String regionId) {
-        return ResponseEntity.ok(postingService.getPostingsByRegionId(regionId));
+    public ResponseEntity<List<ProfilePostingDTO>> getPostingsByRegionId(@PathVariable("regionId") String regionId) {
+        List<Posting> postings = postingService.getPostingsByRegionId(regionId);
+        return ResponseEntity.ok(buildDTOList(postings));
     }
 
     @GetMapping("/user/{id}")
@@ -97,6 +103,22 @@ public class PostingRestController {
         return !list.isEmpty()
                 ? new ResponseEntity<>(list, HttpStatus.OK)
                 : new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    }
+
+    private List<ProfilePostingDTO> buildDTOList(Iterable<Posting> postingList) {
+        List<ProfilePostingDTO> dtoList = new ArrayList<>();
+        ProfilePostingDTO dto;
+        for (Posting posting : postingList) {
+            dto = new ProfilePostingDTO();
+            dto.setTitle(posting.getTitle());
+            dto.setPrice(posting.getPrice());
+            dto.setFavoritesCount(0);
+            dto.setViewCount(0);
+            dto.setUrl("/posting/" + posting.getId());
+            dto.setImages(posting.getImagePath());
+            dtoList.add(dto);
+        }
+        return dtoList;
     }
 
 }
