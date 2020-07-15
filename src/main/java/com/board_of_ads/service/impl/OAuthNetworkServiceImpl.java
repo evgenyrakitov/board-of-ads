@@ -52,7 +52,8 @@ public class OAuthNetworkServiceImpl implements SocialNetworkService {
             Role role = roleService.findRoleByName("USER");
             user.setRoles(Collections.singleton(role));
             user.setEmail((String) map.get("email"));
-            user.setPublicName((String) map.get("name"));
+            user.setFirstName((String) map.get("given_name"));
+            user.setLastName((String) map.get("family_name"));
             user.setUserIcons((String) map.get("picture"));
             user.setPassword(passwordEncoder.encode("oauth2user"));
         }
@@ -97,7 +98,11 @@ public class OAuthNetworkServiceImpl implements SocialNetworkService {
 
         Set<Role> userRoles = new HashSet<>();
         userRoles.add(roleService.findRoleByName("USER"));
-        User user = new User(email, firstName + " " + lastName, "SuperStrongUnDecryptablePassword!!! x_X", "SuperStrongUnDecryptablePassword!!! x_X", "", userRoles);
+        User user = new User();
+        user.setFirstName(firstName);
+        user.setLastName(lastName);
+        user.setPassword("SuperStrongUnDecryptablePassword!!! x_X");
+        user.setRoles(userRoles);
         user.setUserIcons(userPhoto);
 
         user = userService.addUser(user);
