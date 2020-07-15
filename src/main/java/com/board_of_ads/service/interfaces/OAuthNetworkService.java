@@ -4,7 +4,7 @@ import com.board_of_ads.models.User;
 
 import java.util.Map;
 
-public interface SocialNetworkService {
+public interface OAuthNetworkService {
 
     User findOrCreateUserGoogle(Map<String, Object> map);
 
