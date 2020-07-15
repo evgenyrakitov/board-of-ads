@@ -3,6 +3,7 @@ package com.board_of_ads.controllers.rest;
 import com.board_of_ads.models.Category;
 import com.board_of_ads.models.Images;
 import com.board_of_ads.models.User;
+import com.board_of_ads.models.dto.ProfilePostingDTO;
 import com.board_of_ads.models.posting.Posting;
 import com.board_of_ads.service.interfaces.PostingService;
 import com.google.gson.Gson;
@@ -47,18 +48,21 @@ public class PostingRestController {
     }
 
     @GetMapping("/all")
-    public ResponseEntity<String> getAllPostings() {
-        return ResponseEntity.ok(new Gson().toJson(postingService.getAllPostings()));
+    public ResponseEntity<List<ProfilePostingDTO>> getAllPostings() {
+        List<Posting> postings = postingService.getAllPostings();
+        return ResponseEntity.ok(UserProfileRestController.buildDTOList(postings));
     }
 
     @GetMapping("/searchByCity/{cityId}")
-    public ResponseEntity<List<Posting>> getPostingsByCityId(@PathVariable("cityId") String cityId) {
-        return ResponseEntity.ok(postingService.getPostingsByCityId(cityId));
+    public ResponseEntity<List<ProfilePostingDTO>> getPostingsByCityId(@PathVariable("cityId") String cityId) {
+        List<Posting> postings = postingService.getPostingsByCityId(cityId);
+        return ResponseEntity.ok(UserProfileRestController.buildDTOList(postings));
     }
 
     @GetMapping("/searchByRegion/{regionId}")
-    public ResponseEntity<List<Posting>> getPostingsByRegionId(@PathVariable("regionId") String regionId) {
-        return ResponseEntity.ok(postingService.getPostingsByRegionId(regionId));
+    public ResponseEntity<List<ProfilePostingDTO>> getPostingsByRegionId(@PathVariable("regionId") String regionId) {
+        List<Posting> postings = postingService.getPostingsByRegionId(regionId);
+        return ResponseEntity.ok(UserProfileRestController.buildDTOList(postings));
     }
 
     @GetMapping("/user/{id}")
@@ -98,5 +102,4 @@ public class PostingRestController {
                 ? new ResponseEntity<>(list, HttpStatus.OK)
                 : new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
-
 }

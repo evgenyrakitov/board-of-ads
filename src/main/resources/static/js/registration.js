@@ -1,19 +1,9 @@
 export function passwordExist (word) {
-    if (word.length > 0) {
-        return true;
-    }
-    else {
-        return false;
-    }
+    return !("" === word);
 }
 
 export function passwordEquals (password, password_confirm) {
-    if(password === password_confirm) {
-        return true;
-    }
-    else {
-        return false;
-    }
+    return (password === password_confirm);
 }
 
 export function checker(word, regexpRow) {
@@ -28,7 +18,7 @@ export function summator(password) {
     var regexpArray = ["[A_Z]", "\\d", "\\W", "\\w"];    //большая латинская, цифра, не_буква, малая_буква.
 
     regexpArray.forEach(function (item, index, array) {
-        if(checker(password, item) === true) {
+        if (checker(password, item) === true) {
             summ++;
         }
     })

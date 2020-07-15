@@ -1,25 +1,25 @@
-<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <div th:fragment="links">
         <meta charset="UTF-8"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
         <!-- COmmon styles  -->
         <!--        необходимо заменить на локальные версии шрифтов -->
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <!--        -->
-        <link rel="stylesheet" href="webjars/bootstrap/4.5.0/css/bootstrap.min.css">
-        <link rel="stylesheet" type="text/css"
-              href="../static/css/normalize.css" th:href="@{/css/normalize.css}"/>
-        <link rel="stylesheet" type="text/css"
-              href="../static/css/header-styles.css" th:href="@{/css/header-styles.css}"/>
-        <link rel="stylesheet" type="text/css"
-              href="../static/css/media/header-media.css" th:href="@{/css/media/header-media.css}"/>
-        <link id="favicon" rel="shortcut icon" type="image/x-icon" href="../static/favicon.ico"
-              th:href="@{favicon.ico}"/>
-        <link rel="stylesheet" href="../static/css/modal_reg.css" th:href="@{/css/modal_reg.css}">
+        <link href="webjars/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+        <link href="../static/css/normalize.css" rel="stylesheet"
+              th:href="@{/css/normalize.css}" type="text/css"/>
+        <link href="../static/css/header-styles.css" rel="stylesheet"
+              th:href="@{/css/header-styles.css}" type="text/css"/>
+        <link href="../static/css/media/header-media.css" rel="stylesheet"
+              th:href="@{/css/media/header-media.css}" type="text/css"/>
+        <link href="../static/favicon.ico" id="favicon" rel="shortcut icon" th:href="@{favicon.ico}"
+              type="image/x-icon"/>
+        <link href="../static/css/modal_reg.css" rel="stylesheet" th:href="@{/css/modal_reg.css}">
     </div>
 </head>
 <body>
@@ -34,7 +34,7 @@
             <span id="span3"></span>
         </div>
         <div class="logo_min">
-            <img src="images/header/logo.png" alt="">
+            <img alt="" src="images/header/logo.png">
         </div>
     </div>
     <div class="bg_black_header"></div>
@@ -42,68 +42,105 @@
         <nav class="navbar navbar-expand-sm navbar-light header-element">
             <div class="d-flex justify-content-between align-items-center">
                 <ul class="navbar-nav mr-auto" id="avitoNavigation">
-                    <li class="nav-item"><a class="nav-link" href="/" th:text="#{header.ads}">Объявления</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/" th:text="#{header.shops}">Магазины</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/" th:text="#{header.business}">Бизнес</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/" th:text="#{header.ads}">Объявления</a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="/" th:text="#{header.shops}">Магазины</a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="/" th:text="#{header.business}">Бизнес</a>
+                    </li>
                     <li class="nav-item"><a class="nav-link" href="/" th:text="#{header.help}">Помощь</a></li>
                     <div sec:authorize="hasAuthority('ADMIN')">
-                        <li class="nav-item"><a class="nav-link" href="/admin_page" th:text="#{header.admin}">Админ</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/admin_page" th:text="#{header.admin}">Админ</a>
+                        </li>
                     </div>
                 </ul>
                 <ul class="navbar-nav sign_up">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="/profile#favorites">
                             <span class="favourites"></span>
-                            <svg xmlns="http://www.w3.org/2000/svg" th:title="Избранное" width="24" height="24"
-                                 viewBox="0 0 24 24"
-                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                 stroke-linejoin="round" class="feather feather-heart">
-                                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                            <svg class="feather feather-heart" fill="none" height="24" stroke="currentColor"
+                                 stroke-linecap="round"
+                                 stroke-linejoin="round" stroke-width="2" th:title="Избранное" viewBox="0 0 24 24"
+                                 width="24" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
                             </svg>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">
-                            <span class="message_box" >
+                            <span class="message_box">
                                 <span class="message_icon">
-                                    <svg fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+                                    <svg fill="none" height="24" stroke="currentColor"
+                                         stroke-linecap="round" stroke-linejoin="round"
+                                         stroke-width="2" viewBox="0 0 24 24" width="24"
+                                         xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
                                     </svg>
                                 </span>
-                                <span class="message_count" th:if="${user.getClass().getSimpleName() == 'User'}">
-                                    <span id="userId" th:text="${user.getId()}" hidden="hidden" ></span>
+                                <span class="message_count"
+                                      th:if="${user.getClass().getSimpleName() == 'User'}">
+                                    <span hidden="hidden" id="userId"
+                                          th:text="${user.getId()}"></span>
                                 </span>
                             </span>
                         </a>
                     </li>
-                    <li th:if="${user.getClass().getSimpleName() == 'String'}" class="nav-item" id="li">
+                    <li class="nav-item" id="li" th:if="${user.getClass().getSimpleName() == 'String'}">
                         <a class="nav-link text-primary open-modal-1" href="#" style="white-space: nowrap"
                            th:text="#{header.login_and_register}">Вход и регистрация</a>
                     </li>
-                    <li th:if="${user.getClass().getSimpleName() == 'User'}" class="nav-item">
-                        <div th:text="${user.getEmail()}"></div>
-                        <a class="nav-link text-primary" href="/logout" style="white-space: nowrap">Выйти</a>
+                    <li class="nav-item" style="margin-right: 10px;"
+                        th:if="${user.getClass().getSimpleName() == 'User'}">
+                        <div class="dropdown">
+                            <button class="dropbtn" th:text="${user.getPublicName()}"></button>
+                            <div class='dropdown-content'>
+                                <div class="profile-sidebar-head-rating-36hRS">
+                                    <a class="link-link-39EVK link-design-default-2sPEv link-novisited-1w4JY profile-sidebar-head-link-1gPfv"
+                                       href="#rating" id="navlink-my-rating" target="_self">
+                                        <div class="profile-sidebar-head-rating-line-rwmxI">
+                                <span class="profile-sidebar-head-score-3OTF5">
+                                    <span class="text-text-1PdBw text-size-l-2gTpu text-bold-3R9dt">0,0</span>
+                                </span>
+                                            <span class="profile-sidebar-head-stars-2Pz_F" th:text="#{menu.autorized.no_reviews}">
+                                </span>
+                                        </div>
+                                    </a></div>
+                                <a href="/profile#postings" th:text="#{menu.autorized.my_announcements}"/>
+                                <a href="/profile#feedbacks" th:text="#{menu.autorized.my_feedback}"/>
+                                <a href="/profile#favorites" th:text="#{menu.autorized.favorites}"/>
+                                <a href="/profile#messages" th:text="#{menu.autorized.messages}"/>
+                                <a href="/profile#notifications" th:text="#{menu.autorized.notifications}"/>
+                                <a href="/profile#wallet" th:text="#{menu.autorized.wallet}"/>
+                                <a href="/profile#paid_services" th:text="#{menu.autorized.paid_services}"/>
+                                <a href="/profile#settings" th:text="#{menu.autorized.settings}"/>
+                                <a href="/logout" th:text="#{menu.autorized.log_off}"/>
+                            </div>
+                        </div>
+                        <!--<a class="nav-link text-primary" href="/logout" style="white-space: nowrap">Выйти</a>-->
                     </li>
                     <li class="nav-item d-flex justify-content-lg-center align-items-center">
-                        <a class="btn btn-primary" href="/addNewPosting" th:text="#{header.post_a_ad}">Подать объявления</a>
+                        <a class="btn btn-primary" href="/addNewPosting" th:text="#{header.post_a_ad}">Подать
+                            объявления</a>
                     </li>
                 </ul>
             </div>
             <div class="locale">
                 <div class="dropdown">
-                    <button class=" dropdown-toggle" type="button" id="dropdownMenu2"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-<!--                        <img src="images/header/ru.svg" width="30">-->
+                    <button aria-expanded="false" aria-haspopup="true" class=" dropdown-toggle"
+                            data-toggle="dropdown" id="dropdownMenu2" type="button">
+                        <!--                        <img src="images/header/ru.svg" width="30">-->
                     </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                    <div aria-labelledby="dropdownMenu2" class="dropdown-menu">
                         <button class="dropdown-item locale_ru" type="button">
-                            <a  href="?locale=ru">
-                                <img src="images/header/ru.svg" width="30" >
+                            <a href="?locale=ru">
+                                <img src="images/header/ru.svg" width="30">
                             </a>
                         </button>
                         <button class="dropdown-item locale_en" type="button">
                             <a href="?locale=en">
-                                <img src="images/header/en.svg" width="30" >
+                                <img src="images/header/en.svg" width="30">
                             </a>
                         </button>
                     </div>
@@ -116,7 +153,7 @@
             <div class="d-flex justify-content-between align-items-center">
                 <div class="logo">
                     <a href="/">
-                        <img src="images/header/logo.png" alt="">
+                        <img alt="" src="images/header/logo.png">
                     </a>
                 </div>
                 <ul class="navbar-nav mr-auto category_link" id="header_category_list">
@@ -129,62 +166,65 @@
         <form class=" header-element">
             <div class="form-row justify-content-center">
                 <select class="form-control col-8 col-sm-8  col-md-3 col-lg-2" id="findFromCategory">
-                    <option selected value th:text="#{header.any_category}">Любая категория</option>
+                    <option selected th:text="#{header.any_category}" value>Любая категория</option>
                 </select>
                 <div class="form-group col-8 col-sm-8  col-md-5 col-lg-8">
-                    <input type="text" th:placeholder="#{header.search_by_announcements}" placeholder="Поиск по объвлениям"
-                           class="form-control">
+                    <input class="form-control" placeholder="Поиск по объвлениям"
+                           th:placeholder="#{header.search_by_announcements}"
+                           type="text">
                 </div>
-                <select id="location" class="form-control col-8 col-sm-8  col-md-2 col-lg-1">
-                    <option id="location-name" selected data="city-1400">Москва</option>
+                <select class="form-control col-8 col-sm-8  col-md-2 col-lg-1" id="location">
+                    <option data="city-1400" id="location-name" selected>Москва</option>
                 </select>
                 <div class="col-8 col-sm-8 col-md-2 col-lg-1">
-                    <button type="button" class="btn btn-light" th:text="#{header.search}">Найти</button>
+                    <button class="btn btn-light" th:text="#{header.search}" type="button">Найти</button>
                 </div>
             </div>
             <div class="form-row justify-content-center">
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+                    <input class="form-check-input" id="inlineCheckbox1" type="checkbox" value="option1">
                     <label class="form-check-label" for="inlineCheckbox1"
                            th:text="#{header.only_in_titles}">только в названиях</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+                    <input class="form-check-input" id="inlineCheckbox2" type="checkbox" value="option2">
                     <label class="form-check-label" for="inlineCheckbox2"
                            th:text="#{header.only_with_photos}">только с фото</label>
                 </div>
             </div>
         </form>
     </div>
-    <a href="#" class="btn btn-primary open_search">Поиск</a>
+    <a class="btn btn-primary open_search" href="#">Поиск</a>
 
 </header>
 <div th:fragment="modals">
-<div id="locationModal" class="modal" role="dialog">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" th:text="#{header.location.modalHeader}">Город или регион</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body text-center">
-                <form role="form">
-                    <div class="form-group padding">
-                        <input id="location-search" type="text" class="form-control" autocomplete="off">
-                        <div id="location-list" class="list-group text-left">
+    <div class="modal" id="locationModal" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" th:text="#{header.location.modalHeader}">Город или регион</h5>
+                    <button aria-label="Close" class="close" data-dismiss="modal" type="button">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body text-center">
+                    <form role="form">
+                        <div class="form-group padding">
+                            <input autocomplete="off" class="form-control" id="location-search" type="text">
+                            <div class="list-group text-left" id="location-list">
 
+                            </div>
                         </div>
-                    </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button id="location-close" type="button" class="btn btn-primary" data-dismiss="modal"
-                        th:text="#{header.location.modalFooter}">Показать объявления</button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" data-dismiss="modal" id="location-close"
+                            th:text="#{header.location.modalFooter}"
+                            type="button">Показать объявления
+                    </button>
+                </div>
             </div>
         </div>
-    </div>
     </div>
 
     <!-- Login Modal -->
@@ -194,39 +234,56 @@
             <!-- Modal content-->
             <div class="modal-content">
                 <div class="modal-body text-center">
-                    <div type="button" class="close" data-dismiss="modal">
+                    <div class="close" data-dismiss="modal" type="button">
                         <div class="leftright"></div>
                         <div class="rightleft"></div>
                     </div>
 
-                    <form class="" method="post" action="/login"  style="align-content: center" id="formLogin">
-                        <div class="form-title font-weight-bolder" th:text="#{header.modal.login.login}">Вход</div>
+                    <form action="/login" class="" id="formLogin" method="post"
+                          style="align-content: center">
+                        <div class="form-title font-weight-bolder"
+                             th:text="#{header.modal.login.login}">Вход
+                        </div>
                         <div class="form-item">
                             <div class="form-item-login">
                                 <label class="input-login">
-                                    <input class="form-control" name="email" id="frmLoginInputEmail" th:placeholder="#{header.modal.placeholder.email}" placeholder="Электронная почта" type="email">
+                                    <input class="form-control" id="frmLoginInputEmail" name="email"
+                                           placeholder="Электронная почта"
+                                           th:placeholder="#{header.modal.placeholder.email}"
+                                           type="email">
                                 </label>
                             </div>
                             <div class="form-item-password">
                                 <label class="input-password">
-                                    <input class="form-control" type="password" name="password" id="frmLoginInputPassword" th:placeholder="#{header.modal.placeholder.password}" placeholder="Пароль" autocomplete="off">
+                                    <input autocomplete="off" class="form-control"
+                                           id="frmLoginInputPassword"
+                                           name="password"
+                                           placeholder="Пароль"
+                                           th:placeholder="#{header.modal.placeholder.password}"
+                                           type="password">
                                 </label>
                             </div>
 
                             <div class="form-password-items-container">
                                 <div class="form-item-radio-remember">
-                                    <label class="checkbox" style="vertical-align: middle; font-size: 10pt">
-                                        <input name="remember" class="" type="checkbox" checked="">
+                                    <label class="checkbox"
+                                           style="vertical-align: middle; font-size: 10pt">
+                                        <input checked="" class="" name="remember" type="checkbox">
                                         <span th:text="#{header.modal.login.rememberPassword}">Запомнить пароль</span>
                                     </label>
                                 </div>
-                                <a style="font-size: 10pt" href="#" id="open-modal-3" data-dismiss="modal" th:text="#{reset_password.message.reset_password}">Забыли пароль?</a>
+                                <a data-dismiss="modal" href="#" id="open-modal-3"
+                                   style="font-size: 10pt"
+                                   th:text="#{reset_password.message.reset_password}">Забыли
+                                    пароль?</a>
                             </div>
                             <div class="form-password-items-container">
-                                <span th:text="#{login.error_message}" id="spanIncorrectLoginPass" style="color: red;">Не верная комбинация логина и пароля</span>
+                <span id="spanIncorrectLoginPass" style="color: red;"
+                      th:text="#{login.error_message}">Не верная комбинация логина и пароля</span>
                             </div>
                             <div class="form-item-button">
-                                <button type="button" name="submit" class="btn btn-primary" id="btnLogin">
+                                <button class="btn btn-primary" id="btnLogin" name="submit"
+                                        type="button">
                                     <span th:text="#{header.modal.login.signIn}">Войти</span>
                                 </button>
                             </div>
@@ -236,23 +293,25 @@
                     <span style="padding: 10px 0" th:text="#{header.modal.login.orSignInWith}">или продолжить через</span>
                     <div class="social">
                             <span class="social-vk">
-                                <img src="/images/vk.svg">
+                                <a href="/login/vk/auth"><img src="/images/vk.svg"></a>
                             </span>
                         <span class="social-ok">
                                 <img src="/images/ok.svg">
                             </span>
                         <span class="social-fb">
-                                  <a href="/login/google">  <img src="/images/google.svg"></a>
+                                  <a href="/login/google"><img src="/images/google.svg"></a>
                             </span>
                     </div>
                 </div>
 
                 <div class="modal-footer">
-                    <a class="text-center" style="margin: auto" href="#"  id="open-modal-2" data-dismiss="modal" th:text="#{header.modal.login.register}">Зарегистрироваться</a>
+                    <a class="text-center" data-dismiss="modal" href="#" id="open-modal-2"
+                       style="margin: auto" th:text="#{header.modal.login.register}">Зарегистрироваться</a>
                     <div class="auth-app-doc" style="font-size: 13px; color: #858585">
                         <span th:text="#{header.modal.login.userAgreementP1}">При входе вы подтверждаете согласие с</span>
                         <a href="#">
-                            <span th:text="#{header.modal.login.userAgreementP2}">условиями использования Авито</span>
+              <span
+                  th:text="#{header.modal.login.userAgreementP2}">условиями использования Авито</span>
                         </a>
                         <a href="#">
                             <span th:text="#{header.modal.login.userAgreementP3}">и политикой о&nbsp;данных пользователей.</span>
@@ -271,38 +330,48 @@
             <!-- Modal content-->
             <div class="modal-content">
                 <div class="modal-body text-center">
-                    <div type="button" class="close" data-dismiss="modal">
+                    <div class="close" data-dismiss="modal" type="button">
                         <div class="leftright"></div>
                         <div class="rightleft"></div>
                     </div>
 
                     <form action="/rest/admin/add" id="add-reg-form">
-                        <div class="form-title font-weight-bolder" id="message-reset-password" th:text="#{header.modal.registration}">Регистрация</div>
+                        <div class="form-title font-weight-bolder"
+                             th:text="#{header.modal.registration}">Регистрация
+                        </div>
                         <div class="form-item-login">
                             <label class="input-login">
-                                <input name="email" class="form-control" th:placeholder="#{header.modal.placeholder.email}"
-                                       placeholder="Введите электронную почту" type="email" id="login" required>
+                                <input class="form-control" id="login-reg-form"
+                                       name="email"
+                                       placeholder="Введите электронную почту" required
+                                       th:placeholder="#{header.modal.placeholder.email}"
+                                       type="email">
                             </label>
                         </div>
 
                         <div class="form-item-password">
                             <label class="input-password">
-                                <input name="password" class="form-control" th:placeholder="#{header.modal.placeholder.password}"
-                                       type="password" autocomplete="off" id="password">
+                                <input autocomplete="off" class="form-control"
+                                       id="password-reg-form"
+                                       name="password" th:placeholder="#{header.modal.placeholder.password}" type="password">
                             </label>
                         </div>
 
                         <div class="form-item-password">
                             <label class="input-password">
-                                <input name="password_confirm" class="form-control" placeholder="Повторите пароль" type="password" th:placeholder="#{header.modal.placeholder.passwordConfirm}"
-                                       autocomplete="off" id="password_confirm">
+                                <input autocomplete="off" class="form-control"
+                                       id="password_confirm-reg-form" name="password_confirm"
+                                       placeholder="Повторите пароль"
+                                       th:placeholder="#{header.modal.placeholder.passwordConfirm}" type="password">
                             </label>
                         </div>
 
                         <div class="form-item-publicName">
                             <label class="input-publicName">
-                                <input name="publicName" class="form-control" th:placeholder="#{header.modal.placeholder.yourFirstName}"
-                                       placeholder="Ваше Имя" type="text" id="first_Name" required>
+                                <input class="form-control" id="public_name-reg-form"
+                                       name="publicName"
+                                       placeholder="Ваше Имя" required th:placeholder="#{header.modal.placeholder.yourFirstName}"
+                                       type="text">
                             </label>
                         </div>
 
@@ -326,12 +395,15 @@
 
                         <div class="form-item-phone">
                             <label class="input-phone">
-                                <input name="phone" class="form-control" th:placeholder="#{header.modal.placeholder.phoneNumber}"
-                                       placeholder="Номер телефона" type="tel" id="phone" required>
+                                <input class="form-control" id="phone-reg-form"
+                                       name="phone"
+                                       placeholder="Номер телефона" required th:placeholder="#{header.modal.placeholder.phoneNumber}"
+                                       type="tel">
                             </label>
                         </div>
                         <div class="form-reg-button">
-                            <button type="submit" name="submit"  class="btn btn-primary" id="btn-reg">
+                            <button class="btn btn-primary" id="btn-reg" name="submit"
+                                    type="submit">
                                 <span th:text="#{header.modal.register}">Зарегистрироваться</span>
                             </button>
                         </div>
@@ -344,7 +416,6 @@
                     th:text="#{header.modal.login.signIn}">Войти</a></span>
                 </div>
             </div>
-
         </div>
     </div>
 
@@ -355,26 +426,44 @@
             <!-- Modal content-->
             <div class="modal-content">
                 <div class="modal-body text-center">
-                    <div type="button" class="close" data-dismiss="modal">
+                    <div class="close" data-dismiss="modal" type="button">
                         <div class="leftright"></div>
                         <div class="rightleft"></div>
                     </div>
 
                     <form action="/user/resetPassword" id="form-modal-3">
-                        <div class="form-title font-weight-bolder" th:text="#{header.modal.accountRecovery}">Восстановление пароля</div>
+                        <div class="form-title font-weight-bolder"
+                             th:text="#{header.modal.accountRecovery}">
+                            Восстановление пароля
+                        </div>
                         <div class="form-item-login">
                             <label class="input-login">
-                                <input name="email" class="form-control" th:placeholder="#{header.modal.placeholder.email}" placeholder="Электронная почта" type="email" required>
+                                <input class="form-control" name="email"
+                                       placeholder="Электронная почта"
+                                       required th:placeholder="#{header.modal.placeholder.email}"
+                                       type="email">
                             </label>
                         </div>
                         <div class="form-reg-button">
-                            <button type="submit" name="submit"  class="btn btn-primary" data-dismiss="modal" id="btn-modal-3">
+                            <button class="btn btn-primary" id="btn-modal-3"
+                                    name="submit"
+                                    type="submit">
                                 <span th:text="#{header.modal.submit}">Отправить</span>
                             </button>
                         </div>
                     </form>
+                    <div class="form-password-items-container text-center">
+                <span id="reset-email-sent-letter-message"
+                      th:text="#{header.modal.passwordResetCheckYourEmail}"
+                >Проверьте свою электронную почту</span>
+                    </div>
                 </div>
                 <div class="modal-footer">
+                    <div class="form-password-items-container text-center">
+                <span id="user-not-found-message" style="color: red;"
+                      th:text="#{header.modal.userNotFound}"
+                >Пользователь не найден</span>
+                    </div>
                     <span class="text-center"
                           th:text="#{header.modal.rememberedPassword}">Вспомнили пароль?</span><span><a
                     class="open-modal-1" data-dismiss="modal" href="#"
@@ -384,6 +473,72 @@
         </div>
     </div>
 
+    <!-- Change Password Modal -->
+    <div class="modal" id="modal-pass-change" role="dialog">
+        <div class="modal-dialog modal-dialog-centered">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-body text-center">
+                    <div class="close" data-dismiss="modal" type="button">
+                        <div class="leftright"></div>
+                        <div class="rightleft"></div>
+                    </div>
+
+                    <form action="/reset/savePassword" id="form-modal-pass-change" method="POST">
+                        <div class="form-title font-weight-bolder" th:text="#{header.modal.changePassword}">
+                            Смена Пароля
+                        </div>
+                        <input id="passwordResetToken" name="token" th:value="${passwordToken}" type="hidden">
+                        <div class="form-item-password">
+                            <label class="input-password">
+                                <input autocomplete="off" class="form-control"
+                                       name="password"
+                                       placeholder="Новый Пароль" required
+                                       th:placeholder="#{header.modal.placeholder.newPassword}" type="password">
+                            </label>
+                        </div>
+                        <div class="form-item-password">
+                            <label class="input-password">
+                                <input autocomplete="off" class="form-control"
+                                       name="passwordConfirm"
+                                       placeholder="Подтвердите Новый Пароль" required
+                                       th:placeholder="#{header.modal.placeholder.confirmNewPassword}"
+                                       type="password">
+                            </label>
+                        </div>
+                        <div class="form-reg-button">
+                            <button class="btn btn-primary" data-dismiss="modal" id="btn-modal-pass-change"
+                                    name="submit"
+                                    type="submit">
+                                <span th:text="#{header.modal.savePassword}">Сохранить Пароль</span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Change Password Error Modal -->
+    <div class="modal" id="modal-pass-change-error" role="dialog">
+        <div class="modal-dialog modal-dialog-centered">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-body text-center">
+                    <div class="close" data-dismiss="modal" type="button">
+                        <div class="leftright"></div>
+                        <div class="rightleft"></div>
+                    </div>
+                    <div>
+                        <h3 class="font-weight-bolder form-title" id="passwordResetErrorMessage"
+                            th:text="${passwordResetErrorMessage}">Ошибка</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 <div th:fragment="script">
     <script src="webjars/jquery/3.5.1/jquery.min.js"></script>

@@ -84,15 +84,18 @@ function drawPosting(data) {
     $(".container_cus").empty();
     data.forEach(posting => {
         $(".container_cus").append(
-            '<div class="card">\n' +
-            '            <img src="' + posting.imagePath[0].imagePath + '" class="card-img-top" alt="...">\n' +
-            '            <div class="card-body">\n' +
+            '    <div class="card">\n' +
+            `    <div id="${posting.id}" class="card-header">` +
+            '       <img src="' + posting.images[0].imagePath + '" class="card-img-top" alt="...">' +
+            '   </div>' +
+            '       <div class="card-body">\n' +
             '                <h5 class="card-title">' + posting.title + '</h5>\n' +
             '                <p class="card-text">' + posting.price + '</p>\n' +
-            '                <a href="adDetails" class="btn btn-primary" ' +
-            'th:text="#{main-page.go_to_ad}">Перейти к объявлению</a>\n' +
+            '                <a href="posting/' + posting.id + '" class="btn btn-primary" ' +
+            'th:text="#{main_page.go_to_ad}">Перейти к объявлению</a>\n' +
             '            </div>\n' +
             '        </div>'
-        );
+        )
     })
+    showFavoriteIcon();
 }

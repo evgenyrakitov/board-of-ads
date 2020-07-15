@@ -2,6 +2,7 @@ package com.board_of_ads.controllers.rest;
 
 import com.board_of_ads.models.Role;
 import com.board_of_ads.models.User;
+import com.board_of_ads.models.posting.Posting;
 import com.board_of_ads.models.kladr.City;
 import com.board_of_ads.models.kladr.Region;
 import com.board_of_ads.service.interfaces.CityService;
@@ -86,24 +87,29 @@ public class UserRestController {
         userService.deleteUser(id);
     }
 
-
-
     @GetMapping("/admin/users")
     public ResponseEntity<List<User>> getAllUsers() {
         return ResponseEntity.ok(userService.getAllUsers());
     }
 
-    @PostMapping("/favoritePostings/add")
-    public ResponseEntity<User> addFavoritePosting(Long id) {
+    @PostMapping("/user/favoritePostings/add")
+    public void addFavoritePosting(Long id) {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        return ResponseEntity.ok(userService.addFavoritePosting(id, user.getId()));
+        userService.addFavoritePosting(id, user.getId());
     }
 
-    @PostMapping("/admin/favoritePostings/delete")
+    @PostMapping("/user/favoritePostings/delete")
     public void deleteFavoritePosting(Long id) {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         userService.deleteFavoritePosting(id, user.getId());
     }
+
+    @PostMapping("/user/favoritePostings/delete/all")
+    public void deleteAllFavoritePostings(Long id) {
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        userService.deleteAllFavoritePosting(user.getId());
+    }
+
     @PostMapping("/resetPassword")
     public ResponseEntity<Boolean> resetPassword(@RequestParam("email") String userEmail,
                                                  Locale locale){
