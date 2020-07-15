@@ -23,6 +23,12 @@ public class CityServiceImpl implements CityService {
     }
 
     @Override
+    public City findById(Long id) {
+        City city = cityRepository.getOne(id);
+        return city;
+    }
+
+    @Override
     public List<City> findAll() {
         return cityRepository.findAll();
     }

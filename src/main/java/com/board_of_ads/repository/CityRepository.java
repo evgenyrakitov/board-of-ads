@@ -8,6 +8,8 @@ import java.util.List;
 
 public interface CityRepository extends JpaRepository<City, Long> {
 
+    City findById(long id);
+
     @Query("select c from City c where c.name like :name%")
     List<City> findAllByName(@Param("name") String name);
 

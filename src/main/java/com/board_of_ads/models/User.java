@@ -1,9 +1,9 @@
 package com.board_of_ads.models;
 
+import com.board_of_ads.models.kladr.City;
+import com.board_of_ads.models.kladr.Region;
 import com.board_of_ads.models.posting.Posting;
 import lombok.*;
-import org.hibernate.annotations.Fetch;
-import org.hibernate.annotations.FetchMode;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -13,6 +13,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Size;
+import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.Set;
 
@@ -34,7 +35,10 @@ public class User implements UserDetails {
     private String email;
 
     @NonNull
-    private String publicName;
+    private String firstName;
+
+    @NonNull
+    private String lastName;
 
     @NonNull
     @Size(min = 5, message = "пароль должен быть более 5 символов!")
@@ -46,6 +50,16 @@ public class User implements UserDetails {
 
     @NonNull
     private String phone;
+
+    @ManyToOne
+    private Region region;
+
+    @ManyToOne
+    private City city;
+
+    private LocalDateTime dataRegistration = LocalDateTime.now();
+
+    private Boolean enabled = Boolean.TRUE;
 
     @NonNull
     @ManyToMany(fetch = FetchType.EAGER)
@@ -62,10 +76,12 @@ public class User implements UserDetails {
     @OneToMany(cascade = {CascadeType.REFRESH})
     private Set<Posting> userPostings;
 
+    @NonNull
     private String userIcons;
 
     @OneToMany(cascade = CascadeType.ALL)
     private Set<Message> messages;
+
 
     @Override
     public String getPassword() {
