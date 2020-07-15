@@ -71,10 +71,10 @@ public class DataInitializer {
 
         User userAdmin = new User("admin@gmail.com", "Александр", "Любимов",
                "admin", "admin", "89185552623", adminRoles,
-                "/images/icons/admin_icon.png");
+                "/images/icons/admin_icon.jpg");
         User userUser = new User("user@gmail.com", "Петр", "Иванов",
                "qwerty1", "qwerty1", "89526321452", userRoles,
-                "/images/icons/user_icon.png");
+                "/images/icons/user_icon.jpg");
 
         userService.addUser(userAdmin);
         userService.addUser(userUser);
