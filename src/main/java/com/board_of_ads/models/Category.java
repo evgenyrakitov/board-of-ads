@@ -38,7 +38,6 @@ public class Category {
     private Category parentCategory;
 
     @OneToMany(cascade = {CascadeType.REFRESH})
-
     private Set<Posting> postingsInCategory;
 
     public Category() {
