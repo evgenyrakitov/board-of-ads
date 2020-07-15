@@ -8,15 +8,15 @@ $(window).scroll(function () {
 
 
 $(document).ready(function () {
-    if (localStorage.getItem('locale') == null ){
+    if (localStorage.getItem('locale') == null) {
         localStorage.setItem("locale", "ru");
         $(".dropdown-toggle").html('<img src="images/header/ru.svg" width="30">');
-    }else {
-            if (localStorage.getItem("locale") == "ru"){
-                $(".dropdown-toggle").html('<img src="images/header/ru.svg" width="30">');
-            }else {
-                $(".dropdown-toggle").html('<img src="images/header/en.svg" width="30">');
-            }
+    } else {
+        if (localStorage.getItem("locale") == "ru") {
+            $(".dropdown-toggle").html('<img src="images/header/ru.svg" width="30">');
+        } else {
+            $(".dropdown-toggle").html('<img src="images/header/en.svg" width="30">');
+        }
     }
     $.ajax({
         url: '/rest/categories',
@@ -32,7 +32,7 @@ $(document).ready(function () {
                         "</li>"
                     );
                 }
-                if (i < 5){
+                if (i < 5) {
                     $("#header_category_list").prepend(
                         "<li class='nav-item '>\n" +
                         "     <a class='nav-link text-primary' href='#'>" + data.subCategories[i].name + "</a>\n" +
@@ -42,7 +42,7 @@ $(document).ready(function () {
                 $("#moreCategories").append(
                     '<div>\n' +
                     '       <div class="top-rubricator-blockTitle">\n' +
-                    '           <a href="">'+ data.subCategories[i].name +'</a>\n' +
+                    '           <a href="">' + data.subCategories[i].name + '</a>\n' +
                     '       </div>\n' +
                     '       <ul class="sub_categories navbar-nav"></ul>\n' +
                     '   </div>'
@@ -52,8 +52,8 @@ $(document).ready(function () {
                 );
                 for (var r in data.subCategories[i].subCategories) {
                     var fsd = data.subCategories[i].subCategories[r].name;
-                    $(".sub_categories:eq("+ i +")").append(
-                        '<li class="nav-item"><a href="">'+ fsd +'</a></li>'
+                    $(".sub_categories:eq(" + i + ")").append(
+                        '<li class="nav-item"><a href="">' + fsd + '</a></li>'
                     );
                     $("#findFromCategory").append(
                         '<option>' + fsd + '</option>'
@@ -64,10 +64,12 @@ $(document).ready(function () {
     });
 
 });
+
 function openAllCategories() {
     $("#moreCategories").toggleClass("on-off");
     $(".bg_black_header").toggleClass("on-off");
 }
+
 $(".bg_black_header").click(function () {
     $("#moreCategories").removeClass("on-off");
     $(".bg_black_header").removeClass("on-off");
@@ -92,14 +94,14 @@ $('#modal-reg-1').on('shown.bs.modal', function () {
     $('#spanIncorrectLoginPass').slideUp(0);
 })
 
-document.getElementById("frmLoginInputEmail").addEventListener("keyup", function(event) {
+document.getElementById("frmLoginInputEmail").addEventListener("keyup", function (event) {
     if (event.key === "Enter") {
         event.preventDefault();
         document.getElementById("btnLogin").click();
     }
 });
 
-document.getElementById("frmLoginInputPassword").addEventListener("keyup", function(event) {
+document.getElementById("frmLoginInputPassword").addEventListener("keyup", function (event) {
     if (event.key === "Enter") {
         event.preventDefault();
         document.getElementById("btnLogin").click();
@@ -112,21 +114,24 @@ $("#btnLogin").click(function () {
         type: 'POST',
         data: $("#formLogin").serialize()
     })
-        .done(function() {
+        .done(function () {
             window.location.href = '/';
         })
-        .fail(function() {
+        .fail(function () {
             $('#spanIncorrectLoginPass').slideDown();
             $('#spanIncorrectLoginPass').delay(3000).slideUp();
         })
 });
 
-$(window).ready(function () {
-   let location = window.location.href;
-   let curUrl = '/' + location.split('/').pop();
-   $(".navbar-nav .nav-item").has("a[href=\""+curUrl+"\"]").addClass("active");
-   /*$(".navbar-nav").find(".active").removeClass("active");
-   $(this).addClass("active");*/
+$(document).ready(function () {
+    if (performance.navigation.type == 1) {
+        let location = window.location.href;
+        let curUrl = '/' + location.split('/').pop();
+        $(".navbar-nav .nav-item").has("a[href=\"" + curUrl + "\"]").addClass("active");
+        /*$(".navbar-nav").find(".active").removeClass("active");
+        $(this).addClass("active");*/
+
+    }
 });
 
 /*$(function () {
@@ -140,7 +145,7 @@ $(document).ready(function getUnreadMessage() {
     if (userId !== undefined) {
         $.ajax({
             type: 'GET',
-            url: '/rest/messages/unreadCount/'+userId,
+            url: '/rest/messages/unreadCount/' + userId,
             data: $(this).serialize(),
             dataType: 'json',
             success: function (data) {
