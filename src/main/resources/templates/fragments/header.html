@@ -91,9 +91,34 @@
                         <a class="nav-link text-primary open-modal-1" href="#" style="white-space: nowrap"
                            th:text="#{header.login_and_register}">Вход и регистрация</a>
                     </li>
-                    <li class="nav-item" th:if="${user.getClass().getSimpleName() == 'User'}">
-                        <div th:text="${user.getEmail()}"></div>
-                        <a class="nav-link text-primary" href="/logout" style="white-space: nowrap">Выйти</a>
+                    <li class="nav-item" style="margin-right: 10px;"
+                        th:if="${user.getClass().getSimpleName() == 'User'}">
+                        <div class="dropdown">
+                            <button class="dropbtn" th:text="${user.getPublicName()}"></button>
+                            <div class='dropdown-content'>
+                                <div class="profile-sidebar-head-rating-36hRS">
+                                    <a class="link-link-39EVK link-design-default-2sPEv link-novisited-1w4JY profile-sidebar-head-link-1gPfv"
+                                       href="#rating" id="navlink-my-rating" target="_self">
+                                        <div class="profile-sidebar-head-rating-line-rwmxI">
+                                <span class="profile-sidebar-head-score-3OTF5">
+                                    <span class="text-text-1PdBw text-size-l-2gTpu text-bold-3R9dt">0,0</span>
+                                </span>
+                                            <span class="profile-sidebar-head-stars-2Pz_F" th:text="#{menu.autorized.no_reviews}">
+                                </span>
+                                        </div>
+                                    </a></div>
+                                <a href="/profile#postings" th:text="#{menu.autorized.my_announcements}"/>
+                                <a href="/profile#feedbacks" th:text="#{menu.autorized.my_feedback}"/>
+                                <a href="/profile#favorites" th:text="#{menu.autorized.favorites}"/>
+                                <a href="/profile#messages" th:text="#{menu.autorized.messages}"/>
+                                <a href="/profile#notifications" th:text="#{menu.autorized.notifications}"/>
+                                <a href="/profile#wallet" th:text="#{menu.autorized.wallet}"/>
+                                <a href="/profile#paid_services" th:text="#{menu.autorized.paid_services}"/>
+                                <a href="/profile#settings" th:text="#{menu.autorized.settings}"/>
+                                <a href="/logout" th:text="#{menu.autorized.log_off}"/>
+                            </div>
+                        </div>
+                        <!--<a class="nav-link text-primary" href="/logout" style="white-space: nowrap">Выйти</a>-->
                     </li>
                     <li class="nav-item d-flex justify-content-lg-center align-items-center">
                         <a class="btn btn-primary" href="/addNewPosting" th:text="#{header.post_a_ad}">Подать
