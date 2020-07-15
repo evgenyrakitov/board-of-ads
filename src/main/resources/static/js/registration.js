@@ -37,18 +37,25 @@ export function infoField(field) {
     $(field).css("background-color", "yellow");
 }
 
-export function save(login, password, public_name, phone) {
+export function save(login, password, first_name, last_name, region, city, phone) {
     let url = "/rest/admin/add";
     let type = "POST";
     let data = {
         user: {
             email: login,
             password: password,
-            publicName: public_name,
+            firstName: first_name,
+            lastName: last_name,
             phone: phone,
+            region: {
+                id: region
+            },
+            city: {
+                id: city
+            },
         },
     };
-
+    console.log(data);
     $.ajax({
         url: url,
         type: type,

@@ -9,6 +9,8 @@ import java.util.List;
 
 public interface RegionRepository extends JpaRepository<Region, Long> {
 
+    Region findById(long id);
+
     @Query("select r from Region r where r.name like :name%")
     List<Region> findByName(@Param("name") String name);
 

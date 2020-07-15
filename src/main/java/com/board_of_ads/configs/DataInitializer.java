@@ -4,11 +4,15 @@ import com.board_of_ads.models.Category;
 import com.board_of_ads.models.Images;
 import com.board_of_ads.models.Role;
 import com.board_of_ads.models.User;
+import com.board_of_ads.models.kladr.City;
+import com.board_of_ads.models.kladr.Region;
 import com.board_of_ads.models.posting.Posting;
 import com.board_of_ads.models.posting.extra.PostingStatus;
 import com.board_of_ads.service.interfaces.CategoryService;
+import com.board_of_ads.service.interfaces.CityService;
 import com.board_of_ads.service.interfaces.PostingService;
 import com.board_of_ads.service.interfaces.PostingStatusService;
+import com.board_of_ads.service.interfaces.RegionService;
 import com.board_of_ads.service.interfaces.RoleService;
 import com.board_of_ads.service.interfaces.UserService;
 import lombok.AllArgsConstructor;
@@ -65,8 +69,12 @@ public class DataInitializer {
         Set<Role> userRoles = new HashSet<>();
         userRoles.add(roleService.findRoleByName("USER"));
 
-        User userAdmin = new User("admin@gmail.com", "Test Admin name", "admin", "admin", "89185552623", adminRoles);
-        User userUser = new User("test.email.1@gmail.com", "test 1 public name", "qwerty1", "qwerty1", "89526321452", userRoles);
+        User userAdmin = new User("admin@gmail.com", "Александр", "Любимов",
+               "admin", "admin", "89185552623", adminRoles,
+                "/images/icons/admin_icon.jpg");
+        User userUser = new User("user@gmail.com", "Петр", "Иванов",
+               "qwerty1", "qwerty1", "89526321452", userRoles,
+                "/images/icons/user_icon.jpg");
 
         userService.addUser(userAdmin);
         userService.addUser(userUser);
@@ -111,7 +119,7 @@ public class DataInitializer {
             return;
         }
 
-        User userUser = userService.findUserByEmail("test.email.1@gmail.com");
+        User userUser = userService.findUserByEmail("user@gmail.com");
         User adminUser = userService.findUserByEmail("admin@gmail.com");
 
 

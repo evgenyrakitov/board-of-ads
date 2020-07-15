@@ -1582,3 +1582,8 @@ INSERT IGNORE INTO cities (`id`,`code`,`gninmb`,`indx`,`name`,`ocatd`,`socr`,`un
 INSERT IGNORE INTO cities (`id`,`code`,`gninmb`,`indx`,`name`,`ocatd`,`socr`,`uno`,`region_id`) VALUES (1475,'9200000000000','9200','      ','Севастополь                                       ','67000000000','г         ','    ',92);
 INSERT IGNORE INTO cities (`id`,`code`,`gninmb`,`indx`,`name`,`ocatd`,`socr`,`uno`,`region_id`) VALUES (1476,'9200000100000','9203','      ','Инкерман                                          ','67263505000','г         ','    ',92);
 INSERT IGNORE INTO cities (`id`,`code`,`gninmb`,`indx`,`name`,`ocatd`,`socr`,`uno`,`region_id`) VALUES (1477,'9900000000000','9900','468320','Байконур                                          ','55000000000','г         ','    ',99);
+
+UPDATE users SET city_id = 137 WHERE id = 1;
+UPDATE users SET city_id = 137 WHERE id = 2;
+UPDATE users SET region_id = 16 WHERE id = 1;
+UPDATE users SET region_id = 16 WHERE id = 2;

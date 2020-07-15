@@ -3,7 +3,11 @@ package com.board_of_ads.controllers.rest;
 import com.board_of_ads.models.Role;
 import com.board_of_ads.models.User;
 import com.board_of_ads.models.posting.Posting;
+import com.board_of_ads.models.kladr.City;
+import com.board_of_ads.models.kladr.Region;
+import com.board_of_ads.service.interfaces.CityService;
 import com.board_of_ads.service.interfaces.EmailService;
+import com.board_of_ads.service.interfaces.RegionService;
 import com.board_of_ads.service.interfaces.RoleService;
 import com.board_of_ads.service.interfaces.UserService;
 import io.swagger.annotations.ApiOperation;
@@ -44,6 +48,8 @@ public class UserRestController {
 
     private final UserService userService;
     private final RoleService roleService;
+    private final CityService cityService;
+    private final RegionService regionService;
     private final MessageSource messages;
     private final EmailService emailService;
     private final Environment env;
@@ -57,12 +63,19 @@ public class UserRestController {
         Role role = roleService.findRoleByName("USER");
         roleSet.add(role);
         user.setRoles(roleSet);
+        user.setRegion(regionService.findById(user.getRegion().getId()));
+        user.setCity(cityService.findById(user.getCity().getId()));
         userService.addUser(user);
         ResponseEntity<User> responseEntity = new ResponseEntity<>(user, HttpStatus.CREATED);
 
         return responseEntity;
     }
 
+    @PostMapping("/getCities")
+    public ResponseEntity<List<City>> getCities(@RequestBody Region region) {
+        List<City> cities = cityService.findAllByRegionId(region.getId());
+        return ResponseEntity.ok(cities);
+    }
 
     @PutMapping("/admin/edit")
     public User update(User user) {

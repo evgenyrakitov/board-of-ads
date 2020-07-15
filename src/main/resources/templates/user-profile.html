@@ -46,7 +46,7 @@
                         <div class="profile-sidebar-head-avatar-wrapper-pgjOx">
                             <div class="profile-sidebar-head-avatar-29RsS" data-marker="profile-sidebar-head/avatar">
                                 <canvas height="100" id="user_avatar_canvas"
-                                        th:attr="user_name=${user.publicName}" user_name="User name"
+                                        th:attr="user_name=${user.getFirstName()}" user_name="User name"
                                         width="100"></canvas>
                             </div>
                             <script>
@@ -60,7 +60,7 @@
                         <div class="profile-sidebar-head-name-2sYdZ">
                             <span class="text-text-1PdBw text-size-xl-K3Rr2 text-bold-3R9dt">
                                 <div class="profile-sidebar-head-name-text-S-6L8"
-                                     th:text="${user.publicName}">USER NAME</div>
+                                     th:text="${user.firstName}+' '+${user.lastName}">USER NAME</div>
                             </span>
                         </div>
                         <div class="profile-sidebar-head-rating-36hRS">
