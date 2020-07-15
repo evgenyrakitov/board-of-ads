@@ -14,7 +14,7 @@ public interface UserService {
         User addUser (User user);
         User updateUser (User user);
         void deleteUser (long id);
-        User addFavoritePosting(Long id_posting, Long id_user);
+        void addFavoritePosting(Long id_posting, Long id_user);
         void deleteFavoritePosting(Long id_posting, Long id_user);
         void deleteAllFavoritePosting(Long id_user);
         Set<Posting> getFavoritePostings(Long userId);

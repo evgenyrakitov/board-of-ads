@@ -47,7 +47,8 @@ public class UserProfileRestController {
     public List<ProfilePostingDTO> getFavoritePostings() {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         Set<Posting> favoritePostings = userService.getFavoritePostings(user.getId());
-        return buildDTOList(favoritePostings);
+        List<ProfilePostingDTO> dtoList = buildDTOList(favoritePostings);
+        return dtoList;
     }
 
     @GetMapping("/postings/{status}")

@@ -61,12 +61,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User addFavoritePosting(Long id_posting, Long id_user) {
+    public void addFavoritePosting(Long id_posting, Long id_user) {
         User user = userRepository.getOne(id_user);
         Posting posting = postingRepository.getOne(id_posting);
         user.getFavoritePostings().add(posting);
         userRepository.save(user);
-        return user;
     }
 
     @Override
