@@ -1,8 +1,10 @@
+import * as reg from './registration.js';
+
 $(".open-modal-1").click(function(){
-    $("#modal-reg-1").modal('show');
+    $("#modal-reg-1").modal('show');    //окно входа
 });
 $("#open-modal-2").click(function () {
-    $("#modal-reg-2").modal("show");
+    $("#modal-reg-2").modal("show");    //окно регистрации
 });
 $("#open-modal-3").click(function () {
     $("#modal-reg-3").modal("show");
@@ -10,11 +12,6 @@ $("#open-modal-3").click(function () {
 
 $("#btn-reg").click(function (event) {
     event.preventDefault();
-    let user_1 = $("#add-reg-form").serialize();
-    $.post($("#add-reg-form").attr("action"), user_1, function(user){
-        let k = [];
-        k = user;
-
 
     //begin namor script
     let email = $("#login-reg-form").val();
@@ -27,24 +24,14 @@ $("#btn-reg").click(function (event) {
     let phone = $("#phone-reg-form").val();
     let sum = 0;
 
-
-            let email_ = user.email;
-            let menu = "<div class='dropdown'>" +
-                "  <button class='dropbtn'>"+email_+"</button>" +
-                "  <div class='dropdown-content'>" +
-                "    <a href='#'>Мои объявления</a>" +
-                "    <a href='#'>Мои отзывы</a>" +
-                "    <a href='#'>Избранное</a>" +
-                "<a href='#'>Сообщения</a>" +
-                "<a href='#'>Уведомления</a>" +
-                "<a href='#'>Кошелек</a>" +
-                "<a href='#'>Платные услуги</a>" +
-                "<a href='#'>Настройки</a>" +
-                "<a href='/logout'>Выйти</a>" +
-                "</div></div>";
-            $("#li").html(menu);
-        });
-
+    //=============== test 0 -  login is email ========//
+    let loginRe = new RegExp("\\w+@\\w+\\.\\w{2,4}");
+    if ((reg.checker(email, loginRe) === true) && (email.length > 7)) {
+        reg.successField("#login-reg-form");
+        sum++;  //1
+    } else {
+        reg.warningField("#login-reg-form");
+    }
 
     //========= test1 - is password's not empty =========//
     if (reg.passwordExist(password) && reg.passwordExist(password_confirm) === true) {
@@ -132,7 +119,6 @@ function loadCities(){
     })
 }
 
-
 $("#btn-modal-3").click(function (event) {
     event.preventDefault();
     $('#reset-email-sent-letter-message').hide();
@@ -149,11 +135,6 @@ $("#btn-modal-3").click(function (event) {
             } else {
                 $('#user-not-found-message').slideDown();
             }
-
         }
     });
 });
-
-
-
-
