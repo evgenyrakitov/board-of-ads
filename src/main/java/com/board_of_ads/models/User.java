@@ -4,8 +4,6 @@ import com.board_of_ads.models.kladr.City;
 import com.board_of_ads.models.kladr.Region;
 import com.board_of_ads.models.posting.Posting;
 import lombok.*;
-import org.hibernate.annotations.Fetch;
-import org.hibernate.annotations.FetchMode;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -53,11 +51,9 @@ public class User implements UserDetails {
     @NonNull
     private String phone;
 
-    //@NonNull
     @ManyToOne
     private Region region;
 
-    //@NonNull
     @ManyToOne
     private City city;
 
