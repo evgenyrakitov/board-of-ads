@@ -1,8 +1,6 @@
 package com.board_of_ads.controllers.auth;
 
-import com.board_of_ads.service.interfaces.RoleService;
 import com.board_of_ads.service.interfaces.SocialNetworkService;
-import com.board_of_ads.service.interfaces.UserService;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.SneakyThrows;
@@ -29,8 +27,7 @@ import java.util.Map;
 @RequestMapping("/login/vk")
 public class VkAuthController {
     private static final Logger logger = LoggerFactory.getLogger(VkAuthController.class);
-    private final UserService userService;
-    private final RoleService roleService;
+    
     private final SocialNetworkService socialNetworkService;
 
     @Value("${vk.clientId}")
@@ -52,9 +49,7 @@ public class VkAuthController {
     @Value("${vk.apiVersion}")
     private String apiVersion;
 
-    public VkAuthController(UserService userService, RoleService roleService, SocialNetworkService socialNetworkService) {
-        this.userService = userService;
-        this.roleService = roleService;
+    public VkAuthController(SocialNetworkService socialNetworkService) {
         this.socialNetworkService = socialNetworkService;
     }
 
