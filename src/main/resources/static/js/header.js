@@ -121,12 +121,12 @@ $("#btnLogin").click(function () {
         })
 });
 
-$(".navbar-nav .nav-item").on("click", function(){
-   /*let location = window.location.href;
+$(window).ready(function () {
+   let location = window.location.href;
    let curUrl = '/' + location.split('/').pop();
-   $(".navbar-nav .nav-item").has("a[href="+curUrl+"]").addClass("active");*/
-   $(".navbar-nav").find(".active").removeClass("active");
-   $(this).addClass("active");
+   $(".navbar-nav .nav-item").has("a[href=\""+curUrl+"\"]").addClass("active");
+   /*$(".navbar-nav").find(".active").removeClass("active");
+   $(this).addClass("active");*/
 });
 
 /*$(function () {
