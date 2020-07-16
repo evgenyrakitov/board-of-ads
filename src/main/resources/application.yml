@@ -28,6 +28,8 @@ spring:
     password: javamentor2020
     properties:
       mail:
+        mime:
+          encodeparameters:
         transport:
           protocol: smtp
         smtp:
