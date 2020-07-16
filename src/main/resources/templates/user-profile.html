@@ -45,13 +45,12 @@
                     <div class="profile-sidebar-navigation-header-2A_vE">
                         <div class="profile-sidebar-head-avatar-wrapper-pgjOx">
                             <div class="profile-sidebar-head-avatar-29RsS" data-marker="profile-sidebar-head/avatar">
+                                <img alt="..." height="100" hidden id="user_photo_image" src=""
+                                     th:src="${user.userIcons}" width="100">
                                 <canvas height="100" id="user_avatar_canvas"
                                         th:attr="user_name=${user.getFirstName()}" user_name="User name"
                                         width="100"></canvas>
                             </div>
-                            <script>
-                                user_avatar_canvas.drawAvatar();
-                            </script>
                             <i class="dropdown-add-avatar-1End6" data-marker="profile-sidebar-head/edit-avatar"
                                style="background-image: url('../static/images/user-profile/small_photo_camera.svg');"
                                th:style="'background-image: url(\'/images/user-profile/small_photo_camera.svg\');'"
