@@ -1,13 +1,38 @@
 const user_avatar_canvas = {
 
-    drawAvatar: function () {
+    findAndDrawAvatars: function () {
+        if (document.getElementById("user_avatar_canvas_header") && document.getElementById("user_photo_image")) {
+            user_avatar_canvas.drawAvatar('header');
+        }
+        if (document.getElementById("user_avatar_canvas_profile") && document.getElementById("user_photo_image")) {
+            user_avatar_canvas.drawAvatar('profile');
+        }
+    },
+
+    drawAvatar: function (whereToDraw) {
+
+        let canvas;
+        let photoImg = document.getElementById("user_photo_image");
+
+        switch (whereToDraw) {
+            case 'header':
+                canvas = document.getElementById("user_avatar_canvas_header");
+                break;
+            case 'profile':
+                canvas = document.getElementById("user_avatar_canvas_profile");
+                break;
+            default:
+                console.log('Не верно передан параметр в функцию drawAvatar, параметр - ' + whereToDraw);
+                return;
+                break;
+        }
+
         let colour_green = "#9bce5f";
         let colour_gray = "#dfdfdf"
-        let canvas = document.getElementById("user_avatar_canvas");
+
         let name = $(canvas).attr("user_name");
         let initials = name.charAt(0).toUpperCase();
         let context = canvas.getContext("2d");
-        let photoImg = document.getElementById("user_photo_image");
 
         let canvasWidth = canvas.width,
             canvasHeight = canvas.height,
@@ -35,7 +60,7 @@ const user_avatar_canvas = {
             context.strokeStyle = colour_gray;
             context.stroke();
             context.fillStyle = "#FFF";
-            context.font = "50px Arial";
+            context.font = Math.round(canvasHeight / 2) + "px Arial";
             context.textAlign = "center";
             context.fillText(initials, canvasCssWidth / 2, canvasCssHeight / 1.5);
         } else {

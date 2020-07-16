@@ -2,7 +2,7 @@ var messages = [];
 
 $(document).ready(function () {
     on_profile_page_load();
-    user_avatar_canvas.drawAvatar();
+    user_avatar_canvas.findAndDrawAvatars();
 });
 
 $(window).on('hashchange', function (e) {
