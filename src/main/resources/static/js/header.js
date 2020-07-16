@@ -127,21 +127,25 @@ $('#modal-pass-change').on('shown.bs.modal', function () {
     $('#pass-reset-weak-password-message').hide();
 })
 
-document.getElementById("frmLoginInputEmail").addEventListener("keyup",
-    function (event) {
-        if (event.key === "Enter") {
-            event.preventDefault();
-            document.getElementById("btnLogin").click();
-        }
-    });
+if (document.getElementById("frmLoginInputEmail")) {
+    document.getElementById("frmLoginInputEmail").addEventListener("keyup",
+        function (event) {
+            if (event.key === "Enter") {
+                event.preventDefault();
+                document.getElementById("btnLogin").click();
+            }
+        });
+}
 
-document.getElementById("frmLoginInputPassword").addEventListener("keyup",
-    function (event) {
-        if (event.key === "Enter") {
-            event.preventDefault();
-            document.getElementById("btnLogin").click();
-        }
-    });
+if (document.getElementById("frmLoginInputPassword")) {
+    document.getElementById("frmLoginInputPassword").addEventListener("keyup",
+        function (event) {
+            if (event.key === "Enter") {
+                event.preventDefault();
+                document.getElementById("btnLogin").click();
+            }
+        });
+}
 
 $("#btnLogin").click(function () {
     $.ajax({
