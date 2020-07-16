@@ -33,4 +33,11 @@ public class RegionServiceImpl implements RegionService {
         return regionRepository.findByName(name);
     }
 
+
+    @Override
+    public Region findRegionByName(String name) {
+        return regionRepository.findRegionByName(name);
+    }
+
+
 }

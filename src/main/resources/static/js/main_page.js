@@ -16,11 +16,15 @@ $(document).ready(function () {
             $(".container_cus").empty();
             for (let i = start; i < end; i++) {
                 $(".container_cus").prepend(
+
+                    
+
                     `    <div class="card">\n` +
                     `    <div id="${posting[i].id}" class="card-header">` +
-                    '       <img src="' + posting[i].images[0].imagePath + '" class="card-img-top" alt="...">' +
+                    '       <img src="' + posting[i].images[0]?.imagePath + '" class="card-img-top" alt="...">' +
                     '   </div>' +
                     '       <div class="card-body">\n' +
+
                     '                <h5 class="card-title">' + posting[i].title + '</h5>\n' +
                     '                <p class="card-text">' + posting[i].price + '</p>\n' +
                     '                <a href="posting/' + posting[i].id + '" class="btn btn-primary" ' +
@@ -67,6 +71,10 @@ $(window).scroll(function () {
     start = end;
     inProgress = false;
 });
+
+
+
+
 
 function favoriteAction(post_id) {
     let favoriteIcon = $(`#favorite-${post_id}`);
@@ -123,3 +131,4 @@ function showFavoriteIcon() {
 
     })
 }
+

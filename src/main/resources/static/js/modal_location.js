@@ -55,47 +55,12 @@ $("#location-close").click(function () {
     let locationName = $("#location-search").val();
     locationName = locationName.replace(/\([^()]*\)/g, '');
     $("#locationModal").modal('hide');
-    $("#location-name").text(locationName);
-    $("#location-name").attr("data", dataId);
-    if (typeof dataId !== typeof undefined && dataId !== false && dataId.includes("region")) {
-        let regionId = dataId.slice(7);
-        $.ajax({
-            url: `/rest/posting/searchByRegion/${regionId}`,
-            type: 'get',
-            dataType: 'json',
-            success: function (data) {
-                drawPosting(data);
-            }
-        });
-    } else if (typeof dataId !== typeof undefined && dataId !== false && dataId.includes("city")) {
-        let cityId = dataId.slice(5);
-        $.ajax({
-            url: `/rest/posting/searchByCity/${cityId}`,
-            type: 'get',
-            dataType: 'json',
-            success: function (data) {
-                drawPosting(data);
-            }
-        });
-    }
-})
+    /*let search = $("#location-search").val();*/
+    let option = "<option selected id='"+dataId+"'>"+locationName+"</option>";
+    $("#location").append(option)
 
-function drawPosting(data) {
-    $(".container_cus").empty();
-    data.forEach(posting => {
-        $(".container_cus").append(
-            '    <div class="card">\n' +
-            `    <div id="${posting.id}" class="card-header">` +
-            '       <img src="' + posting.images[0].imagePath + '" class="card-img-top" alt="...">' +
-            '   </div>' +
-            '       <div class="card-body">\n' +
-            '                <h5 class="card-title">' + posting.title + '</h5>\n' +
-            '                <p class="card-text">' + posting.price + '</p>\n' +
-            '                <a href="posting/' + posting.id + '" class="btn btn-primary" ' +
-            'th:text="#{main_page.go_to_ad}">Перейти к объявлению</a>\n' +
-            '            </div>\n' +
-            '        </div>'
-        )
-    })
-    showFavoriteIcon();
-}
+
+
+});
+
+

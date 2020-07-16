@@ -179,6 +179,18 @@ public class DataInitializer {
         postingService.addPosting(posting);
 
         posting = new Posting();
+        posting.setTitle("Коттедж без фото, для тестирования");
+        posting.setCategory(categories.get(41));
+        posting.setUser(adminUser);
+        posting.setFullDescription("Для тех кто хочет жить в элиземли рядом с Воронежским водохранилищем! - на первом этаже: п...");
+        posting.setShortDescription("Коттедж 266 м² на участке 4.8 сот.");
+        posting.setPrice(310_000_000);
+        posting.setRegionId("23");
+        posting.setCityId("212");
+        posting.setStatus(postingStatuses.get(2));
+        postingService.addPosting(posting);
+
+        posting = new Posting();
         posting.setTitle("Дом 240 м² на участке 6.5 сот.");
         posting.setCategory(categories.get(22));
         posting.setUser(userUser);

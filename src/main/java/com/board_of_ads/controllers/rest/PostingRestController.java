@@ -4,8 +4,14 @@ import com.board_of_ads.models.Category;
 import com.board_of_ads.models.Images;
 import com.board_of_ads.models.User;
 import com.board_of_ads.models.dto.ProfilePostingDTO;
+import com.board_of_ads.models.kladr.City;
+import com.board_of_ads.models.kladr.Region;
 import com.board_of_ads.models.posting.Posting;
+import com.board_of_ads.repository.custom.PostingRepositoryCustomImpl;
+import com.board_of_ads.service.interfaces.CategoryService;
+import com.board_of_ads.service.interfaces.CityService;
 import com.board_of_ads.service.interfaces.PostingService;
+import com.board_of_ads.service.interfaces.RegionService;
 import com.google.gson.Gson;
 import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
@@ -16,12 +22,15 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+
+import static java.lang.Long.parseLong;
 
 @RestController
 @RequestMapping("/rest/posting")
@@ -31,6 +40,10 @@ public class PostingRestController {
     private static final Logger logger = LoggerFactory.getLogger(RoleRestController.class);
 
     private final PostingService postingService;
+    private final CategoryService categoryService;
+    private final RegionService regionService;
+    private final CityService cityService;
+
 
     @GetMapping("/getPostingInfo")
     public ResponseEntity<Posting> getPosting() {
@@ -95,11 +108,61 @@ public class PostingRestController {
         posting.setShortDescription("Краткое описание");
         posting.setTitle("Автокресло 0-1");
         List<Posting> list = new ArrayList<>();
-        for (int i = 0; i< 77; i++){
+        for (int i = 0; i < 77; i++) {
             list.add(posting);
         }
         return !list.isEmpty()
                 ? new ResponseEntity<>(list, HttpStatus.OK)
                 : new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
+
+
+    @GetMapping("/search")
+    public ResponseEntity<List<Posting>> getSearchForm(
+                                                       @RequestParam String category,
+                                                       @RequestParam String search,
+                                                       @RequestParam String regionCity,
+                                                       @RequestParam(required = false) String ch1,
+                                                       @RequestParam(required = false) String ch2) {
+        Category categ = null;
+        Region region = null;
+        City city = null;
+        List<Posting> postings = new ArrayList<>();
+        String search_ = "%" + search.replaceAll("\\pP", "") + "%";
+
+
+        if (category.length() != 0) {
+                categ = categoryService.findCategoryById(parseLong(category));
+        }
+
+        if (regionCity.length() != 0) {
+            for (String reg : regionCity.split(" ")) {
+                city = cityService.findCityByName(reg);
+                if (city != null || region != null) break;
+                region = regionService.findRegionByName(reg);
+            }
+        }
+
+        boolean onlyTitle = ch1 != null;
+        boolean onlyWithImages = ch2 != null;
+
+
+        if (categ != null) {
+            postings.addAll(postingService.customSearchPostings(categ, search_, region, city, onlyTitle, onlyWithImages));
+            for (Category c1 : categoryService.findAllByParentCategory(categ)) {
+                postings.addAll(postingService.customSearchPostings(c1, search_, region, city, onlyTitle, onlyWithImages));
+                for (Category c2 : categoryService.findAllByParentCategory(c1)) {
+                    postings.addAll(postingService.customSearchPostings(c2, search_, region, city, onlyTitle, onlyWithImages));
+                }
+            }
+        } else {
+            postings.addAll(postingService.customSearchPostings(categ, search_, region, city, onlyTitle, onlyWithImages));
+        }
+
+
+        return ResponseEntity.ok(postings);
+    }
+
+
 }
+
