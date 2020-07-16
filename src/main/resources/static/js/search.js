@@ -51,7 +51,6 @@ $("#btn-search").click(function () {
         getPostings(search);
     });
 
-
 $('#search-form').keypress(function (e) {
     var code = e.keyCode || e.which;
 
