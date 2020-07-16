@@ -91,18 +91,18 @@
                         <a class="nav-link text-primary open-modal-1" href="#" style="white-space: nowrap"
                            th:text="#{header.login_and_register}">Вход и регистрация</a>
                     </li>
-                    <li class="nav-item" style="margin-right: 10px;"
+                    <li class="nav-item" style="margin-right: 15px;"
                         th:if="${user.getClass().getSimpleName() == 'User'}">
                         <div class="dropdown" style="width: max-content">
-                            <!--                            <button class="dropbtn" th:text="${user.getFirstName()}"></button>-->
                             <a class="header-services-menu-link-TRWKh ym-hide-content d-flex flex-row align-middle board-of-ads-down-arrow-dropdown"
                                href="/profile" style="margin-right: 4px; text-decoration: none;">
-                                <div class="header-services-menu-avatar-QlGRi"><img alt="Аватар"
-                                                                                    class="header-services-menu-avatar-image-37pI3"
-                                                                                    src="https://www.avito.st/stub_avatars/%D0%90/4_256x256.png"
-                                                                                    style="height: 32px; width: 32px;">
+                                <div class="header-services-menu-avatar-QlGRi">
+                                    <img alt="..." hidden id="user_photo_image" src="" th:src="${user.userIcons}">
+                                    <canvas class="header-services-menu-avatar-image-37pI3" height="32"
+                                            id="user_avatar_canvas_header" th:attr="user_name=${user.getFirstName()}"
+                                            user_name="User name" width="32"></canvas>
                                 </div>
-                                <span style="margin-top: 6px;">Андрей</span>
+                                <span style="margin-top: 6px;" th:text="${user.getFirstName()}">User name</span>
                             </a>
 
                             <div class='dropdown-content'>
@@ -598,6 +598,7 @@
     <script src="/js/modal_registation.js" th:src="@{/js/modal_location.js}"></script>
     <script src="/js/modal_registation.js" th:src="@{/js/registration.js}" type="module"></script>
     <script src="/js/search.js" th:src="@{/js/search.js}"></script>
+    <script src="../static/js/user_avatar_canvas.js" th:src="@{/js/user_avatar_canvas.js}"></script>
 </div>
 </body>
 </html>

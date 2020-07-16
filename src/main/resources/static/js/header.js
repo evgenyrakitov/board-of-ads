@@ -9,6 +9,9 @@ $(window).scroll(function () {
 });
 
 $(document).ready(function () {
+
+    user_avatar_canvas.findAndDrawAvatars();
+
     if (localStorage.getItem('locale') == null) {
         localStorage.setItem("locale", "ru");
         $(".dropdown-toggle").html(
@@ -24,12 +27,12 @@ $(document).ready(function () {
     }
 
     // Check for password reset token to conditionally render change password modal
-    if ($("#passwordResetToken").val().length !== 0) {
+    if ($("#passwordResetToken").length && $("#passwordResetToken").val().length !== 0) {
         $("#modal-pass-change").modal("show");
     }
 
     // Check for error messages when restoring password to conditionally render error message modal
-    if ($("#passwordResetErrorMessage")[0].innerText.length !== 0) {
+    if ($("#passwordResetErrorMessage").length && $("#passwordResetErrorMessage")[0].innerText.length !== 0) {
         $("#modal-pass-change-error").modal("show");
     }
 
