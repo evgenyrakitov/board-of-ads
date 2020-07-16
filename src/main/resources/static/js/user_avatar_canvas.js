@@ -35,7 +35,7 @@ const user_avatar_canvas = {
             context.strokeStyle = colour_gray;
             context.stroke();
             context.fillStyle = "#FFF";
-            context.font = "50px Arial";
+            context.font = Math.round(canvasHeight / 2) + "px Arial";
             context.textAlign = "center";
             context.fillText(initials, canvasCssWidth / 2, canvasCssHeight / 1.5);
         } else {
