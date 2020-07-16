@@ -1,0 +1,220 @@
+@media (max-width: 900px) {
+    .locale{
+        position: fixed;
+        top: 4px;
+        z-index: 3;
+        left: 80px;
+    }
+    header {
+        position: fixed;
+        top: 0;
+        left: -1000px;
+        z-index: 5;
+        width: 30%;
+        height: 100%;
+        background: white;
+        padding-top: 44px;
+        box-shadow: 0px 0px 6px rgba(0, 0, 0, .5);
+        transition: .5s;
+    }
+
+    header.open_header {
+        left: 0;
+    }
+
+    .logo {
+        display: none;
+    }
+
+    .nav_first .d-flex {
+        flex-direction: column;
+        padding: 0;
+
+    }
+
+    .nav_first .d-flex ul {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .nav_first .d-flex ul li {
+        border-top: 1px solid gray;
+    }
+
+    .nav_first .d-flex ul li a {
+        padding: 10px;
+        transition: .4s;
+    }
+
+    .nav_first .d-flex ul li a:hover {
+        background: #0155af;
+        color: white !important;
+    }
+
+    .nav_first {
+        padding: 0;
+        background: white !important;
+    }
+
+    .nav_second {
+        padding: 0;
+        margin-top: 20px;
+    }
+
+    #header_category_list {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    #header_category_list li {
+        margin: 0;
+        border-top: 1px solid gray;
+        width: 100%;
+        display: flex;
+    }
+
+    #header_category_list li a {
+        padding: 10px;
+        transition: .4s;
+        width: 100%;
+    }
+
+    #header_category_list li a:hover {
+        background: #0155af;
+        color: white !important;
+    }
+
+    #moreCategories.on-off {
+        pointer-events: auto;
+        opacity: 1;
+        position: fixed;
+        width: 80%;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        max-height: 100vh;
+        overflow-x: scroll;
+    }
+
+    .bg_black_header.on-off {
+        width: 2000px;
+        height: 2000px;
+        position: absolute;
+        top: 0;
+        z-index: 1;
+        background: rgba(0, 0, 0, .5);
+    }
+
+    .search {
+        position: absolute;
+        bottom: 0;
+    }
+    #menuToggle{
+        transition: 1.9s;
+    }
+    #menuToggle.open_header {
+        margin-left: 25%;
+    }
+
+    .top-rubricator-blockTitle {
+        display: flex;
+        background: #bbb6b6;
+    }
+
+    .nav_category {
+        padding-left: 25px;
+    }
+
+    .open_search {
+        position: absolute;
+        pointer-events: auto;
+        opacity: 1;
+        width: 100px;
+        bottom: 100px;
+        left: 50%;
+        right: 50%;
+        transform: translate(-50%, -50%);
+        height: 30px;
+    }
+
+    .min_header {
+        pointer-events: auto;
+        opacity: 1;
+        right: 0;
+        z-index: 3;
+    }
+
+    .search {
+        position: fixed;
+        z-index: 1;
+        width: 70%;
+        height: 70%;
+        display: flex;
+        flex-direction: column;
+        background: white;
+        box-shadow: 0 0 6px black;
+        left: 50%;
+        right: 50%;
+        top: 47%;
+        transform: translate(-50%, -50%);
+        pointer-events: none;
+        opacity: 0;
+        transition: .4s;
+    }
+
+    .search.on_search {
+        pointer-events: auto;
+        opacity: 1;
+        top: 50%;
+    }
+
+    .search .form-row {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .search .form-row select {
+        margin: 15px;
+        width: 80%;
+    }
+
+    .sign_up {
+        position: fixed;
+        bottom: 10px;
+        width: 176px !important;
+    }
+    .container_main {
+        margin-top: 47px;
+        padding: 5px;
+    }
+
+    /* Modals Fixes */
+    .modal .close {
+        margin-top: 5px;
+        margin-right: 25px;
+        position: relative;
+        cursor: pointer;
+        font-size: 25px;
+    }
+
+    .form-password-items-container #open-modal-3 {
+        float: left;
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 700px) {
+    header {
+        width: 50%;
+    }
+    #menuToggle.open_header{
+        margin-left: 40%;
+    }
+
+    .form-password-items-container #open-modal-3 {
+        float: left;
+        font-size: 15px;
+    }
+}

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+
+<head>
+    <title>Личный кабинет - Мои объявления</title>
+    <meta charset="UTF-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <!-- COmmon styles  -->
+    <!--        необходимо заменить на локальные версии шрифтов -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--        -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../static/css/normalize.css" rel="stylesheet" th:href="@{/css/normalize.css}" type="text/css"/>
+    <link href="../static/css/header-styles.css" rel="stylesheet" th:href="@{/css/header-styles.css}" type="text/css"/>
+    <link href="../static/css/media/header-media.css" rel="stylesheet" th:href="@{/css/media/header-media.css}"
+          type="text/css"/>
+    <link href="../static/favicon.ico" id="favicon" rel="shortcut icon" th:href="@{favicon.ico}" type="image/x-icon"/>
+    <link href="../static/css/modal_reg.css" rel="stylesheet" th:href="@{/css/modal_reg.css}">
+    <!-- COmmon styles end -->
+    <link href="../static/css/user-profile/profile.css" rel="stylesheet" th:href="@{/css/user-profile/profile.css}">
+</head>
+<body>
+<div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+            th:src="@{webjars/jquery/3.5.1/jquery.min.js}"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/popper.min.js"></script>
+    <script src="../static/js/header.js" th:src="@{/js/header.js}"></script>
+    <script src="../static/js/modal_registation.js" th:src="@{/js/modal_registation.js}"></script>
+    <script src="../static/js/user_avatar_canvas.js" th:src="@{/js/user_avatar_canvas.js}"></script>
+    <script src="../static/js/user_profile.js" th:src="@{/js/user_profile.js}"></script>
+</div>
+
+<div th:replace="~{fragments/header.html :: top-nav-bar}"></div>
+
+<!--///////////////// PAGE CONTENT BEGINS -->
+<div class="g_123 layout-content-wrap align-items-center" style="margin-top: 20px;">
+    <div class="l-content clearfix">
+        <div class="b-profile-sidebar g_30">
+            <div class="js-profile-sidebar-navigation">
+                <div class="profile-sidebar-navigation-root-3l_CJ js-side-menu-sections js-profile-sidebar"
+                     data-active-class="profile-sidebar-navigation-link-active-3sgHn" data-maker="profile-sidebar">
+                    <div class="profile-sidebar-navigation-header-2A_vE">
+                        <div class="profile-sidebar-head-avatar-wrapper-pgjOx">
+                            <div class="profile-sidebar-head-avatar-29RsS" data-marker="profile-sidebar-head/avatar">
+                                <img alt="..." height="100" hidden id="user_photo_image" src=""
+                                     th:src="${user.userIcons}" width="100">
+                                <canvas height="100" id="user_avatar_canvas"
+                                        th:attr="user_name=${user.getFirstName()}" user_name="User name"
+                                        width="100"></canvas>
+                            </div>
+                            <i class="dropdown-add-avatar-1End6" data-marker="profile-sidebar-head/edit-avatar"
+                               style="background-image: url('../static/images/user-profile/small_photo_camera.svg');"
+                               th:style="'background-image: url(\'/images/user-profile/small_photo_camera.svg\');'"
+                            ></i>
+                        </div>
+                        <div class="profile-sidebar-head-name-2sYdZ">
+                            <span class="text-text-1PdBw text-size-xl-K3Rr2 text-bold-3R9dt">
+                                <div class="profile-sidebar-head-name-text-S-6L8"
+                                     th:text="${user.firstName}+' '+${user.lastName}">USER NAME</div>
+                            </span>
+                        </div>
+                        <div class="profile-sidebar-head-rating-36hRS">
+                            <a class="link-link-39EVK link-design-default-2sPEv link-novisited-1w4JY profile-sidebar-head-link-1gPfv"
+                               href="#rating" id="navlink-my-rating"
+                               target="_self">
+                                <div class="profile-sidebar-head-rating-line-rwmxI">
+                                <span class="profile-sidebar-head-score-3OTF5">
+                                    <span class="text-text-1PdBw text-size-l-2gTpu text-bold-3R9dt">0,0</span>
+                                </span>
+                                    <span class="profile-sidebar-head-stars-2Pz_F">
+                                <ul class="style-root-1lx2R"
+                                    data-marker="stars"><li
+                                        class="style-star-2MINL" data-marker="stars/star0"><div class=""><svg
+                                        style="width: 20px; height: 20px;"
+                                        viewBox="0 0 36 36"
+                                        xmlns="http://www.w3.org/2000/svg"><path
+                                        d="M17.1 5.4L13.9 14l-9.2.3c-1.3.1-1.3 1.2-.6 1.8l7.2 5.7-2.5 8.8c-.4 1.1.7 1.6 1.5 1.1l7.6-5.1 7.6 5.1c.6.4 1.8.2 1.5-1.1l-2.5-8.8 7.2-5.7c.8-.7.8-1.7-.6-1.8l-9-.3L19 5.4c-.5-1.1-1.5-1.1-1.9 0z"
+                                        fill="currentColor"></path></svg></div><div
+                                        class="style-half_star-X2g1W"><svg style="width: 20px; height: 20px;"
+                                                                           viewBox="0 0 36 36"
+                                                                           xmlns="http://www.w3.org/2000/svg"><path
+                                        d="M17.1 5.4L13.9 14l-9.2.3c-1.3.1-1.3 1.2-.6 1.8l7.2 5.7-2.5 8.8c-.4 1.1.7 1.6 1.5 1.1l7.6-5.1 7.6 5.1c.6.4 1.8.2 1.5-1.1l-2.5-8.8 7.2-5.7c.8-.7.8-1.7-.6-1.8l-9-.3L19 5.4c-.5-1.1-1.5-1.1-1.9 0z"
+                                        fill="currentColor"></path></svg></div></li><li
+                                        class="style-star-2MINL" data-marker="stars/star1"><div class=""><svg
+                                        style="width: 20px; height: 20px;"
+                                        viewBox="0 0 36 36"
+                                        xmlns="http://www.w3.org/2000/svg"><path
+                                        d="M17.1 5.4L13.9 14l-9.2.3c-1.3.1-1.3 1.2-.6 1.8l7.2 5.7-2.5 8.8c-.4 1.1.7 1.6 1.5 1.1l7.6-5.1 7.6 5.1c.6.4 1.8.2 1.5-1.1l-2.5-8.8 7.2-5.7c.8-.7.8-1.7-.6-1.8l-9-.3L19 5.4c-.5-1.1-1.5-1.1-1.9 0z"
+                                        fill="currentColor"></path></svg></div><div
+                                        class="style-half_star-X2g1W"><svg style="width: 20px; height: 20px;"
+                                                                           viewBox="0 0 36 36"
+                                                                           xmlns="http://www.w3.org/2000/svg"><path
+                                        d="M17.1 5.4L13.9 14l-9.2.3c-1.3.1-1.3 1.2-.6 1.8l7.2 5.7-2.5 8.8c-.4 1.1.7 1.6 1.5 1.1l7.6-5.1 7.6 5.1c.6.4 1.8.2 1.5-1.1l-2.5-8.8 7.2-5.7c.8-.7.8-1.7-.6-1.8l-9-.3L19 5.4c-.5-1.1-1.5-1.1-1.9 0z"
+                                        fill="currentColor"></path></svg></div></li><li
+                                        class="style-star-2MINL" data-marker="stars/star2"><div class=""><svg
+                                        style="width: 20px; height: 20px;"
+                                        viewBox="0 0 36 36"
+                                        xmlns="http://www.w3.org/2000/svg"><path
+                                        d="M17.1 5.4L13.9 14l-9.2.3c-1.3.1-1.3 1.2-.6 1.8l7.2 5.7-2.5 8.8c-.4 1.1.7 1.6 1.5 1.1l7.6-5.1 7.6 5.1c.6.4 1.8.2 1.5-1.1l-2.5-8.8 7.2-5.7c.8-.7.8-1.7-.6-1.8l-9-.3L19 5.4c-.5-1.1-1.5-1.1-1.9 0z"
+                                        fill="currentColor"></path></svg></div><div
+                                        class="style-half_star-X2g1W"><svg style="width: 20px; height: 20px;"
+                                                                           viewBox="0 0 36 36"
+                                                                           xmlns="http://www.w3.org/2000/svg"><path
+                                        d="M17.1 5.4L13.9 14l-9.2.3c-1.3.1-1.3 1.2-.6 1.8l7.2 5.7-2.5 8.8c-.4 1.1.7 1.6 1.5 1.1l7.6-5.1 7.6 5.1c.6.4 1.8.2 1.5-1.1l-2.5-8.8 7.2-5.7c.8-.7.8-1.7-.6-1.8l-9-.3L19 5.4c-.5-1.1-1.5-1.1-1.9 0z"
+                                        fill="currentColor"></path></svg></div></li><li
+                                        class="style-star-2MINL" data-marker="stars/star3"><div class=""><svg
+                                        style="width: 20px; height: 20px;"
+                                        viewBox="0 0 36 36"
+                                        xmlns="http://www.w3.org/2000/svg"><path
+                                        d="M17.1 5.4L13.9 14l-9.2.3c-1.3.1-1.3 1.2-.6 1.8l7.2 5.7-2.5 8.8c-.4 1.1.7 1.6 1.5 1.1l7.6-5.1 7.6 5.1c.6.4 1.8.2 1.5-1.1l-2.5-8.8 7.2-5.7c.8-.7.8-1.7-.6-1.8l-9-.3L19 5.4c-.5-1.1-1.5-1.1-1.9 0z"
+                                        fill="currentColor"></path></svg></div><div
+                                        class="style-half_star-X2g1W"><svg style="width: 20px; height: 20px;"
+                                                                           viewBox="0 0 36 36"
+                                                                           xmlns="http://www.w3.org/2000/svg"><path
+                                        d="M17.1 5.4L13.9 14l-9.2.3c-1.3.1-1.3 1.2-.6 1.8l7.2 5.7-2.5 8.8c-.4 1.1.7 1.6 1.5 1.1l7.6-5.1 7.6 5.1c.6.4 1.8.2 1.5-1.1l-2.5-8.8 7.2-5.7c.8-.7.8-1.7-.6-1.8l-9-.3L19 5.4c-.5-1.1-1.5-1.1-1.9 0z"
+                                        fill="currentColor"></path></svg></div></li><li
+                                        class="style-star-2MINL" data-marker="stars/star4"><div class=""><svg
+                                        style="width: 20px; height: 20px;"
+                                        viewBox="0 0 36 36"
+                                        xmlns="http://www.w3.org/2000/svg"><path
+                                        d="M17.1 5.4L13.9 14l-9.2.3c-1.3.1-1.3 1.2-.6 1.8l7.2 5.7-2.5 8.8c-.4 1.1.7 1.6 1.5 1.1l7.6-5.1 7.6 5.1c.6.4 1.8.2 1.5-1.1l-2.5-8.8 7.2-5.7c.8-.7.8-1.7-.6-1.8l-9-.3L19 5.4c-.5-1.1-1.5-1.1-1.9 0z"
+                                        fill="currentColor"></path></svg></div><div
+                                        class="style-half_star-X2g1W"><svg style="width: 20px; height: 20px;"
+                                                                           viewBox="0 0 36 36"
+                                                                           xmlns="http://www.w3.org/2000/svg"><path
+                                        d="M17.1 5.4L13.9 14l-9.2.3c-1.3.1-1.3 1.2-.6 1.8l7.2 5.7-2.5 8.8c-.4 1.1.7 1.6 1.5 1.1l7.6-5.1 7.6 5.1c.6.4 1.8.2 1.5-1.1l-2.5-8.8 7.2-5.7c.8-.7.8-1.7-.6-1.8l-9-.3L19 5.4c-.5-1.1-1.5-1.1-1.9 0z"
+                                        fill="currentColor"></path></svg></div></li></ul></span><span
+                                        class="text-text-1PdBw text-size-m-4mxHN" th:text="#{profile.rating.no_rating}">Нет отзывов</span>
+                                </div>
+                            </a></div>
+                    </div>
+                    <ul class="profile-sidebar-navigation-list-1Em1U">
+                        <li class="profile-sidebar-navigation-group-1pqeC">
+                            <ul class="profile-sidebar-navigation-group-list-3CHh3">
+                                <li class="profile-sidebar-navigation-item-1fHT7">
+                                    <a class="profile-sidebar-navigation-link-2olMF profile-sidebar-navigation-link-active-3sgHn js-sidebar-menu-list-item-link"
+                                       href="#postings" id="navlink-my-postings" th:text="#{profile.postings.title}">Мои
+                                        объявления</a>
+                                </li>
+                                <li class="profile-sidebar-navigation-item-1fHT7">
+                                    <a class="profile-sidebar-navigation-link-2olMF js-sidebar-menu-list-item-link"
+                                       href="#feedbacks" id="navlink-my-feedbacks" th:text="#{profile.feedbacks.title}">Мои
+                                        отзывы</a>
+                                </li>
+                                <li class="profile-sidebar-navigation-item-1fHT7">
+                                    <a class="profile-sidebar-navigation-link-2olMF js-sidebar-menu-list-item-link"
+                                       href="#favorites" id="navlink-my-favorites" th:text="#{profile.favorites.title}">Избранное</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="profile-sidebar-navigation-group-1pqeC">
+                            <ul class="profile-sidebar-navigation-group-list-3CHh3">
+                                <li class="profile-sidebar-navigation-item-1fHT7 js-side-menu-list-item-messenger">
+                                    <a class="profile-sidebar-navigation-link-2olMF js-sidebar-menu-list-item-link"
+                                       data-marker="sidebar-messenger-link" href="#messages" id="navlink-my-messages"
+                                       th:text="#{profile.messages.title}">Сообщения</a>
+                                </li>
+                                <li class="profile-sidebar-navigation-item-1fHT7">
+                                    <a class="profile-sidebar-navigation-link-2olMF js-sidebar-menu-list-item-link"
+                                       href="#notifications" id="navlink-my-notifications"
+                                       th:text="#{profile.notification.title}">Уведомления</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="profile-sidebar-navigation-group-1pqeC">
+                            <ul class="profile-sidebar-navigation-group-list-3CHh3">
+                                <li class="profile-sidebar-navigation-item-1fHT7 js-side-menu-list-item-wallet profile-sidebar-navigation-item-with-number-2kLls">
+                                    <a class="profile-sidebar-navigation-link-2olMF js-sidebar-menu-list-item-link"
+                                       href="#wallet" id="navlink-my-wallet"
+                                       th:text="#{profile.wallet.title}">Кошелёк</a>
+                                    <div class="profile-sidebar-navigation-number-1u-qz"
+                                         data-marker="sidebar-wallet-value">0&nbsp;₽
+                                    </div>
+                                </li>
+                                <li class="profile-sidebar-navigation-item-1fHT7">
+                                    <a class="profile-sidebar-navigation-link-2olMF js-sidebar-menu-list-item-link"
+                                       href="#paid_services" id="navlink-my-paid-services"
+                                       th:text="#{profile.paid_services.title}">Платные услуги</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="profile-sidebar-navigation-group-1pqeC">
+                            <ul class="profile-sidebar-navigation-group-list-3CHh3">
+                                <li class="profile-sidebar-navigation-item-1fHT7">
+                                    <a class="profile-sidebar-navigation-link-2olMF js-sidebar-menu-list-item-link"
+                                       href="#settings" id="navlink-my-settings" th:text="#{profile.settings.title}">Настройки</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="b-profile-content b-profile-content_narrow" id="user_page_content">
+            <!-- AJAX CONTENT WILL BE HERE -->
+        </div>
+    </div>
+</div>
+</body>
+</html>

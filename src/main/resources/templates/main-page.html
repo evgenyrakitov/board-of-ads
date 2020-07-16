@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="ru" xmlns:th="https://www.thymeleaf.org">
+
+<head>
+    <title>Board of ads</title>
+    <div th:replace="~{fragments/header.html :: links}"></div>
+    <link rel="stylesheet" type="text/css"
+          href="../static/css/main_page.css" th:href="@{/css/main_page.css}"/>
+</head>
+<body>
+
+<div th:replace="~{fragments/header.html :: modals}"></div>
+<div th:replace="~{fragments/header.html :: header}"></div>
+
+<div th:fragment="product" class="container_cus">
+
+</div>
+
+<div th:replace="~{fragments/header.html :: script}"></div>
+<script src="../static/js/main_page.js" th:src="@{/js/main_page.js}"></script>
+
+</body>
+</html>
