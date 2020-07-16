@@ -14,14 +14,13 @@ $(document).ready(function () {
                 end = posting.length;
             }
             $(".container_cus").empty();
+            let imageSrc = "";
             for (let i = start; i < end; i++) {
+                imageSrc = posting[i].images.length > 0 ? posting[i].images[0].imagePath : `/images/image-placeholder.png`;
                 $(".container_cus").prepend(
-
-                    
-
                     `    <div class="card">\n` +
                     `    <div id="${posting[i].id}" class="card-header">` +
-                    '       <img src="' + posting[i].images[0]?.imagePath + '" class="card-img-top" alt="...">' +
+                    '       <img src="' + imageSrc + '" class="card-img-top" alt="...">' +
                     '   </div>' +
                     '       <div class="card-body">\n' +
 
@@ -48,15 +47,18 @@ $(window).scroll(function () {
         if (end > posting.length) {
             end = posting.length;
         }
+        let imageSrc = "";
         for (let i = start; i < end; i++) {
+            imageSrc = posting[i].images.length > 0 ? posting[i].images[0].imagePath : `/images/image-placeholder.png`;
             var $dump = $(".container_cus"),
                 curScroll = $(window).scrollTop();
             $dump.append(
-                '    <div class="card">\n' +
-                '    <div class="card-header">' +
-                '       <img src="' + posting[i].images[0].imagePath + '" class="card-img-top" alt="...">' +
+                `    <div class="card">\n` +
+                `    <div id="${posting[i].id}" class="card-header">` +
+                '       <img src="' + imageSrc + '" class="card-img-top" alt="...">' +
                 '   </div>' +
                 '       <div class="card-body">\n' +
+
                 '                <h5 class="card-title">' + posting[i].title + '</h5>\n' +
                 '                <p class="card-text">' + posting[i].price + '</p>\n' +
                 '                <a href="posting/' + posting[i].id + '" class="btn btn-primary" ' +
