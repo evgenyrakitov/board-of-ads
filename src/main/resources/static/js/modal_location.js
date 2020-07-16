@@ -1,4 +1,4 @@
-$("#location").click(function () {
+$("#search-location-field").click(function () {
     $("#locationModal").modal('show');
 });
 $('#locationModal').on('shown.bs.modal', function () {
@@ -53,12 +53,14 @@ $("#location-list").click(function (event) {
 $("#location-close").click(function () {
     let dataId = $("#location-search").attr("data");
     let locationName = $("#location-search").val();
-    locationName = locationName.replace(/\([^()]*\)/g, '');
+    locationName = locationName.replace(/\([^()]*\)/g, '').trim();
+    $("#locationInput").val(dataId);
+    $("#search-location-field-text").text(locationName);
     $("#locationModal").modal('hide');
+    document.getElementById("btn-search").dispatchEvent(new Event('click'));
     /*let search = $("#location-search").val();*/
-    let option = "<option selected id='"+dataId+"'>"+locationName+"</option>";
-    $("#location").append(option)
-
+    //let option = "<option selected id='"+dataId+"'>"+locationName+"</option>";
+    //$("#location").append(option)
 
 
 });
