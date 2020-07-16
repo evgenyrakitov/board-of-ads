@@ -2,7 +2,7 @@ package com.board_of_ads.configs.security;
 
 import com.board_of_ads.configs.security.handler.CustomAuthenticationFailureHandler;
 import com.board_of_ads.configs.security.handler.LoginSuccessHandler;
-import com.board_of_ads.service.interfaces.SocialNetworkService;
+import com.board_of_ads.service.interfaces.OAuthNetworkService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -54,7 +54,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     private AuthProvider authProvider;
 
     @Autowired
-    private SocialNetworkService socialNetworkService;
+    private OAuthNetworkService OAuthNetworkService;
 
     @Autowired
     @Qualifier("UserDetailsServiceImpl")
@@ -155,7 +155,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Bean
     public PrincipalExtractor authPrincipalExtractor() {
-        return map -> socialNetworkService.findOrCreateUserGoogle(map);
+        return map -> OAuthNetworkService.findOrCreateUserGoogle(map);
     }
 
     //Регистрация фильтра для перехвата авторизации до срабатывания фильтра Спринга

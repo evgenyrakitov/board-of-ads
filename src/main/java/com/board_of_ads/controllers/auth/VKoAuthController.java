@@ -1,6 +1,6 @@
 package com.board_of_ads.controllers.auth;
 
-import com.board_of_ads.service.interfaces.SocialNetworkService;
+import com.board_of_ads.service.interfaces.OAuthNetworkService;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.SneakyThrows;
@@ -16,8 +16,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.client.RestTemplate;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * Контроллер для авторизации в вконтакте.
@@ -25,10 +23,10 @@ import java.util.Map;
  */
 @Controller
 @RequestMapping("/login/vk")
-public class VkAuthController {
-    private static final Logger logger = LoggerFactory.getLogger(VkAuthController.class);
-    
-    private final SocialNetworkService socialNetworkService;
+public class VKoAuthController {
+
+    private static final Logger logger = LoggerFactory.getLogger(VKoAuthController.class);
+    private final OAuthNetworkService OAuthNetworkService;
 
     @Value("${vk.clientId}")
     private String clientId;
@@ -40,17 +38,11 @@ public class VkAuthController {
     private String accessTokenUri;
     @Value("${vk.scope}")
     private String scope;
-    @Value("${vk.userInfoUri}")
-    private String userInfoUri;
-    @Value("${vk.photoInfoUri}")
-    private String photoInfoUri;
-    @Value("${vk.photoSizeVK}")
-    private String photoSizeVK;
     @Value("${vk.apiVersion}")
     private String apiVersion;
 
-    public VkAuthController(SocialNetworkService socialNetworkService) {
-        this.socialNetworkService = socialNetworkService;
+    public VKoAuthController(OAuthNetworkService OAuthNetworkService) {
+        this.OAuthNetworkService = OAuthNetworkService;
     }
 
     /**
@@ -71,7 +63,7 @@ public class VkAuthController {
 
     /**
      * Посадочная страница куда сервер ВК перенаправляет пользователя с кодом для получения токена.
-     * Получаем тут токен и емейл, проверям есть ли уже такой бользователь в бд, если нет, то создаем.
+     * Получаем тут токен и e-mail, проверяем есть ли уже такой пользователь в бд, если нет, то создаем.
      * Далее авторизуем данного пользователя в секьюрити и отправляем на главную страницу.
      *
      * @param code - Код для получения токена, его даёт сервер ВК.
@@ -97,66 +89,9 @@ public class VkAuthController {
             String vkUserId = String.valueOf(root.path("user_id").intValue());
             String email = root.path("email").textValue();
 
-            socialNetworkService.doAutoLogin(socialNetworkService.findOrCreateUserVK(token, vkUserId, email));
+            OAuthNetworkService.doAutoLogin(OAuthNetworkService.findOrCreateUserVK(token, vkUserId, email));
         }
 
         return "redirect:/";
-    }
-
-    /**
-     * Получает данные о пользователе от АПИ ВК.
-     * Первым запросом достаёт данные, вторым аватар.
-     *
-     * @param token    - Токен для работы с ВК
-     * @param vkUserId - Айди пользователя ВК
-     * @return - map с данными пользователя
-     */
-    @SneakyThrows
-    public Map<String, String> getVKUserInfo(String token, String vkUserId) {
-        Map<String, String> map = new HashMap<>();
-
-        StringBuilder getUserInfoURI = new StringBuilder(userInfoUri).append("?")
-                .append("user_ids=").append(vkUserId).append("&")
-                .append("access_token=").append(token).append("&")
-                .append("v=").append(apiVersion);
-
-        RestTemplate restTemplate = new RestTemplate();
-        ResponseEntity<String> response = restTemplate.getForEntity(getUserInfoURI.toString(), String.class);
-
-        if (response.getStatusCode().equals(HttpStatus.OK)) {
-            ObjectMapper mapper = new ObjectMapper();
-            JsonNode root = mapper.readTree(response.getBody());
-            JsonNode resp = root.path("response");
-
-            map.put("firstName", resp.get(0).get("first_name").textValue());
-            map.put("lastName", resp.get(0).get("last_name").textValue());
-        }
-
-        //  Апи ВК разрешает делать только 3 запроса в секунду для небольших приложений.
-        Thread.sleep(333);
-
-        StringBuilder getUserPhotoURI = new StringBuilder(photoInfoUri).append("?")
-                .append("access_token=").append(token).append("&")
-                .append("v=").append(apiVersion).append("&")
-                .append("owner_id=").append(vkUserId).append("&")
-                .append("album_id=profile");
-
-        response = restTemplate.getForEntity(getUserPhotoURI.toString(), String.class);
-        if (response.getStatusCode().equals(HttpStatus.OK)) {
-            ObjectMapper mapper = new ObjectMapper();
-            JsonNode root = mapper.readTree(response.getBody());
-            JsonNode resp = root.path("response");
-
-            int ItemCount = resp.get("count").intValue();
-            if (ItemCount >= 1) {
-                for (JsonNode node : resp.get("items").get(ItemCount - 1).get("sizes")) {
-                    if (node.get("type").textValue().equals(photoSizeVK)) {
-                        map.put("userPhoto", node.get("url").textValue());
-                    }
-                }
-            }
-        }
-
-        return map;
     }
 }
