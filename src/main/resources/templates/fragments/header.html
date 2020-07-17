@@ -55,7 +55,7 @@
                     </div>
                 </ul>
                 <ul class="navbar-nav sign_up">
-                    <li class="nav-item">
+                    <li class="nav-item" th:if="${user.getClass().getSimpleName() == 'User'}">
                         <a class="nav-link" href="/profile#favorites">
                             <span class="favourites"></span>
                             <svg class="feather feather-heart" fill="none" height="24" stroke="currentColor"
@@ -67,7 +67,7 @@
                             </svg>
                         </a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item" th:if="${user.getClass().getSimpleName() == 'User'}">
                         <a class="nav-link" href="#">
                             <span class="message_box">
                                 <span class="message_icon">
