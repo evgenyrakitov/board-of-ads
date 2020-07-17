@@ -49,4 +49,10 @@ public class Region {
     @Column(name = "beaty_name", length = 50)
     private String beatyName;
 
+    @Column(name = "beaty_name_en", length = 50)
+    private String beatyNameEn;
+
+    @Column(name = "name_en", length = 50)
+    private String nameEn;
+
 }
