@@ -196,6 +196,16 @@ $("#btn-modal-pass-change").click(function (event) {
     }
 });
 
+window.onload = function() {
+    if(sessionStorage.getItem('loaded') === 'true') {
+        let curUrl = '/' + window.location.href.split('/').pop();
+        $(".navbar-nav").find(".active").removeClass("active");
+        $("#top-nav-bar .navbar-nav .nav-item").has("a[href=\"" + curUrl + "\"]").addClass("active");
+    } else {
+        sessionStorage.setItem('loaded', 'true');
+    }
+};
+
 let userId = $('#userId').text();  //нужно взять id user-a с header и сделать запрос
 $(document).ready(function getUnreadMessage() {
     if (userId != "") {
