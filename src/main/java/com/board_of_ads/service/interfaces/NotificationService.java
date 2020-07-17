@@ -3,7 +3,6 @@ package com.board_of_ads.service.interfaces;
 import com.board_of_ads.models.Notification;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.Set;
 
 public interface NotificationService {

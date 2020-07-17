@@ -4,12 +4,14 @@ import com.board_of_ads.models.Category;
 import com.board_of_ads.models.Images;
 import com.board_of_ads.models.Role;
 import com.board_of_ads.models.User;
+import com.board_of_ads.models.Notification;
 import com.board_of_ads.models.kladr.City;
 import com.board_of_ads.models.kladr.Region;
 import com.board_of_ads.models.posting.Posting;
 import com.board_of_ads.models.posting.extra.PostingStatus;
 import com.board_of_ads.service.interfaces.CategoryService;
 import com.board_of_ads.service.interfaces.CityService;
+import com.board_of_ads.service.interfaces.NotificationService;
 import com.board_of_ads.service.interfaces.PostingService;
 import com.board_of_ads.service.interfaces.PostingStatusService;
 import com.board_of_ads.service.interfaces.RegionService;
@@ -19,6 +21,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
+//import javax.management.Notification;
 import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
@@ -35,6 +38,7 @@ public class DataInitializer {
     private final CategoryService categoryService;
     private final PostingService postingService;
     private final PostingStatusService postingStatusService;
+    private final NotificationService notificationService;
 
     @PostConstruct
     private void init() {
@@ -43,6 +47,7 @@ public class DataInitializer {
         initCategories();
         initPostingStatuses();
         initPostings();
+        initNotifications();
     }
 
     private void initRoles() {
@@ -78,6 +83,31 @@ public class DataInitializer {
 
         userService.addUser(userAdmin);
         userService.addUser(userUser);
+    }
+
+    private void initNotifications() {
+        if(notificationService.getAllNotifications().size() != 0) { //хм. тут бы неплохо что то типа select max(id)
+            return;
+        }
+
+        User userUser = userService.findUserByEmail("user@gmail.com");
+        User adminUser = userService.findUserByEmail("admin@gmail.com");
+
+        Notification notification = new Notification();
+        notification.setTitle("Тестовая нотификация");
+        notification.setContent("Я проснулся. Или нет? WHAT IS LIFE? A FRENZY. WHAT IS LIFE? AN ILLUSION. " +
+                "A SHADOW OF A FICTION.  ALL LIFE IS A DREAM.");
+        notification.setType(Notification.Type.News);
+        notification.setRead(false);
+        notification.setUser(adminUser);
+        notificationService.addNotification(notification);
+
+        notification = new Notification();
+        notification.setTitle("Тоже тестовая нотификация.");
+        notification.setContent("ты не одмин. мне очень жаль, так бывает.");
+        notification.setType(Notification.Type.TipsOfAvito);
+        notification.setUser(userUser);
+        notificationService.addNotification(notification);
     }
 
     private void initPostingStatuses() {
