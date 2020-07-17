@@ -5,7 +5,6 @@ import com.board_of_ads.models.Images;
 import com.board_of_ads.models.Message;
 import com.board_of_ads.models.User;
 import com.board_of_ads.models.posting.extra.PostingStatus;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -64,9 +63,9 @@ public class Posting {
     @NonNull
     @ManyToOne(fetch = FetchType.LAZY)
     @Fetch(FetchMode.JOIN)
+    @JoinColumn(name = "user_id")
     private User user;
-
-    @ManyToMany(fetch = FetchType.LAZY, mappedBy = "favoritePostings")
+    @ManyToMany(mappedBy = "favoritePostings", fetch = FetchType.LAZY)
     private Set<User> users;
 
     @NonNull
@@ -86,7 +85,8 @@ public class Posting {
     @Column(name = "image_path")
     private Set<Images> imagePath;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "posting", cascade = CascadeType.ALL)
+    @EqualsAndHashCode.Exclude @ToString.Exclude
     private Set<Message> messages;
 
 }

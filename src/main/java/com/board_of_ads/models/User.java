@@ -72,14 +72,14 @@ public class User implements UserDetails {
     )
     @EqualsAndHashCode.Exclude @ToString.Exclude
     private Set<Posting> favoritePostings;
-
-    @OneToMany(cascade = {CascadeType.REFRESH})
+    @OneToMany(mappedBy = "user", cascade = {CascadeType.REFRESH})
+    @EqualsAndHashCode.Exclude @ToString.Exclude
     private Set<Posting> userPostings;
 
     @NonNull
     private String userIcons;
-
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "author",cascade = {CascadeType.REFRESH})
+    @EqualsAndHashCode.Exclude @ToString.Exclude
     private Set<Message> messages;
 
 
