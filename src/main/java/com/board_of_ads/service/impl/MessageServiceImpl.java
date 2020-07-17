@@ -2,7 +2,7 @@ package com.board_of_ads.service.impl;
 
 import com.board_of_ads.models.Message;
 import com.board_of_ads.repository.MessageRepository;
-import com.avito.service.interfaces.MessageService;
+import com.board_of_ads.service.interfaces.MessageService;
 import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

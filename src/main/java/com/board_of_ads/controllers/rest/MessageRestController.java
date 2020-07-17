@@ -1,6 +1,6 @@
 package com.board_of_ads.controllers.rest;
 
-import com.avito.service.interfaces.MessageService;
+import com.board_of_ads.service.interfaces.MessageService;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
