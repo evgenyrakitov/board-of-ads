@@ -5,8 +5,6 @@
 
 /* SCRIPT FOR REGION TABLE */
 INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`)
-VALUES (0, '0000', '000000', 'Вся Россия', '79000000000', '', '0', '0100000000000');
-INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`)
 VALUES (1, '0100', '385000', 'Адыгея', '79000000000', 'Респ', '0', '0100000000000');
 INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`)
 VALUES (2, '0200', '452000', 'Башкортостан', '80000000000', 'Респ', '0', '0200000000000');
