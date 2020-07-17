@@ -2,6 +2,7 @@ package com.board_of_ads.configs;
 
 import com.board_of_ads.models.Category;
 import com.board_of_ads.models.Images;
+import com.board_of_ads.models.Message;
 import com.board_of_ads.models.Role;
 import com.board_of_ads.models.User;
 import com.board_of_ads.models.kladr.City;
@@ -10,6 +11,7 @@ import com.board_of_ads.models.posting.Posting;
 import com.board_of_ads.models.posting.extra.PostingStatus;
 import com.board_of_ads.service.interfaces.CategoryService;
 import com.board_of_ads.service.interfaces.CityService;
+import com.board_of_ads.service.interfaces.MessageService;
 import com.board_of_ads.service.interfaces.PostingService;
 import com.board_of_ads.service.interfaces.PostingStatusService;
 import com.board_of_ads.service.interfaces.RegionService;
@@ -19,6 +21,8 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
+import java.time.LocalDateTime;
+import java.time.Month;
 import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
@@ -35,6 +39,7 @@ public class DataInitializer {
     private final CategoryService categoryService;
     private final PostingService postingService;
     private final PostingStatusService postingStatusService;
+    private final MessageService messageService;
 
     @PostConstruct
     private void init() {
@@ -43,6 +48,79 @@ public class DataInitializer {
         initCategories();
         initPostingStatuses();
         initPostings();
+    }
+
+    private void initMessages() {
+        if (messageService.getAllMessage().size() != 0) {
+            return;
+        }
+
+        // Диалог по объявлению №1. Две стороны.
+        Message message = new Message();
+        message.setText("Вопрос коттедж 1");
+        message.setAuthor(userService.findUserByEmail("test.email.1@gmail.com"));
+        message.setDate(LocalDateTime.of(2020, Month.NOVEMBER, 1, 1, 1));
+        message.setPosting(postingService.getPostingById(1L));
+        message.setReadStatus(Message.ReadStatus.NOT_READ);
+        messageService.addMessage(message);
+
+        message = new Message();
+        message.setText("Ответ коттедж 1");
+        message.setAuthor(userService.findUserByEmail("admin@gmail.com"));
+        message.setDate(LocalDateTime.of(2020, Month.NOVEMBER, 1, 2, 2));
+        message.setPosting(postingService.getPostingById(1L));
+        messageService.addMessage(message);
+
+        message = new Message();
+        message.setText("Вопрос коттедж 2");
+        message.setAuthor(userService.findUserByEmail("test.email.1@gmail.com"));
+        message.setDate(LocalDateTime.of(2020, Month.NOVEMBER, 2, 1, 1));
+        message.setPosting(postingService.getPostingById(1L));
+        messageService.addMessage(message);
+
+        message = new Message();
+        message.setText("Ответ коттедж 2. Окончание диалога");
+        message.setAuthor(userService.findUserByEmail("admin@gmail.com"));
+        message.setDate(LocalDateTime.of(2020, Month.NOVEMBER, 3, 2, 2));
+        message.setPosting(postingService.getPostingById(1L));
+        messageService.addMessage(message);
+
+        //Диалог по объявлению №3. Дом 2 стороны
+        message = new Message();
+        message.setText("Вопрос дом 1");
+        message.setAuthor(userService.findUserByEmail("admin@gmail.com"));
+        message.setDate(LocalDateTime.of(2020, Month.NOVEMBER, 4, 1, 1));
+        message.setPosting(postingService.getPostingById(3L));
+        messageService.addMessage(message);
+
+        message = new Message();
+        message.setText("Ответ дом 1");
+        message.setAuthor(userService.findUserByEmail("test.email.1@gmail.com"));
+        message.setDate(LocalDateTime.of(2020, Month.NOVEMBER, 4, 2, 2));
+        message.setPosting(postingService.getPostingById(3L));
+        messageService.addMessage(message);
+
+        message = new Message();
+        message.setText("Вопрос дом 2");
+        message.setAuthor(userService.findUserByEmail("admin@gmail.com"));
+        message.setDate(LocalDateTime.of(2020, Month.NOVEMBER, 5, 1, 1));
+        message.setPosting(postingService.getPostingById(3L));
+        messageService.addMessage(message);
+
+        message = new Message();
+        message.setText("Ответ дом 2. Окончание диалога");
+        message.setAuthor(userService.findUserByEmail("test.email.1@gmail.com"));
+        message.setDate(LocalDateTime.of(2020, Month.NOVEMBER, 6, 2, 2));
+        message.setPosting(postingService.getPostingById(3L));
+        messageService.addMessage(message);
+
+        //Сообщение по объявлению №12. Без ответа.
+        message = new Message();
+        message.setText("Вопрос комбинезон 1");
+        message.setAuthor(userService.findUserByEmail("admin@gmail.com"));
+        message.setDate(LocalDateTime.of(2020, Month.NOVEMBER, 15, 1, 1));
+        message.setPosting(postingService.getPostingById(12L));
+        messageService.addMessage(message);
     }
 
     private void initRoles() {
