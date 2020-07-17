@@ -1,3 +1,13 @@
+.locationQuickButton {
+    text-decoration: none;
+    /*color: #A9A9A9;*/
+}
+
+a.locationQuickButton:hover {
+    color: #0af;
+    text-shadow: 0 0 1px #FF4500;
+}
+
 .main-location-3j9by {
     width: 250px;
 }

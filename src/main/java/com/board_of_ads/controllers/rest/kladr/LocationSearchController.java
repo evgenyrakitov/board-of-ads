@@ -32,6 +32,31 @@ public class LocationSearchController {
         List<City> cityList = cityService.findAllByName(query);
         List<LocationItemDTO> locationItemDTOList = new ArrayList<>();
 
+        for (City city : cityList) {
+            LocationItemDTO locationItemDTO = new LocationItemDTO();
+            locationItemDTO.setCityId(city.getId());
+            locationItemDTO.setRegionId(city.getRegion().getId());
+            locationItemDTO.setShortName(city.getName());
+            locationItemDTO.setFullName(
+                    new StringBuilder(city.getShortType())
+                            .append(" ")
+                            .append(city.getName())
+                            .append(" (")
+                            .append(city.getRegion().getBeatyName())
+                            .append(")")
+                            .toString());
+            locationItemDTOList.add(locationItemDTO);
+        }
+
+        for (Region region : regionList) {
+            LocationItemDTO locationItemDTO = new LocationItemDTO();
+            locationItemDTO.setCityId(-1);
+            locationItemDTO.setRegionId(region.getId());
+            locationItemDTO.setShortName(region.getName());
+            locationItemDTO.setFullName(region.getBeatyName());
+            locationItemDTOList.add(locationItemDTO);
+        }
+
         return ResponseEntity.ok(locationItemDTOList);
     }
 }

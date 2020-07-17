@@ -55,8 +55,25 @@ $("#location-list").click(function (event) {
     $("#location-search").attr('data', id);
     $("#location-search").val(name);
     $("#location-list").empty();
+});
 
-})
+const location_quick_search_click = function (event) {
+    let regionId = event.currentTarget.getAttribute('data-region-id');
+    let cityId = event.currentTarget.getAttribute('data-city-id');
+    let LocationCaption = event.currentTarget.textContent;
+
+    $("#search-location-field-text").text(LocationCaption);
+    $("#locationInputCityId").val(cityId);
+    $("#locationInputRegionId").val(regionId);
+
+    $("#location-list").empty();
+    document.getElementById("btn-search").dispatchEvent(new Event('click'));
+}
+
+$("#location-show-russia").click(event => location_quick_search_click(event));
+$("#location-show-region").click(event => location_quick_search_click(event));
+$("#location-show-city").click(event => location_quick_search_click(event));
+
 
 $("#location-close").click(function () {
     let dataId = $("#location-search").attr("data");

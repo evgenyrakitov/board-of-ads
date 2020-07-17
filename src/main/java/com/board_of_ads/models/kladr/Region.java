@@ -46,4 +46,7 @@ public class Region {
     @Column(name = "code", length = 13)
     private String code;
 
+    @Column(name = "beaty_name", length = 50)
+    private String beatyName;
+
 }

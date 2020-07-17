@@ -118,11 +118,12 @@ public class PostingRestController {
 
     @GetMapping("/search")
     public ResponseEntity<List<Posting>> getSearchForm(
-                                                       @RequestParam String category,
-                                                       @RequestParam String search,
-                                                       @RequestParam String regionCity,
-                                                       @RequestParam(required = false) String ch1,
-                                                       @RequestParam(required = false) String ch2) {
+            @RequestParam String category,
+            @RequestParam String search,
+            @RequestParam Long searchCityId,
+            @RequestParam Long searchRegionId,
+            @RequestParam(required = false) String ch1,
+            @RequestParam(required = false) String ch2) {
         Category categ = null;
         Region region = null;
         City city = null;
@@ -131,15 +132,15 @@ public class PostingRestController {
 
 
         if (category.length() != 0) {
-                categ = categoryService.findCategoryById(parseLong(category));
+            categ = categoryService.findCategoryById(parseLong(category));
         }
 
-        if (regionCity.length() != 0) {
-            for (String reg : regionCity.split(" ")) {
-                city = cityService.findCityByName(reg);
-                if (city != null || region != null) break;
-                region = regionService.findRegionByName(reg);
-            }
+        if (searchRegionId != null && searchRegionId > 0) {
+            region = regionService.findById(searchRegionId);
+        }
+
+        if (searchCityId != null && searchCityId > 0) {
+            city = cityService.findById(searchCityId);
         }
 
         boolean onlyTitle = ch1 != null;

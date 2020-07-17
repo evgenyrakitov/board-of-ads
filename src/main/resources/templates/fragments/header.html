@@ -176,7 +176,6 @@
     <div class=" header-container search">
         <form class="header-element" action=""  id="search-form" >
             <div class="form-row justify-content-center">
-
                 <select class="form-control col-6 col-sm-6  col-md-3 col-lg-3" id="findFromCategory" name="category"
                         style="cursor: pointer;">
                     <option selected value="" th:text="#{header.any_category}">Любая категория</option>
@@ -188,14 +187,12 @@
                            class="form-control" name="search" id="search-input">
                 </div>
 
-                <!--                <select id="location" class="form-control col-3 col-sm-3  col-md-3 col-lg-3" name="regionCity">-->
-                <!--                    <option selected value="">По всей России</option>-->
-                <!--                </select>-->
                 <div class="main-select-2pf7p main-location-3j9by search-location" id="search-location-field">
                     <div class="main-text-2PaZG" id="search-location-field-text" style="margin-top: 3px;">По всей
                         России
                     </div>
-                    <input id="locationInput" name="regionCity" type="hidden" value="">
+                    <input id="locationInputCityId" name="searchCityId" type="hidden" value="">
+                    <input id="locationInputRegionId" name="searchRegionId" type="hidden" value="">
                 </div>
 
                 <div class="col-8 col-sm-8 col-md-2 col-lg-1">
@@ -206,12 +203,10 @@
             <div class="form-row justify-content-center">
                 <div class="form-check form-check-inline">
 
-
                     <input class="form-check-input" type="checkbox" id="inlineCheckbox1" name="ch1">
 
                     <label class="form-check-label" for="inlineCheckbox1"
                            th:text="#{header.only_in_titles}">только в названиях</label>
-
 
                 </div>
                 <div class="form-check form-check-inline">
@@ -239,6 +234,39 @@
                     </button>
                 </div>
                 <div class="modal-body text-center">
+                    <div class="row" style="margin-bottom: 10px; margin-left: 0px;">
+                        <div class="block">
+                            <button class="btn locationQuickButton" data-city-id="" data-dismiss="modal"
+                                    data-region-id=""
+                                    id="location-show-russia"
+                                    style="height: 40px; background: #F4F4F4;"
+                                    th:text="'По всей России'"
+                                    type="button">По всей России
+                            </button>
+                        </div>
+                        <div class="block"
+                             th:if="${user.getClass().getSimpleName() == 'User' && user.getRegion() != null}">
+                            <button class="btn locationQuickButton" data-city-id="" data-dismiss="modal"
+                                    data-region-id=""
+                                    id="location-show-region"
+                                    style="height: 40px; margin-left: 10px; background: #F4F4F4;"
+                                    th:attr="data-region-id=${user.getRegion().getId()}"
+                                    th:text="${user.getRegion().getBeatyName()}"
+                                    type="button">My Region
+                            </button>
+                        </div>
+                        <div class="block"
+                             th:if="${user.getClass().getSimpleName() == 'User' && user.getCity() != null}">
+                            <button class="btn locationQuickButton" data-city-id="" data-dismiss="modal"
+                                    data-region-id=""
+                                    id="location-show-city"
+                                    style="height: 40px; margin-left: 10px; background: #F4F4F4;"
+                                    th:attr="data-city-id=${user.getCity().getId()}, data-region-id=${user.getCity().getRegion().getId()}"
+                                    th:text="${user.getCity().getName()}"
+                                    type="button">My City
+                            </button>
+                        </div>
+                    </div>
                     <form role="form">
                         <div class="form-group padding">
                             <input autocomplete="off" class="form-control" id="location-search" type="text">
