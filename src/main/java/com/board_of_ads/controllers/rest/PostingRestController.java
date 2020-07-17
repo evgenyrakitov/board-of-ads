@@ -7,7 +7,6 @@ import com.board_of_ads.models.dto.ProfilePostingDTO;
 import com.board_of_ads.models.kladr.City;
 import com.board_of_ads.models.kladr.Region;
 import com.board_of_ads.models.posting.Posting;
-import com.board_of_ads.repository.custom.PostingRepositoryCustomImpl;
 import com.board_of_ads.service.interfaces.CategoryService;
 import com.board_of_ads.service.interfaces.CityService;
 import com.board_of_ads.service.interfaces.PostingService;
