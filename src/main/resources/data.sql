@@ -4,375 +4,374 @@
 */
 
 /* SCRIPT FOR REGION TABLE */
-INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beaty_name`,
-                            `beaty_name_en`, `name_en`)
+INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beauty_name`,
+                            `beauty_name_en`, `name_en`)
 VALUES (1, '0100', '385000', 'Адыгея', '79000000000', 'Респ', '0', '0100000000000', 'Республика Адыгея',
         'Republic of Adygea', 'Adygea');
-INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beaty_name`,
-                            `beaty_name_en`, `name_en`)
+INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beauty_name`,
+                            `beauty_name_en`, `name_en`)
 VALUES (2, '0200', '452000', 'Башкортостан', '80000000000', 'Респ', '0', '0200000000000', 'Республика Башкортостан',
         'Republic of Bashkortostan', 'Bashkortostan');
-INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beaty_name`,
-                            `beaty_name_en`, `name_en`)
+INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beauty_name`,
+                            `beauty_name_en`, `name_en`)
 VALUES (3, '0300', '671000', 'Бурятия', '81000000000', 'Респ', '0', '0300000000000', 'Республика Бурятия',
         'The Republic of Buryatia', 'Buryatia');
-INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beaty_name`,
-                            `beaty_name_en`, `name_en`)
+INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beauty_name`,
+                            `beauty_name_en`, `name_en`)
 VALUES (4, '0400', '649000', 'Алтай', '84000000000', 'Респ', '0', '0400000000000', 'Республика Алтай', 'Altai Republic',
         'Altai');
-INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beaty_name`,
-                            `beaty_name_en`, `name_en`)
+INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beauty_name`,
+                            `beauty_name_en`, `name_en`)
 VALUES (5, '0500', '368000', 'Дагестан', '82000000000', 'Респ', '0', '0500000000000', 'Республика Дагестан',
         'The Republic of Dagestan', 'Dagestan');
-INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beaty_name`,
-                            `beaty_name_en`, `name_en`)
+INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beauty_name`,
+                            `beauty_name_en`, `name_en`)
 VALUES (6, '0600', '386000', 'Ингушетия', '26000000000', 'Респ', '0', '0600000000000', 'Республика Ингушетия',
         'The Republic of Ingushetia', 'Ingushetia');
-INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beaty_name`,
-                            `beaty_name_en`, `name_en`)
+INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beauty_name`,
+                            `beauty_name_en`, `name_en`)
 VALUES (7, '0700', '', 'Кабардино-Балкарская', '83000000000', 'Респ', '0', '0700000000000',
         'Кабардино-Балкарская Республика', 'Kabardino-Balkarian Republic', 'Kabardino-Balkarian');
-INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beaty_name`,
-                            `beaty_name_en`, `name_en`)
+INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beauty_name`,
+                            `beauty_name_en`, `name_en`)
 VALUES (8, '0800', '', 'Калмыкия', '85000000000', 'Респ', '0', '0800000000000', 'Республика Калмыкия',
         'Republic of Kalmykia', 'Kalmykia');
-INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beaty_name`,
-                            `beaty_name_en`, `name_en`)
+INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beauty_name`,
+                            `beauty_name_en`, `name_en`)
 VALUES (9, '0900', '', 'Карачаево-Черкесская', '91000000000', 'Респ', '0', '0900000000000',
         'Карачаево-Черкесская Республика', 'Karachay-Cherkess Republic', 'Karachay-Cherkesskaya');
-INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beaty_name`,
-                            `beaty_name_en`, `name_en`)
+INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beauty_name`,
+                            `beauty_name_en`, `name_en`)
 VALUES (10, '1000', '', 'Карелия', '86000000000', 'Респ', '0', '1000000000000', 'Республика Карелия',
         'Republic of Karelia', 'Karelia');
-INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beaty_name`,
-                            `beaty_name_en`, `name_en`)
+INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beauty_name`,
+                            `beauty_name_en`, `name_en`)
 VALUES (11, '1100', '', 'Коми', '87000000000', 'Респ', '0', '1100000000000', 'Республика Коми', 'Komi Republic',
         'Komi');
-INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beaty_name`,
-                            `beaty_name_en`, `name_en`)
+INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beauty_name`,
+                            `beauty_name_en`, `name_en`)
 VALUES (12, '1200', '', 'Марий Эл', '88000000000', 'Респ', '0', '1200000000000', 'Республика Марий Эл',
         'Mari El Republic', 'Mari El Republic');
-INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beaty_name`,
-                            `beaty_name_en`, `name_en`)
+INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beauty_name`,
+                            `beauty_name_en`, `name_en`)
 VALUES (13, '1300', '', 'Мордовия', '89000000000', 'Респ', '0', '1300000000000', 'Республика Мордовия',
         'The Republic of Mordovia', 'Mordovia');
-INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beaty_name`,
-                            `beaty_name_en`, `name_en`)
+INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beauty_name`,
+                            `beauty_name_en`, `name_en`)
 VALUES (14, '1400', '', 'Саха, Якутия', '98000000000', 'Респ', '0', '1400000000000', 'Республика Саха (Якутия)',
         'The Republic of Sakha (Yakutia)', 'Sakha, Yakutia');
-INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beaty_name`,
-                            `beaty_name_en`, `name_en`)
+INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beauty_name`,
+                            `beauty_name_en`, `name_en`)
 VALUES (15, '1500', '', 'Северная Осетия - Алания', '90000000000', 'Респ', '0', '1500000000000',
         'Республика Северная Осетия - Алания', 'Republic of North Ossetia - Alania', 'North Ossetia Alania');
-INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beaty_name`,
-                            `beaty_name_en`, `name_en`)
+INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beauty_name`,
+                            `beauty_name_en`, `name_en`)
 VALUES (16, '1600', '420000', 'Татарстан', '92000000000', 'Респ', '0', '1600000000000', 'Республика Татарстан',
         'Republic of Tatarstan', 'Tatarstan');
-INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beaty_name`,
-                            `beaty_name_en`, `name_en`)
+INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beauty_name`,
+                            `beauty_name_en`, `name_en`)
 VALUES (17, '1700', '660000', 'Тыва', '93000000000', 'Респ', '0', '1700000000000', 'Республика Тыва', 'Tyva Republic',
         'Tyva');
-INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beaty_name`,
-                            `beaty_name_en`, `name_en`)
+INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beauty_name`,
+                            `beauty_name_en`, `name_en`)
 VALUES (18, '1800', '', 'Удмуртская', '94000000000', 'Респ', '0', '1800000000000', 'Удмуртская Республика',
         'Udmurt republic', 'Udmurt');
-INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beaty_name`,
-                            `beaty_name_en`, `name_en`)
+INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beauty_name`,
+                            `beauty_name_en`, `name_en`)
 VALUES (19, '1900', '655000', 'Хакасия', '95000000000', 'Респ', '0', '1900000000000', 'Республика Хакасия',
         'The Republic of Khakassia', 'Khakassia');
-INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beaty_name`,
-                            `beaty_name_en`, `name_en`)
+INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beauty_name`,
+                            `beauty_name_en`, `name_en`)
 VALUES (20, '2000', '', 'Чеченская', '96000000000', 'Респ', '0', '2000000000000', 'Чеченская Республика',
         'Chechen Republic', 'Chechen');
-INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beaty_name`,
-                            `beaty_name_en`, `name_en`)
+INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beauty_name`,
+                            `beauty_name_en`, `name_en`)
 VALUES (21, '2100', '', 'Чувашская Республика', '97000000000', 'Чувашия', '0', '2100000000000', 'Чувашия', 'Chuvashia',
         'Chuvash Republic');
-INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beaty_name`,
-                            `beaty_name_en`, `name_en`)
+INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beauty_name`,
+                            `beauty_name_en`, `name_en`)
 VALUES (22, '2200', '', 'Алтайский', '01000000000', 'край', '0', '2200000000000', 'Алтайский край', 'Altai region',
         'Altaic');
-INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beaty_name`,
-                            `beaty_name_en`, `name_en`)
+INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beauty_name`,
+                            `beauty_name_en`, `name_en`)
 VALUES (23, '2300', '', 'Краснодарский', '03000000000', 'край', '0', '2300000000000', 'Краснодарский край',
         'Krasnodar region', 'Krasnodar');
-INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beaty_name`,
-                            `beaty_name_en`, `name_en`)
+INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beauty_name`,
+                            `beauty_name_en`, `name_en`)
 VALUES (24, '2400', '', 'Красноярский', '04000000000', 'край', '0', '2400000000000', 'Красноярский край',
         'Krasnoyarsk region', 'Krasnoyarsk');
-INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beaty_name`,
-                            `beaty_name_en`, `name_en`)
+INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beauty_name`,
+                            `beauty_name_en`, `name_en`)
 VALUES (25, '2500', '', 'Приморский', '05000000000', 'край', '0', '2500000000000', 'Приморский край', 'Primorsky Krai',
         'Seaside');
-INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beaty_name`,
-                            `beaty_name_en`, `name_en`)
+INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beauty_name`,
+                            `beauty_name_en`, `name_en`)
 VALUES (26, '2600', '', 'Ставропольский', '07000000000', 'край', '0', '2600000000000', 'Ставропольский край',
         'Stavropol region', 'Stavropol');
-INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beaty_name`,
-                            `beaty_name_en`, `name_en`)
+INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beauty_name`,
+                            `beauty_name_en`, `name_en`)
 VALUES (27, '2700', '', 'Хабаровский', '08000000000', 'край', '0', '2700000000000', 'Хабаровский край',
         'Khabarovsk region', 'Khabarovsk');
-INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beaty_name`,
-                            `beaty_name_en`, `name_en`)
+INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beauty_name`,
+                            `beauty_name_en`, `name_en`)
 VALUES (28, '2800', '675000', 'Амурская', '10000000000', 'обл', '0', '2800000000000', 'Амурская область', 'Amur region',
         'Amurskaya');
-INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beaty_name`,
-                            `beaty_name_en`, `name_en`)
+INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beauty_name`,
+                            `beauty_name_en`, `name_en`)
 VALUES (29, '2900', '', 'Архангельская', '11000000000', 'обл', '0', '2900000000000', 'Архангельская область',
         'Arhangelsk region', 'Arkhangelskaya');
-INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beaty_name`,
-                            `beaty_name_en`, `name_en`)
+INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beauty_name`,
+                            `beauty_name_en`, `name_en`)
 VALUES (30, '3000', '', 'Астраханская', '12000000000', 'обл', '0', '3000000000000', 'Астраханская область',
         'Astrakhan region', 'Astrakhanskaya');
-INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beaty_name`,
-                            `beaty_name_en`, `name_en`)
+INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beauty_name`,
+                            `beauty_name_en`, `name_en`)
 VALUES (31, '3100', '', 'Белгородская', '14000000000', 'обл', '0', '3100000000000', 'Белгородская область',
         'Belgorod region', 'Belgorodskaya');
-INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beaty_name`,
-                            `beaty_name_en`, `name_en`)
+INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beauty_name`,
+                            `beauty_name_en`, `name_en`)
 VALUES (32, '3200', '', 'Брянская', '15000000000', 'обл', '0', '3200000000000', 'Брянская область', 'Bryansk region',
         'Bryanskaya');
-INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beaty_name`,
-                            `beaty_name_en`, `name_en`)
+INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beauty_name`,
+                            `beauty_name_en`, `name_en`)
 VALUES (33, '3300', '', 'Владимирская', '17000000000', 'обл', '0', '3300000000000', 'Владимирская область',
         'Vladimir region', 'Vladimirskaya');
-INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beaty_name`,
-                            `beaty_name_en`, `name_en`)
+INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beauty_name`,
+                            `beauty_name_en`, `name_en`)
 VALUES (34, '3400', '', 'Волгоградская', '18000000000', 'обл', '0', '3400000000000', 'Волгоградская область',
         'Volgograd region', 'Volgogradskaya');
-INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beaty_name`,
-                            `beaty_name_en`, `name_en`)
+INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beauty_name`,
+                            `beauty_name_en`, `name_en`)
 VALUES (35, '3500', '', 'Вологодская', '19000000000', 'обл', '0', '3500000000000', 'Вологодская область',
         'Vologodskaya Oblast', 'Vologodskaya');
-INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beaty_name`,
-                            `beaty_name_en`, `name_en`)
+INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beauty_name`,
+                            `beauty_name_en`, `name_en`)
 VALUES (36, '3600', '', 'Воронежская', '20000000000', 'обл', '0', '3600000000000', 'Воронежская область',
         'Voronezh region', 'Voronezh');
-INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beaty_name`,
-                            `beaty_name_en`, `name_en`)
+INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beauty_name`,
+                            `beauty_name_en`, `name_en`)
 VALUES (37, '3700', '', 'Ивановская', '24000000000', 'обл', '0', '3700000000000', 'Ивановская область',
         'Ivanovo region', 'Ivanovskaya');
-INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beaty_name`,
-                            `beaty_name_en`, `name_en`)
+INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beauty_name`,
+                            `beauty_name_en`, `name_en`)
 VALUES (38, '3800', '', 'Иркутская', '25000000000', 'обл', '0', '3800000000000', 'Иркутская область', 'Irkutsk region',
         'Irkutskaya');
-INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beaty_name`,
-                            `beaty_name_en`, `name_en`)
+INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beauty_name`,
+                            `beauty_name_en`, `name_en`)
 VALUES (39, '3900', '', 'Калининградская', '27000000000', 'обл', '0', '3900000000000', 'Калининградская область',
         'Kaliningrad region', 'Kaliningradskaya');
-INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beaty_name`,
-                            `beaty_name_en`, `name_en`)
+INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beauty_name`,
+                            `beauty_name_en`, `name_en`)
 VALUES (40, '4000', '', 'Калужская', '29000000000', 'обл', '0', '4000000000000', 'Калужская область', 'Kaluga region',
         'Kaluzhskaya');
-INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beaty_name`,
-                            `beaty_name_en`, `name_en`)
+INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beauty_name`,
+                            `beauty_name_en`, `name_en`)
 VALUES (41, '4100', '', 'Камчатский', '30000000000', 'край', '0', '4100000000000', 'Камчатский край', 'Kamchatka Krai',
         'Kamchatsky');
-INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beaty_name`,
-                            `beaty_name_en`, `name_en`)
+INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beauty_name`,
+                            `beauty_name_en`, `name_en`)
 VALUES (42, '4200', '', 'Кемеровская', '32000000000', 'обл', '0', '4200000000000', 'Кузбасс', 'Kuzbass',
         'Kemerovskaya');
-INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beaty_name`,
-                            `beaty_name_en`, `name_en`)
+INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beauty_name`,
+                            `beauty_name_en`, `name_en`)
 VALUES (43, '4300', '610000', 'Кировская', '33000000000', 'обл', '0', '4300000000000', 'Кировская область',
         'Kirov region', 'Kirovskaya');
-INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beaty_name`,
-                            `beaty_name_en`, `name_en`)
+INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beauty_name`,
+                            `beauty_name_en`, `name_en`)
 VALUES (44, '4400', '', 'Костромская', '34000000000', 'обл', '0', '4400000000000', 'Костромская область',
         'Kostroma region', 'Kostromskaya');
-INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beaty_name`,
-                            `beaty_name_en`, `name_en`)
+INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beauty_name`,
+                            `beauty_name_en`, `name_en`)
 VALUES (45, '4500', '641000', 'Курганская', '37000000000', 'обл', '0', '4500000000000', 'Курганская область',
         'Kurgan region', 'Kurgan');
-INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beaty_name`,
-                            `beaty_name_en`, `name_en`)
+INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beauty_name`,
+                            `beauty_name_en`, `name_en`)
 VALUES (46, '4600', '', 'Курская', '38000000000', 'обл', '0', '4600000000000', 'Курская область', 'Kursk region',
         'Kurskaya');
-INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beaty_name`,
-                            `beaty_name_en`, `name_en`)
+INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beauty_name`,
+                            `beauty_name_en`, `name_en`)
 VALUES (47, '4700', '', 'Ленинградская', '41000000000', 'обл', '0', '4700000000000', 'Ленинградская область',
         'Leningrad region', 'Leningradskaya');
-INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beaty_name`,
-                            `beaty_name_en`, `name_en`)
+INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beauty_name`,
+                            `beauty_name_en`, `name_en`)
 VALUES (48, '4800', '', 'Липецкая', '42000000000', 'обл', '0', '4800000000000', 'Липецкая область', 'Lipetsk region',
         'Lipetskaya');
-INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beaty_name`,
-                            `beaty_name_en`, `name_en`)
+INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beauty_name`,
+                            `beauty_name_en`, `name_en`)
 VALUES (49, '4900', '', 'Магаданская', '44000000000', 'обл', '0', '4900000000000', 'Магаданская область',
         'Magadan Region', 'Magadanskaya');
-INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beaty_name`,
-                            `beaty_name_en`, `name_en`)
+INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beauty_name`,
+                            `beauty_name_en`, `name_en`)
 VALUES (50, '5000', '', 'Московская', '46000000000', 'обл', '0', '5000000000000', 'Московская область', 'Moscow region',
         'Moscow');
-INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beaty_name`,
-                            `beaty_name_en`, `name_en`)
+INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beauty_name`,
+                            `beauty_name_en`, `name_en`)
 VALUES (51, '5100', '', 'Мурманская', '47000000000', 'обл', '0', '5100000000000', 'Мурманская область',
         'Murmansk region', 'Murmanskaya');
-INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beaty_name`,
-                            `beaty_name_en`, `name_en`)
+INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beauty_name`,
+                            `beauty_name_en`, `name_en`)
 VALUES (52, '5200', '', 'Нижегородская', '22000000000', 'обл', '0', '5200000000000', 'Нижегородская область',
         'Nizhny Novgorod Region', 'Nizhegorodskaya');
-INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beaty_name`,
-                            `beaty_name_en`, `name_en`)
+INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beauty_name`,
+                            `beauty_name_en`, `name_en`)
 VALUES (53, '5300', '', 'Новгородская', '49000000000', 'обл', '0', '5300000000000', 'Новгородская область',
         'Novgorod region', 'Novgorodskaya');
-INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beaty_name`,
-                            `beaty_name_en`, `name_en`)
+INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beauty_name`,
+                            `beauty_name_en`, `name_en`)
 VALUES (54, '5400', '', 'Новосибирская', '50000000000', 'обл', '0', '5400000000000', 'Новосибирская область',
         'Novosibirsk region', 'Novosibirskaya');
-INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beaty_name`,
-                            `beaty_name_en`, `name_en`)
+INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beauty_name`,
+                            `beauty_name_en`, `name_en`)
 VALUES (55, '5500', '', 'Омская', '52000000000', 'обл', '0', '5500000000000', 'Омская область', 'Omsk region',
         'Omskaya');
-INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beaty_name`,
-                            `beaty_name_en`, `name_en`)
+INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beauty_name`,
+                            `beauty_name_en`, `name_en`)
 VALUES (56, '5600', '460000', 'Оренбургская', '53000000000', 'обл', '0', '5600000000000', 'Оренбургская область',
         'Orenburg region', 'Orenburgskaya');
-INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beaty_name`,
-                            `beaty_name_en`, `name_en`)
+INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beauty_name`,
+                            `beauty_name_en`, `name_en`)
 VALUES (57, '5700', '', 'Орловская', '54000000000', 'обл', '0', '5700000000000', 'Орловская область', 'Oryol Region',
         'Orlovskaya');
-INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beaty_name`,
-                            `beaty_name_en`, `name_en`)
+INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beauty_name`,
+                            `beauty_name_en`, `name_en`)
 VALUES (58, '5800', '', 'Пензенская', '56000000000', 'обл', '0', '5800000000000', 'Пензенская область', 'Penza region',
         'Penza');
-INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beaty_name`,
-                            `beaty_name_en`, `name_en`)
+INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beauty_name`,
+                            `beauty_name_en`, `name_en`)
 VALUES (59, '5900', '', 'Пермский', '57000000000', 'край', '0', '5900000000000', 'Пермский край', 'Perm Territory',
         'Permian');
-INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beaty_name`,
-                            `beaty_name_en`, `name_en`)
+INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beauty_name`,
+                            `beauty_name_en`, `name_en`)
 VALUES (60, '6000', '', 'Псковская', '58000000000', 'обл', '0', '6000000000000', 'Псковская область', 'Pskov region',
         'Pskovskaya');
-INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beaty_name`,
-                            `beaty_name_en`, `name_en`)
+INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beauty_name`,
+                            `beauty_name_en`, `name_en`)
 VALUES (61, '6100', '', 'Ростовская', '60000000000', 'обл', '0', '6100000000000', 'Ростовская область', 'Rostov region',
         'Rostovskaya');
-INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beaty_name`,
-                            `beaty_name_en`, `name_en`)
+INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beauty_name`,
+                            `beauty_name_en`, `name_en`)
 VALUES (62, '6200', '390000', 'Рязанская', '61000000000', 'обл', '0', '6200000000000', 'Рязанская область',
         'Ryazan Oblast', 'Ryazanskaya');
-INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beaty_name`,
-                            `beaty_name_en`, `name_en`)
+INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beauty_name`,
+                            `beauty_name_en`, `name_en`)
 VALUES (63, '6300', '', 'Самарская', '36000000000', 'обл', '0', '6300000000000', 'Самарская область', 'Samara Region',
         'Samarskaya');
-INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beaty_name`,
-                            `beaty_name_en`, `name_en`)
+INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beauty_name`,
+                            `beauty_name_en`, `name_en`)
 VALUES (64, '6400', '410000', 'Саратовская', '63000000000', 'обл', '0', '6400000000000', 'Саратовская область',
         'Saratov region', 'Saratovskaya');
-INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beaty_name`,
-                            `beaty_name_en`, `name_en`)
+INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beauty_name`,
+                            `beauty_name_en`, `name_en`)
 VALUES (65, '6500', '693000', 'Сахалинская', '64000000000', 'обл', '0', '6500000000000', 'Сахалинская область',
         'Sakhalin Region', 'Sakhalinskaya');
-INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beaty_name`,
-                            `beaty_name_en`, `name_en`)
+INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beauty_name`,
+                            `beauty_name_en`, `name_en`)
 VALUES (66, '6600', '620000', 'Свердловская', '65000000000', 'обл', '0', '6600000000000', 'Свердловская область',
         'Sverdlovsk region', 'Sverdlovskaya');
-INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beaty_name`,
-                            `beaty_name_en`, `name_en`)
+INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beauty_name`,
+                            `beauty_name_en`, `name_en`)
 VALUES (67, '6700', '', 'Смоленская', '66000000000', 'обл', '0', '6700000000000', 'Смоленская область',
         'Smolensk region', 'Smolenskaya');
-INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beaty_name`,
-                            `beaty_name_en`, `name_en`)
+INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beauty_name`,
+                            `beauty_name_en`, `name_en`)
 VALUES (68, '6800', '392000', 'Тамбовская', '68000000000', 'обл', '0', '6800000000000', 'Тамбовская область',
         'Tambov Region', 'Tambovskaya');
-INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beaty_name`,
-                            `beaty_name_en`, `name_en`)
+INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beauty_name`,
+                            `beauty_name_en`, `name_en`)
 VALUES (69, '6900', '', 'Тверская', '28000000000', 'обл', '0', '6900000000000', 'Тверская область', 'Tver region',
         'Tverskaya');
-INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beaty_name`,
-                            `beaty_name_en`, `name_en`)
+INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beauty_name`,
+                            `beauty_name_en`, `name_en`)
 VALUES (70, '7000', '', 'Томская', '69000000000', 'обл', '0', '7000000000000', 'Томская область', 'Tomsk region',
         'Tomskaya');
-INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beaty_name`,
-                            `beaty_name_en`, `name_en`)
+INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beauty_name`,
+                            `beauty_name_en`, `name_en`)
 VALUES (71, '7100', '', 'Тульская', '70000000000', 'обл', '0', '7100000000000', 'Тульская область', 'Tula region',
         'Tulskaya');
-INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beaty_name`,
-                            `beaty_name_en`, `name_en`)
+INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beauty_name`,
+                            `beauty_name_en`, `name_en`)
 VALUES (72, '7200', '', 'Тюменская', '71000000000', 'обл', '0', '7200000000000', 'Тюменская область', 'Tyumen region',
         'Tyumenskaya');
-INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beaty_name`,
-                            `beaty_name_en`, `name_en`)
+INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beauty_name`,
+                            `beauty_name_en`, `name_en`)
 VALUES (73, '7300', '433000', 'Ульяновская', '73000000000', 'обл', '0', '7300000000000', 'Ульяновская область',
         'Ulyanovsk region', 'Ulyanovskaya');
-INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beaty_name`,
-                            `beaty_name_en`, `name_en`)
+INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beauty_name`,
+                            `beauty_name_en`, `name_en`)
 VALUES (74, '7400', '454000', 'Челябинская', '75000000000', 'обл', '0', '7400000000000', 'Челябинская область',
         'Chelyabinsk region', 'Chelyabinskaya');
-INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beaty_name`,
-                            `beaty_name_en`, `name_en`)
+INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beauty_name`,
+                            `beauty_name_en`, `name_en`)
 VALUES (75, '7500', '', 'Забайкальский', '76000000000', 'край', '0', '7500000000000', 'Забайкальский край',
         'Transbaikal region', 'Zabaikalsky');
-INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beaty_name`,
-                            `beaty_name_en`, `name_en`)
+INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beauty_name`,
+                            `beauty_name_en`, `name_en`)
 VALUES (76, '7600', '', 'Ярославская', '78000000000', 'обл', '0', '7600000000000', 'Ярославская область',
         'Yaroslavl region', 'Yaroslavskaya');
-INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beaty_name`,
-                            `beaty_name_en`, `name_en`)
+INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beauty_name`,
+                            `beauty_name_en`, `name_en`)
 VALUES (77, '7700', '', 'Москва', '45000000000', 'г', '0', '7700000000000', 'Москва', 'Moscow', 'Moscow');
-INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beaty_name`,
-                            `beaty_name_en`, `name_en`)
+INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beauty_name`,
+                            `beauty_name_en`, `name_en`)
 VALUES (78, '7800', '190000', 'Санкт-Петербург', '40000000000', 'г', '0', '7800000000000', 'Санкт-Петербург',
         'St. Petersburg', 'St. Petersburg');
-INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beaty_name`,
-                            `beaty_name_en`, `name_en`)
+INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beauty_name`,
+                            `beauty_name_en`, `name_en`)
 VALUES (79, '7900', '', 'Еврейская', '99000000000', 'Аобл', '0', '7900000000000', 'Еврейская АО',
         'Jewish Autonomous Region', 'Jewish');
-INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beaty_name`,
-                            `beaty_name_en`, `name_en`)
+INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beauty_name`,
+                            `beauty_name_en`, `name_en`)
 VALUES (80, '7580', '', 'Агинский Бурятский', '76100000000', 'АО', '0', '8000000000001', 'Агинский Бурятский АО',
         'Aginsky Buryat AO', 'Aginsky Buryatsky');
-INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beaty_name`,
-                            `beaty_name_en`, `name_en`)
+INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beauty_name`,
+                            `beauty_name_en`, `name_en`)
 VALUES (81, '5981', '', 'Коми-Пермяцкий', '57100000000', 'АО', '0', '8100000000051', 'Коми-Пермяцкий АО',
         'Komi-Permyatskiy AO', 'Komi-Permyatsky');
-INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beaty_name`,
-                            `beaty_name_en`, `name_en`)
+INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beauty_name`,
+                            `beauty_name_en`, `name_en`)
 VALUES (82, '4182', '', 'Корякский', '30100000000', 'АО', '0', '8200000000051', 'Корякский АО', 'Koryaksky AO',
         'Koryaksky');
-INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beaty_name`,
-                            `beaty_name_en`, `name_en`)
+INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beauty_name`,
+                            `beauty_name_en`, `name_en`)
 VALUES (83, '2983', '166000', 'Ненецкий', '11100000000', 'АО', '0', '8300000000000', 'Ненецкий АО', 'Nenets AO',
         'Nenetsky');
-INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beaty_name`,
-                            `beaty_name_en`, `name_en`)
+INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beauty_name`,
+                            `beauty_name_en`, `name_en`)
 VALUES (84, '2469', '', 'Таймырский (Долгано-Ненецкий)', '04100000000', 'АО', '0', '8400000000051',
         'Таймырский (Долгано-Ненецкий) АО', 'Taimyr (Dolgano-Nenets) AO', 'Taimyr (Dolgano-Nenets)');
-INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beaty_name`,
-                            `beaty_name_en`, `name_en`)
+INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beauty_name`,
+                            `beauty_name_en`, `name_en`)
 VALUES (85, '3845', '669000', 'Усть-Ордынский Бурятский', '25100000000', 'АО', '0', '8500000000001',
         'Усть-Ордынский Бурятский АО', 'Ust-Orda Buryat Autonomous Okrug', 'Ust-Ordynskiy Buryatskiy');
-INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beaty_name`,
-                            `beaty_name_en`, `name_en`)
+INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beauty_name`,
+                            `beauty_name_en`, `name_en`)
 VALUES (86, '8600', '', 'Ханты-Мансийский Автономный округ - Югра', '71100000000', 'АО', '0', '8600000000000',
         'Ханты-Мансийский Автономный округ - Югра', 'Khanty-Mansiysk Autonomous Okrug - Yugra',
         'Khanty-Mansiysk Autonomous Okrug - Yugra');
-INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beaty_name`,
-                            `beaty_name_en`, `name_en`)
+INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beauty_name`,
+                            `beauty_name_en`, `name_en`)
 VALUES (87, '8700', '', 'Чукотский', '77000000000', 'АО', '0', '8700000000000', 'Чукотский АО', 'Chukotka AO',
         'Chukotsky');
-INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beaty_name`,
-                            `beaty_name_en`, `name_en`)
+INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beauty_name`,
+                            `beauty_name_en`, `name_en`)
 VALUES (88, '8800', '', 'Эвенкийский', '04130000000', 'АО', '0', '8800000000051', 'Эвенкийский АО', 'Evenki AO',
         'Evenk');
-INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beaty_name`,
-                            `beaty_name_en`, `name_en`)
+INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beauty_name`,
+                            `beauty_name_en`, `name_en`)
 VALUES (89, '8900', '629000', 'Ямало-Ненецкий', '71140000000', 'АО', '0', '8900000000000', 'Ямало-Ненецкий АО',
         'Yamalo-Nenets Autonomous District', 'Yamalo-Nenetsky');
-INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beaty_name`,
-                            `beaty_name_en`, `name_en`)
+INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beauty_name`,
+                            `beauty_name_en`, `name_en`)
 VALUES (91, '9100', '', 'Крым', '35000000000', 'Респ', '0', '9100000000000', 'Крым', 'Crimea', 'Crimea');
-INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beaty_name`,
-                            `beaty_name_en`, `name_en`)
+INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beauty_name`,
+                            `beauty_name_en`, `name_en`)
 VALUES (92, '9200', '', 'Севастополь', '67000000000', 'г', '0', '9200000000000', 'Севастополь', 'Sevastopol',
         'Sevastopol');
-INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beaty_name`,
-                            `beaty_name_en`, `name_en`)
+INSERT IGNORE INTO regions (`id`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `code`, `beauty_name`,
+                            `beauty_name_en`, `name_en`)
 VALUES (99, '9900', '468320', 'Байконур', '55000000000', 'г', '0', '9900000000000', 'Байконур', 'Baikonur', 'Baikonur');
 
 /* SCRIPT FOR CITY TABLE */
-
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (1, '0100000100000', '0105', '', 'Майкоп', '79401000000', 'г', '', 1, 'Majkop');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
@@ -408,7 +407,7 @@ VALUES (16, '0201100200051', '0279', '453571', 'Межгорье', '80507000000'
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (17, '0201300100000', '0277', '', 'Бирск', '80415000000', 'г', '0257', 2, 'Birsk');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (18, '0201500100000', '0277', '', 'Благовещенск', '80417000000', 'г', '', 2, 'Blagoveshchensk');
+VALUES (18, '0201500100000', '0277', '', 'Благовещенск', '80417000000', 'г', '', 2, 'Blagoveshensk');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (19, '0202600100000', '0261', '', 'Ишимбай', '80420000000', 'г', '', 2, 'Ishimbaj');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
@@ -420,7 +419,7 @@ VALUES (22, '0204400100000', '0269', '', 'Туймазы', '80450000000', 'г', 
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (23, '0204600100000', '0256', '', 'Учалы', '80455000000', 'г', '0270', 2, 'Uchaly');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (24, '0205200100000', '0264', '', 'Янаул', '80460000000', 'г', '0271', 2, 'YAnaul');
+VALUES (24, '0205200100000', '0264', '', 'Янаул', '80460000000', 'г', '0271', 2, 'Yanaul');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (25, '0205900100000', '0273', '', 'Давлеканово', '80419000000', 'г', '0259', 2, 'Davlekanovo');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
@@ -450,7 +449,7 @@ VALUES (37, '0500000300000', '0548', '', 'Избербаш', '82415000000', 'г'
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (38, '0500000400000', '0554', '', 'Каспийск', '82420000000', 'г', '', 5, 'Kaspijsk');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (39, '0500000500000', '0547', '368890', 'Южно-Сухокумск', '82438000000', 'г', '0549', 5, 'YUzhno-Suhokumsk');
+VALUES (39, '0500000500000', '0547', '368890', 'Южно-Сухокумск', '82438000000', 'г', '0549', 5, 'Yuzhno-Suhokumsk');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (40, '0500000600000', '0542', '', 'Дербент', '82410000000', 'г', '', 5, 'Derbent');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
@@ -496,7 +495,7 @@ VALUES (60, '0700600100000', '0724', '', 'Терек', '83235501000', 'г', '070
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (61, '0700700100000', '0724', '', 'Нарткала', '83240501000', 'г', '0707', 7, 'Nartkala');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (62, '0700800100000', '0724', '', 'Чегем', '83245501000', 'г', '0708', 7, 'CHegem');
+VALUES (62, '0700800100000', '0724', '', 'Чегем', '83245501000', 'г', '0708', 7, 'Chegem');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (63, '0701000100000', '0720', '', 'Тырныауз', '83248501000', 'г', '', 7, 'Tyrnyauz');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
@@ -506,7 +505,7 @@ VALUES (65, '0800200100000', '0801', '', 'Городовиковск', '85205501
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (66, '0800600100000', '0813', '', 'Лагань', '85215501000', 'г', '', 8, 'Lagan');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (67, '0900000100000', '0917', '', 'Черкесск', '91401000000', 'г', '', 9, 'CHerkessk');
+VALUES (67, '0900000100000', '0917', '', 'Черкесск', '91401000000', 'г', '', 9, 'Cherkessk');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (68, '0900000200000', '0916', '', 'Карачаевск', '91405000000', 'г', '', 9, 'Karachaevsk');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
@@ -608,7 +607,7 @@ VALUES (116, '1302000100000', '1314', '431220', 'Темников', '89249501000
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (117, '1400000000299', '1421', '678100', 'Олекминск', '98241000000', 'г', '', 14, 'Olekminsk');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (118, '1400000100000', '1447', '', 'Якутск', '98401000000', 'г', '', 14, 'YAkutsk');
+VALUES (118, '1400000100000', '1447', '', 'Якутск', '98401000000', 'г', '', 14, 'Yakutsk');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (119, '1400000200000', '1434', '', 'Нерюнгри', '98260501000', 'г', '', 14, 'Neryungri');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
@@ -648,7 +647,7 @@ VALUES (136, '1500800100000', '1511', '', 'Беслан', '90235501000', 'г', '
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (137, '1600000100000', '', '', 'Казань', '92401000000', 'г', '', 16, 'Kazan');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (138, '1600000200000', '1650', '', 'Набережные Челны', '92430000000', 'г', '', 16, 'Naberezhnye CHelny');
+VALUES (138, '1600000200000', '1650', '', 'Набережные Челны', '92430000000', 'г', '', 16, 'Naberezhnye Chelny');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (139, '1600200100000', '1674', '', 'Агрыз', '92201501000', 'г', '1601', 16, 'Agryz');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
@@ -692,19 +691,19 @@ VALUES (158, '1603800100000', '1677', '', 'Болгар', '92232501000', 'г', '
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (159, '1603900100000', '1683', '422370', 'Тетюши', '92255501000', 'г', '1638', 16, 'Tetyushi');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (160, '1604000100051', '1650', '423800', 'Набережные Челны', '92430000000', 'г', '', 16, 'Naberezhnye CHelny');
+VALUES (160, '1604000100051', '1650', '423800', 'Набережные Челны', '92430000000', 'г', '', 16, 'Naberezhnye Chelny');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (161, '1604300100000', '1677', '', 'Чистополь', '92440000000', 'г', '1652', 16, 'CHistopol');
+VALUES (161, '1604300100000', '1677', '', 'Чистополь', '92440000000', 'г', '1652', 16, 'Chistopol');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (162, '1700000100000', '1719', '', 'Кызыл', '93401000000', 'г', '1701', 17, 'Kyzyl');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (163, '1700000200000', '1722', '', 'Ак-Довурак', '93403000000', 'г', '1718', 17, 'Ak-Dovurak');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (164, '1700400100000', '1722', '', 'Чадан', '93215501000', 'г', '1709', 17, 'CHadan');
+VALUES (164, '1700400100000', '1722', '', 'Чадан', '93215501000', 'г', '1709', 17, 'Chadan');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (165, '1700900100000', '1720', '', 'Туран', '93235501000', 'г', '1702', 17, 'Turan');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (166, '1701400100000', '1721', '', 'Шагонар', '93254501000', 'г', '1714', 17, 'SHagonar');
+VALUES (166, '1701400100000', '1721', '', 'Шагонар', '93254501000', 'г', '1714', 17, 'Shagonar');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (167, '1800000100000', '', '', 'Ижевск', '94401000000', 'г', '', 18, 'Izhevsk');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
@@ -728,7 +727,7 @@ VALUES (176, '1900000100000', '1901', '', 'Абакан', '95401000000', 'г', '
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (177, '1900000200000', '1902', '', 'Саяногорск', '95408000000', 'г', '', 19, 'Sayanogorsk');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (178, '1900000300000', '1903', '', 'Черногорск', '95415000000', 'г', '', 19, 'CHernogorsk');
+VALUES (178, '1900000300000', '1903', '', 'Черногорск', '95415000000', 'г', '', 19, 'Chernogorsk');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (179, '1900000400000', '1902', '', 'Абаза', '95402000000', 'г', '', 19, 'Abaza');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
@@ -748,9 +747,9 @@ VALUES (186, '2000600100000', '', '', 'Курчалой', '96212819001', 'г', '
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (187, '2001000000100', '2033', '', 'Урус-Мартан', '96234501000', 'г', '2010', 20, 'Urus-Martan');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (188, '2001200100000', '', '', 'Шали', '96237501000', 'г', '', 20, 'SHali');
+VALUES (188, '2001200100000', '', '', 'Шали', '96237501000', 'г', '', 20, 'Shali');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (189, '2100000100000', '2130', '', 'Чебоксары', '97401000000', 'г', '', 21, 'CHeboksary');
+VALUES (189, '2100000100000', '2130', '', 'Чебоксары', '97401000000', 'г', '', 21, 'Cheboksary');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (190, '2100002200000', '', '', 'Алатырь', '97404000000', 'г', '', 21, 'Alatyr');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
@@ -758,7 +757,7 @@ VALUES (191, '2100002300000', '2134', '', 'Канаш', '97407000000', 'г', '21
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (192, '2100002400000', '2124', '', 'Новочебоксарск', '97410000000', 'г', '', 21, 'Novocheboksarsk');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (193, '2100002500000', '2138', '', 'Шумерля', '97413000000', 'г', '2125', 21, 'SHumerlya');
+VALUES (193, '2100002500000', '2138', '', 'Шумерля', '97413000000', 'г', '2125', 21, 'Shumerlya');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (194, '2100800100000', '2137', '', 'Козловка', '97219501000', 'г', '2107', 21, 'Kozlovka');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
@@ -766,7 +765,7 @@ VALUES (195, '2101200100000', '2135', '', 'Мариинский Посад', '97
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (196, '2101600100000', '', '', 'Цивильск', '97241501000', 'г', '', 21, 'Civilsk');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (197, '2102000100000', '2138', '', 'Ядрин', '97253501000', 'г', '2119', 21, 'YAdrin');
+VALUES (197, '2102000100000', '2138', '', 'Ядрин', '97253501000', 'г', '2119', 21, 'Yadrin');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (198, '2200000100000', '', '', 'Барнаул', '01401000000', 'г', '', 22, 'Barnaul');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
@@ -786,7 +785,7 @@ VALUES (205, '2200001000000', '2210', '', 'Славгород', '01419000000', '
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (206, '2200001100000', '2208', '', 'Заринск', '01406000000', 'г', '2205', 22, 'Zarinsk');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (207, '2200001200000', '2210', '', 'Яровое', '01430000000', 'г', '', 22, 'YArovoe');
+VALUES (207, '2200001200000', '2210', '', 'Яровое', '01430000000', 'г', '', 22, 'Yarovoe');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (208, '2200001300051', '2256', '658480', 'Змеиногорск', '01407000000', 'г', '2206', 22, 'Zmeinogorsk');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
@@ -856,7 +855,7 @@ VALUES (240, '2400000200000', '2448', '', 'Бородино', '04407000000', 'г
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (241, '2400000300000', '2464', '', 'Дивногорск', '04409000000', 'г', '2446', 24, 'Divnogorsk');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (242, '2400000400000', '2452', '', 'Железногорск', '04535000000', 'г', '', 24, 'ZHeleznogorsk');
+VALUES (242, '2400000400000', '2452', '', 'Железногорск', '04535000000', 'г', '', 24, 'Zheleznogorsk');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (243, '2400000400001', '2452', '662974', 'Красноярск-26', '04535000000', 'г', '', 24, 'Krasnoyarsk-26');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
@@ -890,7 +889,7 @@ VALUES (257, '2400001700000', '2455', '', 'Минусинск', '04423000000', '
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (258, '2400001800000', '2459', '', 'Назарово', '04426000000', 'г', '2456', 24, 'Nazarovo');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (259, '2400001900000', '2459', '', 'Шарыпово', '04440000000', 'г', '', 24, 'SHarypovo');
+VALUES (259, '2400001900000', '2459', '', 'Шарыпово', '04440000000', 'г', '', 24, 'Sharypovo');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (260, '2400300100051', '2443', '662150', 'Ачинск', '04403000000', 'г', '', 24, 'Achinsk');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
@@ -924,7 +923,7 @@ VALUES (274, '2404100003899', '2448', '663932', 'Уяр', '04257501000', 'г', '
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (275, '2404100100000', '2448', '', 'Уяр', '04257501000', 'г', '2440', 24, 'Uyar');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (276, '2404200100051', '2459', '662311', 'Шарыпово', '04440000000', 'г', '', 24, 'SHarypovo');
+VALUES (276, '2404200100051', '2459', '662311', 'Шарыпово', '04440000000', 'г', '', 24, 'Sharypovo');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (277, '2404800100000', '2457', '', 'Дудинка', '04253501000', 'г', '2469', 24, 'Dudinka');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
@@ -958,7 +957,7 @@ VALUES (291, '2600000100000', '', '', 'Ставрополь', '07401000000', 'г
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (292, '2600000200000', '2650', '', 'Ессентуки', '07410000000', 'г', '2626', 26, 'Essentuki');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (293, '2600000300000', '2649', '', 'Железноводск', '07412000000', 'г', '', 26, 'ZHeleznovodsk');
+VALUES (293, '2600000300000', '2649', '', 'Железноводск', '07412000000', 'г', '', 26, 'Zheleznovodsk');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (294, '2600000400000', '2628', '', 'Кисловодск', '07415000000', 'г', '', 26, 'Kislovodsk');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
@@ -1023,7 +1022,7 @@ VALUES (323, '2701400100051', '2709', '682800', 'Советская Гавань
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (324, '2800000000151', '2807', '676470', 'Углегорск', '10570000000', 'г', '2823', 28, 'Uglegorsk');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (325, '2800000100000', '2801', '', 'Благовещенск', '10401000000', 'г', '', 28, 'Blagoveshchensk');
+VALUES (325, '2800000100000', '2801', '', 'Благовещенск', '10401000000', 'г', '', 28, 'Blagoveshensk');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (326, '2800000200000', '2813', '', 'Райчихинск', '10420000000', 'г', '2806', 28, 'Rajchihinsk');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
@@ -1035,7 +1034,7 @@ VALUES (329, '2800000500000', '2807', '', 'Свободный', '10430000000', '
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (330, '2800000600000', '2808', '', 'Тында', '10432000000', 'г', '', 28, 'Tynda');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (331, '2800000700000', '2807', '', 'Шимановск', '10440000000', 'г', '', 28, 'SHimanovsk');
+VALUES (331, '2800000700000', '2807', '', 'Шимановск', '10440000000', 'г', '', 28, 'Shimanovsk');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (332, '2800000900005', '2807', '676470', 'Углегорск', '10570000000', 'г', '2823', 28, 'Uglegorsk');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
@@ -1071,7 +1070,7 @@ VALUES (347, '2901300100000', '2918', '', 'Няндома', '11244501000', 'г',
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (348, '2901400100000', '2920', '', 'Онега', '11420000000', 'г', '', 29, 'Onega');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (349, '2901900100000', '2907', '165160', 'Шенкурск', '11258501000', 'г', '2924', 29, 'SHenkursk');
+VALUES (349, '2901900100000', '2907', '165160', 'Шенкурск', '11258501000', 'г', '2924', 29, 'Shenkursk');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (350, '3000000100000', '', '', 'Астрахань', '12401000000', 'г', '', 30, 'Astrahan');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
@@ -1093,7 +1092,7 @@ VALUES (358, '3100000100000', '3123', '', 'Белгород', '14401000000', 'г
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (359, '3100000200000', '3128', '', 'Старый Оскол', '14440000000', 'г', '', 31, 'Staryj Oskol');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (360, '3100000300000', '3120', '', 'Шебекино', '14450000000', 'г', '', 31, 'SHebekino');
+VALUES (360, '3100000300000', '3120', '', 'Шебекино', '14450000000', 'г', '', 31, 'Shebekino');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (361, '3100000400000', '3127', '', 'Губкин', '14430000000', 'г', '', 31, 'Gubkin');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
@@ -1113,7 +1112,7 @@ VALUES (368, '3101400100000', '3114', '', 'Новый Оскол', '14244501000'
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (369, '3101800100051', '3128', '309500', 'Старый Оскол', '14440000000', 'г', '', 31, 'Staryj Oskol');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (370, '3102000100051', '3120', '309294', 'Шебекино', '14450000000', 'г', '', 31, 'SHebekino');
+VALUES (370, '3102000100051', '3120', '309294', 'Шебекино', '14450000000', 'г', '', 31, 'Shebekino');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (371, '3102100100000', '3130', '', 'Строитель', '14258501000', 'г', '3121', 31, 'Stroitel');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
@@ -1133,7 +1132,7 @@ VALUES (378, '3200600100000', '3245', '', 'Дятьково', '15216501000', 'г
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (379, '3200600200051', '3245', '', 'Фокино', '15216504000', 'г', '', 32, 'Fokino');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (380, '3200800100000', '3245', '', 'Жуковка', '15222501000', 'г', '', 32, 'ZHukovka');
+VALUES (380, '3200800100000', '3245', '', 'Жуковка', '15222501000', 'г', '', 32, 'Zhukovka');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (381, '3200900100000', '3241', '', 'Злынка', '15223501000', 'г', '', 32, 'Zlynka');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
@@ -1203,7 +1202,7 @@ VALUES (413, '3301500100000', '3304', '', 'Судогда', '17252501000', 'г',
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (414, '3301600100000', '3340', '', 'Суздаль', '17254501000', 'г', '3310', 33, 'Suzdal');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (415, '3301700100000', '3326', '', 'Юрьев-Польский', '17256501000', 'г', '', 33, 'YUrev-Polskij');
+VALUES (415, '3301700100000', '3326', '', 'Юрьев-Польский', '17256501000', 'г', '', 33, 'Yurev-Polskij');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (416, '3400000100000', '', '', 'Волгоград', '18401000000', 'г', '', 34, 'Volgograd');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
@@ -1219,7 +1218,7 @@ VALUES (421, '3400000600000', '3456', '', 'Фролово', '18428000000', 'г',
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (422, '3400600100000', '3455', '', 'Дубовка', '18208501000', 'г', '', 34, 'Dubovka');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (423, '3400800100000', '3453', '', 'Жирновск', '18212501000', 'г', '', 34, 'ZHirnovsk');
+VALUES (423, '3400800100000', '3453', '', 'Жирновск', '18212501000', 'г', '', 34, 'Zhirnovsk');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (424, '3401000100000', '3455', '', 'Калач-на-Дону', '18216501000', 'г', '', 34, 'Kalach-na-Donu');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
@@ -1253,7 +1252,7 @@ VALUES (438, '3403200100051', '3456', '403531', 'Фролово', '18428000000',
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (439, '3500000100000', '3525', '', 'Вологда', '19401000000', 'г', '', 35, 'Vologda');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (440, '3500000200000', '3528', '', 'Череповец', '19430000000', 'г', '', 35, 'CHerepovec');
+VALUES (440, '3500000200000', '3528', '', 'Череповец', '19430000000', 'г', '', 35, 'Cherepovec');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (441, '3500200100000', '3532', '', 'Бабаево', '19205501000', 'г', '3501', 35, 'Babaevo');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
@@ -1347,11 +1346,11 @@ VALUES (485, '3701700100000', '3704', '', 'Тейково', '24407000000', 'г',
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (486, '3701800100000', '3705', '', 'Фурманов', '24231000000', 'г', '', 37, 'Furmanov');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (487, '3701900100000', '3706', '', 'Шуя', '24411000000', 'г', '', 37, 'SHuya');
+VALUES (487, '3701900100000', '3706', '', 'Шуя', '24411000000', 'г', '', 37, 'Shuya');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (488, '3702000100000', '3706', '', 'Южа', '24235501000', 'г', '', 37, 'YUzha');
+VALUES (488, '3702000100000', '3706', '', 'Южа', '24235501000', 'г', '', 37, 'Yuzha');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (489, '3702100100000', '3706', '', 'Юрьевец', '24237501000', 'г', '', 37, 'YUrevec');
+VALUES (489, '3702100100000', '3706', '', 'Юрьевец', '24237501000', 'г', '', 37, 'Yurevec');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (490, '3800000100000', '3808', '', 'Иркутск-45', '25401365000', 'г', '', 38, 'Irkutsk-45');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
@@ -1379,9 +1378,9 @@ VALUES (501, '3800001200000', '', '', 'Усть-Илимск', '25438000000', '�
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (502, '3800001300000', '3818', '', 'Усть-Кут', '25244501000', 'г', '', 38, 'Ust-Kut');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (503, '3800001400000', '3851', '', 'Черемхово', '25445000000', 'г', '', 38, 'CHeremhovo');
+VALUES (503, '3800001400000', '3851', '', 'Черемхово', '25445000000', 'г', '', 38, 'Cheremhovo');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (504, '3800001500000', '3810', '', 'Шелехов', '25255501000', 'г', '', 38, 'SHelekhov');
+VALUES (504, '3800001500000', '3810', '', 'Шелехов', '25255501000', 'г', '', 38, 'Shelehov');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (505, '3800001600000', '3851', '', 'Свирск', '25427000000', 'г', '', 38, 'Svirsk');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
@@ -1400,7 +1399,7 @@ INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `soc
 VALUES (512, '3801200100000', '3818', '', 'Киренск', '25220501000', 'г', '3831', 38, 'Kirensk');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (513, '3801500100000', '3805', '', 'Железногорск-Илимский', '25226501000', 'г', '', 38,
-        'ZHeleznogorsk-Ilimskij');
+        'Zheleznogorsk-Ilimskij');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (514, '3801600100051', '3816', '', 'Нижнеудинск', '25424000000', 'г', '', 38, 'Nizhneudinsk');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
@@ -1422,11 +1421,11 @@ VALUES (522, '3802200100051', '3817', '', 'Усть-Илимск', '25438000000'
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (523, '3802300100051', '3818', '666780', 'Усть-Кут', '25440000000', 'г', '', 38, 'Ust-Kut');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (524, '3802500100051', '3851', '', 'Черемхово', '25445000000', 'г', '', 38, 'CHeremhovo');
+VALUES (524, '3802500100051', '3851', '', 'Черемхово', '25445000000', 'г', '', 38, 'Cheremhovo');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (525, '3802500200051', '3851', '665421', 'Свирск', '25445505000', 'г', '', 38, 'Svirsk');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (526, '3802700100051', '3848', '', 'Шелехов', '25450000000', 'г', '', 38, 'SHelekhov');
+VALUES (526, '3802700100051', '3848', '', 'Шелехов', '25450000000', 'г', '', 38, 'Shelehov');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (527, '3900000100000', '3906', '', 'Калининград', '27401000000', 'г', '', 39, 'Kaliningrad');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
@@ -1472,7 +1471,7 @@ VALUES (547, '3901200100000', '3917', '238400', 'Правдинск', '272335010
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (548, '3901300100000', '3914', '238600', 'Славск', '27236501000', 'г', '3924', 39, 'Slavsk');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (549, '3901400100000', '3914', '', 'Черняховск', '27239501000', 'г', '', 39, 'CHernyahovsk');
+VALUES (549, '3901400100000', '3914', '', 'Черняховск', '27239501000', 'г', '', 39, 'Chernyahovsk');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (550, '3901500100000', '3917', '', 'Балтийск', '27405000000', 'г', '3901', 39, 'Baltijsk');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
@@ -1498,9 +1497,9 @@ VALUES (560, '4000500100000', '4023', '', 'Спас-Деменск', '2923450100
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (561, '4000600100000', '4004', '', 'Кондрово', '29208501000', 'г', '', 40, 'Kondrovo');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (562, '4000800100000', '4024', '249340', 'Жиздра', '29212501000', 'г', '', 40, 'ZHizdra');
+VALUES (562, '4000800100000', '4024', '249340', 'Жиздра', '29212501000', 'г', '', 40, 'Zhizdra');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (563, '4000900100000', '', '', 'Жуков', '29213501000', 'г', '', 40, 'ZHukov');
+VALUES (563, '4000900100000', '', '', 'Жуков', '29213501000', 'г', '', 40, 'Zhukov');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (564, '4000900200000', '4011', '', 'Белоусово', '29213507000', 'г', '', 40, 'Belousovo');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
@@ -1518,7 +1517,7 @@ VALUES (570, '4001500100000', '4011', '', 'Малоярославец', '2922350
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (571, '4001600100000', '4004', '', 'Медынь', '29225501000', 'г', '4012', 40, 'Medyn');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (572, '4001700100000', '4001', '', 'Мещовск', '29227501000', 'г', '', 40, 'Meshchovsk');
+VALUES (572, '4001700100000', '4001', '', 'Мещовск', '29227501000', 'г', '', 40, 'Meshovsk');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (573, '4001800100000', '4023', '249930', 'Мосальск', '29229501000', 'г', '4014', 40, 'Mosalsk');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
@@ -1526,11 +1525,11 @@ VALUES (574, '4002000100000', '4001', '', 'Сухиничи', '29236501000', 'г
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (575, '4002100100000', '4029', '', 'Таруса', '29238501000', 'г', '4018', 40, 'Tarusa');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (576, '4002500100000', '4004', '', 'Юхнов', '29250501000', 'г', '', 40, 'YUhnov');
+VALUES (576, '4002500100000', '4004', '', 'Юхнов', '29250501000', 'г', '', 40, 'Yuhnov');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (577, '4002500200000', '4004', '249911', 'Юхнов-1', '29250501000', 'г', '4022', 40, 'YUhnov-1');
+VALUES (577, '4002500200000', '4004', '249911', 'Юхнов-1', '29250501000', 'г', '4022', 40, 'Yuhnov-1');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (578, '4002500300051', '4004', '249910', 'Юхнов-2', '29250000000', 'г', '4022', 40, 'YUhnov-2');
+VALUES (578, '4002500300051', '4004', '249910', 'Юхнов-2', '29250000000', 'г', '4022', 40, 'Yuhnov-2');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (579, '4100000100000', '4101', '', 'Петропавловск-Камчатский', '30401000000', 'г', '', 41,
         'Petropavlovsk-Kamchatskij');
@@ -1563,7 +1562,7 @@ VALUES (592, '4200001200000', '', '', 'Новокузнецк', '32431000000', '
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (593, '4200001300000', '4223', '', 'Прокопьевск', '32437000000', 'г', '', 42, 'Prokopevsk');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (594, '4200001400000', '4230', '', 'Юрга', '32449000000', 'г', '', 42, 'YUrga');
+VALUES (594, '4200001400000', '4230', '', 'Юрга', '32449000000', 'г', '', 42, 'Yurga');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (595, '4200001500000', '4202', '', 'Белово', '32407000000', 'г', '', 42, 'Belovo');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
@@ -1591,13 +1590,13 @@ VALUES (606, '4201200100000', '4252', '', 'Таштагол', '32443000000', 'г
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (607, '4201400100000', '4230', '', 'Топки', '32446000000', 'г', '', 42, 'Topki');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (608, '4201700100051', '4230', '652050', 'Юрга', '32449000000', 'г', '', 42, 'YUrga');
+VALUES (608, '4201700100051', '4230', '652050', 'Юрга', '32449000000', 'г', '', 42, 'Yurga');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (609, '4300000100000', '4345', '', 'Киров', '33401000000', 'г', '', 43, 'Kirov');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (610, '4300000300051', '4312', '', 'Кирово-Чепецк', '33407000000', 'г', '', 43, 'Kirovo-CHepeck');
+VALUES (610, '4300000300051', '4312', '', 'Кирово-Чепецк', '33407000000', 'г', '', 43, 'Kirovo-Chepeck');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (611, '4300000400000', '4312', '', 'Кирово-Чепецк', '33407000000', 'г', '', 43, 'Kirovo-CHepeck');
+VALUES (611, '4300000400000', '4312', '', 'Кирово-Чепецк', '33407000000', 'г', '', 43, 'Kirovo-Chepeck');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (612, '4300400100000', '4303', '', 'Белая Холуница', '33205501000', 'г', '', 43, 'Belaya Holunica');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
@@ -1609,9 +1608,9 @@ VALUES (615, '4300800200000', '4307', '', 'Сосновка', '33210504000', 'г
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (616, '4301000100000', '4312', '', 'Зуевка', '33214501000', 'г', '4309', 43, 'Zuevka');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (617, '4301300100051', '4312', '', 'Кирово-Чепецк', '33407000000', 'г', '', 43, 'Kirovo-CHepeck');
+VALUES (617, '4301300100051', '4312', '', 'Кирово-Чепецк', '33407000000', 'г', '', 43, 'Kirovo-Chepeck');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (618, '4301301600051', '4312', '', 'Кирово-Чепецк', '33407000000', 'г', '', 43, 'Kirovo-CHepeck');
+VALUES (618, '4301301600051', '4312', '', 'Кирово-Чепецк', '33407000000', 'г', '', 43, 'Kirovo-Chepeck');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (619, '4301400100000', '4313', '', 'Котельнич', '33410000000', 'г', '', 43, 'Kotelnich');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
@@ -1635,7 +1634,7 @@ VALUES (628, '4303200100000', '', '', 'Советск', '33236501000', 'г', '',
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (629, '4303600100000', '4334', '', 'Уржум', '33241501000', 'г', '', 43, 'Urzhum');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (630, '4304000100000', '4339', '', 'Яранск', '33250501000', 'г', '', 43, 'YAransk');
+VALUES (630, '4304000100000', '4339', '', 'Яранск', '33250501000', 'г', '', 43, 'Yaransk');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (631, '4400000200000', '4437', '', 'Волгореченск', '34406000000', 'г', '', 44, 'Volgorechensk');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
@@ -1655,17 +1654,17 @@ VALUES (638, '4401000100000', '4436', '', 'Мантурово', '34414000000', '
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (639, '4401200100000', '4436', '', 'Нея', '34422000000', 'г', '', 44, 'Neya');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (640, '4401300100000', '4437', '', 'Нерехта', '34420000000', 'г', '4405', 44, 'Nerekhta');
+VALUES (640, '4401300100000', '4437', '', 'Нерехта', '34420000000', 'г', '4405', 44, 'Nerehta');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (641, '4402000100000', '4437', '157170', 'Солигалич', '34240501000', 'г', '', 44, 'Soligalich');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (642, '4402300100000', '4437', '157130', 'Чухлома', '34246501000', 'г', '', 44, 'CHuhloma');
+VALUES (642, '4402300100000', '4437', '157130', 'Чухлома', '34246501000', 'г', '', 44, 'Chuhloma');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (643, '4402400100000', '4436', '', 'Шарья', '34430000000', 'г', '', 44, 'SHarya');
+VALUES (643, '4402400100000', '4436', '', 'Шарья', '34430000000', 'г', '', 44, 'Sharya');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (644, '4500000100000', '', '', 'Курган', '37401000000', 'г', '', 45, 'Kurgan');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (645, '4500000200000', '4502', '', 'Шадринск', '37405000000', 'г', '', 45, 'SHadrinsk');
+VALUES (645, '4500000200000', '4502', '', 'Шадринск', '37405000000', 'г', '', 45, 'Shadrinsk');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (646, '4500500100000', '4502', '641730', 'Далматово', '37208501000', 'г', '4506', 45, 'Dalmatovo');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
@@ -1677,26 +1676,26 @@ VALUES (649, '4501200100000', '4510', '', 'Макушино', '37220501000', 'г
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (650, '4501500100000', '4510', '', 'Петухово', '37226501000', 'г', '4516', 45, 'Petuhovo');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (651, '4502300100000', '4524', '', 'Шумиха', '37242501000', 'г', '', 45, 'SHumiha');
+VALUES (651, '4502300100000', '4524', '', 'Шумиха', '37242501000', 'г', '', 45, 'Shumiha');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (652, '4502400100000', '4524', '', 'Щучье', '37244501000', 'г', '4525', 45, 'SHCHuche');
+VALUES (652, '4502400100000', '4524', '', 'Щучье', '37244501000', 'г', '4525', 45, 'Shuche');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (653, '4600000100000', '', '', 'Курск', '38401000000', 'г', '', 46, 'Kursk');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (654, '4600000200000', '4611', '', 'Курчатов', '38408000000', 'г', '4634', 46, 'Kurchatov');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (655, '4600000300000', '4633', '', 'Железногорск', '38405000000', 'г', '', 46, 'ZHeleznogorsk');
+VALUES (655, '4600000300000', '4633', '', 'Железногорск', '38405000000', 'г', '', 46, 'Zheleznogorsk');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (656, '4600000400000', '', '', 'Льгов', '38410000000', 'г', '', 46, 'Lgov');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (657, '4600000500000', '', '', 'Щигры', '38415000000', 'г', '', 46, 'SHCHigry');
+VALUES (657, '4600000500000', '', '', 'Щигры', '38415000000', 'г', '', 46, 'Shigry');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (658, '4600600100000', '4633', '', 'Дмитриев', '38208501000', 'г', '4605', 46, 'Dmitriev');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (659, '4600600100001', '4633', '307500', 'Дмитриев-Льговский', '38208501000', 'г', '4605', 46,
         'Dmitriev-Lgovskij');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (660, '4600700100051', '4633', '', 'Железногорск', '38405000000', 'г', '', 46, 'ZHeleznogorsk');
+VALUES (660, '4600700100051', '4633', '', 'Железногорск', '38405000000', 'г', '', 46, 'Zheleznogorsk');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (661, '4601200100051', '4611', '', 'Курчатов', '38408000000', 'г', '4634', 46, 'Kurchatov');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
@@ -1710,7 +1709,7 @@ VALUES (665, '4602300100000', '4623', '', 'Суджа', '38240501000', 'г', '',
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (666, '4602500100000', '4611', '', 'Фатеж', '38244501000', 'г', '', 46, 'Fatezh');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (667, '4602800100051', '4628', '', 'Щигры', '38415000000', 'г', '', 46, 'SHCHigry');
+VALUES (667, '4602800100051', '4628', '', 'Щигры', '38415000000', 'г', '', 46, 'Shigry');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (668, '4700000000100', '4700', '188650', 'Сертолово', '41212505000', 'г', '', 47, 'Sertolovo');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
@@ -1766,7 +1765,7 @@ VALUES (693, '4701000100000', '4706', '', 'Кировск', '41225501000', 'г',
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (694, '4701000200000', '', '', 'Отрадное', '41225504000', 'г', '', 47, 'Otradnoe');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (695, '4701000300000', '4706', '187320', 'Шлиссельбург', '41225503000', 'г', '', 47, 'SHlisselburg');
+VALUES (695, '4701000300000', '4706', '187320', 'Шлиссельбург', '41225503000', 'г', '', 47, 'Shlisselburg');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (696, '4701100100000', '4711', '', 'Лодейное Поле', '41227501000', 'г', '', 47, 'Lodejnoe Pole');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
@@ -1802,7 +1801,7 @@ VALUES (711, '4801200100000', '4811', '', 'Лебедянь', '42233501000', 'г
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (712, '4801600100000', '4816', '', 'Усмань', '42248501000', 'г', '', 48, 'Usman');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (713, '4801800100000', '4813', '', 'Чаплыгин', '42256501000', 'г', '4818', 48, 'CHaplygin');
+VALUES (713, '4801800100000', '4813', '', 'Чаплыгин', '42256501000', 'г', '4818', 48, 'Chaplygin');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (714, '4900000100000', '', '', 'Магадан', '44401000000', 'г', '4909', 49, 'Magadan');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
@@ -1814,9 +1813,9 @@ VALUES (717, '5000000200000', '5040', '', 'Бронницы', '46405000000', 'г
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (718, '5000000300000', '5010', '', 'Дубна', '46418000000', 'г', '', 50, 'Dubna');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (719, '5000000400099', '5012', '143988', 'Железнодорожный', '46404000000', 'г', '', 50, 'ZHeleznodorozhnyj');
+VALUES (719, '5000000400099', '5012', '143988', 'Железнодорожный', '46404000000', 'г', '', 50, 'Zheleznodorozhnyj');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (720, '5000000500000', '5040', '', 'Жуковский', '46425000000', 'г', '', 50, 'ZHukovskij');
+VALUES (720, '5000000500000', '5040', '', 'Жуковский', '46425000000', 'г', '', 50, 'Zhukovskij');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (721, '5000000600051', '5032', '', 'Звенигород', '46455511000', 'г', '', 50, 'Zvenigorod');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
@@ -1838,7 +1837,7 @@ VALUES (729, '5000001300000', '5027', '', 'Лыткарино', '46441000000', '
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (730, '5000001400000', '5043', '', 'Протвино', '46467000000', 'г', '', 50, 'Protvino');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (731, '5000001500000', '5043', '', 'Пущино', '46462000000', 'г', '', 50, 'Pushchino');
+VALUES (731, '5000001500000', '5043', '', 'Пущино', '46462000000', 'г', '', 50, 'Pushino');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (732, '5000001600000', '', '', 'Реутов', '46464000000', 'г', '', 50, 'Reutov');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
@@ -1848,17 +1847,17 @@ VALUES (734, '5000001800051', '5003', '', 'Троицк', '46475000000', 'г', '
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (735, '5000001900000', '5050', '', 'Фрязино', '46480000000', 'г', '5052', 50, 'Fryazino');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (736, '5000002000051', '5074', '142172', 'Щербинка', '46489000000', 'г', '5051', 50, 'SHCHerbinka');
+VALUES (736, '5000002000051', '5074', '142172', 'Щербинка', '46489000000', 'г', '5051', 50, 'Sherbinka');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (737, '5000002100000', '', '', 'Электросталь', '46490000000', 'г', '', 50, 'Elektrostal');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (738, '5000002200051', '5018', '', 'Юбилейный', '46493000000', 'г', '5054', 50, 'YUbilejnyj');
+VALUES (738, '5000002200051', '5018', '', 'Юбилейный', '46493000000', 'г', '5054', 50, 'Yubilejnyj');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (739, '5000002300000', '5027', '', 'Дзержинский', '46411000000', 'г', '', 50, 'Dzerzhinskij');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (740, '5000002400000', '5074', '', 'Подольск', '46460000000', 'г', '', 50, 'Podolsk');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (741, '5000002600051', '5034', '', 'Орехово-Зуево', '46457000000', 'г', '', 50, 'Orekhovo-Zuevo');
+VALUES (741, '5000002600051', '5034', '', 'Орехово-Зуево', '46457000000', 'г', '', 50, 'Orehovo-Zuevo');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (742, '5000002617551', '5034', '142660', 'Дрезна', '46457506000', 'г', '', 50, 'Drezna');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
@@ -1878,10 +1877,10 @@ VALUES (749, '5000003300000', '', '', 'Электрогорск', '46491000000',
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (750, '5000003400051', '5000', '142000', 'Домодедово', '46209000000', 'г', '', 50, 'Domodedovo');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (751, '5000003500000', '5031', '', 'Черноголовка', '46485000000', 'г', '', 50, 'CHernogolovka');
+VALUES (751, '5000003500000', '5031', '', 'Черноголовка', '46485000000', 'г', '', 50, 'Chernogolovka');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (752, '5000003500051', '5031', '142432', 'Городской округ Черноголовка', '46485000000', 'г', '', 50,
-        'Gorodskoj okrug CHernogolovka');
+        'Gorodskoj okrug Chernogolovka');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (753, '5000003600000', '', '', 'Балашиха', '46404000000', 'г', '', 50, 'Balashiha');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
@@ -1893,7 +1892,7 @@ VALUES (756, '5000003900000', '', '', 'Егорьевск', '46422000000', 'г',
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (757, '5000004000000', '5022', '', 'Озеры', '46456000000', 'г', '', 50, 'Ozery');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (758, '5000004400000', '', '', 'Мытищи', '46446000000', 'г', '', 50, 'Mytishchi');
+VALUES (758, '5000004400000', '', '', 'Мытищи', '46446000000', 'г', '', 50, 'Mytishi');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (759, '5000004500000', '5075', '', 'Руза', '46466000000', 'г', '', 50, 'Ruza');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
@@ -1907,11 +1906,11 @@ VALUES (763, '5000004900000', '5024', '', 'Красногорск', '46439000000
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (764, '5000005000000', '5027', '', 'Люберцы', '46448000000', 'г', '', 50, 'Lyubercy');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (765, '5000005100000', '', '', 'Шатура', '46486000000', 'г', '', 50, 'SHatura');
+VALUES (765, '5000005100000', '', '', 'Шатура', '46486000000', 'г', '', 50, 'Shatura');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (766, '5000005200051', '', '', 'Наро-Фоминск', '46450000000', 'г', '', 50, 'Naro-Fominsk');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (767, '5000005300000', '', '', 'Чехов', '46484000000', 'г', '', 50, 'CHekhov');
+VALUES (767, '5000005300000', '', '', 'Чехов', '46484000000', 'г', '', 50, 'Chehov');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (768, '5000005400000', '', '', 'Ступино', '46476000000', 'г', '', 50, 'Stupino');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
@@ -1929,7 +1928,7 @@ VALUES (774, '5000006000051', '5031', '', 'Ногинск', '46451000000', 'г',
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (775, '5000006100051', '', '', 'Дмитров', '46415000000', 'г', '', 50, 'Dmitrov');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (776, '5000006200000', '5050', '', 'Щёлково', '46488000000', 'г', '', 50, 'SHCHyolkovo');
+VALUES (776, '5000006200000', '5050', '', 'Щёлково', '46488000000', 'г', '', 50, 'Shyolkovo');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (777, '5000006300000', '5040', '', 'Раменское', '46468000000', 'г', '', 50, 'Ramenskoe');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
@@ -1945,7 +1944,7 @@ VALUES (782, '5000006800051', '5042', '', 'Сергиев Посад', '46428000
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (783, '5000006900051', '5032', '', 'Одинцово', '46455000000', 'г', '', 50, 'Odincovo');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (784, '5000100000000', '5034', '', 'Орехово-Зуево', '46457000000', 'г', '', 50, 'Orekhovo-Zuevo');
+VALUES (784, '5000100000000', '5034', '', 'Орехово-Зуево', '46457000000', 'г', '', 50, 'Orehovo-Zuevo');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (785, '5000100100000', '5034', '142660', 'Дрезна', '46457506000', 'г', '', 50, 'Drezna');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
@@ -1961,7 +1960,7 @@ VALUES (790, '5000400100051', '', '', 'Воскресенск', '46206501000', '
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (791, '5000500100051', '5007', '', 'Дмитров', '46208501000', 'г', '', 50, 'Dmitrov');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (792, '5000500200051', '5007', '141840', 'Яхрома', '46415506000', 'г', '', 50, 'YAhroma');
+VALUES (792, '5000500200051', '5007', '141840', 'Яхрома', '46415506000', 'г', '', 50, 'Yahroma');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (793, '5000600100051', '5009', '142000', 'Домодедово', '46209000000', 'г', '', 50, 'Domodedovo');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
@@ -2005,7 +2004,7 @@ VALUES (812, '5001700200051', '5027', '140054', 'Котельники', '4623151
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (813, '5001800100051', '5075', '', 'Можайск', '46445000000', 'г', '5028', 50, 'Mozhajsk');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (814, '5001900100051', '', '', 'Мытищи', '46446000000', 'г', '', 50, 'Mytishchi');
+VALUES (814, '5001900100051', '', '', 'Мытищи', '46446000000', 'г', '', 50, 'Mytishi');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (815, '5001900200051', '5008', '141707', 'Долгопрудный', '46416000000', 'г', '', 50, 'Dolgoprudnyj');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
@@ -2042,9 +2041,9 @@ VALUES (827, '5002100100051', '5031', '', 'Ногинск', '46239501000', 'г',
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (828, '5002100200051', '5031', '', 'Электроугли', '46451511000', 'г', '', 50, 'Elektrougli');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (829, '5002100300051', '5031', '', 'Черноголовка', '46485000000', 'г', '', 50, 'CHernogolovka');
+VALUES (829, '5002100300051', '5031', '', 'Черноголовка', '46485000000', 'г', '', 50, 'Chernogolovka');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (830, '5002100300151', '5031', '142432', 'Черноголовка', '46485000000', 'г', '', 50, 'CHernogolovka');
+VALUES (830, '5002100300151', '5031', '142432', 'Черноголовка', '46485000000', 'г', '', 50, 'Chernogolovka');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (831, '5002100400051', '5031', '', 'Старая Купавна', '46451506000', 'г', '', 50, 'Staraya Kupavna');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
@@ -2113,29 +2112,29 @@ VALUES (862, '5003500100051', '5010', '', 'Талдом', '46254501000', 'г', '
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (863, '5003600100051', '5047', '141411', 'Химки', '46483000000', 'г', '', 50, 'Himki');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (864, '5003600200051', '5047', '141421', 'Сходня', '46255504000', 'г', '', 50, 'Skhodnya');
+VALUES (864, '5003600200051', '5047', '141421', 'Сходня', '46255504000', 'г', '', 50, 'Shodnya');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (865, '5003700100051', '5048', '', 'Чехов', '46484000000', 'г', '', 50, 'CHekhov');
+VALUES (865, '5003700100051', '5048', '', 'Чехов', '46484000000', 'г', '', 50, 'Chehov');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (866, '5003700200000', '5048', '', 'Чехов-2', '46484000000', 'г', '', 50, 'CHekhov-2');
+VALUES (866, '5003700200000', '5048', '', 'Чехов-2', '46484000000', 'г', '', 50, 'Chehov-2');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (867, '5003700300000', '5048', '142300', 'Чехов-3', '46484000000', 'г', '', 50, 'CHekhov-3');
+VALUES (867, '5003700300000', '5048', '142300', 'Чехов-3', '46484000000', 'г', '', 50, 'Chehov-3');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (868, '5003700400099', '5048', '142307', 'Чехов-7', '46256501000', 'г', '', 50, 'CHekhov-7');
+VALUES (868, '5003700400099', '5048', '142307', 'Чехов-7', '46256501000', 'г', '', 50, 'Chehov-7');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (869, '5003700500000', '5048', '142302', 'Чехов-8', '46484000000', 'г', '', 50, 'CHekhov-8');
+VALUES (869, '5003700500000', '5048', '142302', 'Чехов-8', '46484000000', 'г', '', 50, 'Chehov-8');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (870, '5003700600099', '5048', '142301', 'Чехов-1', '46256501000', 'г', '', 50, 'CHekhov-1');
+VALUES (870, '5003700600099', '5048', '142301', 'Чехов-1', '46256501000', 'г', '', 50, 'Chehov-1');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (871, '5003700700099', '5048', '142304', 'Чехов-4', '46256501000', 'г', '', 50, 'CHekhov-4');
+VALUES (871, '5003700700099', '5048', '142304', 'Чехов-4', '46256501000', 'г', '', 50, 'Chehov-4');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (872, '5003700800099', '5048', '142305', 'Чехов-5', '46256501000', 'г', '', 50, 'CHekhov-5');
+VALUES (872, '5003700800099', '5048', '142305', 'Чехов-5', '46256501000', 'г', '', 50, 'Chehov-5');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (873, '5003700900099', '5048', '142306', 'Чехов-6', '46256501000', 'г', '', 50, 'CHekhov-6');
+VALUES (873, '5003700900099', '5048', '142306', 'Чехов-6', '46256501000', 'г', '', 50, 'Chehov-6');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (874, '5003800100051', '5049', '', 'Шатура', '46486000000', 'г', '', 50, 'SHatura');
+VALUES (874, '5003800100051', '5049', '', 'Шатура', '46486000000', 'г', '', 50, 'Shatura');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (875, '5004000100051', '5050', '', 'Щелково', '46488000000', 'г', '', 50, 'SHCHelkovo');
+VALUES (875, '5004000100051', '5050', '', 'Щелково', '46488000000', 'г', '', 50, 'Shelkovo');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (876, '5004000200051', '5050', '141151', 'Лосино-Петровский', '46259503000', 'г', '', 50, 'Losino-Petrovskij');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
@@ -2167,7 +2166,7 @@ VALUES (889, '5004400200000', '5005', '', 'Белоозёрский', '464105060
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (890, '5004500000000', '', '', 'Дмитров', '46415000000', 'г', '', 50, 'Dmitrov');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (891, '5004500200000', '5007', '141840', 'Яхрома', '46415506000', 'г', '', 50, 'YAhroma');
+VALUES (891, '5004500200000', '5007', '141840', 'Яхрома', '46415506000', 'г', '', 50, 'Yahroma');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (892, '5004600000000', '5017', '', 'Истра', '46433000000', 'г', '', 50, 'Istra');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
@@ -2241,7 +2240,7 @@ VALUES (926, '5200000700000', '5247', '', 'Выкса', '22415000000', 'г', '',
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (927, '5200000800000', '5254', '', 'Первомайск', '22434000000', 'г', '5224', 52, 'Pervomajsk');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (928, '5200000900000', '5235', '', 'Шахунья', '22458000000', 'г', '5239', 52, 'SHahunya');
+VALUES (928, '5200000900000', '5235', '', 'Шахунья', '22458000000', 'г', '5239', 52, 'Shahunya');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (929, '5200001000000', '5247', '', 'Кулебаки', '22427000000', 'г', '5251', 52, 'Kulebaki');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
@@ -2293,9 +2292,9 @@ VALUES (952, '5203800100000', '5229', '', 'Сергач', '22248501000', 'г', '
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (953, '5204500100000', '5235', '', 'Урень', '22254501000', 'г', '', 52, 'Uren');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (954, '5204600100000', '5248', '', 'Чкаловск', '22442000000', 'г', '5236', 52, 'CHkalovsk');
+VALUES (954, '5204600100000', '5248', '', 'Чкаловск', '22442000000', 'г', '5236', 52, 'Chkalovsk');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (955, '5204900100051', '5235', '', 'Шахунья', '22458000000', 'г', '5239', 52, 'SHahunya');
+VALUES (955, '5204900100051', '5235', '', 'Шахунья', '22458000000', 'г', '5239', 52, 'Shahunya');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (956, '5300000100000', '5321', '', 'Великий Новгород', '49401000000', 'г', '', 53, 'Velikij Novgorod');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
@@ -2319,7 +2318,7 @@ VALUES (965, '5301700100000', '5332', '', 'Старая Русса', '4941300000
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (966, '5301900100000', '5332', '', 'Холм', '49247501000', 'г', '5317', 53, 'Holm');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (967, '5302000100000', '5336', '', 'Чудово', '49250501000', 'г', '5318', 53, 'CHudovo');
+VALUES (967, '5302000100000', '5336', '', 'Чудово', '49250501000', 'г', '5318', 53, 'Chudovo');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (968, '5400000100000', '', '', 'Новосибирск', '50401000000', 'г', '', 54, 'Novosibirsk');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
@@ -2351,11 +2350,11 @@ VALUES (981, '5402302200000', '5474', '', 'Татарск', '50418000000', 'г',
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (982, '5402400100000', '5475', '', 'Тогучин', '50252501000', 'г', '5438', 54, 'Toguchin');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (983, '5402800100000', '5483', '', 'Черепаново', '50257501000', 'г', '', 54, 'CHerepanovo');
+VALUES (983, '5402800100000', '5483', '', 'Черепаново', '50257501000', 'г', '', 54, 'Cherepanovo');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (984, '5403000005799', '5485', '', 'Чулым-3', '50259501000', 'г', '5442', 54, 'CHulym-3');
+VALUES (984, '5403000005799', '5485', '', 'Чулым-3', '50259501000', 'г', '5442', 54, 'Chulym-3');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (985, '5403000100000', '5485', '', 'Чулым', '50259501000', 'г', '5442', 54, 'CHulym');
+VALUES (985, '5403000100000', '5485', '', 'Чулым', '50259501000', 'г', '5442', 54, 'Chulym');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (986, '5500000100000', '', '', 'Омск', '52401000000', 'г', '', 55, 'Omsk');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
@@ -2387,7 +2386,7 @@ VALUES (999, '5600000800000', '5607', '', 'Кувандык', '53414000000', 'г
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (1000, '5600000900000', '5617', '', 'Сорочинск', '53427000000', 'г', '', 56, 'Sorochinsk');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (1001, '5600001000000', '5635', '', 'Ясный', '53432000000', 'г', '', 56, 'YAsnyj');
+VALUES (1001, '5600001000000', '5635', '', 'Ясный', '53432000000', 'г', '', 56, 'Yasnyj');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (1002, '5600300100051', '5602', '461630', 'Бугуруслан', '53408000000', 'г', '', 56, 'Buguruslan');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
@@ -2395,7 +2394,7 @@ VALUES (1003, '5600400100051', '5607', '462635', 'Гай', '53413000000', 'г', 
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (1004, '5600600100051', '5617', '461900', 'Сорочинск', '53427000000', 'г', '', 56, 'Sorochinsk');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (1005, '5600800100051', '5635', '462781', 'Ясный', '53432000000', 'г', '5618', 56, 'YAsnyj');
+VALUES (1005, '5600800100051', '5635', '462781', 'Ясный', '53432000000', 'г', '5618', 56, 'Yasnyj');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (1006, '5601200100051', '5603', '461040', 'Бузулук', '53412000000', 'г', '', 56, 'Buzuluk');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
@@ -2443,7 +2442,7 @@ VALUES (1027, '5800300100001', '5827', '442600', 'Беднодемьяновск
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (1028, '5800500100000', '5802', '', 'Белинский', '56212501000', 'г', '', 58, 'Belinskij');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (1029, '5800800100000', '5826', '', 'Городище', '56218501000', 'г', '5812', 58, 'Gorodishche');
+VALUES (1029, '5800800100000', '5826', '', 'Городище', '56218501000', 'г', '5812', 58, 'Gorodishe');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (1030, '5800800200000', '5826', '', 'Сурск', '56218508000', 'г', '5812', 58, 'Sursk');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
@@ -2483,19 +2482,19 @@ VALUES (1047, '5900001000000', '5918', '', 'Лысьва', '57427000000', 'г', 
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (1048, '5900001100000', '5919', '', 'Соликамск', '57430000000', 'г', '', 59, 'Solikamsk');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (1049, '5900001200000', '5959', '', 'Чайковский', '57435000000', 'г', '', 59, 'CHajkovskij');
+VALUES (1049, '5900001200000', '5959', '', 'Чайковский', '57435000000', 'г', '', 59, 'Chajkovskij');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (1050, '5900001300000', '5921', '', 'Чусовой', '57440000000', 'г', '', 59, 'CHusovoj');
+VALUES (1050, '5900001300000', '5921', '', 'Чусовой', '57440000000', 'г', '', 59, 'Chusovoj');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (1051, '5900001400000', '', '', 'Кудымкар', '57421000000', 'г', '', 59, 'Kudymkar');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (1052, '5900001500000', '5916', '', 'Краснокамск', '57420000000', 'г', '', 59, 'Krasnokamsk');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (1053, '5900500100000', '5933', '', 'Верещагино', '57212501000', 'г', '', 59, 'Vereshchagino');
+VALUES (1053, '5900500100000', '5933', '', 'Верещагино', '57212501000', 'г', '', 59, 'Vereshagino');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (1054, '5900600100000', '5921', '', 'Горнозаводск', '57214501000', 'г', '5934', 59, 'Gornozavodsk');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (1055, '5900800200000', '5907', '617040', 'Чермоз', '57220504000', 'г', '5936', 59, 'CHermoz');
+VALUES (1055, '5900800200000', '5907', '617040', 'Чермоз', '57220504000', 'г', '5936', 59, 'Chermoz');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (1056, '5901300100000', '5919', '', 'Красновишерск', '57226501000', 'г', '', 59, 'Krasnovishersk');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
@@ -2509,9 +2508,9 @@ VALUES (1060, '5901900100000', '5933', '', 'Очер', '57244501000', 'г', '', 
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (1061, '5902400100000', '5911', '', 'Усолье', '57253501000', 'г', '', 59, 'Usole');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (1062, '5902700100000', '5919', '', 'Чердынь', '57256501000', 'г', '', 59, 'CHerdyn');
+VALUES (1062, '5902700100000', '5919', '', 'Чердынь', '57256501000', 'г', '', 59, 'Cherdyn');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (1063, '5902800100000', '5959', '', 'Чернушка', '57257501000', 'г', '', 59, 'CHernushka');
+VALUES (1063, '5902800100000', '5959', '', 'Чернушка', '57257501000', 'г', '', 59, 'Chernushka');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (1064, '5903500100051', '5916', '', 'Краснокамск', '57420000000', 'г', '', 59, 'Krasnokamsk');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
@@ -2557,7 +2556,7 @@ VALUES (1084, '6100000600000', '6191', '', 'Донецк', '60417000000', 'г', 
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (1085, '6100000700000', '6191', '', 'Зверево', '60418000000', 'г', '6146', 61, 'Zverevo');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (1086, '6100000800000', '6191', '', 'Каменск-Шахтинский', '60419000000', 'г', '6147', 61, 'Kamensk-SHahtinskij');
+VALUES (1086, '6100000800000', '6191', '', 'Каменск-Шахтинский', '60419000000', 'г', '6147', 61, 'Kamensk-Shahtinskij');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (1087, '6100000900000', '6183', '', 'Новочеркасск', '60427000000', 'г', '6150', 61, 'Novocherkassk');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
@@ -2565,7 +2564,7 @@ VALUES (1088, '6100001000000', '6182', '', 'Новошахтинск', '60430000
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (1089, '6100001100000', '6154', '', 'Таганрог', '60437000000', 'г', '', 61, 'Taganrog');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (1090, '6100001200000', '6182', '', 'Шахты', '60440000000', 'г', '6155', 61, 'SHahty');
+VALUES (1090, '6100001200000', '6182', '', 'Шахты', '60440000000', 'г', '6155', 61, 'Shahty');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (1091, '6100001300000', '6188', '', 'Азов', '60404000000', 'г', '6140', 61, 'Azov');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
@@ -2624,11 +2623,11 @@ INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `soc
 VALUES (1118, '6202000100000', '6215', '391050', 'Спасск-Рязанский', '61246501000', 'г', '6220', 62,
         'Spassk-Ryazanskij');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (1119, '6202400100000', '6225', '', 'Шацк', '61256501000', 'г', '6224', 62, 'SHack');
+VALUES (1119, '6202400100000', '6225', '', 'Шацк', '61256501000', 'г', '6224', 62, 'Shack');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (1120, '6300000100000', '', '', 'Самара', '36401000000', 'г', '', 63, 'Samara');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (1121, '6300000200000', '6382', '', 'Жигулевск', '36404000000', 'г', '', 63, 'ZHigulevsk');
+VALUES (1121, '6300000200000', '6382', '', 'Жигулевск', '36404000000', 'г', '', 63, 'Zhigulevsk');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (1122, '6300000300000', '6330', '', 'Новокуйбышевск', '36413000000', 'г', '', 63, 'Novokujbyshevsk');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
@@ -2636,7 +2635,7 @@ VALUES (1123, '6300000400000', '6325', '', 'Октябрьск', '36418000000', 
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (1124, '6300000500000', '6372', '', 'Отрадный', '36424000000', 'г', '', 63, 'Otradnyj');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (1125, '6300000600000', '6330', '', 'Чапаевск', '36450000000', 'г', '', 63, 'CHapaevsk');
+VALUES (1125, '6300000600000', '6330', '', 'Чапаевск', '36450000000', 'г', '', 63, 'Chapaevsk');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (1126, '6300000700000', '', '', 'Тольятти', '36440000000', 'г', '', 63, 'Tolyatti');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
@@ -2650,7 +2649,7 @@ VALUES (1130, '6301700100000', '6377', '446600', 'Нефтегорск', '362305
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (1131, '6400000100000', '', '', 'Саратов', '63401000000', 'г', '', 64, 'Saratov');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (1132, '6400000200000', '6441', '', 'Шиханы', '63448000000', 'г', '', 64, 'SHihany');
+VALUES (1132, '6400000200000', '6441', '', 'Шиханы', '63448000000', 'г', '', 64, 'Shihany');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (1133, '6400000300000', '6438', '', 'Аткарск', '63204501000', 'г', '', 64, 'Atkarsk');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
@@ -2670,7 +2669,7 @@ VALUES (1140, '6400000900000', '6444', '', 'Петровск', '63235501000', '�
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (1141, '6400001000000', '6445', '', 'Пугачев', '63237501000', 'г', '', 64, 'Pugachev');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (1142, '6400001100000', '6446', '', 'Ртищево', '63241501000', 'г', '', 64, 'Rtishchevo');
+VALUES (1142, '6400001100000', '6446', '', 'Ртищево', '63241501000', 'г', '', 64, 'Rtishevo');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (1143, '6400001200000', '6441', '', 'Хвалынск', '63249501000', 'г', '', 64, 'Hvalynsk');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
@@ -2706,13 +2705,13 @@ VALUES (1158, '6402600100051', '6444', '412540', 'Петровск', '6323500000
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (1159, '6402800100051', '6445', '413720', 'Пугачев', '63435000001', 'г', '', 64, 'Pugachev');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (1160, '6403100100051', '6446', '412030', 'Ртищево', '63241000000', 'г', '', 64, 'Rtishchevo');
+VALUES (1160, '6403100100051', '6446', '412030', 'Ртищево', '63241000000', 'г', '', 64, 'Rtishevo');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (1161, '6403800100051', '6448', '412785', 'Хвалынск', '63249000000', 'г', '', 64, 'Hvalynsk');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (1162, '6403900100051', '6449', '413100', 'Энгельс', '63250000000', 'г', '', 64, 'Engels');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (1163, '6500000100000', '', '', 'Южно-Сахалинск', '64401000000', 'г', '', 65, 'YUzhno-Sahalinsk');
+VALUES (1163, '6500000100000', '', '', 'Южно-Сахалинск', '64401000000', 'г', '', 65, 'Yuzhno-Sahalinsk');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (1164, '6500200100000', '6501', '694030', 'Анива', '64208501000', 'г', '6510', 65, 'Aniva');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
@@ -2742,13 +2741,13 @@ VALUES (1176, '6501300200051', '6509', '694810', 'Красногорск', '6424
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (1177, '6501500100000', '6509', '', 'Углегорск', '64252501000', 'г', '6508', 65, 'Uglegorsk');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (1178, '6501500200001', '6508', '', 'Шахтерск', '64252510000', 'г', '', 65, 'SHahtersk');
+VALUES (1178, '6501500200001', '6508', '', 'Шахтерск', '64252510000', 'г', '', 65, 'Shahtersk');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (1179, '6501600002901', '6509', '694670', 'Чехов', '64254000010', 'г', '', 65, 'CHekhov');
+VALUES (1179, '6501600002901', '6509', '694670', 'Чехов', '64254000010', 'г', '', 65, 'Chehov');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (1180, '6501600100000', '6509', '', 'Холмск', '64254501000', 'г', '', 65, 'Holmsk');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (1181, '6501600200051', '6509', '694670', 'Чехов', '64254510000', 'г', '', 65, 'CHekhov');
+VALUES (1181, '6501600200051', '6509', '694670', 'Чехов', '64254510000', 'г', '', 65, 'Chehov');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (1182, '6501800100000', '6517', '', 'Александровск-Сахалинский', '64204501000', 'г', '6502', 65,
         'Aleksandrovsk-Sahalinskij');
@@ -2889,7 +2888,7 @@ VALUES (1249, '6700600100000', '6713', '', 'Демидов', '66211501000', 'г'
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (1250, '6700700100000', '6726', '', 'Дорогобуж', '66214501000', 'г', '', 67, 'Dorogobuzh');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (1251, '6700800100000', '6727', '216200', 'Духовщина', '66216501000', 'г', '6705', 67, 'Duhovshchina');
+VALUES (1251, '6700800100000', '6727', '216200', 'Духовщина', '66216501000', 'г', '6705', 67, 'Duhovshina');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (1252, '6700900100000', '6725', '216330', 'Ельня', '66219501000', 'г', '6706', 67, 'Elnya');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
@@ -2903,7 +2902,7 @@ VALUES (1256, '6701800100000', '6726', '', 'Сафоново', '66241501000', '�
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (1257, '6701900100000', '6722', '', 'Сычевка', '66246501000', 'г', '6715', 67, 'Sychevka');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (1258, '6702500100000', '6727', '', 'Ярцево', '66258501000', 'г', '', 67, 'YArcevo');
+VALUES (1258, '6702500100000', '6727', '', 'Ярцево', '66258501000', 'г', '', 67, 'Yarcevo');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (1259, '6800000200000', '6820', '', 'Котовск', '68410000000', 'г', '', 68, 'Kotovsk');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
@@ -2919,7 +2918,7 @@ VALUES (1264, '6800000700000', '6828', '', 'Рассказово', '68425000000'
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (1265, '6800000800000', '6828', '', 'Уварово', '68430000000', 'г', '6830', 68, 'Uvarovo');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (1266, '6800400100000', '6820', '', 'Жердевка', '68204501000', 'г', '', 68, 'ZHerdevka');
+VALUES (1266, '6800400100000', '6820', '', 'Жердевка', '68204501000', 'г', '', 68, 'Zherdevka');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (1267, '6900000100000', '', '', 'Тверь', '28401000000', 'г', '', 69, 'Tver');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
@@ -3033,15 +3032,15 @@ VALUES (1321, '7101900100000', '7151', '', 'Плавск', '70238501000', 'г', 
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (1322, '7102000100000', '7151', '', 'Суворов', '70240501000', 'г', '7133', 71, 'Suvorov');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (1323, '7102000200000', '7151', '301414', 'Чекалин', '70240508000', 'г', '7133', 71, 'CHekalin');
+VALUES (1323, '7102000200000', '7151', '301414', 'Чекалин', '70240508000', 'г', '7133', 71, 'Chekalin');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (1324, '7102200100000', '7153', '', 'Узловая', '70244501000', 'г', '', 71, 'Uzlovaya');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (1325, '7102400100000', '7151', '', 'Щекино', '70248501000', 'г', '7118', 71, 'SHCHekino');
+VALUES (1325, '7102400100000', '7151', '', 'Щекино', '70248501000', 'г', '7118', 71, 'Shekino');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (1326, '7102400200000', '7151', '301205', 'Советск', '70248504000', 'г', '7118', 71, 'Sovetsk');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (1327, '7102500100000', '7148', '', 'Ясногорск', '70250501000', 'г', '7136', 71, 'YAsnogorsk');
+VALUES (1327, '7102500100000', '7148', '', 'Ясногорск', '70250501000', 'г', '7136', 71, 'Yasnogorsk');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (1328, '7200000100000', '', '', 'Тюмень', '71401000000', 'г', '', 72, 'Tyumen');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
@@ -3051,13 +3050,13 @@ VALUES (1330, '7200000300000', '', '', 'Ишим', '71405000000', 'г', '', 72, 
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (1331, '7200000400000', '7207', '', 'Заводоуковск', '71403000000', 'г', '', 72, 'Zavodoukovsk');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (1332, '7200000500000', '7207', '', 'Ялуторовск', '71415000000', 'г', '', 72, 'YAlutorovsk');
+VALUES (1332, '7200000500000', '7207', '', 'Ялуторовск', '71415000000', 'г', '', 72, 'Yalutorovsk');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (1333, '7200900100051', '7207', '', 'Заводоуковск', '71403000000', 'г', '', 72, 'Zavodoukovsk');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (1334, '7201100100051', '', '', 'Ишим', '71405000000', 'г', '', 72, 'Ishim');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (1335, '7202100100051', '7207', '', 'Ялуторовск', '71415000000', 'г', '', 72, 'YAlutorovsk');
+VALUES (1335, '7202100100051', '7207', '', 'Ялуторовск', '71415000000', 'г', '', 72, 'Yalutorovsk');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (1336, '7300000100000', '', '', 'Ульяновск', '73401000000', 'г', '', 73, 'Ulyanovsk');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
@@ -3073,7 +3072,7 @@ VALUES (1341, '7300500100000', '7309', '', 'Инза', '73210501000', 'г', '', 
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (1342, '7301500100000', '7321', '', 'Сенгилей', '73236501000', 'г', '', 73, 'Sengilej');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (1343, '7400000100000', '', '', 'Челябинск', '75401000000', 'г', '', 74, 'CHelyabinsk');
+VALUES (1343, '7400000100000', '', '', 'Челябинск', '75401000000', 'г', '', 74, 'Chelyabinsk');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (1344, '7400000200000', '7459', '', 'Верхний Уфалей', '75406000000', 'г', '', 74, 'Verhnij Ufalej');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
@@ -3093,19 +3092,19 @@ VALUES (1351, '7400001100000', '7413', '', 'Озерск', '75543000000', 'г', 
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (1352, '7400001300000', '7459', '', 'Снежинск', '75545000000', 'г', '7423', 74, 'Snezhinsk');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (1353, '7400001400000', '7457', '', 'Трехгорный', '75507000000', 'г', '7405', 74, 'Trekhgornyj');
+VALUES (1353, '7400001400000', '7457', '', 'Трехгорный', '75507000000', 'г', '7405', 74, 'Trehgornyj');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (1354, '7400001500000', '7457', '', 'Усть-Катав', '75455000000', 'г', '7419', 74, 'Ust-Katav');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (1355, '7400001600000', '7424', '', 'Южноуральск', '75464000000', 'г', '', 74, 'YUzhnouralsk');
+VALUES (1355, '7400001600000', '7424', '', 'Южноуральск', '75464000000', 'г', '', 74, 'Yuzhnouralsk');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (1356, '7400001900051', '7402', '456971', 'Нязепетровск', '75244501000', 'г', '', 74, 'Nyazepetrovsk');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (1357, '7400003000051', '7417', '456940', 'Куса', '75238501000', 'г', '', 74, 'Kusa');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (1358, '7400003400000', '7457', '', 'Трехгорный-1', '75507000000', 'г', '7405', 74, 'Trekhgornyj-1');
+VALUES (1358, '7400003400000', '7457', '', 'Трехгорный-1', '75507000000', 'г', '7405', 74, 'Trehgornyj-1');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (1359, '7400003500000', '7415', '', 'Чебаркуль', '75458000000', 'г', '', 74, 'CHebarkul');
+VALUES (1359, '7400003500000', '7415', '', 'Чебаркуль', '75458000000', 'г', '', 74, 'Chebarkul');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (1360, '7400003600000', '7424', '', 'Троицк', '75452000000', 'г', '7418', 74, 'Troick');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
@@ -3119,7 +3118,7 @@ VALUES (1364, '7400700100000', '7458', '', 'Карталы', '75418000000', 'г'
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (1365, '7400900100000', '7459', '', 'Касли', '75421000000', 'г', '', 74, 'Kasli');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (1366, '7401000100000', '7457', '', 'Юрюзань', '75229516000', 'г', '7410', 74, 'YUryuzan');
+VALUES (1366, '7401000100000', '7457', '', 'Юрюзань', '75229516000', 'г', '7410', 74, 'Yuryuzan');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (1367, '7401000200000', '7457', '', 'Катав-Ивановск', '75424000000', 'г', '7410', 74, 'Katav-Ivanovsk');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
@@ -3135,7 +3134,7 @@ VALUES (1372, '7403600100000', '7459', '', 'Нязепетровск', '75244501
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (1373, '7403900100051', '7418', '457100', 'Троицк', '75452000000', 'г', '', 74, 'Troick');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (1374, '7404200100051', '7420', '456440', 'Чебаркуль', '75458000000', 'г', '', 74, 'CHebarkul');
+VALUES (1374, '7404200100051', '7420', '456440', 'Чебаркуль', '75458000000', 'г', '', 74, 'Chebarkul');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (1375, '7404400100000', '7430', '', 'Еманжелинск', '75409000000', 'г', '7403', 74, 'Emanzhelinsk');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
@@ -3143,9 +3142,9 @@ VALUES (1376, '7404500100000', '7430', '', 'Коркино', '75431000000', 'г'
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (1377, '7404600100000', '7424', '', 'Пласт', '75445000000', 'г', '7416', 74, 'Plast');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (1378, '7500000100000', '7536', '', 'Чита', '76401000000', 'г', '', 75, 'CHita');
+VALUES (1378, '7500000100000', '7536', '', 'Чита', '76401000000', 'г', '', 75, 'Chita');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (1379, '7500000200001', '7524', '672046', 'Чита-46', '76585000000', 'г', '7533', 75, 'CHita-46');
+VALUES (1379, '7500000200001', '7524', '672046', 'Чита-46', '76585000000', 'г', '7533', 75, 'Chita-46');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (1380, '7500400100000', '7527', '', 'Балей', '76206501000', 'г', '', 75, 'Balej');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
@@ -3164,13 +3163,13 @@ VALUES (1386, '7502100100000', '7513', '', 'Сретенск', '76240501000', '�
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (1387, '7502500100000', '7538', '', 'Хилок', '76247501000', 'г', '', 75, 'Hilok');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (1388, '7502800100000', '7527', '', 'Шилка', '76254501000', 'г', '', 75, 'SHilka');
+VALUES (1388, '7502800100000', '7527', '', 'Шилка', '76254501000', 'г', '', 75, 'Shilka');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (1389, '7600000100000', '', '', 'Ярославль', '78401000000', 'г', '', 76, 'YAroslavl');
+VALUES (1389, '7600000100000', '', '', 'Ярославль', '78401000000', 'г', '', 76, 'Yaroslavl');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (1390, '7600000200000', '7608', '', 'Переславль-Залесский', '78405000000', 'г', '', 76, 'Pereslavl-Zalesskij');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (1391, '7600500100000', '7609', '', 'Гаврилов-Ям', '78212501000', 'г', '', 76, 'Gavrilov-YAm');
+VALUES (1391, '7600500100000', '7609', '', 'Гаврилов-Ям', '78212501000', 'г', '', 76, 'Gavrilov-Yam');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (1392, '7600600100000', '7611', '', 'Данилов', '78215501000', 'г', '', 76, 'Danilov');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
@@ -3178,7 +3177,7 @@ VALUES (1393, '7600700100000', '7611', '', 'Любим', '78218501000', 'г', ''
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (1394, '7600800100000', '7612', '152830', 'Мышкин', '78221501000', 'г', '', 76, 'Myshkin');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (1395, '7601300100000', '7610', '', 'Пошехонье', '78234501000', 'г', '', 76, 'Poshekhone');
+VALUES (1395, '7601300100000', '7610', '', 'Пошехонье', '78234501000', 'г', '', 76, 'Poshehone');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (1396, '7601400100000', '7609', '', 'Ростов', '78410000000', 'г', '', 76, 'Rostov');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
@@ -3194,7 +3193,7 @@ VALUES (1401, '7700000004951', '7751', '142784', 'Московский', '462285
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (1402, '7700000200000', '7735', '', 'Зеленоград', '', 'г', '', 77, 'Zelenograd');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (1403, '7700000300000', '7751', '', 'Щербинка', '45297581000', 'г', '', 77, 'SHCHerbinka');
+VALUES (1403, '7700000300000', '7751', '', 'Щербинка', '45297581000', 'г', '', 77, 'Sherbinka');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (1404, '7700000500000', '7751', '', 'Троицк', '45298578000', 'г', '', 77, 'Troick');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
@@ -3252,7 +3251,7 @@ VALUES (1430, '8600000500000', '8610', '', 'Нягань', '71139000000', 'г', 
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (1431, '8600000600000', '8607', '', 'Покачи', '71184000000', 'г', '', 86, 'Pokachi');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (1432, '8600000700000', '8619', '', 'Пыть-Ях', '71185000000', 'г', '8612', 86, 'Pyt-YAh');
+VALUES (1432, '8600000700000', '8619', '', 'Пыть-Ях', '71185000000', 'г', '8612', 86, 'Pyt-Yah');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (1433, '8600000900000', '8606', '', 'Урай', '71138000000', 'г', '', 86, 'Uraj');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
@@ -3266,7 +3265,7 @@ VALUES (1437, '8600001400000', '8619', '', 'Нефтеюганск', '7113400000
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (1438, '8600001500000', '8603', '', 'Радужный', '71137000000', 'г', '', 86, 'Raduzhnyj');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (1439, '8600001600000', '8622', '', 'Югорск', '71187000000', 'г', '', 86, 'YUgorsk');
+VALUES (1439, '8600001600000', '8622', '', 'Югорск', '71187000000', 'г', '', 86, 'Yugorsk');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (1440, '8600800100000', '', '', 'Советский', '71124604000', 'г', '', 86, 'Sovetskij');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
@@ -3278,7 +3277,7 @@ VALUES (1443, '8700300100000', '8706', '', 'Билибино', '77209501000', '�
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (1444, '8700600100000', '8706', '', 'Певек', '77230501000', 'г', '', 87, 'Pevek');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (1445, '8900000100000', '8901', '', 'Салехард', '71171000000', 'г', '', 89, 'Salekhard');
+VALUES (1445, '8900000100000', '8901', '', 'Салехард', '71171000000', 'г', '', 89, 'Salehard');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (1446, '8900000200000', '8911', '', 'Губкинский', '71172000000', 'г', '8913', 89, 'Gubkinskij');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
@@ -3308,7 +3307,7 @@ VALUES (1458, '9100000600000', '9105', '', 'Джанкой', '35407000000', 'г'
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (1459, '9100000700000', '9102', '', 'Симферополь', '35401000000', 'г', '', 91, 'Simferopol');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (1460, '9100000800000', '9103', '', 'Ялта', '35419000000', 'г', '', 91, 'YAlta');
+VALUES (1460, '9100000800000', '9103', '', 'Ялта', '35419000000', 'г', '', 91, 'Yalta');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (1461, '9100000800100', '9103', '', 'Алупка', '35419503000', 'г', '', 91, 'Alupka');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
@@ -3334,7 +3333,7 @@ VALUES (1471, '9100600004451', '9106', '296000', 'Красноперекопск
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (1472, '9100600100099', '9106', '296000', 'Красноперекопск', '35000000000', 'г', '', 91, 'Krasnoperekopsk');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
-VALUES (1473, '9100700100000', '9111', '', 'Щелкино', '35227505000', 'г', '', 91, 'SHCHelkino');
+VALUES (1473, '9100700100000', '9111', '', 'Щелкино', '35227505000', 'г', '', 91, 'Shelkino');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (1474, '9101100008799', '9107', '296500', 'Саки', '35000000000', 'г', '', 91, 'Saki');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
@@ -3343,6 +3342,7 @@ INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `soc
 VALUES (1476, '9200000100000', '9203', '', 'Инкерман', '67263505000', 'г', '', 92, 'Inkerman');
 INSERT IGNORE INTO cities (`id`, `code`, `gninmb`, `indx`, `name`, `ocatd`, `socr`, `uno`, `region_id`, `name_en`)
 VALUES (1477, '9900000000000', '9900', '468320', 'Байконур', '55000000000', 'г', '', 99, 'Bajkonur');
+
 
 UPDATE users
 SET city_id = 137

@@ -5,8 +5,13 @@ import lombok.Data;
 
 import java.util.Set;
 
+/**
+ * ДТО для плиток с объявлениями на сайте.
+ */
+
 @Data
 public class PostingTileDTO {
+    private Long id;
     private String title = "";
     private String url = "";
     private long price = 0;

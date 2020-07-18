@@ -68,7 +68,7 @@ function getPostings(search) {
         if (postings.length !== 0) {
             let imageSrc = "";
             for (let i = 0; i < postings.length; i++) {
-                imageSrc = posting[i].images.length > 0 ? posting[i].images[0].imagePath : `/images/image-placeholder.png`;
+                imageSrc = postings[i].images.length > 0 ? postings[i].images[0].imagePath : `/images/image-placeholder.png`;
                 div += "<div  id='post" + postings[i].id + "' class='card'><div  class='card-header'>" +
                     "<img src='" + imageSrc + "' class='card-img-top' alt='...'></div>" +
                     "<div class='card-body'>" +

@@ -46,10 +46,10 @@ public class Region {
     @Column(name = "code", length = 13)
     private String code;
 
-    @Column(name = "beaty_name", length = 50)
+    @Column(name = "beauty_name", length = 50)
     private String beatyName;
 
-    @Column(name = "beaty_name_en", length = 50)
+    @Column(name = "beauty_name_en", length = 50)
     private String beatyNameEn;
 
     @Column(name = "name_en", length = 50)

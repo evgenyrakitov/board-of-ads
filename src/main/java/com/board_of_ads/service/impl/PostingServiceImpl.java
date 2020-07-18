@@ -67,6 +67,7 @@ public class PostingServiceImpl implements PostingService {
         PostingTileDTO dto;
         for (Posting posting : postingList) {
             dto = new PostingTileDTO();
+            dto.setId((posting.getId()));
             dto.setTitle(posting.getTitle());
             dto.setPrice(posting.getPrice());
             dto.setUrl("/posting/" + posting.getId());

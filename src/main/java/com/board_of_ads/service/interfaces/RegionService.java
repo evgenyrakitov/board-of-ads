@@ -12,5 +12,7 @@ public interface RegionService {
 
     List<Region> findByName(String name);
 
-    Region findRegionByName (String name);
+    List<Region> findByBeautyName(String beautyName);
+
+    Region findRegionByName(String name);
 }

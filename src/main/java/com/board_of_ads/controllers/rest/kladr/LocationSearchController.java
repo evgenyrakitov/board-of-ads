@@ -26,10 +26,50 @@ public class LocationSearchController {
     private final CityService cityService;
     private final RegionService regionService;
 
+    /**
+     * Ищет по строке подходящие города и регионы и возвращает из них список ДТО.
+     * <p>
+     * Если по запросу найден только один город - то возвращает ещё и регион этого города в добавок. Это сделано
+     * для удобства пользователя на сайте, если он вдруг захочет расширить область поиска.
+     *
+     * @param query - текст в свободной форме
+     * @return - список ДТО локейшенов
+     */
     @GetMapping("search/{query}")
     public ResponseEntity<List<LocationItemDTO>> searchLocation(@PathVariable String query) {
-        List<Region> regionList = regionService.findByName(query);
+
+        List<Region> regionList = regionService.findByBeautyName(query);
         List<City> cityList = cityService.findAllByName(query);
+
+        List<LocationItemDTO> locationItemDTOList = new ArrayList<>();
+
+        locationItemDTOList.addAll(buildLocationItemDTOListFromRegions(regionList));
+        locationItemDTOList.addAll(buildLocationItemDTOListFromCities(cityList));
+
+        if (cityList.size() == 1 && regionList.size() == 0) {
+            regionList.add(cityList.get(0).getRegion());
+            locationItemDTOList.addAll(buildLocationItemDTOListFromRegions(regionList));
+        }
+
+        return ResponseEntity.ok(locationItemDTOList);
+    }
+
+    private List<LocationItemDTO> buildLocationItemDTOListFromRegions(List<Region> regionList) {
+        List<LocationItemDTO> locationItemDTOList = new ArrayList<>();
+
+        for (Region region : regionList) {
+            LocationItemDTO locationItemDTO = new LocationItemDTO();
+            locationItemDTO.setCityId(-1);
+            locationItemDTO.setRegionId(region.getId());
+            locationItemDTO.setShortName(region.getBeatyName());
+            locationItemDTO.setBeautyName(region.getBeatyName());
+            locationItemDTOList.add(locationItemDTO);
+        }
+
+        return locationItemDTOList;
+    }
+
+    private List<LocationItemDTO> buildLocationItemDTOListFromCities(List<City> cityList) {
         List<LocationItemDTO> locationItemDTOList = new ArrayList<>();
 
         for (City city : cityList) {
@@ -37,9 +77,8 @@ public class LocationSearchController {
             locationItemDTO.setCityId(city.getId());
             locationItemDTO.setRegionId(city.getRegion().getId());
             locationItemDTO.setShortName(city.getName());
-            locationItemDTO.setFullName(
-                    new StringBuilder(city.getShortType())
-                            .append(" ")
+            locationItemDTO.setBeautyName(
+                    new StringBuilder()
                             .append(city.getName())
                             .append(" (")
                             .append(city.getRegion().getBeatyName())
@@ -48,15 +87,6 @@ public class LocationSearchController {
             locationItemDTOList.add(locationItemDTO);
         }
 
-        for (Region region : regionList) {
-            LocationItemDTO locationItemDTO = new LocationItemDTO();
-            locationItemDTO.setCityId(-1);
-            locationItemDTO.setRegionId(region.getId());
-            locationItemDTO.setShortName(region.getName());
-            locationItemDTO.setFullName(region.getBeatyName());
-            locationItemDTOList.add(locationItemDTO);
-        }
-
-        return ResponseEntity.ok(locationItemDTOList);
+        return locationItemDTOList;
     }
 }

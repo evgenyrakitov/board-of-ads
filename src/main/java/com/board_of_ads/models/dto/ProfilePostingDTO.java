@@ -5,6 +5,11 @@ import lombok.Data;
 
 import java.util.Set;
 
+/**
+ * ДТО для передачи блоков с объявлениями для страницы /profile и вкладки "Мои объявления"
+ * Для плиток с объявлениями на главной странице лучше использовать PostingTileDTO
+ */
+
 @Data
 public class ProfilePostingDTO {
     private Long id;

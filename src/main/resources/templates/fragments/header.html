@@ -236,8 +236,10 @@
                 <div class="modal-body text-center">
                     <div class="row" style="margin-bottom: 10px; margin-left: 0px;">
                         <div class="block">
-                            <button class="btn locationQuickButton" data-city-id="" data-dismiss="modal"
+                            <button class="btn locationQuickButton location-quick-item-clickable"
+                                    data-beauty-name="По всей России" data-city-id=""
                                     data-region-id=""
+                                    data-dismiss="modal"
                                     id="location-show-russia"
                                     style="height: 40px; background: #F4F4F4;"
                                     th:text="'По всей России'"
@@ -246,22 +248,26 @@
                         </div>
                         <div class="block"
                              th:if="${user.getClass().getSimpleName() == 'User' && user.getRegion() != null}">
-                            <button class="btn locationQuickButton" data-city-id="" data-dismiss="modal"
+                            <button class="btn locationQuickButton location-quick-item-clickable" data-beauty-name=""
+                                    data-city-id=""
                                     data-region-id=""
+                                    data-dismiss="modal"
                                     id="location-show-region"
                                     style="height: 40px; margin-left: 10px; background: #F4F4F4;"
-                                    th:attr="data-region-id=${user.getRegion().getId()}"
+                                    th:attr="data-region-id=${user.getRegion().getId()}, data-beauty-name=${user.getRegion().getBeatyName()}"
                                     th:text="${user.getRegion().getBeatyName()}"
                                     type="button">My Region
                             </button>
                         </div>
                         <div class="block"
                              th:if="${user.getClass().getSimpleName() == 'User' && user.getCity() != null}">
-                            <button class="btn locationQuickButton" data-city-id="" data-dismiss="modal"
+                            <button class="btn locationQuickButton location-quick-item-clickable" data-beauty-name=""
+                                    data-city-id=""
                                     data-region-id=""
+                                    data-dismiss="modal"
                                     id="location-show-city"
                                     style="height: 40px; margin-left: 10px; background: #F4F4F4;"
-                                    th:attr="data-city-id=${user.getCity().getId()}, data-region-id=${user.getCity().getRegion().getId()}"
+                                    th:attr="data-city-id=${user.getCity().getId()}, data-region-id=${user.getCity().getRegion().getId()}, data-beauty-name=${user.getCity().getName()}"
                                     th:text="${user.getCity().getName()}"
                                     type="button">My City
                             </button>
@@ -269,20 +275,24 @@
                     </div>
                     <form role="form">
                         <div class="form-group padding">
-                            <input autocomplete="off" class="form-control" id="location-search" type="text">
+                            <div class="form-group position-relative">
+                                <input autocomplete="off" class="form-control" id="location-search" spellcheck="false"
+                                       type="text">
+                                <span class="form-clear d-none"><i class="material-icons">clear</i></span>
+                            </div>
                             <div class="list-group text-left" id="location-list">
 
                             </div>
                         </div>
                     </form>
                 </div>
-                <div class="modal-footer" style="display: block;">
-                    <button class="btn btn-primary float-right" data-dismiss="modal" id="location-close"
-                            th:text="#{header.location.modalFooter}"
-                            style="background-color: #0af; border-color: transparent; height: 40px;"
-                            type="button">Показать объявления
-                    </button>
-                </div>
+                <!--                <div class="modal-footer" style="display: block;">-->
+                <!--                    <button class="btn btn-primary float-right" data-dismiss="modal" id="location-close"-->
+                <!--                            th:text="#{header.location.modalFooter}"-->
+                <!--                            style="background-color: #0af; border-color: transparent; height: 40px;"-->
+                <!--                            type="button">Показать объявления-->
+                <!--                    </button>-->
+                <!--                </div>-->
             </div>
         </div>
     </div>
@@ -537,7 +547,7 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-body text-center" id="modal-search-content">
-                    <h3>По Вашему запросу ничего ненайдено</h3>
+                    <h3>По Вашему запросу ничего не найдено</h3>
                 </div>
             </div>
         </div>
