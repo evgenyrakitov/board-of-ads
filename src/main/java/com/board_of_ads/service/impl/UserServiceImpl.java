@@ -110,6 +110,7 @@ public class UserServiceImpl implements UserService {
         final Calendar cal = Calendar.getInstance();
         return passToken.getExpiryDate().before(cal.getTime());
     }
+
     @Override
     public void createPasswordResetTokenForUser(User user, String token) {
         PasswordResetToken myToken = new PasswordResetToken(token, user);
@@ -119,5 +120,13 @@ public class UserServiceImpl implements UserService {
     @Override
     public PasswordResetToken findByToken(String token) {
         return passwordResetTokenRepository.findByToken(token);
+    }
+
+    @Override
+    public void deletePasswordChangeToken(String token) {
+        PasswordResetToken passToken = passwordResetTokenRepository.findByToken(token);
+        if (isTokenFound(passToken)) {
+            passwordResetTokenRepository.delete(passToken);
+        }
     }
 }
