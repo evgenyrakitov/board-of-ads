@@ -268,7 +268,7 @@ svg {
 }
 
 .modal .close {
-    margin-right: -20px;
+    margin-right: 20px;
     position: relative;
     cursor: pointer;
     font-size: 25px;

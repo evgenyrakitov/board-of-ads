@@ -4,7 +4,8 @@ $(".open-modal-1").click(function(){
     $("#modal-reg-1").modal('show');    //окно входа
 });
 $("#open-modal-2").click(function () {
-    $("#modal-reg-2").modal("show");    //окно регистрации
+    $("#modal-reg-2").modal("show");//окно регистрации
+    $('#spanDoubleEmailRegistration').slideUp(0);
 });
 $("#open-modal-3").click(function () {
     $("#modal-reg-3").modal("show");
@@ -86,7 +87,7 @@ $("#btn-reg").click(function (event) {
     }
     if (sum === 6) {
         reg.save(email, password, first_name, last_name, region, city, phone);
-        $("#modal-reg-2").modal('toggle');
+        //$("#modal-reg-2").modal('toggle');
     }
     else {
     }

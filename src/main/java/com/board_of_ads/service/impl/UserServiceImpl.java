@@ -120,4 +120,9 @@ public class UserServiceImpl implements UserService {
     public PasswordResetToken findByToken(String token) {
         return passwordResetTokenRepository.findByToken(token);
     }
+
+    @Override
+    public User findUserByPhone(String phone) {
+        return userRepository.findUserByPhone(phone);
+    }
 }

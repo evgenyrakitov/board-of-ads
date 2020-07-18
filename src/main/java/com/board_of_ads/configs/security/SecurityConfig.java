@@ -50,8 +50,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private OAuth2ClientContext oAuth2ClientContext;
 
-    @Autowired
-    private AuthProvider authProvider;
 
     @Autowired
     private OAuthNetworkService OAuthNetworkService;
@@ -60,10 +58,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Qualifier("UserDetailsServiceImpl")
     private UserDetailsService userDetailsService;
 
-    //Провайдер аутентификации
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        //auth.authenticationProvider(authProvider);
         auth.userDetailsService(userDetailsService);
 
     }
@@ -72,7 +68,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers("/", "/login/**", "/css/**", "/images/**", "/js/**", "/webjars/**", "/categories/**",  "/rest/admin/add", "/rest/kladr/*", "/rest/posting/*","/rest/messages/**", "/reset/changePassword**").permitAll()
+                .antMatchers("/", "/login/**", "/css/**", "/images/**", "/js/**", "/webjars/**",
+                        "/categories/**",  "/rest/registration", "/rest/kladr/*", "/rest/posting/*","/rest/messages/**",
+                        "/reset/changePassword**").permitAll()
                 .antMatchers("/rest/user/favoritePostings/*", "/rest/user_profile/favoritePostings").authenticated()
                 .anyRequest().permitAll();
 /*
