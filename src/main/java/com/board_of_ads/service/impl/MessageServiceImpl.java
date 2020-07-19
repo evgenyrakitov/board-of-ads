@@ -8,6 +8,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @AllArgsConstructor
 public class MessageServiceImpl implements MessageService {
@@ -18,6 +20,20 @@ public class MessageServiceImpl implements MessageService {
     @Override
     public long getCountUnreadMessagesForUserId(Long id){
         return messageRepository.countMessagesByReadStatusAndRecipientId(Message.ReadStatus.NOT_READ, id);
+    }
 
+    @Override
+    public List<Message> getAllMessage() {
+        return messageRepository.findAll();
+    }
+
+    @Override
+    public Message addMessage(Message message) {
+        return messageRepository.save(message);
+    }
+
+    @Override
+    public Message getMessageByID(long id) {
+        return messageRepository.findById(id).orElse(null);
     }
 }

@@ -38,24 +38,24 @@
         </div>
     </div>
     <div class="bg_black_header"></div>
-    <div class=" header-container bg-light nav_first" th:fragment="top-nav-bar">
+    <div class=" header-container bg-light nav_first" th:fragment="top-nav-bar" id="top-nav-bar">
         <nav class="navbar navbar-expand-sm navbar-light header-element">
             <div class="d-flex justify-content-between align-items-center">
                 <ul class="navbar-nav mr-auto" id="avitoNavigation">
-                    <li class="nav-item"><a class="nav-link" href="/" th:text="#{header.ads}">Объявления</a>
+                    <li class="nav-item"><a class="nav-link active" href="/" th:text="#{header.ads}">Объявления</a>
                     </li>
-                    <li class="nav-item"><a class="nav-link" href="/" th:text="#{header.shops}">Магазины</a>
+                    <li class="nav-item"><a class="nav-link" href="!#" th:text="#{header.shops}">Магазины</a>
                     </li>
-                    <li class="nav-item"><a class="nav-link" href="/" th:text="#{header.business}">Бизнес</a>
+                    <li class="nav-item"><a class="nav-link" href="!#" th:text="#{header.business}">Бизнес</a>
                     </li>
-                    <li class="nav-item"><a class="nav-link" href="/" th:text="#{header.help}">Помощь</a></li>
+                    <li class="nav-item"><a class="nav-link" href="!#" th:text="#{header.help}">Помощь</a></li>
                     <div sec:authorize="hasAuthority('ADMIN')">
                         <li class="nav-item"><a class="nav-link" href="/admin_page" th:text="#{header.admin}">Админ</a>
                         </li>
                     </div>
                 </ul>
                 <ul class="navbar-nav sign_up">
-                    <li class="nav-item">
+                    <li class="nav-item" th:if="${user.getClass().getSimpleName() == 'User'}">
                         <a class="nav-link" href="/profile#favorites">
                             <span class="favourites"></span>
                             <svg class="feather feather-heart" fill="none" height="24" stroke="currentColor"
@@ -67,7 +67,7 @@
                             </svg>
                         </a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item" th:if="${user.getClass().getSimpleName() == 'User'}">
                         <a class="nav-link" href="#">
                             <span class="message_box">
                                 <span class="message_icon">
