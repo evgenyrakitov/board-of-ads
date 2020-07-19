@@ -24,12 +24,6 @@ public class NotificationRestController {
 
     private final NotificationService notificationService;
 
-    @GetMapping("/all")
-    public ResponseEntity<List<Notification>> getAllNotification() {
-        return ResponseEntity.ok(notificationService.getAllNotifications());
-    }
-
-    @GetMapping("/getNotificationInfo")
     public ResponseEntity<Notification> getNotification() {
         Notification notification = new Notification();
         notification.setTitle("Тестовая нотификация");
@@ -38,12 +32,5 @@ public class NotificationRestController {
         notification.setType(Notification.Type.News);
         notification.setRead(false);
         return ResponseEntity.ok(notification);
-    }
-
-    @GetMapping("/user/{id}")
-    public ResponseEntity<String> getAllPostinfForUserId(@PathVariable("id") Long id) {
-        User user = new User();
-        user.setId(id);
-        return ResponseEntity.ok(new Gson().toJson(notificationService.getAllPostByUserId(id)));
     }
 }
