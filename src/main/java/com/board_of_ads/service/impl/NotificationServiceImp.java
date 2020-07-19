@@ -1,6 +1,7 @@
 package com.board_of_ads.service.impl;
 
 import com.board_of_ads.models.Notification;
+import com.board_of_ads.models.User;
 import com.board_of_ads.repository.NotificationRepository;
 import com.board_of_ads.service.interfaces.NotificationService;
 import lombok.AllArgsConstructor;
@@ -44,5 +45,19 @@ public class NotificationServiceImp implements NotificationService {
     @Override
     public List<Notification> getAllNotifications() {
        return notificationRepository.findAll();
+    }
+
+    @Override
+    public List<Notification> getAllPostByUserId(Long id) {
+        List<Notification> notifications = null;
+        notifications = notificationRepository.findNotificationByUser_Id(id);
+
+        for (Notification n: notifications) {
+            User user = n.getUser();
+            n.setUser(user);
+            //!! невозможно выставить нуллы.
+        }
+
+        return notifications;
     }
 }

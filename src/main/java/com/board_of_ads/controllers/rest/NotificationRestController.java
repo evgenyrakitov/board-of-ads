@@ -1,12 +1,15 @@
 package com.board_of_ads.controllers.rest;
 
 import com.board_of_ads.models.Notification;
+import com.board_of_ads.models.User;
 import com.board_of_ads.service.interfaces.NotificationService;
+import com.google.gson.Gson;
 import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -35,5 +38,12 @@ public class NotificationRestController {
         notification.setType(Notification.Type.News);
         notification.setRead(false);
         return ResponseEntity.ok(notification);
+    }
+
+    @GetMapping("/user/{id}")
+    public ResponseEntity<String> getAllPostinfForUserId(@PathVariable("id") Long id) {
+        User user = new User();
+        user.setId(id);
+        return ResponseEntity.ok(new Gson().toJson(notificationService.getAllPostByUserId(id)));
     }
 }

@@ -103,6 +103,14 @@ public class DataInitializer {
         notificationService.addNotification(notification);
 
         notification = new Notification();
+        notification.setTitle("ПлОти нолог");
+        notification.setContent("грождонин. у вас нолог не уплочен. ваш П.");
+        notification.setType(Notification.Type.PayService);
+        notification.setRead(false);
+        notification.setUser(adminUser);
+        notificationService.addNotification(notification);
+
+        notification = new Notification();
         notification.setTitle("Тоже тестовая нотификация.");
         notification.setContent("ты не одмин. мне очень жаль, так бывает.");
         notification.setType(Notification.Type.TipsOfAvito);

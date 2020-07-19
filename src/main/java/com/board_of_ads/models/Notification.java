@@ -8,6 +8,7 @@ import lombok.RequiredArgsConstructor;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -49,7 +50,8 @@ public class Notification { //этот класс - базовые нотифи�
     private Type type;
 
     @NonNull
-    @ManyToOne(fetch = FetchType.LAZY)
+//    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(fetch =  FetchType.LAZY)
     @Fetch(FetchMode.JOIN)
     private User user;
 }
