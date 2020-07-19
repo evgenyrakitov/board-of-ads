@@ -54,4 +54,10 @@ public class Notification { //этот класс - базовые нотифи�
     @ManyToOne(fetch =  FetchType.LAZY)
     @Fetch(FetchMode.JOIN)
     private User user;
+
+    //wtf, lombok?
+
+    public boolean getIsRead() {
+        return isRead;
+    }
 }

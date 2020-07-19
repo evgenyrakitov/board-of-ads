@@ -2,6 +2,7 @@ package com.board_of_ads.controllers.rest;
 
 import com.board_of_ads.models.Notification;
 import com.board_of_ads.models.User;
+import com.board_of_ads.models.dto.NotificationDTO;
 import com.board_of_ads.models.dto.ProfilePostingDTO;
 import com.board_of_ads.models.posting.Posting;
 import com.board_of_ads.models.posting.extra.PostingStatus;
@@ -39,11 +40,11 @@ public class UserProfileRestController {
     private final NotificationService notificationService;
 
     @GetMapping("/notifications")
-    public ResponseEntity<List<Notification>> getAllNotificationsForCurrentUser() {
+    public ResponseEntity<List<NotificationDTO>> getAllNotificationsForCurrentUser() {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         List<Notification> notificationsList = notificationService.getAllPostByUserId(user.getId());
-        //возможно, дособрать выпилив лишнее. типа сделать DTO
-        return ResponseEntity.ok(notificationsList);
+        List<NotificationDTO> notificationDTOS = buildDTOListNotification(notificationsList);
+        return ResponseEntity.ok(notificationDTOS);
 
     }
 
@@ -83,6 +84,20 @@ public class UserProfileRestController {
             dto.setViewCount(0);
             dto.setUrl("/posting/" + posting.getId());
             dto.setImages(posting.getImagePath());
+            dtoList.add(dto);
+        }
+        return dtoList;
+    }
+
+    protected static List<NotificationDTO> buildDTOListNotification(Iterable<Notification> notificationsList) {
+        List<NotificationDTO> dtoList = new ArrayList<>();
+        NotificationDTO dto;
+        for (Notification notification : notificationsList) {
+            dto = new NotificationDTO();
+            dto.setId(notification.getId());
+            dto.setTitle(notification.getTitle());
+            dto.setContent(notification.getContent());
+            dto.setRead(notification.getIsRead());
             dtoList.add(dto);
         }
         return dtoList;
