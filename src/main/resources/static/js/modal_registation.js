@@ -84,7 +84,19 @@ $("#btn-reg").click(function (event) {
         reg.warningField('#first_name-reg-form');
         reg.warningField('#last_name-reg-form');
     }
-    if (sum === 6) {
+    //============== check region and city  ==========//
+    if (!region){
+        alert("Выберите регион");
+        reg.warningField('#regionId');
+    }else if (!city){
+        alert("Выберите город");
+        reg.warningField('#citiesId');
+    }else{
+        reg.successField('#regionId');
+        reg.successField('#citiesId');
+        sum++; //7
+    }
+    if (sum === 7) {
         reg.save(email, password, first_name, last_name, region, city, phone);
         $("#modal-reg-2").modal('toggle');
     }
