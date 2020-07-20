@@ -139,6 +139,7 @@ let user_profile = {
     show_messages: function (element) {
         this.deselectAllNavLinks();
         element.classList.add("profile-sidebar-navigation-link-active-3sgHn");
+        // Заголовок и хэдер
         document.getElementById("user_page_content").innerHTML = "<h1 class=\"heading\">" + messages['profile.messages.title'] + "</h1>" +
             "<div class=\"header messages\">\n" +
             "            <div class=\"form-row justify-content-center\">\n" +
@@ -152,7 +153,7 @@ let user_profile = {
             "                    <option selected value=\"\">" + messages['profile.messages.unread'] + "</option>\n" +
             "                </select>\n" +
             "                <div class=\"form-group col-4 col-sm-4 col-md-4 col-lg-6\">\n" +
-            "                    <input type=\"text\" style='margin-left: 40pt' placeholder=" + messages['profile.messages.searchByMessages'] + "\n" +
+            "                    <input type=\"text\" style='margin-left: 40pt'  placeholder=" + messages['profile.messages.searchByMessages'] + "\n" +
             "                            class=\"form-control\" id=\"searchByMessages\">\n" +
             "                </div>\n" +
             "            </div>\n" +
