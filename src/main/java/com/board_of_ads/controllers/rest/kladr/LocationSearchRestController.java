@@ -4,6 +4,7 @@ import com.board_of_ads.models.dto.LocationItemDTO;
 import com.board_of_ads.models.kladr.City;
 import com.board_of_ads.models.kladr.Region;
 import com.board_of_ads.service.interfaces.CityService;
+import com.board_of_ads.service.interfaces.LocationItemService;
 import com.board_of_ads.service.interfaces.RegionService;
 import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
@@ -25,6 +26,7 @@ public class LocationSearchRestController {
 
     private final CityService cityService;
     private final RegionService regionService;
+    private final LocationItemService locationItemService;
 
     /**
      * Ищет по строке подходящие города и регионы и возвращает из них список ДТО.
@@ -43,50 +45,14 @@ public class LocationSearchRestController {
 
         List<LocationItemDTO> locationItemDTOList = new ArrayList<>();
 
-        locationItemDTOList.addAll(buildLocationItemDTOListFromRegions(regionList));
-        locationItemDTOList.addAll(buildLocationItemDTOListFromCities(cityList));
+        locationItemDTOList.addAll(locationItemService.buildLocationItemDTOListFromRegions(regionList));
+        locationItemDTOList.addAll(locationItemService.buildLocationItemDTOListFromCities(cityList));
 
         if (cityList.size() == 1 && regionList.size() == 0) {
             regionList.add(cityList.get(0).getRegion());
-            locationItemDTOList.addAll(buildLocationItemDTOListFromRegions(regionList));
+            locationItemDTOList.addAll(locationItemService.buildLocationItemDTOListFromRegions(regionList));
         }
 
         return ResponseEntity.ok(locationItemDTOList);
-    }
-
-    private List<LocationItemDTO> buildLocationItemDTOListFromRegions(List<Region> regionList) {
-        List<LocationItemDTO> locationItemDTOList = new ArrayList<>();
-
-        for (Region region : regionList) {
-            LocationItemDTO locationItemDTO = new LocationItemDTO();
-            locationItemDTO.setCityId(-1);
-            locationItemDTO.setRegionId(region.getId());
-            locationItemDTO.setShortName(region.getBeatyName());
-            locationItemDTO.setBeautyName(region.getBeatyName());
-            locationItemDTOList.add(locationItemDTO);
-        }
-
-        return locationItemDTOList;
-    }
-
-    private List<LocationItemDTO> buildLocationItemDTOListFromCities(List<City> cityList) {
-        List<LocationItemDTO> locationItemDTOList = new ArrayList<>();
-
-        for (City city : cityList) {
-            LocationItemDTO locationItemDTO = new LocationItemDTO();
-            locationItemDTO.setCityId(city.getId());
-            locationItemDTO.setRegionId(city.getRegion().getId());
-            locationItemDTO.setShortName(city.getName());
-            locationItemDTO.setBeautyName(
-                    new StringBuilder()
-                            .append(city.getName())
-                            .append(" (")
-                            .append(city.getRegion().getBeatyName())
-                            .append(")")
-                            .toString());
-            locationItemDTOList.add(locationItemDTO);
-        }
-
-        return locationItemDTOList;
     }
 }
