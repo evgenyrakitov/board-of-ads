@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import java.util.Set;
@@ -68,6 +69,20 @@ public class UserProfileRestController {
         List<Posting> postingList = postingService.getUserPostingsByStatus((User) SecurityContextHolder.getContext().getAuthentication().getPrincipal(), postingStatus);
         List<ProfilePostingDTO> dtoList = postingService.buildProfilePostingDTOList(postingList);
         return ResponseEntity.ok(dtoList);
+    }
+
+    protected static List<NotificationDTO> buildDTOListNotification(Iterable<Notification> notificationsList) {
+        List<NotificationDTO> dtoList = new ArrayList<>();
+        NotificationDTO dto;
+        for (Notification notification : notificationsList) {
+            dto = new NotificationDTO();
+            dto.setId(notification.getId());
+            dto.setTitle(notification.getTitle());
+            dto.setContent(notification.getContent());
+            dto.setRead(notification.getIsRead());
+            dtoList.add(dto);
+        }
+        return dtoList;
     }
 
     @GetMapping("/postingsInfo")

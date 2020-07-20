@@ -20,7 +20,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/rest/location")
 @AllArgsConstructor
-public class LocationSearchController {
+public class LocationSearchRestController {
     private static final Logger logger = LoggerFactory.getLogger(CityRestController.class);
 
     private final CityService cityService;
