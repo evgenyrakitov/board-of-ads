@@ -9,6 +9,8 @@ public class GlobalControllerAdvice {
 
     @ModelAttribute("user")
     public Object fillCurrentUser() {
+
+
         return SecurityContextHolder.getContext().getAuthentication().getPrincipal();
     }
 }

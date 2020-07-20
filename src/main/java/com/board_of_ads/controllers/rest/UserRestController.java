@@ -1,8 +1,8 @@
 package com.board_of_ads.controllers.rest;
 
+import com.board_of_ads.exceptions.ReRegistrationException;
 import com.board_of_ads.models.Role;
 import com.board_of_ads.models.User;
-import com.board_of_ads.models.posting.Posting;
 import com.board_of_ads.models.kladr.City;
 import com.board_of_ads.models.kladr.Region;
 import com.board_of_ads.service.interfaces.CityService;
@@ -20,6 +20,8 @@ import org.springframework.context.MessageSource;
 import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -32,11 +34,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.activation.DataHandler;
 import javax.mail.MessagingException;
-import javax.mail.internet.MimeBodyPart;
-import javax.mail.internet.MimeMultipart;
-
 import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
@@ -59,27 +57,40 @@ public class UserRestController {
     private final EmailService emailService;
     private final Environment env;
 
+    /**
+     * Метод для регистрации новых пользователей.
+     * Часть логики проверки введённых в форму данных
+     * находится в registration.js и modal_registration.js.
+     * После сохранения User в базу он так же автоматически авторизуется.
+     */
     @CrossOrigin()  //далее - поправить, сделано чтобы работала страничка
     @ApiOperation(value = "create new User", code = 201, response = User.class)
     @ApiResponses(value = {@ApiResponse(code = 201, message = "Successfully create user")})
-    @PostMapping(value = "/admin/add", consumes = {"application/json"}) //согласно рекомендациям госкомстандарта - создание это post, not put. fixed
-    public ResponseEntity<User> create(@RequestBody User user) {
+    @PostMapping(value = "/registration", consumes = {"application/json"})
+    public ResponseEntity<User> registration(@RequestBody User user) {
+        if (userService.findUserByEmail(user.getEmail()) != null ||
+                userService.findUserByPhone(user.getPhone()) != null) {
+            throw new ReRegistrationException("User is already registered");
+        }
         Set<Role> roleSet = new HashSet<>();
         Role role = roleService.findRoleByName("USER");
         roleSet.add(role);
         user.setRoles(roleSet);
         user.setRegion(regionService.findById(user.getRegion().getId()));
         user.setCity(cityService.findById(user.getCity().getId()));
-        userService.addUser(user);
+        User newUser = userService.addUser(user);
+        Authentication authentication = new UsernamePasswordAuthenticationToken(newUser, null,
+                newUser.getAuthorities());
+        SecurityContextHolder.getContext().setAuthentication(authentication);
         ResponseEntity<User> responseEntity = new ResponseEntity<>(user, HttpStatus.CREATED);
 
         return responseEntity;
+
     }
 
-    @PostMapping("/getCities")
-    public ResponseEntity<List<City>> getCities(@RequestBody Region region) {
-        List<City> cities = cityService.findAllByRegionId(region.getId());
-        return ResponseEntity.ok(cities);
+    @PostMapping(value = "/admin/add")
+    public ResponseEntity<User> create(@RequestBody User user) {
+        return null;
     }
 
     @PutMapping(value = "/admin/edit", consumes = {"application/json"})
@@ -88,14 +99,20 @@ public class UserRestController {
         return  new ResponseEntity<>(user, HttpStatus.OK);
     }
 
-    @DeleteMapping("/delete/{id}")
-    public void delete(@PathVariable("id") Long id) {
-        userService.deleteUser(id);
-    }
-
     @GetMapping("/admin/users")
     public ResponseEntity<List<User>> getAllUsers() {
         return ResponseEntity.ok(userService.getAllUsers());
+    }
+
+    @PostMapping("/getCities")
+    public ResponseEntity<List<City>> getCities(@RequestBody Region region) {
+        List<City> cities = cityService.findAllByRegionId(region.getId());
+        return ResponseEntity.ok(cities);
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public void delete(@PathVariable("id") Long id) {
+        userService.deleteUser(id);
     }
 
     @PostMapping("/user/favoritePostings/add")

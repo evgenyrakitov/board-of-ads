@@ -309,7 +309,7 @@
                             </div>
                             <div class="form-password-items-container">
                 <span id="spanIncorrectLoginPass" style="color: red;"
-                      th:text="#{login.error_message}">Не верная комбинация логина и пароля</span>
+                      th:text="#{header.login_error_message}">Не верная комбинация логина и пароля</span>
                             </div>
                             <div class="form-item-button">
                                 <button class="btn btn-primary" id="btnLogin" name="submit"
@@ -367,15 +367,21 @@
                     </div>
 
                     <form action="/rest/admin/add" id="add-reg-form">
-                        <div sec:authorize="!hasAuthority('ADMIN')">
-                            <div class="form-title font-weight-bolder" th:text="#{header.modal.registration}">
-                                <!-- Регистрация-->
-                            </div>
-                        </div>
+
                         <div sec:authorize="hasAuthority('ADMIN')">
                             <div class="form-title font-weight-bolder" th:text="#{header.modal.addition}">
                                 <!-- Добавить нового пользователя -->
                             </div>
+                        </div>
+                            <div sec:authorize="!hasAuthority('ADMIN')">
+                        <div class="registration_error">
+                <span id="spanDoubleEmailRegistration" style="color: red;"
+                      th:text="#{header.registration_double_user}">Пользователь с данным e-mail или телефоном уже существует</span>
+                        </div>
+                        <div class="form-title font-weight-bolder"
+                             th:text="#{header.modal.registration}">Регистрация
+                        </div>
+
                         </div>
                         <div class="form-item-login">
                             <label class="input-login">
