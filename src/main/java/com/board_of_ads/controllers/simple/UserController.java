@@ -7,6 +7,7 @@ import com.board_of_ads.service.interfaces.UserService;
 
 import java.util.List;
 import java.util.Locale;
+
 import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,6 +16,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import java.util.Locale;
 
 @Controller
 @AllArgsConstructor
@@ -61,6 +64,7 @@ public class UserController {
         user.setPassword(password);
         user.setPasswordConfirm(passwordConfirm);
         userService.updateUser(user);
+        userService.deletePasswordChangeToken(token);
         return "redirect:/";
     }
 }

@@ -1,10 +1,13 @@
 package com.board_of_ads.controllers.rest;
 
+import com.board_of_ads.models.Notification;
 import com.board_of_ads.models.User;
+import com.board_of_ads.models.dto.NotificationDTO;
 import com.board_of_ads.models.dto.ProfilePostingDTO;
 import com.board_of_ads.models.posting.Posting;
 import com.board_of_ads.models.posting.extra.PostingStatus;
 import com.board_of_ads.models.posting.extra.PostingStatusStatistics;
+import com.board_of_ads.service.interfaces.NotificationService;
 import com.board_of_ads.service.interfaces.PostingService;
 import com.board_of_ads.service.interfaces.PostingStatusService;
 import com.board_of_ads.service.interfaces.UserService;
@@ -34,6 +37,16 @@ public class UserProfileRestController {
     private final PostingService postingService;
     private final PostingStatusService postingStatusService;
     private final UserService userService;
+    private final NotificationService notificationService;
+
+    @GetMapping("/notifications")
+    public ResponseEntity<List<NotificationDTO>> getAllNotificationsForCurrentUser() {
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        List<Notification> notificationsList = notificationService.getAllPostByUserId(user.getId());
+        List<NotificationDTO> notificationDTOS = buildDTOListNotification(notificationsList);
+        return ResponseEntity.ok(notificationDTOS);
+
+    }
 
     @GetMapping("/postings")
     public ResponseEntity<List<ProfilePostingDTO>> getAllPostingsForCurrentUser() {
@@ -71,6 +84,20 @@ public class UserProfileRestController {
             dto.setViewCount(0);
             dto.setUrl("/posting/" + posting.getId());
             dto.setImages(posting.getImagePath());
+            dtoList.add(dto);
+        }
+        return dtoList;
+    }
+
+    protected static List<NotificationDTO> buildDTOListNotification(Iterable<Notification> notificationsList) {
+        List<NotificationDTO> dtoList = new ArrayList<>();
+        NotificationDTO dto;
+        for (Notification notification : notificationsList) {
+            dto = new NotificationDTO();
+            dto.setId(notification.getId());
+            dto.setTitle(notification.getTitle());
+            dto.setContent(notification.getContent());
+            dto.setRead(notification.getIsRead());
             dtoList.add(dto);
         }
         return dtoList;

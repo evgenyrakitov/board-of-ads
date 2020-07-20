@@ -66,18 +66,20 @@ function getPostings(search) {
         let postings = [];
         let div = "";
         postings = data;
-        if (postings.length !== 0){
-        for (let i = 0; i < postings.length; i++) {
-            div += "<div  id='post" + postings[i].id + "' class='card'><div  class='card-header'>" +
-                "<img src='" + postings[i].imagePath[0]?.imagePath + "' class='card-img-top' alt='...'></div>" +
-                "<div class='card-body'>" +
-                "<h5 class='card-title'>" + postings[i].title + "</h5>" +
-                "<p class='card-text'>" + postings[i].price + "</p>" +
-                "<a href='adDetails' class='btn btn-primary' th:text='#{main-page.go_to_ad}'>Перейти к объявлению</a>" +
-                "</div></div>";
-        }
-        $("#body-post").html(div);
-        }else {
+        if (postings.length !== 0) {
+            let imageSrc = "";
+            for (let i = 0; i < postings.length; i++) {
+                imageSrc = posting[i].images.length > 0 ? posting[i].images[0].imagePath : `/images/image-placeholder.png`;
+                div += "<div  id='post" + postings[i].id + "' class='card'><div  class='card-header'>" +
+                    "<img src='" + imageSrc + "' class='card-img-top' alt='...'></div>" +
+                    "<div class='card-body'>" +
+                    "<h5 class='card-title'>" + postings[i].title + "</h5>" +
+                    "<p class='card-text'>" + postings[i].price + "</p>" +
+                    "<a href='adDetails' class='btn btn-primary' th:text='#{main-page.go_to_ad}'>Перейти к объявлению</a>" +
+                    "</div></div>";
+            }
+            $("#body-post").html(div);
+        } else {
             $("#body-post").html("");
             $("#modal-search").modal("show");
             setTimeout(function () {

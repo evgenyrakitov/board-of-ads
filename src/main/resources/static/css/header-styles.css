@@ -1,3 +1,72 @@
+.board-of-ads-down-arrow-dropdown {
+    padding-right: 14px;
+    padding-left: 16px;
+    background-image: url(/images/small_arrow_down.svg);
+    background-repeat: no-repeat;
+    background-position: right;
+}
+
+.header-services-menu-item_username-PkxRh .header-services-menu-dropdown-popup_left-1L2he {
+    left: 21px;
+}
+
+.header-services-menu-item_username-PkxRh .header-services-menu-dropdown-popup-kXPSK {
+    top: 44px;
+    min-width: 260px;
+}
+
+.header-services-menu-dropdown-popup-kXPSK {
+    position: absolute;
+    top: 100%;
+    display: none;
+    min-width: 130px;
+    margin-left: -10px;
+    border-top: 1px solid #dcdcdc;
+    -webkit-box-shadow: 0 5px 17px rgba(0, 0, 0, .15);
+    box-shadow: 0 5px 17px rgba(0, 0, 0, .15);
+    z-index: 1001;
+    background: #fff;
+    border-radius: 4px;
+}
+
+.header-services-menu-dropdown-Z4CM6 .header-services-menu-link-TRWKh {
+    padding-right: 10px;
+    padding-left: 16px;
+    background-image: url("/images/small_arrow_down.svg");
+    background-repeat: no-repeat;
+    background-position: right;
+}
+
+.header-services-menu-item_username-PkxRh .header-services-menu-link-TRWKh {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    position: relative;
+    height: 44px;
+    margin: auto;
+    padding: 0 2px 0 20px;
+    white-space: nowrap;
+}
+
+.header-services-menu-link-TRWKh {
+    display: inline-block;
+    padding: 3px 10px;
+    border: 0;
+    color: #a1a1a1;
+    font-size: 14px;
+    line-height: 20px;
+    text-decoration: none;
+}
+
+.header-services-menu-avatar-QlGRi {
+    position: relative;
+    width: 32px;
+    height: 32px;
+    margin: auto 8px auto 0;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
 /* только явным прописыванием стиля тут удалось сделать белым. почему? */
 .text-secondary a:hover,
 .text-white a:active,

@@ -39,24 +39,24 @@
         </div>
     </div>
     <div class="bg_black_header"></div>
-    <div class=" header-container bg-light nav_first" th:fragment="top-nav-bar">
+    <div class=" header-container bg-light nav_first" th:fragment="top-nav-bar" id="top-nav-bar">
         <nav class="navbar navbar-expand-sm navbar-light header-element">
             <div class="d-flex justify-content-between align-items-center">
                 <ul class="navbar-nav mr-auto" id="avitoNavigation">
-                    <li class="nav-item"><a class="nav-link" href="/" th:text="#{header.ads}">Объявления</a>
+                    <li class="nav-item"><a class="nav-link active" href="/" th:text="#{header.ads}">Объявления</a>
                     </li>
-                    <li class="nav-item"><a class="nav-link" href="/" th:text="#{header.shops}">Магазины</a>
+                    <li class="nav-item"><a class="nav-link" href="!#" th:text="#{header.shops}">Магазины</a>
                     </li>
-                    <li class="nav-item"><a class="nav-link" href="/" th:text="#{header.business}">Бизнес</a>
+                    <li class="nav-item"><a class="nav-link" href="!#" th:text="#{header.business}">Бизнес</a>
                     </li>
-                    <li class="nav-item"><a class="nav-link" href="/" th:text="#{header.help}">Помощь</a></li>
+                    <li class="nav-item"><a class="nav-link" href="!#" th:text="#{header.help}">Помощь</a></li>
                     <div sec:authorize="hasAuthority('ADMIN')">
                         <li class="nav-item"><a class="nav-link" href="/admin_page" th:text="#{header.admin}">Админ</a>
                         </li>
                     </div>
                 </ul>
                 <ul class="navbar-nav sign_up">
-                    <li class="nav-item">
+                    <li class="nav-item" th:if="${user.getClass().getSimpleName() == 'User'}">
                         <a class="nav-link" href="/profile#favorites">
                             <span class="favourites"></span>
                             <svg class="feather feather-heart" fill="none" height="24" stroke="currentColor"
@@ -68,7 +68,7 @@
                             </svg>
                         </a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item" th:if="${user.getClass().getSimpleName() == 'User'}">
                         <a class="nav-link" href="#">
                             <span class="message_box">
                                 <span class="message_icon">
@@ -92,10 +92,20 @@
                         <a class="nav-link text-primary open-modal-1" href="#" style="white-space: nowrap"
                            th:text="#{header.login_and_register}">Вход и регистрация</a>
                     </li>
-                    <li class="nav-item" style="margin-right: 10px;"
+                    <li class="nav-item" style="margin-right: 15px;"
                         th:if="${user.getClass().getSimpleName() == 'User'}">
-                        <div class="dropdown">
-                            <button class="dropbtn" th:text="${user.getFirstName()}"></button>
+                        <div class="dropdown" style="width: max-content">
+                            <a class="header-services-menu-link-TRWKh ym-hide-content d-flex flex-row align-middle board-of-ads-down-arrow-dropdown"
+                               href="/profile" style="margin-right: 4px; text-decoration: none;">
+                                <div class="header-services-menu-avatar-QlGRi">
+                                    <img alt="..." hidden id="user_photo_image" src="" th:src="${user.userIcons}">
+                                    <canvas class="header-services-menu-avatar-image-37pI3" height="32"
+                                            id="user_avatar_canvas_header" th:attr="user_name=${user.getFirstName()}"
+                                            user_name="User name" width="32"></canvas>
+                                </div>
+                                <span style="margin-top: 6px;" th:text="${user.getFirstName()}">User name</span>
+                            </a>
+
                             <div class='dropdown-content'>
                                 <div class="profile-sidebar-head-rating-36hRS">
                                     <a class="link-link-39EVK link-design-default-2sPEv link-novisited-1w4JY profile-sidebar-head-link-1gPfv"
@@ -707,6 +717,7 @@
     <script src="/js/modal_registation.js" th:src="@{/js/registration.js}" type="module"></script>
     <script src="../static/js/modal_update.js" th:src="@{/js/modal_update.js}" type="module"></script>
     <script src="/js/search.js" th:src="@{/js/search.js}"></script>
+    <script src="../static/js/user_avatar_canvas.js" th:src="@{/js/user_avatar_canvas.js}"></script>
 </div>
 </body>
 </html>

@@ -32,6 +32,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.activation.DataHandler;
+import javax.mail.MessagingException;
+import javax.mail.internet.MimeBodyPart;
+import javax.mail.internet.MimeMultipart;
+
 import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
@@ -113,20 +118,24 @@ public class UserRestController {
 
     @PostMapping("/resetPassword")
     public ResponseEntity<Boolean> resetPassword(@RequestParam("email") String userEmail,
-                                                 Locale locale){
+                                                 Locale locale) throws MessagingException {
         User user = userService.findUserByEmail(userEmail);
         boolean boll = (user != null);
         if (boll) {
             String token = UUID.randomUUID().toString();
             userService.createPasswordResetTokenForUser(user, token);
-            String subject = messages.getMessage("reset_password.message.reset_password", null, locale);
-            String body = messages.getMessage("reset_password.message.reset_password", null, locale) +
-                    " \r\n http://" +
-                    Objects.requireNonNull(env.getProperty("server.domain")) + ":" +
-                    Objects.requireNonNull(env.getProperty("server.port")) +
-                    "/reset/changePassword?token=" +
-                    token;
-            emailService.sendMail(subject, body, user);
+            String bodyHTML = "<!DOCTYPE html>" +
+                    "<html lang='en'>" +
+                    "<head>" +
+                    "<meta charset='UTF-8'>" +
+                    "</head>" +
+                    "<body>" +
+                    "<h1>Reset Password</h1>" +
+                    "<span>Click on the link to reset the password </span>"+
+                    "<a href='http://"+Objects.requireNonNull(env.getProperty("server.domain"))+":"+
+                    Objects.requireNonNull(env.getProperty("server.port"))+
+                    "/reset/changePassword?token="+token+"'>Reset Password</a></body></html>";
+            emailService.sendHTMLEmail("Reset Password",bodyHTML, user);
         }
         return new ResponseEntity<>(boll, HttpStatus.OK);
     }
