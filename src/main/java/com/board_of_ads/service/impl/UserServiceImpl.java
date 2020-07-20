@@ -134,4 +134,5 @@ public class UserServiceImpl implements UserService {
             passwordResetTokenRepository.delete(passToken);
         }
     }
+
 }
