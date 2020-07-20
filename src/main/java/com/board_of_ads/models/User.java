@@ -82,6 +82,8 @@ public class User implements UserDetails {
     @EqualsAndHashCode.Exclude @ToString.Exclude
     private Set<Message> messages;
 
+    @OneToMany(cascade = CascadeType.ALL)
+    private Set<Notification> notifications;
 
     @Override
     public String getPassword() {
