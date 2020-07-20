@@ -26,15 +26,11 @@ export function summator(password) {
 }
 
 export function warningField(field) {
-    $(field).css("background-color", "red");
+    $(field).css("border-color", "red");
 }
 
-export function successField(field) {
-    $(field).css("background-color", "green");
-}
-
-export function infoField(field) {
-    $(field).css("background-color", "yellow");
+export function focusedField(field) {
+    $(field).css("border-color", "#CCD0D0");
 }
 
 export function save(login, password, first_name, last_name, region, city, phone) {
