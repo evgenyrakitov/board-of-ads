@@ -162,7 +162,8 @@ let user_profile = {
     show_notifications: function (element) {
         this.deselectAllNavLinks();
         element.classList.add("profile-sidebar-navigation-link-active-3sgHn");
-        document.getElementById("user_page_content").innerHTML = "<h1 class=\"heading\">" + messages['profile.notification.title'] + "</h1>";
+        // document.getElementById("user_page_content").innerHTML = "<h1 class=\"heading\">" + messages['profile.notification.title'] + "</h1>";
+        this.draw_notifications_block();    //!!
     },
     show_settings: function (element) {
         this.deselectAllNavLinks();
@@ -197,6 +198,24 @@ let user_profile = {
     },
 
     ///////// BEGIN HTML GENERATORS ////////
+
+    draw_notifications_block: function (status) {
+        $.get("/rest/user_profile/notifications/", function (postingsNTOs) {
+            let notificationBlock = document.getElementById("user_page_content");
+            let html =[];
+            // let i = 0;
+
+            html.push('<div class="js-personal-items">');
+            postingsNTOs.forEach(function (nto) {
+                // i++;
+                html.push('<div></div>');
+                html.push('<div>' + '<h2>'  + nto.title +   '</h2>' +
+                    '<p>' + nto.content + '</p>' + '</div>');
+            })
+            html.push('</div>');
+            notificationBlock.innerHTML = html.join('');
+        });
+    },
 
     draw_postings_block: function (status) {
         $.get("/rest/user_profile/postings/" + status, function (postingsDTOs) {
