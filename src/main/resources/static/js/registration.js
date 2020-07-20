@@ -29,12 +29,8 @@ export function warningField(field) {
     $(field).css("border-color", "red");
 }
 
-export function successField(field) {
-    $(field).css("border-color", "green");
-}
-
-export function infoField(field) {
-    $(field).css("border-color", "yellow");
+export function focusedField(field) {
+    $(field).css("border-color", "#CCD0D0");
 }
 
 export function save(login, password, first_name, last_name, region, city, phone) {
