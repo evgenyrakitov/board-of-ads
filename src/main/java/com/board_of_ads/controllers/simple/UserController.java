@@ -1,17 +1,19 @@
 package com.board_of_ads.controllers.simple;
 
 import com.board_of_ads.models.User;
+import com.board_of_ads.models.kladr.Region;
+import com.board_of_ads.service.interfaces.RegionService;
 import com.board_of_ads.service.interfaces.UserService;
+
+import java.util.List;
 import java.util.Locale;
 import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
@@ -21,9 +23,14 @@ public class UserController {
 
     private final UserService userService;
     private final MessageSource messages;
+    private final RegionService regionService;
 
     @GetMapping("/admin_page")
-    public String getAdminPage() {
+    public String getAdminPage(ModelMap model, @ModelAttribute("passwordToken") String token, @ModelAttribute("passwordResetErrorMessage") String errorMessage) {
+        List<Region> regions = regionService.getAllRegions();
+        model.addAttribute("regions", regions);
+        model.addAttribute("passwordToken", token);
+        model.addAttribute("passwordResetErrorMessage", errorMessage);
         return "admin-page";
     }
 

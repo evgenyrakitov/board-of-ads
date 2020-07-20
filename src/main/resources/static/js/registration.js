@@ -65,3 +65,33 @@ export function save(login, password, first_name, last_name, region, city, phone
         data: JSON.stringify(data.user)
     });
 }
+
+export function edit(id, login, password, first_name, last_name, region, city, phone) {
+    let url = "/rest/admin/edit";
+    let type = "PUT";
+    let data = {
+        up_user: {
+            id: id,
+            email: login,
+            password: password,
+            firstName: first_name,
+            lastName: last_name,
+            phone: phone,
+            region: {
+                id: region
+            },
+            city: {
+                id: city
+            },
+        },
+    };
+    console.log(data);
+    $.ajax({
+        url: url,
+        type: type,
+        contentType: 'application/json; charset=utf-8',
+        dataType: 'json',
+        cache: false,
+        data: JSON.stringify(data.up_user)
+    });
+}

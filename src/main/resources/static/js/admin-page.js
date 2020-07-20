@@ -3,7 +3,7 @@ const tr = $("<tr></tr>");
 const td = $("<td></td>");
 const select = $("<select disabled></select>").attr("name", "roleIds");
 const option = $("<option></option>");
-
+//let button_edit = $("<button class='btn btn-secondary' type='button'>Редактировать</button>");
 
 $(document).ready(function () {
 
@@ -32,10 +32,23 @@ function addUserInTableBody(el) {
     getTd(el.password, "password" + el.id).appendTo(trLocal);
     getTd(el.phone, "phone" + el.id).appendTo(trLocal);
     getTd(el.dataRegistration, "dataRegistration" + el.id).appendTo(trLocal);
-    getTd(el.region.name, "region"+el.id).appendTo(trLocal);
-    getTd(el.city.name, "city"+el.id).appendTo(trLocal);
+    getTd(el.region.name, "region" + el.id).appendTo(trLocal);
+    getTd(el.city.name, "city" + el.id).appendTo(trLocal);
+    getTd(el.enabled, "enabled" + el.id).appendTo(trLocal);
+    $("<img src='"+el.userIcons+"' alt='' width='100' height='100'>").appendTo(trLocal);
     getSelect(el).appendTo(trLocal);
+    let  btn = $("<button class='btn btn-secondary btn-sm' type='button' id='upd-btn"+el.id+"'>Редактировать</button>");
+    btn.appendTo(trLocal);
     trLocal.appendTo($("#tbodyUsers"));
+
+    btn.click(function () {
+        $("#modal-update").modal("show");
+        document.getElementById("update-id-form").value = el.id;
+        document.getElementById("update-first_name-form").value = el.firstName;
+        document.getElementById("update-last_name-form").value = el.lastName;
+        document.getElementById("update-phone-form").value = el.phone;
+        document.getElementById("update-login-form").value = el.email;
+    });
 }
 
 let getSelect = function (el) {
@@ -54,4 +67,4 @@ let getTd = function (val, valueOfName) {
     let tdLocal = td.clone();
     tdLocal.attr("id", valueOfName)
     return tdLocal.text(val);
-}
+};

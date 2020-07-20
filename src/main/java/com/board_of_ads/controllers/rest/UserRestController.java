@@ -77,9 +77,10 @@ public class UserRestController {
         return ResponseEntity.ok(cities);
     }
 
-    @PutMapping("/admin/edit")
-    public User update(User user) {
-        return userService.updateUser(user);
+    @PutMapping(value = "/admin/edit", consumes = {"application/json"})
+    public ResponseEntity<User> update(@RequestBody User user) {
+        userService.updateUser(user);
+        return  new ResponseEntity<>(user, HttpStatus.OK);
     }
 
     @DeleteMapping("/delete/{id}")

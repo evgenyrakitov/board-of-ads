@@ -9,6 +9,9 @@ $("#open-modal-2").click(function () {
 $("#open-modal-3").click(function () {
     $("#modal-reg-3").modal("show");
 });
+$("#open-modal-4").click(function () {  //добавление пользователя на странице админа
+    $("#modal-reg-2").modal("show");
+});
 
 $("#btn-reg").click(function (event) {
     event.preventDefault();

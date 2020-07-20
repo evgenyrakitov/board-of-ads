@@ -10,14 +10,12 @@ import com.board_of_ads.repository.PostingRepository;
 import com.board_of_ads.repository.custom.PostingRepositoryCustomImpl;
 import com.board_of_ads.service.interfaces.PostingService;
 import lombok.AllArgsConstructor;
-import lombok.NonNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Set;
 
 @Service
 @AllArgsConstructor
