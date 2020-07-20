@@ -34,7 +34,7 @@ export function focusedField(field) {
 }
 
 export function save(login, password, first_name, last_name, region, city, phone) {
-    let url = "/rest/admin/add";
+    let url = "/rest/registration";
     let type = "POST";
     let data = {
         user: {
@@ -59,5 +59,12 @@ export function save(login, password, first_name, last_name, region, city, phone
         dataType: 'json',
         cache: false,
         data: JSON.stringify(data.user)
-    });
+    })
+        .done(function () {
+            window.location.href = '/';
+        })
+        .fail(function () {
+            $('#spanDoubleEmailRegistration').slideDown();
+            $('#spanDoubleEmailRegistration').delay(3000).slideUp();
+        })
 }
