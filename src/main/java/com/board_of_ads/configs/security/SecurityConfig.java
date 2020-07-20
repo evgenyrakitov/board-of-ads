@@ -73,7 +73,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         "/categories/**",  "/rest/registration", "/rest/kladr/*", "/rest/posting/*","/rest/messages/**",
                         "/reset/changePassword**").permitAll()
 
-                .antMatchers("/rest/user/favoritePostings/*", "/rest/user_profile/favoritePostings").authenticated()
+                .antMatchers("/rest/user/favoritePostings/*", "/rest/user_profile/favoritePostings", "/rest/admin/users").authenticated()
                 .anyRequest().permitAll();
 /*
                 .antMatchers("/", "/login/**", "/css/**", "/images/**", "/js/**", "/webjars/**",

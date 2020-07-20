@@ -7,8 +7,10 @@ const option = $("<option></option>");
 
 $(document).ready(function () {
 
-    $.ajax("/rest/admin/users",
+    $.ajax(
         {
+            url: "rest/admin/users",
+            type: "GET",
             contentType: "application/json; charset=UTF-8",
             dataType: "json",
             success: function (msg) {
@@ -19,7 +21,7 @@ $(document).ready(function () {
             }
         }
     );
-})
+});
 
 function addUserInTableBody(el) {
     let trLocal = tr.clone();
