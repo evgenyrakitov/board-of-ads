@@ -376,7 +376,7 @@
                             <div sec:authorize="!hasAuthority('ADMIN')">
                         <div class="registration_error">
                 <span id="spanDoubleEmailRegistration" style="color: red;"
-                      th:text="#{header.registration_double_user}">Пользователь с данным e-mail или телефоном уже существует</span>
+                      th:text="#{header.modal.registration_double_user}">Пользователь с данным e-mail или телефоном уже существует</span>
                         </div>
                         <div class="form-title font-weight-bolder"
                              th:text="#{header.modal.registration}">Регистрация
@@ -403,7 +403,7 @@
                         </div>
 
                         <div class="form-item-password">
-                            <label class="input-password">
+                            <label class="input-confirm-password">
                                 <input autocomplete="off" class="form-control"
                                        id="password_confirm-reg-form" name="password_confirm"
                                        placeholder="Повторите пароль"
@@ -412,7 +412,7 @@
                         </div>
 
                         <div class="form-item-publicName">
-                            <label class="input-publicName">
+                            <label class="input-firstName">
                                 <input class="form-control" id="first_name-reg-form"
                                        name="firstName"
                                        placeholder="Ваше Имя" required
@@ -422,7 +422,7 @@
                         </div>
 
                         <div class="form-item-publicName">
-                            <label class="input-publicName">
+                            <label class="input-lastName">
                                 <input name="lastName" class="form-control"
                                        th:placeholder="#{header.modal.placeholder.yourLastName}"
                                        placeholder="Ваше Имя" type="text" id="last_name-reg-form" required>
@@ -432,8 +432,9 @@
                         <div class="form-item-region" id="regionId">
                             <select class="custom-select" id="region">
                                 <option selected disabled hidden>Регион</option>
-                                <option th:each="region : ${regions}" th:value="${region.id}" th:label="${region.name}">
-                                    One
+
+                                <option th:each="region : ${regions}" th:value="${region.id}"
+                                        th:label="${region.name}">One
                                 </option>
                             </select>
                         </div>
@@ -464,9 +465,11 @@
                 <div sec:authorize="!hasAuthority('ADMIN')">
                     <div class="modal-footer">
                     <span class="text-center"
-                          th:text="#{header.modal.register.hasAccount}">У вас уже есть учётная запись?</span><span><a
+                          th:text="#{header.modal.register.hasAccount}">У вас уже есть учётная запись?</span><span>
+                        <a
                             class="open-modal-1" data-dismiss="modal" href="#"
-                            th:text="#{header.modal.login.signIn}">Войти</a></span>
+                            th:text="#{header.modal.login.signIn}">Войти
+                        </a></span>
                     </div>
                 </div>
             </div>

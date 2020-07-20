@@ -1,6 +1,6 @@
 import * as reg from './registration.js';
 
-$(".open-modal-1").click(function(){
+$(".open-modal-1").click(function () {
     $("#modal-reg-1").modal('show');    //окно входа
 });
 $("#open-modal-2").click(function () {
@@ -12,6 +12,79 @@ $("#open-modal-3").click(function () {
 });
 $("#open-modal-4").click(function () {  //добавление пользователя на странице админа
     $("#modal-reg-2").modal("show");
+});
+
+function isEmpty(field) {
+    if (field.val() === '' || field.val() == null) {
+        reg.warningField(field);
+        return true;
+    }
+}
+
+$("#login-reg-form").blur(function () {
+    if (isEmpty($("#login-reg-form"))) {
+        $(".input-login").attr("title", "Введите email");
+    }
+}).focus(function () {
+    reg.focusedField($("#login-reg-form"));
+});
+
+$("#password-reg-form").blur(function () {
+    if (isEmpty($("#password-reg-form"))) {
+        $(".input-password").attr("title", "Введите пароль");
+    }
+}).focus(function () {
+    reg.focusedField($("#password-reg-form"));
+});
+
+$("#password_confirm-reg-form").blur(function () {
+    if (isEmpty($("#password_confirm-reg-form"))) {
+        $(".input-confirm-password").attr("title", "Подтвердите пароль");
+    }
+}).focus(function () {
+    reg.focusedField($("#password_confirm-reg-form"));
+});
+
+$("#first_name-reg-form").blur(function () {
+    if (isEmpty($("#first_name-reg-form"))) {
+        $(".input-firstName").attr("title", "Введите имя");
+    }
+}).focus(function () {
+    reg.focusedField($("#first_name-reg-form"));
+});
+
+$("#last_name-reg-form").blur(function () {
+    if (isEmpty($("#last_name-reg-form"))) {
+        $(".input-lastName").attr("title", "Введите фамилию");
+    }
+}).focus(function () {
+    reg.focusedField($("#last_name-reg-form"));
+});
+
+$("#region").blur(function () {
+    if (isEmpty($("#region"))) {
+        $("#regionId").attr("title", "Укажите регион");
+    }
+}).focus(function () {
+    reg.focusedField($("#region"));
+});
+
+function blurCities() {
+    if (isEmpty($("#cities"))) {
+        $("#citiesId").attr("title", "Укажите город");
+    }
+}
+
+function focusCities() {
+    reg.focusedField($("#cities"));
+}
+
+$("#phone-reg-form").blur(function () {
+    if (isEmpty($("#phone-reg-form"))) {
+        $(".input-phone").attr("title", "Введите номер телефона");
+    }
+}).focus(function () {
+    reg.focusedField($("#phone-reg-form"));
 });
 
 $("#btn-reg").click(function (event) {
@@ -31,7 +104,6 @@ $("#btn-reg").click(function (event) {
     //=============== test 0 -  login is email ========//
     let loginRe = new RegExp("\\w+@\\w+\\.\\w{2,4}");
     if ((reg.checker(email, loginRe) === true) && (email.length > 7)) {
-        reg.successField("#login-reg-form");
         sum++;  //1
     } else {
         reg.warningField("#login-reg-form");
@@ -39,11 +111,8 @@ $("#btn-reg").click(function (event) {
 
     //========= test1 - is password's not empty =========//
     if (reg.passwordExist(password) && reg.passwordExist(password_confirm) === true) {
-        reg.successField("#password-reg-form");
-        reg.successField("#password_confirm-reg-form");
         sum++;  //2
-    }
-    else {
+    } else {
         //вдруг один из паролей - пуст....
         reg.warningField("#password-reg-form");
         reg.warningField("#password_confirm-reg-form");
@@ -51,8 +120,6 @@ $("#btn-reg").click(function (event) {
     }
     //=========== password's equals? =============//
     if (reg.passwordEquals(password, password_confirm) === true) {
-        reg.successField("#password-reg-form");
-        reg.successField("#password_confirm-reg-form");
         sum++;  //3
     } else {
         reg.warningField("#password-reg-form");
@@ -61,9 +128,9 @@ $("#btn-reg").click(function (event) {
     }
     //=========  password strong? ===============//
     var passwordStrong = reg.summator(password);
-    if ((passwordStrong < 2) || (password.length < 5)){
-        reg.infoField("#password-reg-form");
-        reg.infoField("#password_confirm-reg-form");
+    if ((passwordStrong < 2) || (password.length < 5)) {
+        reg.warningField("#password-reg-form");
+        reg.warningField("#password_confirm-reg-form");
         alert("пожалуйста, используйте более сложный пароль.");
     } else {
         sum++;  //4
@@ -71,17 +138,13 @@ $("#btn-reg").click(function (event) {
     //========== check phone number ============/
     var correctPhone = new RegExp("\\d{10}|(\\d{3}(\\s|-)){2}(\\d{2}(\\s|-)\\d{2})");
     if (reg.checker(phone, correctPhone) === true) {
-        reg.successField("#phone-reg-form");
         sum++;  //5
-    }
-    else {
+    } else {
         reg.warningField("#phone-reg-form");
         alert("введите номер телефоне в формате 913-123-45-67");
     }
     //============== check exist public name  ==========//
     if (first_name.length > 3 && last_name.length > 3) {
-        reg.successField('#first_name-reg-form');
-        reg.successField('#last_name-reg-form');
         sum++;  //6!
     } else {
         alert("попробуйте имя и фамилию более 3 символов!");
@@ -89,15 +152,13 @@ $("#btn-reg").click(function (event) {
         reg.warningField('#last_name-reg-form');
     }
     //============== check region and city  ==========//
-    if (!region){
+    if (region === 'Регион') {
         alert("Выберите регион");
         reg.warningField('#regionId');
-    }else if (!city){
+    } else if (city === 'Город') {
         alert("Выберите город");
         reg.warningField('#citiesId');
-    }else{
-        reg.successField('#regionId');
-        reg.successField('#citiesId');
+    } else {
         sum++; //7
     }
     if (sum === 7) {
@@ -110,10 +171,11 @@ $("#btn-reg").click(function (event) {
 });
 
 document.getElementById('region').addEventListener('change', loadCities);
-function loadCities(){
+
+function loadCities() {
     $("#citiesId").children().remove();
     let regionId = {
-        id : this.selectedIndex
+        id: this.selectedIndex
     }
     $.ajax({
         url: '/rest/getCities',
@@ -124,12 +186,13 @@ function loadCities(){
         success: function (cities) {
             $("#citiesId").append("<select class='custom-select' style='margin-top: 10px' id='cities'>");
             $("#cities").append($("<option disabled hidden selected></option>").attr("value", 0).attr("label", 'Город'));
-            for(let i=0; i<cities.length; i++) {
+            for (let i = 0; i < cities.length; i++) {
                 let city_id = cities[i].id;
                 let city_name = cities[i].name;
                 $("#cities").append($("<option></option>").attr("value", city_id).attr("label", city_name));
-                //$("<option value=\"${cities[i].id}\" label=\"${cities[i].name}\"></option>").appendTo($("#cities"));
             }
+            document.getElementById('cities').addEventListener('blur', blurCities);
+            document.getElementById('cities').addEventListener('focus', focusCities);
             $("#regionId").append("</select");
         }
     })
