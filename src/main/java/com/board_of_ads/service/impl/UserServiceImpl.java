@@ -123,10 +123,16 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public User findUserByPhone(String phone) {
+        return userRepository.findUserByPhone(phone);
+    }
+
+    @Override
     public void deletePasswordChangeToken(String token) {
         PasswordResetToken passToken = passwordResetTokenRepository.findByToken(token);
         if (isTokenFound(passToken)) {
             passwordResetTokenRepository.delete(passToken);
         }
     }
+
 }

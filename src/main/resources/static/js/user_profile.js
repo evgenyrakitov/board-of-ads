@@ -139,7 +139,25 @@ let user_profile = {
     show_messages: function (element) {
         this.deselectAllNavLinks();
         element.classList.add("profile-sidebar-navigation-link-active-3sgHn");
-        document.getElementById("user_page_content").innerHTML = "<h1 class=\"heading\">" + messages['profile.messages.title'] + "</h1>";
+        document.getElementById("user_page_content").innerHTML =
+            "<h1 class=\"heading\">" + messages['profile.messages.title'] + "</h1>" +
+            "<div class=\" header-message\">\n" +
+            "            <div class=\"form-row justify-content-center\">\n" +
+            "                <select class=\"form-control col-6 col-sm-6  col-md-3 col-lg-3\" id=\"messageFilter1\">\n" +
+            "                    <option selected value=\"\" th:text=\"#{header.any_category}\">Все сообщения</option>\n" +
+            "                    <option selected value=\"\" th:text=\"#{header.any_category}\">Чёрный список</option>\n" +
+            "                </select>\n" +
+            "                <select id=\"messageFilter2\" class=\"form-control col-4 col-sm-3  col-md-4 col-lg-3\">\n" +
+            "                    <option selected value=\"\">Все объявления</option>\n" +
+            "                    <option selected value=\"\">Только мои объявления</option>\n" +
+            "                    <option selected value=\"\">Непрочитанные</option>\n" +
+            "                </select>\n" +
+            "                <div class=\"form-group col-4 col-sm-4 col-md-4 col-lg-4\">\n" +
+            "                    <input type=\"text\" th:placeholder=\"#{header.search_by_announcements}\" placeholder=\"Поиск по сообщениям\"\n" +
+            "                            class=\"form-control\" name=\"search\" id=\"search-input\">\n" +
+            "                </div>\n" +
+            "            </div>\n" +
+            "    </div>";
     },
     show_notifications: function (element) {
         this.deselectAllNavLinks();
