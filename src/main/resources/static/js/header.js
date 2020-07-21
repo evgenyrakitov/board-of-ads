@@ -9,6 +9,9 @@ $(window).scroll(function () {
 });
 
 $(document).ready(function () {
+
+    user_avatar_canvas.findAndDrawAvatars();
+
     if (localStorage.getItem('locale') == null) {
         localStorage.setItem("locale", "ru");
         $(".dropdown-toggle").html(
@@ -24,12 +27,12 @@ $(document).ready(function () {
     }
 
     // Check for password reset token to conditionally render change password modal
-    if ($("#passwordResetToken").val().length !== 0) {
+    if ($("#passwordResetToken").length && $("#passwordResetToken").val().length !== 0) {
         $("#modal-pass-change").modal("show");
     }
 
     // Check for error messages when restoring password to conditionally render error message modal
-    if ($("#passwordResetErrorMessage")[0].innerText.length !== 0) {
+    if ($("#passwordResetErrorMessage").length && $("#passwordResetErrorMessage")[0].innerText.length !== 0) {
         $("#modal-pass-change-error").modal("show");
     }
 
@@ -124,21 +127,25 @@ $('#modal-pass-change').on('shown.bs.modal', function () {
     $('#pass-reset-weak-password-message').hide();
 })
 
-document.getElementById("frmLoginInputEmail").addEventListener("keyup",
-    function (event) {
-        if (event.key === "Enter") {
-            event.preventDefault();
-            document.getElementById("btnLogin").click();
-        }
-    });
+if (document.getElementById("frmLoginInputEmail")) {
+    document.getElementById("frmLoginInputEmail").addEventListener("keyup",
+        function (event) {
+            if (event.key === "Enter") {
+                event.preventDefault();
+                document.getElementById("btnLogin").click();
+            }
+        });
+}
 
-document.getElementById("frmLoginInputPassword").addEventListener("keyup",
-    function (event) {
-        if (event.key === "Enter") {
-            event.preventDefault();
-            document.getElementById("btnLogin").click();
-        }
-    });
+if (document.getElementById("frmLoginInputPassword")) {
+    document.getElementById("frmLoginInputPassword").addEventListener("keyup",
+        function (event) {
+            if (event.key === "Enter") {
+                event.preventDefault();
+                document.getElementById("btnLogin").click();
+            }
+        });
+}
 
 $("#btnLogin").click(function () {
     $.ajax({
@@ -188,6 +195,16 @@ $("#btn-modal-pass-change").click(function (event) {
         })
     }
 });
+
+window.onload = function() {
+    if(sessionStorage.getItem('loaded') === 'true') {
+        let curUrl = '/' + window.location.href.split('/').pop();
+        $(".navbar-nav").find(".active").removeClass("active");
+        $("#top-nav-bar .navbar-nav .nav-item").has("a[href=\"" + curUrl + "\"]").addClass("active");
+    } else {
+        sessionStorage.setItem('loaded', 'true');
+    }
+};
 
 let userId = $('#userId').text();  //нужно взять id user-a с header и сделать запрос
 $(document).ready(function getUnreadMessage() {

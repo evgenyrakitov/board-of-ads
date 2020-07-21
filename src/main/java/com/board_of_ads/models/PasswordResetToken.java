@@ -1,6 +1,12 @@
 package com.board_of_ads.models;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -20,7 +26,7 @@ public class PasswordResetToken {  //Пароль для сброса парол
 
     private String token;
 
-    @OneToOne(targetEntity = User.class, fetch = FetchType.EAGER)
+    @ManyToOne(targetEntity = User.class, fetch = FetchType.EAGER)
     @JoinColumn(nullable = false, name = "user_id")
     private User user;
 
@@ -125,13 +131,8 @@ public class PasswordResetToken {  //Пароль для сброса парол
             return false;
         }
         if (user == null) {
-            if (other.user != null) {
-                return false;
-            }
-        } else if (!user.equals(other.user)) {
-            return false;
-        }
-        return true;
+            return other.user == null;
+        } else return user.equals(other.user);
     }
 
     @Override

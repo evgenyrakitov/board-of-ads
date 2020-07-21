@@ -2965,3 +2965,16 @@ a.button-root_active-1TSGT {
     padding: 0;
     border: 0
 }
+
+#messageFilter1 {
+    border:0px;
+    box-shadow: none;
+    color: #0056b3;
+}
+
+#messageFilter2 {
+    border:0px;
+    box-shadow: none;
+    color: #0056b3;
+    margin-right: 40pt;
+}
