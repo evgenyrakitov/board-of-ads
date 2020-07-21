@@ -13,8 +13,6 @@ $(document).ready(function () {
             $(".container_cus").empty();
             let imageSrc = "";
             for (let i = start; i < end; i++) {
-                let cityId = posting[i].cityId;
-                console.log(cityId);
                 imageSrc = posting[i].images.length > 0 ? posting[i].images[0].imagePath : `/images/image-placeholder.png`;
                 $(".container_cus").prepend(
                     `    <div class="card">\n` +
