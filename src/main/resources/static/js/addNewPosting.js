@@ -1,4 +1,6 @@
 $(document).ready(function () {
+    $('#button_addNewPosting').remove();
+
     $.ajax({
         url: '/rest/categories/dto',
         type: 'get',

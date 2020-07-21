@@ -131,7 +131,13 @@
                         </div>
                         <!--<a class="nav-link text-primary" href="/logout" style="white-space: nowrap">Выйти</a>-->
                     </li>
-                    <li class="nav-item d-flex justify-content-lg-center align-items-center">
+                    <li class="nav-item d-flex justify-content-lg-center align-items-center"
+                        th:if="${user.getClass().getSimpleName() == 'String'}">
+                        <a class="btn btn-primary open-modal-1" href="#"
+                           th:text="#{header.post_a_ad}">Вход и регистрация</a>
+                    </li>
+                    <li class="nav-item d-flex justify-content-lg-center align-items-center" id="button_addNewPosting"
+                        th:if="${user.getClass().getSimpleName() == 'User'}">
                         <a class="btn btn-primary" href="/addNewPosting" th:text="#{header.post_a_ad}">Подать
                             объявления</a>
                     </li>
