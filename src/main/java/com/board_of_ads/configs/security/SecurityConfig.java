@@ -70,10 +70,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
 
                 .antMatchers("/", "/login/**", "/css/**", "/images/**", "/js/**", "/webjars/**",
-                        "/categories/**",  "/rest/registration", "/rest/kladr/*", "/rest/posting/*","/rest/messages/**",
+                        "/categories/**",  "/rest/registration", "/rest/kladr/*", "/rest/posting/*", "/rest/messages/**",
                         "/reset/changePassword**").permitAll()
 
-                .antMatchers("/rest/user/favoritePostings/*", "/rest/user_profile/favoritePostings", "/rest/admin/users").authenticated()
+                .antMatchers("/rest/user/favoritePostings/*", "/rest/user_profile/favoritePostings", "/rest/admin/users",
+                        "/rest/admin/add", "/rest/admin/edit").authenticated()
                 .anyRequest().permitAll();
 /*
                 .antMatchers("/", "/login/**", "/css/**", "/images/**", "/js/**", "/webjars/**",

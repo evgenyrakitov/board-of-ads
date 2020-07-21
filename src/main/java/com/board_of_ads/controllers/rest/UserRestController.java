@@ -90,7 +90,8 @@ public class UserRestController {
 
     @PostMapping(value = "/admin/add")
     public ResponseEntity<User> create(@RequestBody User user) {
-        return null;
+        userService.addUser(user);
+        return new ResponseEntity<>(user, HttpStatus.CREATED);
     }
 
     @PutMapping(value = "/admin/edit", consumes = {"application/json"})

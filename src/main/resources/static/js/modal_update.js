@@ -1,5 +1,22 @@
 import * as upd from './registration.js';
 
+function isEmpty(field) {
+    if (field.val() === '' || field.val() == null) {
+        upd.warningField(field);
+        return true;
+    }
+}
+
+function blurCities() {
+    if (isEmpty($("#update-cities"))) {
+        $("#update-citiesId").attr("title", "Укажите город");
+    }
+}
+
+function focusCities() {
+    upd.focusedField($("#update-cities"));
+}
+
 $("#btn-update").click(function (event) {
     event.preventDefault();
 
@@ -18,7 +35,6 @@ $("#btn-update").click(function (event) {
     //=============== test 0 -  login is email ========//
     let loginRe = new RegExp("\\w+@\\w+\\.\\w{2,4}");
     if ((upd.checker(email, loginRe) === true) && (email.length > 7)) {
-        upd.successField("#update-login-form");
         sum++;  //1
     } else {
         upd.warningField("#update-login-form");
@@ -26,8 +42,6 @@ $("#btn-update").click(function (event) {
 
     //========= test1 - is password's not empty =========//
     if (upd.passwordExist(password) && upd.passwordExist(password_confirm) === true) {
-        upd.successField("#update-password-form");
-        upd.successField("#update-password_confirm-form");
         sum++;  //2
     }
     else {
@@ -38,8 +52,6 @@ $("#btn-update").click(function (event) {
     }
     //=========== password's equals? =============//
     if (upd.passwordEquals(password, password_confirm) === true) {
-        upd.successField("#update-password-form");
-        upd.successField("#update-password_confirm-form");
         sum++;  //3
     } else {
         upd.warningField("#update-password-form");
@@ -47,18 +59,17 @@ $("#btn-update").click(function (event) {
         alert("проверьте совпадение паролей!");
     }
     //=========  password strong? ===============//
-    var passwordStrong = upd.summator(password);
+    let passwordStrong = upd.summator(password);
     if ((passwordStrong < 2) || (password.length < 5)){
-        upd.infoField("#update-password-form");
-        upd.infoField("#update-password_confirm-form");
+        upd.warningField("#update-password-form");
+        upd.warningField("#update-password_confirm-form");
         alert("пожалуйста, используйте более сложный пароль.");
     } else {
         sum++;  //4
     }
     //========== check phone number ============/
-    var correctPhone = new RegExp("\\d{10}|(\\d{3}(\\s|-)){2}(\\d{2}(\\s|-)\\d{2})");
+    let correctPhone = new RegExp("\\d{10}|(\\d{3}(\\s|-)){2}(\\d{2}(\\s|-)\\d{2})");
     if (upd.checker(phone, correctPhone) === true) {
-        upd.successField("#update-phone-form");
         sum++;  //5
     }
     else {
@@ -67,15 +78,23 @@ $("#btn-update").click(function (event) {
     }
     //============== check exist public name  ==========//
     if (first_name.length > 3 && last_name.length > 3) {
-        upd.successField('#update-first_name-form');
-        upd.successField('#update-last_name-form');
         sum++;  //6!
     } else {
         alert("попробуйте имя и фамилию более 3 символов!");
         upd.warningField('#update-first_name-form');
         upd.warningField('#update-last_name-form');
     }
-    if (sum === 6) {
+    //============== check region and city  ==========//
+    if (region === 'Регион') {
+        alert("Выберите регион");
+        reg.warningField('#update-regionId');
+    } else if (city === 'Город') {
+        alert("Выберите город");
+        reg.warningField('#update-citiesId');
+    } else {
+        sum++; //7
+    }
+    if (sum === 7) {
         upd.edit(id, email, password, first_name, last_name, region, city, phone);
         $("#modal-update").modal('toggle');
     }
@@ -85,28 +104,29 @@ $("#btn-update").click(function (event) {
 });
 
 document.getElementById('update-region').addEventListener('change', loadCities);
-function loadCities(){
+
+function loadCities() {
     $("#update-citiesId").children().remove();
-    let update_regionId = {
-        id : this.selectedIndex
+    let upd_regionId = {
+        id: this.selectedIndex
     }
     $.ajax({
         url: '/rest/getCities',
         type: 'POST',
-        data: JSON.stringify(update_regionId),
+        data: JSON.stringify(upd_regionId),
         contentType: "application/json",
         dataType: "json",
         success: function (cities) {
             $("#update-citiesId").append("<select class='custom-select' style='margin-top: 10px' id='update-cities'>");
             $("#update-cities").append($("<option disabled hidden selected></option>").attr("value", 0).attr("label", 'Город'));
-            for(let i=0; i<cities.length; i++) {
-                let update_city_id = cities[i].id;
-                let update_city_name = cities[i].name;
-                $("#update-cities").append($("<option></option>").attr("value", update_city_id).attr("label", update_city_name));
-                //$("<option value=\"${cities[i].id}\" label=\"${cities[i].name}\"></option>").appendTo($("#cities"));
+            for (let i = 0; i < cities.length; i++) {
+                let upd_city_id = cities[i].id;
+                let upd_city_name = cities[i].name;
+                $("#update-cities").append($("<option></option>").attr("value", upd_city_id).attr("label", upd_city_name));
             }
+            document.getElementById('update-cities').addEventListener('blur', blurCities);
+            document.getElementById('update-cities').addEventListener('focus', focusCities);
             $("#update-regionId").append("</select");
         }
     })
 }
-

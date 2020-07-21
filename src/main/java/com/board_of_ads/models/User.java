@@ -3,10 +3,10 @@ package com.board_of_ads.models;
 import com.board_of_ads.models.kladr.City;
 import com.board_of_ads.models.kladr.Region;
 import com.board_of_ads.models.posting.Posting;
+import com.fasterxml.jackson.annotation.*;
 import lombok.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -17,6 +17,10 @@ import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.Set;
 
+@JsonIdentityInfo(
+        generator = ObjectIdGenerators.PropertyGenerator.class,
+        property = "id"
+)
 @Data
 @AllArgsConstructor
 @RequiredArgsConstructor
@@ -72,16 +76,21 @@ public class User implements UserDetails {
     )
     @EqualsAndHashCode.Exclude @ToString.Exclude
     private Set<Posting> favoritePostings;
+
+    @JsonManagedReference(value = "user-postings")
     @OneToMany(mappedBy = "user", cascade = {CascadeType.REFRESH})
     @EqualsAndHashCode.Exclude @ToString.Exclude
     private Set<Posting> userPostings;
 
     @NonNull
     private String userIcons;
+
+    @JsonManagedReference(value = "user-messages")
     @OneToMany(mappedBy = "author",cascade = {CascadeType.REFRESH})
     @EqualsAndHashCode.Exclude @ToString.Exclude
     private Set<Message> messages;
 
+    @JsonManagedReference(value = "user-notifications")
     @OneToMany(cascade = CascadeType.ALL)
     private Set<Notification> notifications;
 

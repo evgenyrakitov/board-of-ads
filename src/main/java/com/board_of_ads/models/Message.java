@@ -1,6 +1,10 @@
 package com.board_of_ads.models;
 
 import com.board_of_ads.models.posting.Posting;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -19,7 +23,10 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import java.time.LocalDateTime;
 
-
+@JsonIdentityInfo(
+        generator = ObjectIdGenerators.PropertyGenerator.class,
+        property = "id"
+)
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -43,6 +50,7 @@ public class Message {
     @JoinColumn(name = "posting_id")
     private Posting posting;
 
+    @JsonBackReference(value = "user-messages")
     @NonNull
     @ManyToOne(cascade = {CascadeType.REFRESH})
     @JoinColumn(name = "user_id")

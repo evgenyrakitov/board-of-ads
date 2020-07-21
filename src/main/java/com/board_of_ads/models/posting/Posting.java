@@ -5,6 +5,10 @@ import com.board_of_ads.models.Images;
 import com.board_of_ads.models.Message;
 import com.board_of_ads.models.User;
 import com.board_of_ads.models.posting.extra.PostingStatus;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -35,6 +39,10 @@ import java.util.Set;
 //import java.util.logging.Logger;
 //kalinin_end
 
+@JsonIdentityInfo(
+        generator = ObjectIdGenerators.PropertyGenerator.class,
+        property = "id"
+)
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -60,11 +68,13 @@ public class Posting {
     @Fetch(FetchMode.JOIN)
     private Category category;
 
+    @JsonBackReference(value = "user-postings")
     @NonNull
     @ManyToOne(fetch = FetchType.LAZY)
     @Fetch(FetchMode.JOIN)
     @JoinColumn(name = "user_id")
     private User user;
+
     @ManyToMany(mappedBy = "favoritePostings", fetch = FetchType.LAZY)
     private Set<User> users;
 
