@@ -42,6 +42,7 @@ public class PostingRestController {
     private final CategoryService categoryService;
     private final RegionService regionService;
     private final CityService cityService;
+    private final UserProfileRestController userProfileRestController;
 
 
     @GetMapping("/getPostingInfo")
@@ -62,19 +63,19 @@ public class PostingRestController {
     @GetMapping("/all")
     public ResponseEntity<List<ProfilePostingDTO>> getAllPostings() {
         List<Posting> postings = postingService.getAllPostings();
-        return ResponseEntity.ok(UserProfileRestController.buildDTOList(postings));
+        return ResponseEntity.ok(userProfileRestController.buildDTOList(postings));
     }
 
     @GetMapping("/searchByCity/{cityId}")
     public ResponseEntity<List<ProfilePostingDTO>> getPostingsByCityId(@PathVariable("cityId") String cityId) {
         List<Posting> postings = postingService.getPostingsByCityId(cityId);
-        return ResponseEntity.ok(UserProfileRestController.buildDTOList(postings));
+        return ResponseEntity.ok(userProfileRestController.buildDTOList(postings));
     }
 
     @GetMapping("/searchByRegion/{regionId}")
     public ResponseEntity<List<ProfilePostingDTO>> getPostingsByRegionId(@PathVariable("regionId") String regionId) {
         List<Posting> postings = postingService.getPostingsByRegionId(regionId);
-        return ResponseEntity.ok(UserProfileRestController.buildDTOList(postings));
+        return ResponseEntity.ok(userProfileRestController.buildDTOList(postings));
     }
 
     @GetMapping("/user/{id}")
