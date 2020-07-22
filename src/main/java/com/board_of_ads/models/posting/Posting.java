@@ -4,7 +4,6 @@ import com.board_of_ads.models.Category;
 import com.board_of_ads.models.Images;
 import com.board_of_ads.models.Message;
 import com.board_of_ads.models.User;
-import com.board_of_ads.models.kladr.City;
 import com.board_of_ads.models.posting.extra.PostingStatus;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -30,7 +29,6 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import java.time.LocalDateTime;
 import java.util.Set;
 
 //kalinin_begin_change
@@ -49,8 +47,6 @@ public class Posting {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    private LocalDateTime dataPostinga = LocalDateTime.now();
 
     @ManyToOne(targetEntity = PostingStatus.class)
     @JoinColumn(name = "status")

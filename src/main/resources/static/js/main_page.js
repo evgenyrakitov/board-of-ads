@@ -9,23 +9,27 @@ $(document).ready(function () {
         dataType: 'json',
         success: function (data) {
             posting = data;
-            end = posting.length;
+            end = start + 12;
+            if (end > posting.length) {
+                end = posting.length;
+            }
             $(".container_cus").empty();
             let imageSrc = "";
             for (let i = start; i < end; i++) {
                 imageSrc = posting[i].images.length > 0 ? posting[i].images[0].imagePath : `/images/image-placeholder.png`;
                 $(".container_cus").prepend(
                     `    <div class="card">\n` +
-                    '    <a href="posting/' + posting[i].id + '">' +
                     `    <div id="${posting[i].id}" class="card-header">` +
                     '       <img src="' + imageSrc + '" class="card-img-top" alt="...">' +
-                    '    </div></a>' +
+                    '   </div>' +
                     '       <div class="card-body">\n' +
-                    '                <a href="posting/' + posting[i].id + '"><h5 class="card-title" >' + posting[i].title + '</h5></a>\n' +
-                    '                <p class="card-text" style="margin-top: -15px"><strong>' + posting[i].price + '</strong><br>' + posting[i].city.name + '<br>\n'
-                    + posting[i].dataPostinga + '</p>\n' +
-                    '     </div>\n' +
-                    ' </div>'
+
+                    '                <h5 class="card-title">' + posting[i].title + '</h5>\n' +
+                    '                <p class="card-text">' + posting[i].price + '</p>\n' +
+                    '                <a href="posting/' + posting[i].id + '" class="btn btn-primary" ' +
+                    'th:text="#{main_page.go_to_ad}">Перейти к объявлению</a>\n' +
+                    '            </div>\n' +
+                    '        </div>'
                 );
             }
             start = end;
@@ -69,6 +73,9 @@ $(window).scroll(function () {
     start = end;
     inProgress = false;
 });
+
+
+
 
 
 function favoriteAction(post_id) {

@@ -4,11 +4,9 @@ import com.board_of_ads.models.Notification;
 import com.board_of_ads.models.User;
 import com.board_of_ads.models.dto.NotificationDTO;
 import com.board_of_ads.models.dto.ProfilePostingDTO;
-import com.board_of_ads.models.kladr.City;
 import com.board_of_ads.models.posting.Posting;
 import com.board_of_ads.models.posting.extra.PostingStatus;
 import com.board_of_ads.models.posting.extra.PostingStatusStatistics;
-import com.board_of_ads.service.interfaces.CityService;
 import com.board_of_ads.service.interfaces.NotificationService;
 import com.board_of_ads.service.interfaces.PostingService;
 import com.board_of_ads.service.interfaces.PostingStatusService;
@@ -24,11 +22,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.swing.text.NumberFormatter;
-import java.text.DateFormat;
-import java.text.NumberFormat;
-import java.text.SimpleDateFormat;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -45,7 +38,6 @@ public class UserProfileRestController {
     private final PostingStatusService postingStatusService;
     private final UserService userService;
     private final NotificationService notificationService;
-    private final CityService cityService;
 
     @GetMapping("/notifications")
     public ResponseEntity<List<NotificationDTO>> getAllNotificationsForCurrentUser() {
@@ -80,18 +72,14 @@ public class UserProfileRestController {
         return ResponseEntity.ok(dtoList);
     }
 
-    protected List<ProfilePostingDTO> buildDTOList(Iterable<Posting> postingList) {
+    protected static List<ProfilePostingDTO> buildDTOList(Iterable<Posting> postingList) {
         List<ProfilePostingDTO> dtoList = new ArrayList<>();
         ProfilePostingDTO dto;
-        DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("dd MMMM hh:mm");
-        NumberFormat numberFormat = NumberFormat.getCurrencyInstance(new Locale("ru", "RU"));
         for (Posting posting : postingList) {
             dto = new ProfilePostingDTO();
             dto.setId((posting.getId()));
-            dto.setDataPostinga(posting.getDataPostinga().format(dateFormat))   ;
-            dto.setCity(cityService.findById(Long.valueOf(posting.getCityId())));
             dto.setTitle(posting.getTitle());
-            dto.setPrice(numberFormat.format(posting.getPrice()));
+            dto.setPrice(posting.getPrice());
             dto.setFavoritesCount(0);
             dto.setViewCount(0);
             dto.setUrl("/posting/" + posting.getId());
