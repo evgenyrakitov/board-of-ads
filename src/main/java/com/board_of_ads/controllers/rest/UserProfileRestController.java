@@ -8,8 +8,6 @@ import com.board_of_ads.models.posting.Posting;
 import com.board_of_ads.models.posting.extra.PostingStatus;
 import com.board_of_ads.models.posting.extra.PostingStatusStatistics;
 import com.board_of_ads.repository.CityRepository;
-import com.board_of_ads.service.impl.CityServiceImpl;
-import com.board_of_ads.service.interfaces.CityService;
 import com.board_of_ads.service.interfaces.NotificationService;
 import com.board_of_ads.service.interfaces.PostingService;
 import com.board_of_ads.service.interfaces.PostingStatusService;

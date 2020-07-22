@@ -1,7 +1,6 @@
 package com.board_of_ads.models.dto;
 
 import com.board_of_ads.models.Images;
-import com.board_of_ads.models.kladr.City;
 import lombok.Data;
 
 import java.util.Set;
