@@ -40,7 +40,6 @@ public class UserProfileRestController {
     private final PostingStatusService postingStatusService;
     private final UserService userService;
     private final NotificationService notificationService;
-    private final CityRepository cityRepository;
 
     @GetMapping("/notifications")
     public ResponseEntity<List<NotificationDTO>> getAllNotificationsForCurrentUser() {
