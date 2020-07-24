@@ -180,7 +180,7 @@ $(document).on("click", ".category-edit-save-btn", (function (event) {
         '.category-edit-cancel-btn').first().click();
 }));
 
-// Add Button handler
+// Add Button Handler
 $(document).on("click", ".category-add-btn", (function (event) {
     event.preventDefault();
     event.stopPropagation();
@@ -207,6 +207,11 @@ $(document).on("click", ".category-add-btn", (function (event) {
     categoryContainer.find('.category-delete-btn').hide();
     categoryContainer.find('.category-add-save-btn').show();
     categoryContainer.find('.category-add-cancel-btn').show();
+
+
+    let hiddenInput = $("<input type='text' class='category-parent-id' hidden/>");
+    hiddenInput.val(parentId);
+    hiddenInput.appendTo(categoryContainer.find('.category-list-form'));
 
     if (parentId !== "ID") {
         categoryContainer.appendTo(
