@@ -14,11 +14,12 @@
     <ul class="nav nav-tabs" id="users" role="tablist">
         <li class="nav-item" role="presentation">
             <a class="nav-link active" id="users-tab" data-toggle="tab" href="#users-tab-content" role="tab"
-               aria-controls="users-tab-content" aria-selected="true">Users</a>
+               aria-controls="users-tab-content" aria-selected="true" th:text="#{admin_page.users}">Users</a>
         </li>
         <li class="nav-item" role="presentation">
             <a class="nav-link" id="categories-tab" data-toggle="tab" href="#categories-tab-content" role="tab"
-               aria-controls="categories-tab-content" aria-selected="false">Categories</a>
+               aria-controls="categories-tab-content" aria-selected="false"
+               th:text="#{admin_page.categories}">Categories</a>
         </li>
         <li class="nav-item" role="presentation">
             <a class="nav-link" id="analitics-tab" data-toggle="tab" href="#analitics-tab-content" role="tab"
@@ -31,15 +32,15 @@
                     <thead id="theadUsers" class="thead-dark">
                     <tr>
                         <th>id</th>
-                        <th>email</th>
-                        <th>firstName</th>
-                        <th>lastName</th>
-                        <th>password</th>
-                        <th>phone</th>
-                        <th>date registration</th>
-                        <th>region</th>
-                        <th>city</th>
-                        <th>roles</th>
+                        <th th:text="#{admin_page.email}">email</th>
+                        <th th:text="#{admin_page.firstName}">firstName</th>
+                        <th th:text="#{admin_page.lastName}">lastName</th>
+                        <th th:text="#{admin_page.password}">password</th>
+                        <th th:text="#{admin_page.phone}">phone</th>
+                        <th th:text="#{admin_page.registration_date}">date registration</th>
+                        <th th:text="#{admin_page.region}">region</th>
+                        <th th:text="#{admin_page.city}">city</th>
+                        <th th:text="#{admin_page.roles}">roles</th>
                     </tr>
                     </thead>
                     <tbody id="tbodyUsers">
