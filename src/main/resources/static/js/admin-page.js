@@ -237,6 +237,9 @@ $(document).on("click", ".category-add-save-btn", (function (event) {
 
     let parentId = $(event.target).closest('.category-container').find(
         '.category-parent-id').first().val();
+    if (parentId === "ID") {
+        parentId = 0;
+    }
     let category = $(event.target).closest('.category-container').find(
         'form').first().serialize();
     let addedContainer = $(event.target).closest('.category-container')

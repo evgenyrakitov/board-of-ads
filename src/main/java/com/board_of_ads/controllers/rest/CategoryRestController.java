@@ -8,8 +8,6 @@ import java.util.List;
 import java.util.Locale;
 import java.util.stream.Collectors;
 import lombok.AllArgsConstructor;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,17 +22,14 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/rest/categories")
 public class CategoryRestController {
 
-    private static final Logger logger = LoggerFactory.getLogger(CategoryRestController.class);
-
     private final CategoryService categoryService;
 
     @PostMapping("/{parentId}")
     public ResponseEntity<Category> create(
-            @PathVariable("parentId") String parentId, Category category) {
-        try {
-            Long parsedParentId = Long.parseLong(parentId);
-            category.setParentCategory(categoryService.findCategoryById(parsedParentId));
-        } catch (NumberFormatException ignored) {
+            @PathVariable("parentId") Long parentId, Category category) {
+
+        if (parentId != 0) {
+            category.setParentCategory(categoryService.findCategoryById(parentId));
         }
         return ResponseEntity.ok(categoryService.addCategory(category));
     }

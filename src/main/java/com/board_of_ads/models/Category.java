@@ -12,13 +12,10 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 @Entity
 @Table(name = "categories")
 public class Category {
-    private static final Logger logger = LoggerFactory.getLogger(Category.class);
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
