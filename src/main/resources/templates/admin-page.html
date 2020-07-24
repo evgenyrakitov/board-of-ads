@@ -26,7 +26,11 @@
                id="categories-tab" role="tab"
                th:text="#{adminPage.tab.categories}">Categories</a>
         </li>
-    </ul>
+        <li class="nav-item" role="presentation">
+            <a class="nav-link" id="analitics-tab" data-toggle="tab" href="#analitics-tab-content" role="tab"
+               aria-controls="analitics-tab-content" aria-selected="false">Analitics</a>
+        </li>
+        </ul>
         <div class="tab-content" id="myTabContent">
 
             <!-- Users Tab -->
@@ -121,6 +125,9 @@
                     </li>
                     <li class="w-100 categories-header-divider"></li>
                 </ul>
+            </div>
+            <div class="tab-pane fade" id="analitics-tab-content" role="tabpanel" aria-labelledby="analitics-tab">
+                analitics
             </div>
         </div>
 </div>

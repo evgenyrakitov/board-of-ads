@@ -8,9 +8,11 @@ import java.util.Set;
 @Data
 public class ProfilePostingDTO {
     private Long id;
+    private String dataPostinga;
+    private String cityId;
     private String title = "";
     private String url = "";
-    private long price = 0;
+    private String price;
     private int viewCount = 0;
     private int favoritesCount = 0;
     private Set<Images> images;

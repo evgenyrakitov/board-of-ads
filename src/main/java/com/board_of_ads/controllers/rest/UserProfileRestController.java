@@ -7,6 +7,7 @@ import com.board_of_ads.models.dto.ProfilePostingDTO;
 import com.board_of_ads.models.posting.Posting;
 import com.board_of_ads.models.posting.extra.PostingStatus;
 import com.board_of_ads.models.posting.extra.PostingStatusStatistics;
+import com.board_of_ads.repository.CityRepository;
 import com.board_of_ads.service.interfaces.NotificationService;
 import com.board_of_ads.service.interfaces.PostingService;
 import com.board_of_ads.service.interfaces.PostingStatusService;
@@ -19,9 +20,10 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.text.NumberFormat;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -75,11 +77,15 @@ public class UserProfileRestController {
     protected static List<ProfilePostingDTO> buildDTOList(Iterable<Posting> postingList) {
         List<ProfilePostingDTO> dtoList = new ArrayList<>();
         ProfilePostingDTO dto;
+        DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("dd MMMM hh:mm");
+        NumberFormat numberFormat = NumberFormat.getCurrencyInstance(new Locale("ru", "RU"));
         for (Posting posting : postingList) {
             dto = new ProfilePostingDTO();
             dto.setId((posting.getId()));
+            dto.setDataPostinga(posting.getDataPostinga().format(dateFormat));
+            dto.setCityId(posting.getCityId());
             dto.setTitle(posting.getTitle());
-            dto.setPrice(posting.getPrice());
+            dto.setPrice(numberFormat.format(posting.getPrice()));
             dto.setFavoritesCount(0);
             dto.setViewCount(0);
             dto.setUrl("/posting/" + posting.getId());
