@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <div th:replace="~{fragments/header.html :: links}"></div>
-
+    <link rel="stylesheet" type="text/css"
+          href="../static/css/admin-page.css" th:href="@{/css/admin-page.css}"/>
     <title>Users</title>
 </head>
 <body>
@@ -13,15 +14,22 @@
 
     <ul class="nav nav-tabs" id="users" role="tablist">
         <li class="nav-item" role="presentation">
-            <a class="nav-link active" id="users-tab" data-toggle="tab" href="#users-tab-content" role="tab"
-               aria-controls="users-tab-content" aria-selected="true">Users</a>
+            <a aria-controls="users-tab-content" aria-selected="true" class="nav-link active"
+               data-toggle="tab"
+               href="#users-tab-content"
+               id="users-tab" role="tab" th:text="#{adminPage.tab.users}">Users</a>
         </li>
         <li class="nav-item" role="presentation">
-            <a class="nav-link" id="categories-tab" data-toggle="tab" href="#categories-tab-content" role="tab"
-               aria-controls="categories-tab-content" aria-selected="false">Categories</a>
+            <a aria-controls="categories-tab-content" aria-selected="false" class="nav-link"
+               data-toggle="tab"
+               href="#categories-tab-content"
+               id="categories-tab" role="tab"
+               th:text="#{adminPage.tab.categories}">Categories</a>
         </li>
-        </ul>
+    </ul>
         <div class="tab-content" id="myTabContent">
+
+            <!-- Users Tab -->
             <div class="tab-pane fade show active" id="users-tab-content" role="tabpanel" aria-labelledby="users-tab">
                 <table class="table table-bordered table-striped ">
                     <thead id="theadUsers" class="thead-dark">
@@ -42,11 +50,81 @@
                     </tbody>
                 </table>
             </div>
-            <div class="tab-pane fade" id="categories-tab-content" role="tabpanel" aria-labelledby="categories-tab">
-                categories
+
+            <!-- Categories Tab -->
+            <div aria-labelledby="categories-tab" class="tab-pane fade" id="categories-tab-content"
+                 role="tabpanel">
+                <ul class="pl-0" id="category_0">
+                    <li class="category-container container-fluid w-100" id="categories-header">
+                        <form>
+                            <div class="category-list-form row">
+                                <div
+                                    class="col-1 font-weight-bolder text-center px-0 category-container-column">
+                                    <input class="form-control-plaintext text-center category-container-id" name="id" readonly
+                                           type="text"
+                                           value="ID"/>
+                                </div>
+                                <div class="col row category-container-names">
+                                    <div
+                                        class="col-6 font-weight-bolder text-center form-group px-0 category-container-column">
+                                        <input class="form-control-plaintext px-0 text-center category-container-nameRu" name="nameRu" readonly
+                                               th:value="#{adminPage.tab.categories.nameRu}"
+                                               type="text"
+                                               value="NameRu"/>
+                                    </div>
+                                    <div
+                                        class="col-6 font-weight-bolder text-center form-group px-0 category-container-column">
+                                        <input class="form-control-plaintext px-0 text-center category-container-nameEn" name="nameEn" readonly
+                                               th:value="#{adminPage.tab.categories.nameEn}"
+                                               type="text"
+                                               value="NameEn"/>
+                                    </div>
+                                </div>
+                                <div class="col-5 row category-container-column">
+                                    <button class="col btn btn-outline-info px-0 category-edit-btn"
+                                            style="display: none"
+                                            th:text="#{adminPage.tab.categories.edit}">Edit
+                                    </button>
+                                    <button
+                                        class="col btn btn-outline-success px-0 category-add-btn"
+                                        th:text="#{adminPage.tab.categories.addSubcategory}">Add
+                                        Sub-Category
+                                    </button>
+                                    <button
+                                        class="col btn btn-outline-success px-0 category-edit-save-btn"
+                                        style="display: none"
+                                        th:text="#{adminPage.tab.categories.save}">Save
+                                    </button>
+                                    <button
+                                        class="col btn btn-outline-success px-0 category-add-save-btn"
+                                        style="display: none"
+                                        th:text="#{adminPage.tab.categories.save}">Save
+                                    </button>
+                                    <button
+                                        class="col btn btn-outline-danger px-0 category-edit-cancel-btn"
+                                        style="display: none"
+                                        th:text="#{adminPage.tab.categories.cancel}">Cancel
+                                    </button>
+                                    <button
+                                        class="col btn btn-outline-danger px-0 category-add-cancel-btn"
+                                        style="display: none"
+                                        th:text="#{adminPage.tab.categories.cancel}">Cancel
+                                    </button>
+                                    <button
+                                        class="col btn btn-outline-danger px-0 category-delete-btn"
+                                        style="display: none"
+                                        th:text="#{adminPage.tab.categories.delete}">Delete
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </li>
+                    <li class="w-100 categories-header-divider"></li>
+                </ul>
             </div>
         </div>
 </div>
+
 <div th:replace="~{fragments/header.html :: script}"></div>
 
 <script src="js/admin-page.js"></script>

@@ -1,9 +1,7 @@
 package com.board_of_ads.models;
 
 import com.board_of_ads.models.posting.Posting;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
+import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -14,8 +12,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import java.util.Set;
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 @Entity
 @Table(name = "categories")
@@ -26,12 +24,12 @@ public class Category {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    // If this is "false", then category is counted as deleted
+    @Column private boolean active = true;
 
-    @Column
-    private String nameRu;
+    @Column private String nameRu;
 
-    @Column
-    private String nameEn;
+    @Column private String nameEn;
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "parentCategory")
@@ -40,11 +38,10 @@ public class Category {
     @OneToMany(cascade = {CascadeType.REFRESH})
     private Set<Posting> postingsInCategory;
 
-    public Category() {
+    public Category() {}
 
-    }
-
-    public Category(String nameRu, String nameEn, Category parentCategory, Set<Posting> postingsInCategory) {
+    public Category(
+            String nameRu, String nameEn, Category parentCategory, Set<Posting> postingsInCategory) {
         this.nameRu = nameRu;
         this.parentCategory = parentCategory;
         this.nameEn = nameEn;
@@ -83,7 +80,19 @@ public class Category {
         this.postingsInCategory = postingsInCategory;
     }
 
+    public boolean isActive() {
+        return active;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
+    }
+
     public Long getId() {
         return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 }
