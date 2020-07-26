@@ -1,0 +1,25 @@
+#category_0 {
+  list-style: none;
+}
+
+#category_0 li {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+.category-container {
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+
+.category-container .btn {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.categories-header-divider {
+  border-bottom-width: 1px !important;
+  border-bottom-color: black !important;
+  border-bottom-style: solid !important;
+}
+

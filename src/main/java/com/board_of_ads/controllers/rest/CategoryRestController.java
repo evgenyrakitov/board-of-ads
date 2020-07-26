@@ -3,9 +3,11 @@ package com.board_of_ads.controllers.rest;
 import com.board_of_ads.models.Category;
 import com.board_of_ads.models.dto.CategoryDTO;
 import com.board_of_ads.service.interfaces.CategoryService;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
+import java.util.stream.Collectors;
 import lombok.AllArgsConstructor;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,32 +17,37 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Locale;
-
 @RestController
 @AllArgsConstructor
 @RequestMapping("/rest/categories")
 public class CategoryRestController {
 
-    private static final Logger logger = LoggerFactory.getLogger(CategoryRestController.class);
-
     private final CategoryService categoryService;
 
-    @PostMapping
-    public ResponseEntity<Category> create(Category category) {
+    @PostMapping("/{parentId}")
+    public ResponseEntity<Category> create(
+            @PathVariable("parentId") Long parentId, Category category) {
+
+        if (parentId != 0) {
+            category.setParentCategory(categoryService.findCategoryById(parentId));
+        }
         return ResponseEntity.ok(categoryService.addCategory(category));
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Category> update(@PathVariable("id") Category category) {
-        return ResponseEntity.ok(categoryService.updateCategory(category));
+    public ResponseEntity<Category> update(@PathVariable("id") Long id, Category category) {
+        Category changedCategory = categoryService.findCategoryById(id);
+        changedCategory.setNameEn(category.getNameEn());
+        changedCategory.setNameRu(category.getNameRu());
+        return ResponseEntity.ok(categoryService.updateCategory(changedCategory));
     }
 
+    // We are not deleting categories, we are making them inactive
     @DeleteMapping("/{id}")
     public void delete(@PathVariable("id") Long id) {
-        categoryService.deleteCategory(id);
+        Category disabledCategory = categoryService.findCategoryById(id);
+        disabledCategory.setActive(false);
+        categoryService.updateCategory(disabledCategory);
     }
 
     @GetMapping
@@ -48,33 +55,45 @@ public class CategoryRestController {
         return ResponseEntity.ok(categoryService.getAllCategories());
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<Category> getCategory(@PathVariable("id") Long id) {
+        return ResponseEntity.ok(categoryService.findCategoryById(id));
+    }
+
     @GetMapping("/dto")
     public ResponseEntity<List<CategoryDTO>> getListOfCategory(Locale locale) {
         List<Category> allCategories = categoryService.getAllCategories();
+        allCategories =
+                allCategories.stream()
+                        .filter(Category::isActive)
+                        .collect(Collectors.toList()); // Filtering only active Categories
         List<CategoryDTO> allCategoriesDTO = new ArrayList<>();
         CategoryDTO dto;
-        for (Category allCategory : allCategories) {
+        for (Category category : allCategories) {
             dto = new CategoryDTO();
-            dto.setId(allCategory.getId());
-            if ("en".equals(locale.toString())) {
-                dto.setName(allCategory.getNameEn());
+            dto.setId(category.getId());
+            dto.setNameEn(category.getNameEn()); // Needed for Admin Page Categories Tab
+            dto.setNameRu(category.getNameRu()); // Needed for Admin Page Categories Tab
+            dto.setPostingsAmount(
+                    category.getPostingsInCategory().size()); // Needed for Admin Page Categories Tab
 
-                if (null != allCategory.getParentCategory()) {
-                    dto.setParentCategory(allCategory.getParentCategory().getNameEn());
-                    dto.setParentId(allCategory.getParentCategory().getId());
+            if ("en".equals(locale.toString())) {
+                dto.setName(category.getNameEn());
+                if (null != category.getParentCategory()) {
+                    dto.setParentCategory(category.getParentCategory().getNameEn());
+                    dto.setParentId(category.getParentCategory().getId());
                 } else {
                     dto.setParentCategory(null);
                 }
             } else {
-                dto.setName(allCategory.getNameRu());
-                if (null != allCategory.getParentCategory()) {
-                    dto.setParentCategory(allCategory.getParentCategory().getNameRu());
-                    dto.setParentId(allCategory.getParentCategory().getId());
+                dto.setName(category.getNameRu());
+                if (null != category.getParentCategory()) {
+                    dto.setParentCategory(category.getParentCategory().getNameRu());
+                    dto.setParentId(category.getParentCategory().getId());
                 } else {
                     dto.setParentCategory(null);
                 }
             }
-
             allCategoriesDTO.add(dto);
         }
         return ResponseEntity.ok(allCategoriesDTO);
